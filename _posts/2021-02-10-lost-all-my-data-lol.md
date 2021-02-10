@@ -2,10 +2,10 @@
 layout: post
 title: Lost all my data lol
 meta_description: please check your emails and don't be like me
-author: rickit_hadi
-date: "2021-02-10 13:06:12"
+author: Hadi Rickit
+date: 2021-02-10 13:06:12
 intro_paragraph: As you might have noticed I have a new site. There a a few
-    reasons for the change which i will get into.
+  reasons for the change which i will get into.
 categories: ruby
 ---
 
