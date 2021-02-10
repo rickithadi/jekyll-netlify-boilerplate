@@ -1,15 +1,11 @@
 ---
 layout: contact
 title: Contact
+meta_description: Hadi Rickit is an experienced Full Stack Engineer based in
+  Singapore specializing in end to end tech solutions. Get in touch.
 permalink: /contact
 section: contact
-intro_paragraph: |-
-
-  The contact form on this page uses
-  [Netlify Forms](https://www.netlify.com/docs/form-handling/) to process
-  submissions, and saves them in your Netlify account where you can optionally
-  set up notifications. Each submission is passed through a spam filter and if
-  flagged, will display a CAPTCHA challenge to the user.
+intro_paragraph: Get in touch to enquire about speaking engagements, mentorship
+  opportunities or a project quote. Alternatively just come say hi.
 ---
-
-**Send us a message**
+**Send me a message**
