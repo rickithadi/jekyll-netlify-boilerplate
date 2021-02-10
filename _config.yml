@@ -18,7 +18,7 @@ email: rickithadi@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Hadi Rickit is an experienced Full Stack Engineer based in Singapore specializing in end to end tech solutions.
 baseurl: "" # the subpath of your site if applicable, e.g. /blog
-url: "https://jekyll-netlify-boilerplate.netlify.com" # the base hostname & protocol for your site, e.g. https://example.com
+url: "https://rickithadi.com" # the base hostname & protocol for your site, e.g. https://example.com
 
 # Permalink format (/blog/ is ignored for pages)
 permalink: /blog/:title
