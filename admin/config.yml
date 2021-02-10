@@ -30,7 +30,7 @@ collections: # A list of collections the CMS should be able to edit
         name: "author"
         widget: "select"
         options:
-          - { label: "Hadi Rickit", value: "dan_urbanowicz" }
+          - { label: "Hadi Rickit", value: "Hadi Rickit" }
           - { label: "John Doe", value: "john_doe" }
       - {
           label: "Publish Date",
