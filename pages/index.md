@@ -1,12 +1,13 @@
 ---
 layout: home
 title: Welcome
+meta_description: Hadi Rickit is an experienced Full Stack Engineer based in
+  Singapore specializing in end to end tech solutions. Welcome to his site
 permalink: /
 section: home
-intro_paragraph: >
-  [Jekyll Netlify Boilerplate](https://github.com/danurbanowicz/jekyll-netlify-boilerplate)
-  provides the basics to get a fast, static website deployed on Netlify.
-  Features [Netlify CMS](https://www.netlifycms.org), responsive
-  CSS Grid layout, sample
-  pages and posts, and a continuous deployment workflow.
+intro_paragraph: I'm a Full Stack Software Engineer based in Singapore with half
+  a decade of experience who enjoys building and breaking things.I am fascinated
+  by clean, simple code and believe in being language agnostic. I believe in
+  using tech as an enabler and a catalyst for change and strongly endorese free
+  software and techological literacy for the masses.
 ---
