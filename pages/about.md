@@ -1,21 +1,15 @@
 ---
 layout: page
 title: About
-meta_description: |
-  This sets the meta description in the head of the page. You can watch the 
-  output in the browser or in the generated file _site/about.html.
+meta_description: Hadi Rickit is an experienced Full Stack Engineer based in
+  Singapore specializing in end to end tech solutions.
 permalink: /about
 section: about
-intro_paragraph: |
-  This is an example of a standard Jekyll page. You can edit it with Netlify
-  CMS, accessible at `/admin/index.html` or by editing `pages/about.md` in a text editor.
+intro_paragraph: >-
+  I'm a Full Stack Software Engineer based in Singapore with half a decade of
+  experience who enjoys building and breaking things.I am fascinated by clean,
+  simple code and believe in being language agnostic. 
+
+
+  I am very passionate about Free Software. Being an active contributor to multiple FOSS projects I strongly believe in avoiding proprietary technologies where possible.I disagree with the current state of data privacy and reject the blatant mass collection of personal information. I also feel very strongly about Tech literacy for the masses and try to involve myself with mentoring and or teaching where I can as the state of tech literacy among the general public is abysmal.
 ---
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-### A heading
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-#### Another heading
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
