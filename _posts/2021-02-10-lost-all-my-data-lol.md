@@ -2,9 +2,10 @@
 layout: post
 title: Lost all my data lol
 meta_description: please check your emails and don't be like me
-author: John Doe
+author: Hadi Rickit
 date: 2021-02-10 13:06:12
-intro_paragraph: As you might have noticed I have a new site. There a a few reasons for the change which i will get into.
+intro_paragraph: As you might have noticed I have a new site. There a a few
+  reasons for the change which i will get into.
 categories: ruby
 ---
 I got an interesting surprise last night when i went to take a look at my old site's blog page. Apparently Mlab, the mongo host I was using previously has been discontinued. Ii haven't opened an email from them in a while so this could have been easily prevented. Not much of a loss though if we're being honest, I'm not much of a writer.
