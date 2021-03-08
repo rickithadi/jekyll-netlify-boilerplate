@@ -3,7 +3,7 @@ layout: post
 title: The Pros and Cons of Open Source
 meta_description: benefits and some other stuff regarding open source
 author: hadi_rickit
-date: "2021-03-09 01:11:42"
+date: "2021-03-08 01:11:42"
 intro_paragraph: One of the unfortunate realities of open source software is that the project
   is only as active as it's maintainers which, in the case of a sizeable chunk
   of open source products, are not paid employees. The cornerstone of any
