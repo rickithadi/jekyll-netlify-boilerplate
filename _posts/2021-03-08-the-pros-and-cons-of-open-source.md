@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Pros and Cons of Open Source
-meta_description: "benefits(and other things) of open source "
+meta_description: "benefits and some other stuff regarding open source "
 author: hadi_rickit
 date: 2021-03-09 01:11:42
 intro_paragraph: >-
