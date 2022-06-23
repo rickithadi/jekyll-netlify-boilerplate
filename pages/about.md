@@ -6,8 +6,8 @@ meta_description: Hadi Rickit is an experienced Full Stack Engineer based in
 permalink: /about
 section: about
 intro_paragraph: I have a demonstrated track record of delivering quality
-  deliverables on time and within budget. I combine my techical skill with my
-  outgoing personality and people skills to ensure team and project succes. As
+  deliverables on time and within budget. I combine my technical skill with my
+  outgoing personality and people skills to ensure team and project success. As
   much as I love geeking out over tech I understand that it is a means to an
   end.
 ---
