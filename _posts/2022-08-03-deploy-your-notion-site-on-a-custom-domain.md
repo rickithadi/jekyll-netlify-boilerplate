@@ -10,7 +10,9 @@ intro_paragraph: >-
   Notion is a great tool for keeping track of stuff and organising your life.
   It's marketed as a productivity tool which it sort of is. I've been using it
   as of late for daily journaling. The functionality, aesthetics and
-  extensibility have been very impressive. 
+  extensibility have been very impressive. Below is an example of it can be
+  used.
+
 
   <p align="center">
 
@@ -19,6 +21,9 @@ intro_paragraph: >-
   </p>
 
 
-  A major drawback I've found is the lack of an officially supported way to deploy your site onto a custom domain. The closest feature makes your site available at a .notionsite prefix
+  A major drawback I've found is the lack of an officially supported way to deploy your site onto a custom domain. The closest feature makes your site available at a .notionsite prefix which is so very pretty
+
+
+  ![default publish site on notion](/assets/img/uploads/2022-08-03_08-44.png "deploy options provided by notion")
 categories: " tech, notion, cloudflare, surfskate, notionlytics, analytics, low code"
 ---
