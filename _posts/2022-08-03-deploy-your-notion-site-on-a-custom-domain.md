@@ -6,7 +6,7 @@ meta_description: " Deploy your notion site on a custom domain of your choice
   notion   and notionlytics. Have a look at Surfskate.io for a live example"
 author: hadi_rickit
 date: 2022-08-03 08:50:25
-intro_paragraph: >-
+intro_paragraph: >+
   Notion is a great tool for keeping track of stuff and organising your life.
   It's marketed as a productivity tool which it sort of is. I've been using it
   as of late for daily journaling. The functionality, aesthetics and
@@ -21,13 +21,42 @@ intro_paragraph: >-
   </p>
 
 
-  A major drawback I've found is the lack of an officially supported way to deploy your site onto a custom domain. The closest feature makes your site available at a .notionsite prefix which is not very pretty
+  A major drawback I've found is the lack of an officially supported way to deploy your site onto a custom domain. The closest feature available deploys your site with a .notionsite prefix which is not very pretty. Read on to find out how to get around this
 
 
   <p align="center">
 
-  <img alt="default publish site option on notion" title="deploy options provided by notion" src="blob:https://rickithadi.com/743c76f8-59bd-4920-ae7f-8b3b3e980312"  style="width:50%; height:50%">
+  <img alt="default publish site option on notion" title="deploy options provided by notion" src="blob:https://rickithadi.com/743c76f8-59bd-4920-ae7f-8b3b3e980312"  style="width:50%; height:20%">
 
   </p>
+
 categories: " tech, notion, cloudflare, surfskate, notionlytics, analytics, low code"
 ---
+# TLDR
+
+1. Get a domain
+2. Get a notion site
+3. deploy notion site
+4. link notion site to domain
+5. add analytics
+
+## Getting a Domain
+
+There are many ways to do this. I would suggest going with a reputable domain provider, my preference and what I would recommend is to go through [namecheap](https://www.namecheap.com/). They have decent customer service and a pretty simple UI. Just hop on, search for a domain you would like and purchase it
+
+<p align="center">
+<img alt="domain search on namecheap" title="an example of varying domain prices" src="blob:https://rickithadi.com/732003e0-df85-461e-ae36-342b4486c481" style="width:50%; height:20%">
+
+</p>
+
+Domain names can range from a few cents to thousands of dollars depending on popularity. It doesn't really matter where you get your domain from as long as you have access to the DNS settings so go with what you are familiar with
+
+
+
+## Getting a Notion Site
+
+Hop onto [notion](https://www.notion.so) and create an account. There are plenty of resources online on how to get set up with notion which i won't go through here. All that matters is your notion site is deployed or "shared to web" as notion terms it
+
+
+
+![]()
