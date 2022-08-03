@@ -2,8 +2,8 @@
 layout: post
 title: Deploy your notion site on a custom domain
 meta_description: " Deploy your notion site on a custom domain of your choice
-  and   set up analytics! Use techonologies like cloudflare,cloudflare workers,
-  notion   and notionlytics. Have a look at Surfskate.io for a live example"
+  and   set up analytics! Use techonologies like cloudflare,cloudflare workers
+  and notion. Have a look at Surfskate.io for a live example"
 author: hadi_rickit
 date: 2022-08-03 08:50:25
 intro_paragraph: >+
@@ -31,15 +31,12 @@ intro_paragraph: >+
 
 categories: " tech, notion, cloudflare, surfskate, notionlytics, analytics, low code"
 ---
-
-
 # TLDR
 
 1. Get a domain
 2. Get a notion site
-3. deploy notion site
-4. link notion site to custom domain with cloudflare worker
-5. add analytics with notionlytics
+3. Deploy notion site
+4. Link notion site to custom domain with cloudflare worker
 
 ## Getting a Domain
 
@@ -52,8 +49,6 @@ There are many ways to do this. I would suggest going with a reputable domain pr
 
 Domain names can range from a few cents to thousands of dollars depending on popularity. It doesn't really matter where you get your domain from as long as you have access to the DNS settings so go with what you are familiar with
 
-
-
 ## Getting, deploying a Notion Site
 
 Hop onto [notion](https://www.notion.so) and create an account. There are plenty of resources online on how to get set up with notion which i won't go through here. All that matters is your notion site is deployed or "shared to web" as notion terms it. Below is an example of how your's might look. Make sure the share to web toggle button is selected
@@ -62,8 +57,6 @@ Hop onto [notion](https://www.notion.so) and create an account. There are plenty
 <img alt="might look something like this" title="an example of a notion site and share to web option" src="blob:https://rickithadi.com/6a874c0e-0c96-411b-a82b-eaef2a5a5c37" style="width:70%; height:20%">
 
 </p>
-
-
 
 ## Link Notion site to Custom Domain
 
@@ -98,14 +91,10 @@ Go to the workers page and create a service. Proceed with the HTTP handler optio
 
 Now a worker has been created. Select quick edit and paste the script below
 
-
-
 <p align="center">
 <img alt="create service" title="create service" src="blob:https://rickithadi.com/229ae8cb-af90-40f5-9863-ab2908f1b3c0" style="width:70%; height:20%"></p>
 
 This script is the meat of the solution. It will redirect the traffic through your custom domain. I have it setup for my [notion site surfskate.io](https://surfskate.io) like [this](https://gist.github.com/rickithadi/53351c2cf0dd1a2031833a864a8c7949). Below is the script, be sure to add your variables (domain name, notion id, etc). The comments should be quite self explanatory, credit to [Vic Shóstak](https://dev.to/koddr).
-
-
 
 ```javascript
 /* CONFIGURATION STARTS HERE */
@@ -437,12 +426,13 @@ async function appendJavascript(res, SLUG_TO_PAGE) {
     .on("body", new BodyRewriter(SLUG_TO_PAGE))
     .transform(res);
 }
-
 ```
+
+
 
 * Click **Save and Deploy**.
 * Go to the **Workers** page and select **Add Route**.
 * Place `your-domain.com/*` (or `subdomain.your-domain.com/*`, if you would like to use a subdomain) as the **Route** and select the **Worker** you just created.
 * Click **Save** button.
 
-That' all folks
+That' all folks. Your notion site should now like like Feel free to drop me a line if you have any questions
