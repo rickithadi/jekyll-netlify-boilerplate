@@ -11,7 +11,7 @@ intro_paragraph: >-
   It's marketed as a productivity tool which it sort of is. I've been using it
   as of late for journaling. The functionality, aesthetics and extensibility
   have been very impressive. I especially like the emoji integration 🙆. Below
-  is an example of it can be used.
+  is an example of how it can be used.
 
 
   <p align="center">
