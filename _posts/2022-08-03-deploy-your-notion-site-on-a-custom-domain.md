@@ -24,12 +24,9 @@ intro_paragraph: >-
   A major drawback I've found is the lack of an officially supported way to deploy your site onto a custom domain. The closest feature makes your site available at a .notionsite prefix which is not very pretty
 
 
-  ![default publish site option on notion](/assets/img/uploads/2022-08-03_08-44.png "deploy options provided by notion") 
-
-
   <p align="center">
 
-  <img src="blob:https://rickithadi.com/743c76f8-59bd-4920-ae7f-8b3b3e980312"  style="width:50%; height:50%">
+  <img alt="default publish site option on notion" title="deploy options provided by notion" src="blob:https://rickithadi.com/743c76f8-59bd-4920-ae7f-8b3b3e980312"  style="width:50%; height:50%">
 
   </p>
 categories: " tech, notion, cloudflare, surfskate, notionlytics, analytics, low code"
