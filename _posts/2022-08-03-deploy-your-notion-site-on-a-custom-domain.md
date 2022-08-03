@@ -434,5 +434,13 @@ async function appendJavascript(res, SLUG_TO_PAGE) {
 * Go to the **Workers** page and select **Add Route**.
 * Place `your-domain.com/*` (or `subdomain.your-domain.com/*`, if you would like to use a subdomain) as the **Route** and select the **Worker** you just created.
 * Click **Save** button.
+*
 
-That' all folks. Your notion site should now like like Feel free to drop me a line if you have any questions
+### That' all folks
+
+Your notion site url should now be using your custom domain and look pretty. No difference to the content of the notion site. Might not look like a big deal but it's the little things that make a difference 😎. Here's a side by side
+
+<p align="center">
+<img alt="create service" title="create service" src="blob:https://rickithadi.com/1f494180-58b4-48ad-ac60-1453e16c146f" style="width:70%; height:20%"></p>
+
+ Feel free to drop me a line if you have any questions.
