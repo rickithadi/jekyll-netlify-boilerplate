@@ -32,7 +32,7 @@ categories: " tech, notion, cloudflare, surfskate, notionlytics, analytics, low 
   </p>
 
 
-  Notion is a workspace/spreadsheet/database thing. I basically as a replacement to a physical journal, both for work and personal stuff. Given my bad memory it helps me keep track of things and stay accountable. I also built a side project on notion and deployed it. Notion actually works as a pretty handy CMS The video above should give you an idea. I've been loving it but a major drawback I've found is the lack of an officially supported way to deploy your site onto a custom domain. The closest feature available deploys your site with a .notionsite prefix which is not very pretty. There are paid services out there that'll do this for you but I'll be showing you how to do it yourself and for free. Read on to find out more
+  Notion is a workspace/spreadsheet/database thing. I basically as a replacement to a physical journal, both for work and personal stuff. Given my bad memory it helps me keep track of things and stay accountable. I also built a side project on notion and deployed it. Notion actually works as a pretty handy CMS. The video above should give you an idea. I've been loving it but a major drawback I've found is the lack of an officially supported way to deploy your site onto a custom domain. The closest available feature deploys your site with a .notionsite prefix which is not very pretty. There are paid services out there that'll do this for you but I'll be showing you how to do it yourself and for free. Read on to find out more
 
 
   <p align="center">
