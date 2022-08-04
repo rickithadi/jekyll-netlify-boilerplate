@@ -10,18 +10,29 @@ intro_paragraph: >-
   Notion is a great tool for keeping track of stuff and organising your life.
   It's marketed as a productivity tool which it sort of is. I've been using it
   as of late for journaling. The functionality, aesthetics and extensibility
-  have been very impressive. I especially like the emoji integration 🙆. Below
-  is an example of how it can be used.
+  have been very impressive. I especially like the emoji integration 🙆. I talk about how you can extend Notion and use it with a custom domain in this article.
 
 
+
+categories: " tech, notion, cloudflare, surfskate, notionlytics, analytics, low code"
+---
+# TLDR
+
+  1. What's Notion?
+  2. Get a domain
+  3. Get a notion site
+  4. Deploy notion site
+  5. Link notion site to custom domain with cloudflare worker
+
+## What is Notion?
   <p align="center">
 
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/3r0OGNy4NGg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="100%" height="315" src="https://www.youtube.com/embed/3r0OGNy4NGg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
   </p>
 
 
-  A major drawback I've found is the lack of an officially supported way to deploy your site onto a custom domain. The closest feature available deploys your site with a .notionsite prefix which is not very pretty. There are paid services out there that'll do this for you but I'll be showing you how to do it yourself and for free. Read on to find out more
+  Notion is a workspace/spreadsheet/database thing. I basically as a replacement to a physical journal, both for work and personal stuff. Given my bad memory it helps me keep track of things and stay accountable. I also built a side project on notion and deployed it. Notion actually works as a pretty handy CMS The video above should give you an idea. I've been loving it but a major drawback I've found is the lack of an officially supported way to deploy your site onto a custom domain. The closest feature available deploys your site with a .notionsite prefix which is not very pretty. There are paid services out there that'll do this for you but I'll be showing you how to do it yourself and for free. Read on to find out more
 
 
   <p align="center">
@@ -29,15 +40,6 @@ intro_paragraph: >-
   <img alt="default publish site option on notion" title="deploy options provided by notion" src="blob:https://rickithadi.com/743c76f8-59bd-4920-ae7f-8b3b3e980312"  style="width:50%; height:20%">
 
   </p>
-categories: " tech, notion, cloudflare, surfskate, notionlytics, analytics, low code"
----
-# TLDR
-
-1. Get a domain
-2. Get a notion site
-3. Deploy notion site
-4. Link notion site to custom domain with cloudflare worker
-
 ## Getting a Domain
 
 There are many ways to do this. I would suggest going with a reputable domain provider, my preference and what I would recommend is to go through [namecheap](https://www.namecheap.com/). They have decent customer service and a pretty simple UI. Just hop on, search for a domain you would like and purchase it
