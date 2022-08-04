@@ -37,7 +37,9 @@ categories: " tech, notion, cloudflare, surfskate, notionlytics, analytics, low 
 
   <p align="center">
 
-  <img alt="default publish site option on notion" title="deploy options provided by notion" src="blob:https://rickithadi.com/743c76f8-59bd-4920-ae7f-8b3b3e980312"  style="width:50%; height:20%">
+  <img alt="default publish site option on notion" title="deploy options provided by notion" src="
+ https://rickithadi.com/assets/img/uploads/2022-08-03_08-44.png
+"  style="width:50%; height:20%">
 
   </p>
 ## Getting a Domain
@@ -45,7 +47,7 @@ categories: " tech, notion, cloudflare, surfskate, notionlytics, analytics, low 
 There are many ways to do this. I would suggest going with a reputable domain provider, my preference and what I would recommend is to go through [namecheap](https://www.namecheap.com/). They have decent customer service and a pretty simple UI. Just hop on, search for a domain you would like and purchase it
 
 <p align="center">
-<img alt="domain search on namecheap" title="an example of varying domain prices" src="blob:https://rickithadi.com/732003e0-df85-461e-ae36-342b4486c481" style="width:50%; height:20%">
+<img alt="domain search on namecheap" title="an example of varying domain prices" src="https://rickithadi.com/assets/img/uploads/namecheap.png" style="width:50%; height:20%">
 
 </p>
 
@@ -56,7 +58,7 @@ Domain names can range from a few cents to thousands of dollars depending on pop
 Hop onto [notion](https://www.notion.so) and create an account. There are plenty of resources online on how to get set up with notion which i won't go through here. All that matters is your notion site is deployed or "shared to web" as notion terms it. Below is an example of how your's might look. Make sure the share to web toggle button is selected
 
 <p align="center">
-<img alt="might look something like this" title="an example of a notion site and share to web option" src="blob:https://rickithadi.com/6a874c0e-0c96-411b-a82b-eaef2a5a5c37" style="width:70%; height:20%">
+<img alt="might look something like this" title="an example of a notion site and share to web option" src="https://rickithadi.com/assets/img/uploads/ssexample.png" style="width:70%; height:20%">
 
 </p>
 
@@ -71,7 +73,7 @@ Not the prettiest huh, let's get that fixed. We'll do that by letting cloudflare
 ### 1) Add your domain to Cloudflare
 
 <p align="center">
-<img alt="add your domain to cloudflare" title="add your domain to cloudflare" src="blob:https://rickithadi.com/01d2e6fe-8729-4c18-9036-32aac82adaa9" style="width:70%; height:20%">
+<img alt="add your domain to cloudflare" title="add your domain to cloudflare" src="https://rickithadi.com/assets/img/uploads/cloudflare.png" style="width:70%; height:20%">
 
 </p>
 
@@ -80,7 +82,7 @@ Add your previously purchased domain to cloudflare and choose a free plan.
 ### 2) Point your domain registrar's DNS to cloudflare
 
 <p align="center">
-<img alt="add your domain to cloudflare" title="add your domain to cloudflare" src="blob:https://rickithadi.com/3f843635-5d6a-4ce6-a7f5-c7a559dd3a17" style="width:70%; height:20%"></p>
+<img alt="add your domain to cloudflare" title="add your domain to cloudflare" src="https://rickithadi.com/assets/img/uploads/dns.png" style="width:70%; height:20%"></p>
 
  Cloudflare should detect your registrar provide the necessary instructions. These are the steps if you use namecheap. It might take a while for the changes to propogate so don't worry if the changes don't immediately reflect
 
@@ -89,12 +91,12 @@ Add your previously purchased domain to cloudflare and choose a free plan.
 Go to the workers page and create a service. Proceed with the HTTP handler option
 
 <p align="center">
-<img alt="create service" title="create service" src="blob:https://rickithadi.com/81262cd6-9a75-4a57-a46d-f70076602a6d" style="width:70%; height:20%"></p>
+<img alt="create service" title="create service" src="https://rickithadi.com/assets/img/uploads/service.png" style="width:70%; height:20%"></p>
 
 Now a worker has been created. Select quick edit and paste the script below
 
 <p align="center">
-<img alt="create service" title="create service" src="blob:https://rickithadi.com/229ae8cb-af90-40f5-9863-ab2908f1b3c0" style="width:70%; height:20%"></p>
+<img alt="create service" title="create service" src="https://rickithadi.com/assets/img/uploads/quickedit.png" style="width:70%; height:20%"></p>
 
 This script is the meat of the solution. It will redirect the traffic through your custom domain. I have it setup for my [notion site surfskate.io](https://surfskate.io) like [this](https://gist.github.com/rickithadi/53351c2cf0dd1a2031833a864a8c7949). Below is the script, be sure to add your own variables (domain name, notion id, etc). The comments should be quite self explanatory, credit to [Vic Shóstak](https://dev.to/koddr).
 
@@ -112,6 +114,6 @@ This script is the meat of the solution. It will redirect the traffic through yo
 Your notion site url should now be using your custom domain and look pretty. No difference to the content of the notion site. Might not look like a big deal but it's the little things that make a difference 😎. Here's a side by side
 
 <p align="center">
-<img alt="create service" title="create service" src="blob:https://rickithadi.com/1f494180-58b4-48ad-ac60-1453e16c146f" style="width:70%; height:20%"></p>
+<img alt="difference" title="pretty domain" src="blob:https://rickithadi.com/assets/img/uploads/difference.png" style="width:70%; height:20%"></p>
 
  Feel free to drop me a line if you have any questions.
