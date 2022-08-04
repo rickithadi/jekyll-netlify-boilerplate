@@ -5,7 +5,7 @@ meta_description: " Deploy your notion site on a custom domain of your choice
   and   set up analytics! Use techonologies like cloudflare,cloudflare workers
   and notion. Have a look at Surfskate.io for a live example"
 author: hadi_rickit
-date: 2022-08-01 08:50:25
+date: 2022-08-03 08:50:25
 intro_paragraph: >-
   Notion is a great tool for keeping track of stuff and organising your life.
   It's marketed as a productivity tool which it sort of is. I've been using it
