@@ -17,13 +17,7 @@ intro_paragraph: >-
 categories: " tech, notion, cloudflare, surfskate, notionlytics, analytics, low code"
 ---
 # TLDR
-
-  1. What's Notion?
-  2. Get a domain
-  3. Get a notion site
-  4. Deploy notion site
-  5. Link notion site to custom domain with cloudflare worker
-
+ Get notion site and custom domain, use cloudflare worker to redirect traffic to said domain. Enjoy
 ## What is Notion?
   <p align="center">
 
