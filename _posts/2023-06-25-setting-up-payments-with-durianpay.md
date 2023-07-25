@@ -3,11 +3,11 @@ layout: post
 title: Setting up payments with Durianpay
 meta_description: durianpay integration, expo react native
 author: hadi_rickit
-date: 2023-01-13 13:42:22
+date: 2023-06-25 13:42:22
 intro_paragraph: >-
   Durianpay is an Indonesian payment processor similar to global players like
   Stripe and Square. It provides entry into the Indonesian market with a
-  relatively low barrier to entry, decent documentation good developer support. 
+  relatively low barrier to entry, decent documentation good developer support.
 
 
   In this article, we will go through integrating checkout into an expo or web project. I will be spinning up a backend to return an access token as well as fire some logic on successful payment in a webhook.
@@ -105,7 +105,7 @@ categories: ""
                              locale: "id",
                              environment: "production", // Value should be 'production' for both sandbox and live mode
                              access_key: access_token,
-                             // access_key:'dp_test_XXXXXXXXX',                  
+                             // access_key:'dp_test_XXXXXXXXX',
                              order_info: {
                                id,
                                customer_info: {
@@ -116,16 +116,16 @@ categories: ""
 
                              onClose: function (response: any) {
                                console.log('closed', response)
-                             
+
                              },
                              onSuccess: function (response: any) {
                                // this happens after the payment is completed successfully
                                console.log("success", response);
-                            
+
                              },
                              onFailure: function (error: any) {
                                console.log("paymentFailed", error);
-                             
+
                              },
                            });
                            dpay.checkout();
@@ -133,7 +133,7 @@ categories: ""
    * H﻿andle `onSuccess`, `onClose` and `onError` callbacks.
 5. ### W﻿ebhook
 
-   A known limitation I've come across is that Durianpay will force a refresh and take users to `redirect_url` if user does not click the (x) button. This results in `onSuccess`, `onClose` and `onError` callbacks not firing, meaning there is a risk of successful payment but fulfilment logic not being executed. 
+   A known limitation I've come across is that Durianpay will force a refresh and take users to `redirect_url` if user does not click the (x) button. This results in `onSuccess`, `onClose` and `onError` callbacks not firing, meaning there is a risk of successful payment but fulfilment logic not being executed.
 
    A﻿ccording to Durianpay, setting up webhook is an optional step, but I highly recommend it. Although it does not fix the refresh, it ensures logic is fired on your backend once payments and/or orders are completed regardless of client status.
 
@@ -160,7 +160,7 @@ categories: ""
 
          const signatureOk = data.signature === hmac;
 
-      
+
 
          if (!signatureOk) {
            console.log("signatures dont tally \n", data.signature, "\n", hmac);
