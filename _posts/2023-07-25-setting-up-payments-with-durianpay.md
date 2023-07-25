@@ -32,7 +32,7 @@ categories: ""
      });`
 3. ### Endpoint to return access token
 
-   T﻿his access token is required by client-side.
+   T﻿his access_token is required by client-side.
 
    ```javascript
    app.post("/create-order", (req, res) => {
@@ -82,11 +82,12 @@ categories: ""
        });
    });
    ```
-4. C﻿reate checkout with previously obtained access_token and your API key, createDurianPayOrder here is a method that hits the create-order endpoint \
-   \
-   h﻿andle onSuccess, onClose and onError callbacks
+4. ### Initialise checkout on client-side
 
-   * ```javascript
+   * C﻿reate checkout with previously obtained access_token and your API key.
+   * `createDurianPayOrder` is a method that hits the create-order endpoint.
+
+     ```javascript
           const {
                              data: { access_token, id },
                            } = await createDurianPayOrder();
@@ -121,12 +122,46 @@ categories: ""
                            });
                            dpay.checkout();
      ```
+   * H﻿andle `onSuccess`, `onClose` and `onError` callbacks.
+5. ### W﻿ebhook
 
+   A﻿ccording to Durianpay, this is an optional step, but I highly recommend it as ensures logic is fired on your backend once payments and/or orders are completed.
+   \
+   A known limitation I've come across is that Durianpay will try to redirect users to their own domain on payment success page. This results in `onSuccess`, `onClose` and `onError` callbacks not firing. This means there is a risk of successful payment but fulfilment logic not being executed. 
 
-5. W﻿ebhook
+   * S﻿et up URL on Durianpay dashboard.
+   * Signature verification: Events that your webhook receives need to be
 
-   1. s﻿et up url on dpay dashboard
+     ```javascript
+      try {
+         let hmac = crypto
+           .createHmac(
+             "sha256",
+             process.env.NODE_ENV === "production"
+               ? process.env.LIVE_DPAY_KEY
+               : process.env.STAGING_DPAY_KEY
+           )
+           .update(`${data.id}|${data.amount_str}`)
+           .digest("hex");
 
-s﻿ignature verification
+         const signatureOk = data.signature === hmac;
 
-f﻿ire logic on event
+      
+
+         if (!signatureOk) {
+           console.log("signatures dont tally \n", data.signature, "\n", hmac);
+           return res.send("Error, signature verification failed").status(420);
+         }
+       } catch (e) {
+         console.log("cannot get signature", e);
+         return res.send("Error, signature verification failed").status(420);
+       }
+
+     ```
+   * F﻿ire logic on event.
+
+     ```
+     if (event === "order.completed") {
+     //onSucces logic here
+     }
+     ```
