@@ -20,14 +20,113 @@ categories: ""
 
 1. ### Pull in Durianpay script in HTML file
 
-   * (expo only) Since I'm using expo, I need to run `expo customize:web` to expose an HTML file, which I can then use to pull in Durianpay. 
+   * Since I'm using expo, I need to run `expo customize:web` to expose an HTML file, which I can then use to pull in Durianpay. If you're not using expo, you can skip this pointer.
    * P﻿aste this script into the head of your HTML file to pull in the library:\
      `<script type="text/javascript" src="https://js.durianpay.id/0.1.39/durianpay.min.js"></script>`
+2. ### S﻿et up server
+
+   * S﻿pin up a node.js server and pull in `dpay-node-sdk` via your package manager of choice.
+   * I﻿nitialise Durianpay like so:\
+     `const dpay = new Durianpay({
+       secret_key: "your_secret_key", // Use your Sandbox or LIVE key
+     });`
+3. ### Endpoint to return access token
+
+   T﻿his access token is required by client-side.
+
+   ```javascript
+   app.post("/create-order", (req, res) => {
+     // const { order_ref_id, customer_ref_id, email, amount } = req.body;
+     console.log(req.body);
+     const {
+       order_ref_id,
+       customer_ref_id,
+       email,
+       amount,
+       lobbyImage,
+       lineItemText,
+       metadata,
+     } = req.body;
+
+     var options = {
+       amount,
+       currency: "IDR",
+       metadata,
+       order_ref_id,
+       customer: {
+         customer_ref_id,
+         email,
+       },
+       items: [
+         {
+           name: lineItemText,
+           qty: 1,
+           price: amount,
+           logo: lobbyImage,
+         },
+       ],
+     };
+     // Create Orders
+     return dpay.orders
+       .create(options)
+       .then((resp) => {
+         console.log("created order 💰", resp);
+         // order_id = resp.order_id;
+         const { id, access_token, metadata } = resp;
+         console.log(metadata);
+         res.json({ data: { id, access_token, metadata } });
+       })
+       .catch((error) => {
+         console.log(error.err + " | " + JSON.stringify(error.data));
+         return error;
+       });
+   });
+   ```
+4. C﻿reate checkout with previously obtained access_token and your API key, createDurianPayOrder here is a method that hits the create-order endpoint \
+   \
+   h﻿andle onSuccess, onClose and onError callbacks
+
+   * ```javascript
+          const {
+                             data: { access_token, id },
+                           } = await createDurianPayOrder();
+                           console.log(access_token, id);
+                           // @ts-ignore
+                           let dpay = await window.Durianpay.init({
+                             locale: "id",
+                             environment: "production", // Value should be 'production' for both sandbox and live mode
+                             access_key: access_token,
+                             // access_key:'dp_test_XXXXXXXXX',                  
+                             order_info: {
+                               id,
+                               customer_info: {
+                                 id: currentUser.uid,
+                                 email: currentUser.email,
+                               },
+                             },
+
+                             onClose: function (response: any) {
+                               console.log('closed', response)
+                             
+                             },
+                             onSuccess: function (response: any) {
+                               // this happens after the payment is completed successfully
+                               console.log("success", response);
+                            
+                             },
+                             onFailure: function (error: any) {
+                               console.log("paymentFailed", error);
+                             
+                             },
+                           });
+                           dpay.checkout();
+     ```
 
 
-2. L﻿oad library via Window API
-3. S﻿et up server to listen and create access key
-4. A﻿PI call to hit server and receive key
-5. C﻿reate checkout with key
-6. H﻿andle callbacks
-7. W﻿ebhook
+5. W﻿ebhook
+
+   1. s﻿et up url on dpay dashboard
+
+s﻿ignature verification
+
+f﻿ire logic on event
