@@ -28,9 +28,9 @@ categories: ""
 
 1. ### Pull in Durianpay script in HTML file
 
-   * Since I'm using expo, I need to run `expo customize:web` to expose an HTML file, which I can then use to pull in Durianpay. If you're not using expo, you can skip this pointer.
+   * Since I'm using expo, I need to run `expo customize:web` to expose an HTML file, which I can then use to pull in Durianpay. If you're not using expo, you can skip this point.
    * P﻿aste this script into the head of your HTML file to pull in the library:\
-     `<script type="text/javascript" src="https://js.durianpay.id/0.1.39/durianpay.min.js"></script>`
+     `<script async type="text/javascript" src="https://js.durianpay.id/0.1.39/durianpay.min.js"></script>`
 2. ### S﻿et up server
 
    * S﻿pin up a node.js server and pull in `dpay-node-sdk` via your package manager of choice.
@@ -133,11 +133,17 @@ categories: ""
    * H﻿andle `onSuccess`, `onClose` and `onError` callbacks.
 5. ### W﻿ebhook
 
-   A﻿ccording to Durianpay, this is an optional step, but I highly recommend it as ensures logic is fired on your backend once payments and/or orders are completed.
-   \
-   A known limitation I've come across is that Durianpay will force a refresh and take users to `redirect_url`. This results in `onSuccess`, `onClose` and `onError` callbacks not firing. This means there is a risk of successful payment but fulfilment logic not being executed. 
+   A known limitation I've come across is that Durianpay will force a refresh and take users to `redirect_url` if user does not click the (x) button. This results in `onSuccess`, `onClose` and `onError` callbacks not firing, meaning there is a risk of successful payment but fulfilment logic not being executed. 
 
-   * S﻿et up URL on Durianpay dashboard.
+   A﻿ccording to Durianpay, setting up webhook is an optional step, but I highly recommend it. Although it does not fix the refresh, it ensures logic is fired on your backend once payments and/or orders are completed regardless of client status.
+
+   ![](/assets/img/uploads/payment.png)
+
+   ![](/assets/img/uploads/payment-success.png)
+
+
+
+   * S﻿et up URL on Durianpay dashboard
    * Signature verification:
 
      ```javascript
@@ -164,7 +170,6 @@ categories: ""
          console.log("cannot get signature", e);
          return res.send("Error, signature verification failed").status(420);
        }
-
      ```
    * F﻿ire logic on event, assuming signatures tally:
 
