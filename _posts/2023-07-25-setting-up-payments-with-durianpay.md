@@ -158,8 +158,8 @@ categories: ""
        }
 
      ```
-   * F﻿ire logic on event:
+   * F﻿ire logic on event, assuming signatures tally:
 
      `if (event === "order.completed") {
-     //onSucces logic here
+     //onSuccess logic here
      }`
