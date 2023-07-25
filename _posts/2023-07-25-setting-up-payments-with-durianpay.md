@@ -13,7 +13,15 @@ intro_paragraph: >-
   In this article, I will be talking about integrating checkout into an expo project. The main difference between this and Stripe Checkout is that this is not a purely client-side implementation. I will be spinning up a backend to return an access token as well as fire some logic on successful payment.
 
 
+  [L﻿ink to Durianpay documentation](https://durianpay.id/docs/integration/)
+
+
   **P﻿rerequisites**
+
+
+  * Durianpay account
+
+  * R﻿elevant API keys
 categories: ""
 ---
 # **H﻿ow to integrate Durianpay Checkout**
