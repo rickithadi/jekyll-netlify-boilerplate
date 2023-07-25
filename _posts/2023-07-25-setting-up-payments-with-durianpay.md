@@ -3,7 +3,7 @@ layout: post
 title: Setting up payments with Durianpay
 meta_description: durianpay integration, expo react native
 author: hadi_rickit
-date: 2023-07-10 13:42:22
+date: 2023-01-13 13:42:22
 intro_paragraph: >-
   Durianpay is an Indonesian payment processor similar to global players like
   Stripe and Square. It provides entry into the Indonesian market with a
