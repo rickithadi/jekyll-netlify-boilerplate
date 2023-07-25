@@ -127,10 +127,10 @@ categories: ""
 
    A﻿ccording to Durianpay, this is an optional step, but I highly recommend it as ensures logic is fired on your backend once payments and/or orders are completed.
    \
-   A known limitation I've come across is that Durianpay will try to redirect users to their own domain on payment success page. This results in `onSuccess`, `onClose` and `onError` callbacks not firing. This means there is a risk of successful payment but fulfilment logic not being executed. 
+   A known limitation I've come across is that Durianpay will force a refresh and take users to `redirect_url`. This results in `onSuccess`, `onClose` and `onError` callbacks not firing. This means there is a risk of successful payment but fulfilment logic not being executed. 
 
    * S﻿et up URL on Durianpay dashboard.
-   * Signature verification: Events that your webhook receives need to be
+   * Signature verification
 
      ```javascript
       try {
@@ -160,8 +160,6 @@ categories: ""
      ```
    * F﻿ire logic on event.
 
-     ```
-     if (event === "order.completed") {
-     //onSucces logic here
-     }
-     ```
+     * `if (event === "order.completed") {
+       //onSucces logic here
+       }`
