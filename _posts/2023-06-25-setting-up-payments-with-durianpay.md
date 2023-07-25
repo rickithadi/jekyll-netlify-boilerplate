@@ -137,12 +137,6 @@ categories: ""
 
    A﻿ccording to Durianpay, setting up webhook is an optional step, but I highly recommend it. Although it does not fix the refresh, it ensures logic is fired on your backend once payments and/or orders are completed regardless of client status.
 
-   ![](/assets/img/uploads/payment.png)
-
-   ![](/assets/img/uploads/payment-success.png)
-
-
-
    * S﻿et up URL on Durianpay dashboard
    * Signature verification:
 
