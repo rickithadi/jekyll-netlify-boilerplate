@@ -6,11 +6,11 @@ author: hadi_rickit
 date: 2023-07-25 10:51:06
 intro_paragraph: >-
   Durianpay is an Indonesian payment processor similar to global players like
-  Stripe and Square. It's a quick and easy way to get into the Indonesian market
-  with a relatively low barrier to entry and good developer support.
+  Stripe and Square. It provides entry into the Indonesian market with a
+  relatively low barrier to entry, decent documentation good developer support. 
 
 
-  In this article, I will be talking about integrating checkout into an expo project. The main difference between this and Stripe Checkout is that this is not a purely client-side implementation. I will be spinning up a backend to return an access token as well as fire some logic on successful payment.
+  In this article, we will go through integrating checkout into an expo or web project. I will be spinning up a backend to return an access token as well as fire some logic on successful payment in a webhook.
 
 
   [L﻿ink to Durianpay documentation](https://durianpay.id/docs/integration/)
