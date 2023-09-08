@@ -48,8 +48,6 @@ categories: ""
 
    * C﻿reate checkout with previously obtained access_token and your API key.
    * `createDurianPayOrder` is a method that hits the create-order endpoint.
-
-     <script src="https://gist.github.com/rickithadi/4207a58a04d1d8bf7e9885b485c61ef1.js"></script>
    * H﻿andle `onSuccess`, `onClose` and `onError` callbacks.
 5. ### W﻿ebhook
 
@@ -59,8 +57,6 @@ categories: ""
 
    * S﻿et up URL on Durianpay dashboard
    * Signature verification:
-
-     <script src="https://gist.github.com/rickithadi/a646ce4bf232edd8dbd472221373ad5a.js"></script>
    * F﻿ire logic on event, assuming signatures tally:
 
      `if (event === "order.completed") {
