@@ -42,7 +42,7 @@ categories: ""
 
    T﻿his access_token is required by client-side.
 
-<script src="https://gist.github.com/rickithadi/9e6bf4f7ee854812229064f2ea5c0a98.js"/></script>
+<script src="https://gist.github.com/rickithadi/9e6bf4f7ee854812229064f2ea5c0a98.js"></script>
 
 ```javascript
 app.post("/create-order", (req, res) => {
