@@ -16,7 +16,11 @@ intro_paragraph: >-
   [L﻿ink to Durianpay documentation](https://durianpay.id/docs/integration/)
 
 
+
+
   **P﻿rerequisites**
+
+
 
 
   * Durianpay account
@@ -31,6 +35,8 @@ categories: ""
    * Since I'm using expo, I need to run `expo customize:web` to expose an HTML file, which I can then use to pull in Durianpay. If you're not using expo, you can skip this point.
    * P﻿aste this script into the head of your HTML file to pull in the library:\
      `<script async type="text/javascript" src="https://js.durianpay.id/0.1.39/durianpay.min.js"></script>`
+
+
 2. ### S﻿et up server
 
    * S﻿pin up a node.js server and pull in `dpay-node-sdk` via your package manager of choice.
@@ -38,6 +44,8 @@ categories: ""
      `const dpay = new Durianpay({
        secret_key: "your_secret_key", // Use your Sandbox or LIVE key
      });`
+
+
 3. ### Endpoint to return access token
 
    T﻿his access_token is required by client-side.
@@ -48,10 +56,11 @@ categories: ""
 
    * C﻿reate checkout with previously obtained access_token and your API key.
    * `createDurianPayOrder` is a method that hits the create-order endpoint.
-   * H﻿andle `onSuccess`, `onClose` and `onError` callbacks.\
-     \
-     <script src="https://gist.github.com/rickithadi/4207a58a04d1d8bf7e9885b485c61ef1.js"></script>
-5. ### W﻿ebhook
+   * H﻿andle `onSuccess`, `onClose` and `onError` callbacks.
+
+
+
+4. ### W﻿ebhook
 
    A known limitation I've come across is that Durianpay will force a refresh and take users to `redirect_url` if user does not click the (x) button. This results in `onSuccess`, `onClose` and `onError` callbacks not firing, meaning there is a risk of successful payment but fulfilment logic not being executed.
 
@@ -60,7 +69,6 @@ categories: ""
    * S﻿et up URL on Durianpay dashboard
    * Signature verification:
    * F﻿ire logic on event, assuming signatures tally:\
-     <script src="https://gist.github.com/rickithadi/a646ce4bf232edd8dbd472221373ad5a.js"></script>
    * `if (event === "order.completed") {
      //onSuccess logic here
      }`
