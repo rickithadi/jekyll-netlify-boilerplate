@@ -42,54 +42,57 @@ categories: ""
 
    T﻿his access_token is required by client-side.
 
-   ```javascript
-   app.post("/create-order", (req, res) => {
-     // const { order_ref_id, customer_ref_id, email, amount } = req.body;
-     console.log(req.body);
-     const {
-       order_ref_id,
-       customer_ref_id,
-       email,
-       amount,
-       lobbyImage,
-       lineItemText,
-       metadata,
-     } = req.body;
+<script src="https://gist.github.com/rickithadi/9e6bf4f7ee854812229064f2ea5c0a98.js"></script>
 
-     var options = {
-       amount,
-       currency: "IDR",
-       metadata,
-       order_ref_id,
-       customer: {
-         customer_ref_id,
-         email,
-       },
-       items: [
-         {
-           name: lineItemText,
-           qty: 1,
-           price: amount,
-           logo: lobbyImage,
-         },
-       ],
-     };
-     // Create Orders
-     return dpay.orders
-       .create(options)
-       .then((resp) => {
-         console.log("created order 💰", resp);
-         // order_id = resp.order_id;
-         const { id, access_token, metadata } = resp;
-         console.log(metadata);
-         res.json({ data: { id, access_token, metadata } });
-       })
-       .catch((error) => {
-         console.log(error.err + " | " + JSON.stringify(error.data));
-         return error;
-       });
-   });
-   ```
+```javascript
+app.post("/create-order", (req, res) => {
+  // const { order_ref_id, customer_ref_id, email, amount } = req.body;
+  console.log(req.body);
+  const {
+    order_ref_id,
+    customer_ref_id,
+    email,
+    amount,
+    lobbyImage,
+    lineItemText,
+    metadata,
+  } = req.body;
+
+  var options = {
+    amount,
+    currency: "IDR",
+    metadata,
+    order_ref_id,
+    customer: {
+      customer_ref_id,
+      email,
+    },
+    items: [
+      {
+        name: lineItemText,
+        qty: 1,
+        price: amount,
+        logo: lobbyImage,
+      },
+    ],
+  };
+  // Create Orders
+  return dpay.orders
+    .create(options)
+    .then((resp) => {
+      console.log("created order 💰", resp);
+      // order_id = resp.order_id;
+      const { id, access_token, metadata } = resp;
+      console.log(metadata);
+      res.json({ data: { id, access_token, metadata } });
+    })
+    .catch((error) => {
+      console.log(error.err + " | " + JSON.stringify(error.data));
+      return error;
+    });
+});
+```
+
 4. ### Initialise checkout on client-side
 
    * C﻿reate checkout with previously obtained access_token and your API key.
