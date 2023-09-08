@@ -50,7 +50,6 @@ categories: ""
    * `createDurianPayOrder` is a method that hits the create-order endpoint.
 
      <script src="https://gist.github.com/rickithadi/4207a58a04d1d8bf7e9885b485c61ef1.js"></script>
-   *
    * H﻿andle `onSuccess`, `onClose` and `onError` callbacks.
 5. ### W﻿ebhook
 
