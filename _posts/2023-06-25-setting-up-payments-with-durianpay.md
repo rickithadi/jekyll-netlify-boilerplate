@@ -44,95 +44,12 @@ categories: ""
 
 <script src="https://gist.github.com/rickithadi/9e6bf4f7ee854812229064f2ea5c0a98.js"></script>
 
-```javascript
-app.post("/create-order", (req, res) => {
-  // const { order_ref_id, customer_ref_id, email, amount } = req.body;
-  console.log(req.body);
-  const {
-    order_ref_id,
-    customer_ref_id,
-    email,
-    amount,
-    lobbyImage,
-    lineItemText,
-    metadata,
-  } = req.body;
-
-  var options = {
-    amount,
-    currency: "IDR",
-    metadata,
-    order_ref_id,
-    customer: {
-      customer_ref_id,
-      email,
-    },
-    items: [
-      {
-        name: lineItemText,
-        qty: 1,
-        price: amount,
-        logo: lobbyImage,
-      },
-    ],
-  };
-  // Create Orders
-  return dpay.orders
-    .create(options)
-    .then((resp) => {
-      console.log("created order 💰", resp);
-      // order_id = resp.order_id;
-      const { id, access_token, metadata } = resp;
-      console.log(metadata);
-      res.json({ data: { id, access_token, metadata } });
-    })
-    .catch((error) => {
-      console.log(error.err + " | " + JSON.stringify(error.data));
-      return error;
-    });
-});
-```
-
 4. ### Initialise checkout on client-side
 
    * C﻿reate checkout with previously obtained access_token and your API key.
    * `createDurianPayOrder` is a method that hits the create-order endpoint.
 
-     ```javascript
-          const {
-                             data: { access_token, id },
-                           } = await createDurianPayOrder();
-                           console.log(access_token, id);
-                           // @ts-ignore
-                           let dpay = await window.Durianpay.init({
-                             locale: "id",
-                             environment: "production", // Value should be 'production' for both sandbox and live mode
-                             access_key: access_token,
-                             // access_key:'dp_test_XXXXXXXXX',
-                             order_info: {
-                               id,
-                               customer_info: {
-                                 id: currentUser.uid,
-                                 email: currentUser.email,
-                               },
-                             },
-
-                             onClose: function (response: any) {
-                               console.log('closed', response)
-
-                             },
-                             onSuccess: function (response: any) {
-                               // this happens after the payment is completed successfully
-                               console.log("success", response);
-
-                             },
-                             onFailure: function (error: any) {
-                               console.log("paymentFailed", error);
-
-                             },
-                           });
-                           dpay.checkout();
-     ```
+     <script src="https://gist.github.com/rickithadi/4207a58a04d1d8bf7e9885b485c61ef1.js"></script>
    * H﻿andle `onSuccess`, `onClose` and `onError` callbacks.
 5. ### W﻿ebhook
 
@@ -143,31 +60,7 @@ app.post("/create-order", (req, res) => {
    * S﻿et up URL on Durianpay dashboard
    * Signature verification:
 
-     ```javascript
-      try {
-         let hmac = crypto
-           .createHmac(
-             "sha256",
-             process.env.NODE_ENV === "production"
-               ? process.env.LIVE_DPAY_KEY
-               : process.env.STAGING_DPAY_KEY
-           )
-           .update(`${data.id}|${data.amount_str}`)
-           .digest("hex");
-
-         const signatureOk = data.signature === hmac;
-
-
-
-         if (!signatureOk) {
-           console.log("signatures dont tally \n", data.signature, "\n", hmac);
-           return res.send("Error, signature verification failed").status(420);
-         }
-       } catch (e) {
-         console.log("cannot get signature", e);
-         return res.send("Error, signature verification failed").status(420);
-       }
-     ```
+     <script src="https://gist.github.com/rickithadi/a646ce4bf232edd8dbd472221373ad5a.js"></script>
    * F﻿ire logic on event, assuming signatures tally:
 
      `if (event === "order.completed") {
