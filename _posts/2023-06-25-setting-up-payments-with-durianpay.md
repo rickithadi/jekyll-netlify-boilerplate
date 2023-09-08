@@ -60,31 +60,7 @@ categories: ""
    * S﻿et up URL on Durianpay dashboard
    * Signature verification:
 
-     ```javascript
-      try {
-         let hmac = crypto
-           .createHmac(
-             "sha256",
-             process.env.NODE_ENV === "production"
-               ? process.env.LIVE_DPAY_KEY
-               : process.env.STAGING_DPAY_KEY
-           )
-           .update(`${data.id}|${data.amount_str}`)
-           .digest("hex");
-
-         const signatureOk = data.signature === hmac;
-
-
-
-         if (!signatureOk) {
-           console.log("signatures dont tally \n", data.signature, "\n", hmac);
-           return res.send("Error, signature verification failed").status(420);
-         }
-       } catch (e) {
-         console.log("cannot get signature", e);
-         return res.send("Error, signature verification failed").status(420);
-       }
-     ```
+     <script src="https://gist.github.com/rickithadi/a646ce4bf232edd8dbd472221373ad5a.js"></script>
    * F﻿ire logic on event, assuming signatures tally:
 
      `if (event === "order.completed") {
