@@ -48,9 +48,9 @@ categories: ""
 
    * C﻿reate checkout with previously obtained access_token and your API key.
    * `createDurianPayOrder` is a method that hits the create-order endpoint.
-
+   * H﻿andle `onSuccess`, `onClose` and `onError` callbacks.\
+     \
      <script src="https://gist.github.com/rickithadi/4207a58a04d1d8bf7e9885b485c61ef1.js"></script>
-   * H﻿andle `onSuccess`, `onClose` and `onError` callbacks.
 5. ### W﻿ebhook
 
    A known limitation I've come across is that Durianpay will force a refresh and take users to `redirect_url` if user does not click the (x) button. This results in `onSuccess`, `onClose` and `onError` callbacks not firing, meaning there is a risk of successful payment but fulfilment logic not being executed.
@@ -59,10 +59,8 @@ categories: ""
 
    * S﻿et up URL on Durianpay dashboard
    * Signature verification:
-
+   * F﻿ire logic on event, assuming signatures tally:\
      <script src="https://gist.github.com/rickithadi/a646ce4bf232edd8dbd472221373ad5a.js"></script>
-   * F﻿ire logic on event, assuming signatures tally:
-
-     `if (event === "order.completed") {
+   * `if (event === "order.completed") {
      //onSuccess logic here
      }`
