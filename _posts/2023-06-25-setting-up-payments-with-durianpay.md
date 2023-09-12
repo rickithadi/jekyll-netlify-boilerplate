@@ -22,7 +22,7 @@ intro_paragraph: >-
   * Durianpay account
 
   * R﻿elevant API keys
-categories: ""
+categories: payments, indonesia, durianpay
 ---
 
 # **H﻿ow to integrate Durianpay Checkout**
@@ -30,8 +30,9 @@ categories: ""
 1. ### Pull in Durianpay script in HTML file
 
    * Since I'm using expo, I need to run `expo customize:web` to expose an HTML file, which I can then use to pull in Durianpay. If you're not using expo, you can skip this point.
-   * P﻿aste this script into the head of your HTML file to pull in the library:\
-     `<script async type="text/javascript" src="https://js.durianpay.id/0.1.39/durianpay.min.js"></script>`
+   * P﻿aste this script into the head of your HTML file to pull in the library:
+
+ <script async type="text/javascript" src="https://js.durianpay.id/0.1.39/durianpay.min.js"></script>
 
 2. ### S﻿et up server
 
@@ -67,6 +68,7 @@ categories: ""
    * F﻿ire logic on event, assuming signatures tally:
 
      <script src="https://gist.github.com/rickithadi/a646ce4bf232edd8dbd472221373ad5a.js"></script>
+
    * `if (event === "order.completed") {
      //onSuccess logic here
      }`
