@@ -48,7 +48,7 @@ categories: payments, indonesia, durianpay
 
 3. ### Create endpoint to return access token
 
-   This /create-order endpoint will generate an acces token which the client will use to initialise the checkout.
+   This /create-order endpoint will generate an access token which the client will use to initialise the checkout.
 
 <div class="iframely-embed"><div class="iframely-responsive" style="padding-bottom: 50%;"><a href="https://gist.github.com/rickithadi/9e6bf4f7ee854812229064f2ea5c0a98" data-iframely-url="//iframely.net/2Ah3zLz"></a></div></div><script async src="//iframely.net/embed.js"></script>
 <br><br>
@@ -77,7 +77,7 @@ A known limitation I've come across is that Durianpay will force a refresh and t
 ">
 
 </p>
-According to Durianpay, setting up webhook a is an optional step, but I highly recommend it. Although it does not fix the refresh, it ensures logic is fired on your backend once payments and/or orders are completed regardless of client status.
+According to Durianpay, setting up a webhook is an optional step. I highly recommend it. Although it does not fix the refresh, it ensures logic is fired on your backend once payments and/or orders are completed regardless of client status.
 
 - Set up your webhook URL on Durianpay dashboard. Listen to `order.completed` event
 
@@ -106,7 +106,7 @@ According to Durianpay, setting up webhook a is an optional step, but I highly r
 //onSuccess logic here
 }`
 
-In this use case i am adding a user to a lobby on successful payment, alter this accordingly to suit your needs.
+In this use case I am adding a user to a lobby on successful payment, alter this accordingly to suit your needs.
 
 5.  ### Deployment
 
@@ -116,7 +116,7 @@ I have this backend deployed via [fly.io](https://fly.io/) and the frontend on [
 
 Durianpay has an overall decent developer experience. What it lacks in documentation clarity has been more than made up for with prompt response to techincal queries. They even went as far as to add my team to a whatsapp group with some of their engineers which was and continues to be invaluable
 
-The business impact has been fantastic, the ability to enter the indonesian market and gain access to the many country specific payment options is invaluable.
+The business impact has been fantastic, the ability to enter the indonesian market and gain access to the many country specific payment options proves to be extremely useful.
 
 Seeing how bigger players like stripe, square and xendit all have rather high barriers to entry and or a lack of support for the market, I would recommend Durianpay to any startup looking to break into the space.
 
