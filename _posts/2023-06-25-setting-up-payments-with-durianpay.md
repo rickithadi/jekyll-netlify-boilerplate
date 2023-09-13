@@ -24,8 +24,7 @@ categories: payments, indonesia, durianpay
 <p align="center">
 
 <img alt="durianpay payment screen" title="durianpay payment screen" src="
- https://rickithadi.com/assets/img/uploads/payment.png
-"  >
+ https://rickithadi.com/assets/img/uploads/payment.png">
 
   </p>
 
@@ -34,7 +33,9 @@ categories: payments, indonesia, durianpay
 - Since I'm using expo, I need to run `expo customize:web` to expose an HTML file, which I can then use to pull in Durianpay. If you're not using expo, you can skip this point. Just use your index.html
 - Paste this script into the head of your HTML file to pull in the library:
 
-`<script async type="text/javascript" src="https://js.durianpay.id/0.1.39/durianpay.min.js"></script>`
+<div class="iframely-embed"><div class="iframely-responsive" style="padding-bottom: 50%;"><a href="https://gist.github.com/rickithadi/8d89fc9c257ff7cc582da2914ef6167b" data-iframely-url="//iframely.net/IZvjrIN"></a></div></div><script async src="//iframely.net/embed.js"></script>
+
+
 <br><br>
 
 2. ### Set up server
@@ -44,7 +45,8 @@ categories: payments, indonesia, durianpay
       `const dpay = new Durianpay({
   secret_key: "your_secret_key", // Use your Sandbox or LIVE key
 });`
-     <br><br>
+<br><br>
+
 
 3. ### Create endpoint to return access token
 
@@ -74,9 +76,9 @@ A known limitation I've come across is that Durianpay will force a refresh and t
 
 <img alt="payment success screen, durianpay" title="payment success screen, durianpay" src="
  https://rickithadi.com/assets/img/uploads/payment-success.png
-"  >
+">
 
-  </p>
+</p>
 According to Durianpay, setting up webhook a is an optional step, but I highly recommend it. Although it does not fix the refresh, it ensures logic is fired on your backend once payments and/or orders are completed regardless of client status.
 
 - Set up your webhook URL on Durianpay dashboard. Listen to `order.completed` event
@@ -86,14 +88,10 @@ According to Durianpay, setting up webhook a is an optional step, but I highly r
 
 - Therefore my webhook url is `https://yourServerDomain/api/dpay/webhook`
 
-    <br>
-    <p align="center">
-
-  <img alt="durianpay dashboard, webhooks" title="durianpay dashboard, webhooks" src="https://rickithadi.com/assets/img/uploads/screenshot-2023-09-12-at-9.29.45-pm.png
-    "  >
-
-      </p>
-
+<br>
+<p align="center">
+<img alt="durianpay dashboard, webhooks" title="durianpay dashboard, webhooks" src="https://rickithadi.com/assets/img/uploads/screenshot-2023-09-12-at-9.29.45-pm.png"  >
+</p>
 <br>
 
 6.  ### Webhook Signature Verification (optional)
@@ -126,7 +124,7 @@ Seeing how bigger players like stripe, square and xendit all have rather high ba
 
 <br>
 <p align="center">
-  <img alt="Playard lobby screen" title="Playard lobby screen" src="https://rickithadi.com/assets/img/uploads/app.playard.id_lobby_lobbyid-9t9ro78enscpy1tkhgkn-iphone-12-pro-.png    "  >
+<img alt="Playard lobby screen" title="Playard lobby screen" src="https://rickithadi.com/assets/img/uploads/app.playard.id_lobby_lobbyid-9t9ro78enscpy1tkhgkn-iphone-12-pro-.png">
 </p>
 <br>
 Come have a look at [Playard's](https://playard.id) implementation of Durianpay. Users pay for a slot in a curated game of sport catered to their needs and preferences. There are also wallet, payout and lobby monetisation features, all of which are powered by durianpay.
