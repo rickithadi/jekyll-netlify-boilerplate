@@ -35,7 +35,6 @@ categories: payments, indonesia, durianpay
 
 <div class="iframely-embed"><div class="iframely-responsive" style="padding-bottom: 50%;"><a href="https://gist.github.com/rickithadi/8d89fc9c257ff7cc582da2914ef6167b" data-iframely-url="//iframely.net/IZvjrIN"></a></div></div><script async src="//iframely.net/embed.js"></script>
 
-
 <br><br>
 
 2. ### Set up server
@@ -45,8 +44,7 @@ categories: payments, indonesia, durianpay
       `const dpay = new Durianpay({
   secret_key: "your_secret_key", // Use your Sandbox or LIVE key
 });`
-<br><br>
-
+     <br><br>
 
 3. ### Create endpoint to return access token
 
@@ -124,7 +122,7 @@ Seeing how bigger players like stripe, square and xendit all have rather high ba
 
 <br>
 <p align="center">
-<img alt="Playard lobby screen" title="Playard lobby screen" src="https://rickithadi.com/assets/img/uploads/app.playard.id_lobby_lobbyid-9t9ro78enscpy1tkhgkn-iphone-12-pro-.png">
+<img alt="Playard lobby screen" title="Playard lobby screen" src="https://res.cloudinary.com/drxewzlaa/image/upload/v1694570480/app.playard.id_Lobby_lobbyId_9T9rO78enscpy1tkHgkn_iPhone_12_Pro_uv7gvi.png">
 </p>
 <br>
 Come have a look at [Playard's](https://playard.id) implementation of Durianpay. Users pay for a slot in a curated game of sport catered to their needs and preferences. There are also wallet, payout and lobby monetisation features, all of which are powered by durianpay.
