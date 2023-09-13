@@ -23,7 +23,7 @@ categories: payments, indonesia, durianpay
 
 <p align="center">
 
-<img alt="default publish site option on notion" title="deploy options provided by notion" src="
+<img alt="durianpay payment screen" title="durianpay payment screen" src="
  https://rickithadi.com/assets/img/uploads/payment.png
 "  >
 
@@ -72,7 +72,7 @@ A known limitation I've come across is that Durianpay will force a refresh and t
 <br>
 <p align="center">
 
-<img alt="default publish site option on notion" title="deploy options provided by notion" src="
+<img alt="payment success screen, durianpay" title="payment success screen, durianpay" src="
  https://rickithadi.com/assets/img/uploads/payment-success.png
 "  >
 
@@ -89,7 +89,7 @@ According to Durianpay, setting up webhook a is an optional step, but I highly r
     <br>
     <p align="center">
 
-  <img alt="default publish site option on notion" title="deploy options provided by notion" src="https://rickithadi.com/assets/img/uploads/screenshot-2023-09-12-at-9.29.45-pm.png
+  <img alt="durianpay dashboard, webhooks" title="durianpay dashboard, webhooks" src="https://rickithadi.com/assets/img/uploads/screenshot-2023-09-12-at-9.29.45-pm.png
     "  >
 
       </p>
@@ -97,7 +97,8 @@ According to Durianpay, setting up webhook a is an optional step, but I highly r
 <br>
 
 6.  ### Webhook Signature Verification (optional)
-   - Your webhook will work without verifying event signatures but it is highly encouraged to make sure the events are actually yours:
+
+- Your webhook will work without verifying event signatures but it is highly encouraged to make sure the events are actually yours:
 
 <br>
 <div class="iframely-embed"><div class="iframely-responsive" style="padding-bottom: 50%;"><a href="https://gist.github.com/rickithadi/a646ce4bf232edd8dbd472221373ad5a" data-iframely-url="//iframely.net/KWahL1k"></a></div></div><script async src="//iframely.net/embed.js"></script>
@@ -125,7 +126,7 @@ Seeing how bigger players like stripe, square and xendit all have rather high ba
 
 <br>
 <p align="center">
-  <img alt="default publish site option on notion" title="deploy options provided by notion" src="https://rickithadi.com/assets/img/uploads/app.playard.id_lobby_lobbyid-9t9ro78enscpy1tkhgkn-iphone-12-pro-.png    "  >
+  <img alt="Playard lobby screen" title="Playard lobby screen" src="https://rickithadi.com/assets/img/uploads/app.playard.id_lobby_lobbyid-9t9ro78enscpy1tkhgkn-iphone-12-pro-.png    "  >
 </p>
 <br>
 Come have a look at [Playard's](https://playard.id) implementation of Durianpay. Users pay for a slot in a curated game of sport catered to their needs and preferences. There are also wallet, payout and lobby monetisation features, all of which are powered by durianpay.
