@@ -19,13 +19,14 @@ intro_paragraph: >-
 categories: payments, indonesia, durianpay
 ---
 
-# **How to integrate Durianpay Checkout**
-
+ **How to integrate Durianpay Checkout**
 <p align="center">
-<img alt="might look something like this" title="an example of a durianpay checkout" src="https://rickithadi.com/assets/img/uploads/payment.png" >
 
-</p>
-<br>
+  <img alt="default publish site option on notion" title="deploy options provided by notion" src="
+ https://rickithadi.com/assets/img/uploads/payment.png
+"  >
+
+  </p>
 
 1. ### Pull in Durianpay script in HTML file
 
@@ -35,7 +36,7 @@ categories: payments, indonesia, durianpay
 `<script async type="text/javascript" src="https://js.durianpay.id/0.1.39/durianpay.min.js"></script>`
 <br><br>
 
-2. ### Set up server
+<!-- 2. ### Set up server
 
    - Spin up a node.js server and pull in `dpay-node-sdk` via your package manager of choice.
    - Initialise Durianpay like so:\
@@ -66,19 +67,12 @@ categories: payments, indonesia, durianpay
 5. ### Webhook
 
    A known limitation I've come across is that Durianpay will force a refresh and take users to `redirect_url` if user does not click the (x) button. This results in `onSuccess`, `onClose` and `onError` callbacks not firing, meaning there is a risk of successful payment but fulfilment logic not being executed.
-      <p align="center">
-   <img alt="might look something like this" title="an example of a durianpay checkout" src="https://rickithadi.com/assets/img/uploads/ssexample.png" >
-
-</p>
-<br>
+  <br>
 
 According to Durianpay, setting up webhook is an optional step, but I highly recommend it. Although it does not fix the refresh, it ensures logic is fired on your backend once payments and/or orders are completed regardless of client status.
 
 - Set up URL on Durianpay dashboard
-   <p align="center">
-<img alt="might look something like this" title="an example of a durianpay checkout" src="https://rickithadi.com/assets/img/uploads/ssexample.png" >
 
-</p>
 <br>
    - Signature verification:
 
@@ -88,4 +82,4 @@ According to Durianpay, setting up webhook is an optional step, but I highly rec
    - Fire logic on event, assuming signatures tally:
 `if (event === "order.completed") {
 //onSuccess logic here
-}`
+}` -->
