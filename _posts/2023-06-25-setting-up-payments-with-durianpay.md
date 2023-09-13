@@ -88,7 +88,7 @@ According to Durianpay, setting up webhook a is an optional step, but I highly r
 
 <br>
 <p align="center">
-<img alt="durianpay dashboard, webhooks" title="durianpay dashboard, webhooks" src="https://rickithadi.com/assets/img/uploads/screenshot-2023-09-12-at-9.29.45-pm.png"  >
+<img alt="durianpay dashboard, webhooks" title="durianpay dashboard, webhooks" src="https://res.cloudinary.com/drxewzlaa/image/upload/v1694570584/Screenshot_2023-09-12_at_9.29.45_PM_ncgcuy.png"  >
 </p>
 <br>
 
