@@ -79,17 +79,25 @@ A known limitation I've come across is that Durianpay will force a refresh and t
   </p>
 According to Durianpay, setting up webhook a is an optional step, but I highly recommend it. Although it does not fix the refresh, it ensures logic is fired on your backend once payments and/or orders are completed regardless of client status.
 
-- Set up URL on Durianpay dashboard
-  <br>
-  <p align="center">
+- Set up your webhook URL on Durianpay dashboard. Listen to `order.completed` event
+
+- This URL should be whatever route your webhook is sitting on. In my case I have the route set up like so
+  `app.post("/api/dpay/webhook", DurianpayWebhook);`
+
+- Therefore my webhook url is `https://yourServerDomain/api/dpay/webhook`
+
+    <br>
+    <p align="center">
 
   <img alt="default publish site option on notion" title="deploy options provided by notion" src="https://rickithadi.com/assets/img/uploads/screenshot-2023-09-12-at-9.29.45-pm.png
-  "  >
+    "  >
 
-    </p>
+      </p>
 
 <br>
-   - Signature verification, your webhook will work without this but it is highly encouraged to make sure the events are actually yours:
+
+6.  ### Webhook Signature Verification (optional)
+   - Your webhook will work without verifying event signatures but it is highly encouraged to make sure the events are actually yours:
 
 <br>
 <div class="iframely-embed"><div class="iframely-responsive" style="padding-bottom: 50%;"><a href="https://gist.github.com/rickithadi/a646ce4bf232edd8dbd472221373ad5a" data-iframely-url="//iframely.net/KWahL1k"></a></div></div><script async src="//iframely.net/embed.js"></script>
@@ -115,6 +123,11 @@ The business impact has been fantastic, the ability to enter the indonesian mark
 
 Seeing how bigger players like stripe, square and xendit all have rather high barriers to entry and or a lack of support for the market, I would recommend Durianpay to any startup looking to break into the space.
 
+<br>
+<p align="center">
+  <img alt="default publish site option on notion" title="deploy options provided by notion" src="https://rickithadi.com/assets/img/uploads/app.playard.id_lobby_lobbyid-9t9ro78enscpy1tkhgkn-iphone-12-pro-.png    "  >
+</p>
+<br>
 Come have a look at [Playard's](https://playard.id) implementation of Durianpay. Users pay for a slot in a curated game of sport catered to their needs and preferences. There are also wallet, payout and lobby monetisation features, all of which are powered by durianpay.
 
 Join a game, sweat it out and make some friends in the process 😎
