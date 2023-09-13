@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Setting up payments with Durianpay 💰
-meta_description: durianpay integration step by step
+meta_description: Discover the hassle-free way to streamline your payment process with Durianpay! Learn step-by-step how to set up secure and efficient payments in our comprehensive guide. Optimize your transactions today!
 author: hadi_rickit
 date: 2023-08-25 13:42:22
 intro_paragraph: >-
