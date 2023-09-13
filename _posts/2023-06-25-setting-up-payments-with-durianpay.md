@@ -3,7 +3,7 @@ layout: post
 title: Setting up payments with Durianpay 💰
 meta_description: durianpay integration step by step
 author: hadi_rickit
-date: 2023-06-25 13:42:22
+date: 2023-08-25 13:42:22
 intro_paragraph: >-
   Durianpay is an Indonesian payment processor similar to global players like
   Stripe and Square. It provides entry into the Indonesian market with a
