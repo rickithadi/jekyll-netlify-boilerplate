@@ -19,10 +19,11 @@ intro_paragraph: >-
 categories: payments, indonesia, durianpay
 ---
 
- **How to integrate Durianpay Checkout**
+**How to integrate Durianpay Checkout**
+
 <p align="center">
 
-  <img alt="default publish site option on notion" title="deploy options provided by notion" src="
+<img alt="default publish site option on notion" title="deploy options provided by notion" src="
  https://rickithadi.com/assets/img/uploads/payment.png
 "  >
 
@@ -36,7 +37,7 @@ categories: payments, indonesia, durianpay
 `<script async type="text/javascript" src="https://js.durianpay.id/0.1.39/durianpay.min.js"></script>`
 <br><br>
 
-<!-- 2. ### Set up server
+2. ### Set up server
 
    - Spin up a node.js server and pull in `dpay-node-sdk` via your package manager of choice.
    - Initialise Durianpay like so:\
@@ -47,39 +48,73 @@ categories: payments, indonesia, durianpay
 
 3. ### Create endpoint to return access token
 
-   This access_token is required by the client.
+   This /create-order endpoint will generate an acces token which the client will use to initialise the checkout.
 
 <div class="iframely-embed"><div class="iframely-responsive" style="padding-bottom: 50%;"><a href="https://gist.github.com/rickithadi/9e6bf4f7ee854812229064f2ea5c0a98" data-iframely-url="//iframely.net/2Ah3zLz"></a></div></div><script async src="//iframely.net/embed.js"></script>
 <br><br>
 
 4.  ### Initialise checkout on client-side
 
-        - Create checkout with previously obtained access_token and your API key.
-        - `createDurianPayOrder` is a method that hits the create-order endpoint.
+- Create checkout with previously obtained access_token and your API key.
+- `createDurianPayOrder` is a method that hits the create-order endpoint via POST request.
 
-    <br>
-    <br>
-    <div class="iframely-embed"><div class="iframely-responsive" style="padding-bottom: 50%;"><a href="https://gist.github.com/rickithadi/4207a58a04d1d8bf7e9885b485c61ef1" data-iframely-url="//iframely.net/GQdamwZ"></a></div></div><script async src="//iframely.net/embed.js"></script>
+<br>
+<div class="iframely-embed"><div class="iframely-responsive" style="padding-bottom: 50%;"><a href="https://gist.github.com/rickithadi/4207a58a04d1d8bf7e9885b485c61ef1" data-iframely-url="//iframely.net/GQdamwZ"></a></div></div><script async src="//iframely.net/embed.js"></script>
 
 - Be sure to handle `onSuccess`, `onClose` and `onError` callbacks.
   <br><br>
 
-5. ### Webhook
+5.  ### Webhook
 
-   A known limitation I've come across is that Durianpay will force a refresh and take users to `redirect_url` if user does not click the (x) button. This results in `onSuccess`, `onClose` and `onError` callbacks not firing, meaning there is a risk of successful payment but fulfilment logic not being executed.
-  <br>
-
-According to Durianpay, setting up webhook is an optional step, but I highly recommend it. Although it does not fix the refresh, it ensures logic is fired on your backend once payments and/or orders are completed regardless of client status.
-
-- Set up URL on Durianpay dashboard
+A known limitation I've come across is that Durianpay will force a refresh and take users to `redirect_url` if user does not click the (x) button. This results in `onSuccess`, `onClose` and `onError` callbacks not firing, meaning there is a risk of successful payment but fulfilment logic not being executed.
+<br>
 
 <br>
-   - Signature verification:
+<p align="center">
+
+<img alt="default publish site option on notion" title="deploy options provided by notion" src="
+ https://rickithadi.com/assets/img/uploads/payment-success.png
+"  >
+
+  </p>
+According to Durianpay, setting up webhook a is an optional step, but I highly recommend it. Although it does not fix the refresh, it ensures logic is fired on your backend once payments and/or orders are completed regardless of client status.
+
+- Set up URL on Durianpay dashboard
+  <br>
+  <p align="center">
+
+  <img alt="default publish site option on notion" title="deploy options provided by notion" src="https://rickithadi.com/assets/img/uploads/screenshot-2023-09-12-at-9.29.45-pm.png
+  "  >
+
+    </p>
+
+<br>
+   - Signature verification, your webhook will work without this but it is highly encouraged to make sure the events are actually yours:
 
 <br>
 <div class="iframely-embed"><div class="iframely-responsive" style="padding-bottom: 50%;"><a href="https://gist.github.com/rickithadi/a646ce4bf232edd8dbd472221373ad5a" data-iframely-url="//iframely.net/KWahL1k"></a></div></div><script async src="//iframely.net/embed.js"></script>
 <br>
-   - Fire logic on event, assuming signatures tally:
+
+- Fire logic on event, assuming signatures tally:
+
 `if (event === "order.completed") {
 //onSuccess logic here
-}` -->
+}`
+
+In this use case i am adding a user to a lobby on successful payment, alter this accordingly to suit your needs.
+
+5.  ### Deployment
+
+I have this backend deployed via [fly.io](https://fly.io/) and the frontend on [vercel](https://vercel.com). Fly has been very impressive so far, similar to heroku but less salesforce bloat and a better experience all around.
+
+6.  ### Final thoughts
+
+Durianpay has an overall decent developer experience. What it lacks in documentation clarity has been more than made up for with prompt response to techincal queries. They even went as far as to add my team to a whatsapp group with some of their engineers which was and continues to be invaluable
+
+The business impact has been fantastic, the ability to enter the indonesian market and gain access to the many country specific payment options is invaluable.
+
+Seeing how bigger players like stripe, square and xendit all have rather high barriers to entry and or a lack of support for the market, I would recommend Durianpay to any startup looking to break into the space.
+
+Come have a look at [Playard's](https://playard.id) implementation of Durianpay. Users pay for a slot in a curated game of sport catered to their needs and preferences. There are also wallet, payout and lobby monetisation features, all of which are powered by durianpay.
+
+Join a game, sweat it out and make some friends in the process 😎
