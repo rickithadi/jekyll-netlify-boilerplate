@@ -1,8 +1,9 @@
 ---
 layout: page
 title: About Me
-meta_description: Hadi Rickit is an experienced Full Stack Engineer based in
-  Singapore specializing in end to end tech solutions. Find out more about him.
+meta_description: Hadi Rickit is an experienced Full Stack Engineer currently
+  based in Southeast Asia specializing in end to end tech solutions. Find out
+  more about him.
 permalink: /about
 section: about
 intro_paragraph: I have a demonstrated track record of delivering quality
