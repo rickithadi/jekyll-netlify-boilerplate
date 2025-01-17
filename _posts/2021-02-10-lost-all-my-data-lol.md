@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Lost all my data lol
+title: Lost all my data, a lesson learnt using hosted database solutions
 meta_description: please check your emails and don't be like me
 author: hadi_rickit
 date: 2021-02-10 13:06:12
