@@ -1,18 +1,96 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO Meta Tags -->
   {% if page.section == "home" %}
-    <title>{{ site.title }}</title>
-    <meta name="description" content="{{ site.description }}">
+  <title>{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
   {% else %}
-    <title>{{ page.title }}</title>
-    {% if page.meta_description %}
-      <meta name="description" content="{{ page.meta_description }}">
-    {% endif %}
+  <title>{{ page.title }} | {{ site.title }}</title>
+  {% if page.meta_description %}
+  <meta name="description" content="{{ page.meta_description }}">
+  {% else %}
+  <meta name="description" content="{{ site.description }}">
   {% endif %}
-  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  {% endif %}
+
+  <!-- Author and Keywords -->
+  <meta name="author" content="Hadi Rickit">
+  <meta name="keywords"
+    content="Hadi Rickit, Software Engineer, Cybersecurity Expert, Melbourne Software Developer, Beautiful Software Design, Scalable Systems, Security Auditing, Penetration Testing, Software Craftsmanship, Design Excellence, Robust Software Systems, Australia">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  {% if page.section == "home" %}
+  <meta property="og:title" content="{{ site.title }}">
+  <meta property="og:description" content="{{ site.description }}">
+  {% else %}
+  <meta property="og:title" content="{{ page.title }} | {{ site.title }}">
+  {% if page.meta_description %}
+  <meta property="og:description" content="{{ page.meta_description }}">
+  {% else %}
+  <meta property="og:description" content="{{ site.description }}">
+  {% endif %}
+  {% endif %}
+  <meta property="og:site_name" content="{{ site.title }}">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:url" content="{{ site.url }}{{ page.url }}">
+  {% if page.section == "home" %}
+  <meta property="twitter:title" content="{{ site.title }}">
+  <meta property="twitter:description" content="{{ site.description }}">
+  {% else %}
+  <meta property="twitter:title" content="{{ page.title }} | {{ site.title }}">
+  {% if page.meta_description %}
+  <meta property="twitter:description" content="{{ page.meta_description }}">
+  {% else %}
+  <meta property="twitter:description" content="{{ site.description }}">
+  {% endif %}
+  {% endif %}
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Hadi Rickit",
+    "url": "{{ site.url }}",
+    "sameAs": [
+      "https://github.com/{{ site.github_username }}",
+      "https://linkedin.com/in/{{ site.linkedin_username }}",
+      "https://twitter.com/{{ site.twitter_username }}"
+    ],
+    "jobTitle": "Software Engineer & Cybersecurity Expert",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Gallifrey Consulting"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Melbourne",
+      "addressRegion": "Victoria",
+      "addressCountry": "Australia"
+    },
+    "description": "{{ site.description }}",
+    "email": "{{ site.email }}",
+    "knowsAbout": ["Software Engineering", "Cybersecurity", "Penetration Testing", "Security Auditing", "Beautiful Software Design", "Scalable Systems", "Software Craftsmanship", "Design Excellence", "Full Stack Development", "Web Development", "JavaScript", "Python", "React", "Node.js"],
+    "hasCredential": "Master's in Cybersecurity (in progress)",
+    "workLocation": "Global Remote"
+  }
+  </script>
+
+  <link rel="stylesheet" href="{{ " /assets/main.css" | relative_url }}">
   {% if jekyll.environment == 'production' and site.analytics %}
-    {% include analytics.html %}
+  {% include analytics.html %}
   {% endif %}
   <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>

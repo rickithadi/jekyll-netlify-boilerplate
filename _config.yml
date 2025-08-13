@@ -13,12 +13,19 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Hadi Rickit | Builder of Things
+title: Hadi Rickit | Software Engineer & Security Expert
 email: rickithadi@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Hadi Rickit is an experienced Full Stack Engineer based in Singapore specializing in end to end tech solutions.
+  Hadi Rickit is a Software Engineer and Cybersecurity Expert based in Melbourne, Australia, specializing in crafting beautiful, scalable, and secure software systems. Currently pursuing a Master's in Cybersecurity.
 baseurl: "" # the subpath of your site if applicable, e.g. /blog
-url: "https://rickithadi.com" # the base hostname & protocol for your site, e.g. https://example.com
+url: "https://rickithadi.dev" # the base hostname & protocol for your site, e.g. https://example.com
+
+# SEO and Social Media
+author: Hadi Rickit
+twitter_username: rickithadi
+github_username: rickithadi
+linkedin_username: hadi-rickit
+location: Melbourne, Australia
 
 # Permalink format (/blog/ is ignored for pages)
 permalink: /blog/:title
