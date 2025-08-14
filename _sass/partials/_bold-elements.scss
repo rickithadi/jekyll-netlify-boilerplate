@@ -1,0 +1,823 @@
+// Bold Design Elements - Sharp contrast to soft elements
+
+// Bold typography system
+.bold-heading {
+  font-family: $font-primary;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  color: $primary-charcoal;
+  text-transform: none;
+
+  &.bold-heading--xl {
+    font-size: clamp(4rem, 8vw, 8rem);
+    margin-bottom: 2rem;
+  }
+
+  &.bold-heading--lg {
+    font-size: clamp(3rem, 6vw, 6rem);
+    margin-bottom: 1.5rem;
+  }
+
+  &.bold-heading--md {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    margin-bottom: 1rem;
+  }
+}
+
+// High contrast sections
+.section-bold {
+  background: $primary-charcoal;
+  color: $text-negative;
+  position: relative;
+
+  .bold-heading {
+    color: $text-negative;
+  }
+
+  p,
+  .section-intro {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .section-number {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+// Sharp geometric dividers
+.sharp-divider {
+  height: 8px;
+  background: $primary-charcoal;
+  margin: 0;
+  position: relative;
+
+  &.sharp-divider--angled {
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+  }
+
+  &.sharp-divider--zigzag {
+    background: linear-gradient(
+      45deg,
+      $primary-charcoal 25%,
+      transparent 25%,
+      transparent 75%,
+      $primary-charcoal 75%
+    );
+    background-size: 20px 20px;
+  }
+}
+
+// Bold button system
+.btn-bold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 4rem;
+  background: $primary-charcoal;
+  color: $text-negative;
+  border: none;
+  font-family: $font-primary;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.5s ease;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(28, 28, 28, 0.3);
+
+    &::before {
+      left: 100%;
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  // Bold outline variant
+  &.btn-bold--outline {
+    background: transparent;
+    color: $primary-charcoal;
+    border: 3px solid $primary-charcoal;
+
+    &:hover {
+      background: $primary-charcoal;
+      color: $text-negative;
+    }
+  }
+
+  // Bold accent variant
+  &.btn-bold--accent {
+    background: $clay-orange;
+    color: $text-negative;
+
+    &:hover {
+      background: darken($clay-orange, 15%);
+      box-shadow: 0 8px 25px rgba(217, 101, 74, 0.4);
+    }
+  }
+}
+
+// Sharp card system
+.card-bold {
+  background: $background-primary;
+  border: 3px solid $primary-charcoal;
+  padding: 3rem;
+  position: relative;
+  transition: all 0.3s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: $clay-orange;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(28, 28, 28, 0.15);
+    border-color: $clay-orange;
+  }
+
+  .card-bold__header {
+    margin-bottom: 2rem;
+
+    h3 {
+      font-family: $font-primary;
+      font-weight: 700;
+      font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+      color: $primary-charcoal;
+      margin: 0 0 1rem 0;
+      line-height: 1.1;
+    }
+  }
+
+  .card-bold__content {
+    color: $text-secondary;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+}
+
+// Bold typography emphasis
+.text-bold {
+  font-weight: 700;
+  color: $primary-charcoal;
+
+  &.text-bold--accent {
+    color: $clay-orange;
+  }
+
+  &.text-bold--large {
+    font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+    line-height: 1.2;
+  }
+}
+
+// Sharp geometric shapes
+.geometric-shape {
+  position: absolute;
+  pointer-events: none;
+
+  &.geometric-shape--triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 87px solid $clay-orange;
+    opacity: 0.1;
+  }
+
+  &.geometric-shape--square {
+    width: 80px;
+    height: 80px;
+    background: $primary-charcoal;
+    opacity: 0.05;
+    transform: rotate(45deg);
+  }
+
+  &.geometric-shape--line {
+    width: 200px;
+    height: 4px;
+    background: $clay-orange;
+    opacity: 0.3;
+  }
+}
+
+// Bold section headers
+.section-header-bold {
+  text-align: left;
+  margin-bottom: 4rem;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -2rem;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: $clay-orange;
+  }
+
+  .section-number {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $clay-orange;
+    margin-bottom: 1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-family: $font-primary;
+    font-weight: 700;
+    font-size: clamp(3rem, 5vw, 5rem);
+    color: $primary-charcoal;
+    margin: 0 0 1.5rem 0;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+
+  .section-intro {
+    font-size: clamp(1.6rem, 2vw, 1.8rem);
+    color: $text-secondary;
+    font-weight: 400;
+    line-height: 1.4;
+    max-width: 70rem;
+  }
+}
+
+// Bold navigation elements
+.nav-bold {
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: $primary-charcoal;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    i {
+      margin-right: 0.8rem;
+      font-size: 1.2em;
+      color: $clay-orange;
+      transition: all 0.3s ease;
+    }
+
+    span {
+      transition: all 0.3s ease;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: $clay-orange;
+      transition: width 0.3s ease;
+    }
+
+    &:hover {
+      color: $clay-orange;
+
+      i {
+        transform: translateY(-2px);
+        color: $primary-charcoal;
+      }
+
+      span {
+        transform: translateY(-1px);
+      }
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &.active {
+      color: $clay-orange;
+
+      i {
+        color: $primary-charcoal;
+      }
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Bold hero styling
+.hero-bold {
+  background: $primary-charcoal;
+  color: $text-negative;
+
+  .hero-text h1 {
+    font-weight: 700;
+    font-size: clamp(4rem, 8vw, 8rem);
+    line-height: 0.9;
+    color: $text-negative;
+    margin-bottom: 3rem;
+  }
+
+  .intro {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+  }
+}
+
+// Bold work grid
+.work-grid-bold {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+
+  @media screen and (min-width: $screen-md-min) {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .work-card-bold {
+    background: $background-primary;
+    border: 3px solid $primary-charcoal;
+    padding: 3rem;
+    position: relative;
+    transition: all 0.3s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: $clay-orange;
+    }
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(28, 28, 28, 0.2);
+      border-color: $clay-orange;
+    }
+
+    .work-number {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: $clay-orange;
+      margin-bottom: 1rem;
+      letter-spacing: 0.2em;
+    }
+
+    h3 {
+      font-family: $font-primary;
+      font-weight: 700;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      color: $primary-charcoal;
+      margin: 0 0 2rem 0;
+      line-height: 1.1;
+    }
+
+    .work-description {
+      color: $text-secondary;
+      font-size: 1.5rem;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
+
+    .work-link {
+      @extend .btn-bold;
+      padding: 1.5rem 3rem;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+// Bold contrast animations
+@keyframes boldPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+.bold-pulse {
+  animation: boldPulse 2s ease-in-out infinite;
+}
+
+// Bold focus states
+.bold-focus {
+  &:focus {
+    outline: 3px solid $clay-orange;
+    outline-offset: 3px;
+  }
+}
+
+// About page specific styles
+.about-section {
+  padding: 6rem 0;
+  position: relative;
+
+  @media screen and (min-width: $screen-md-min) {
+    padding: 8rem 0;
+  }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-top: 4rem;
+
+  @media screen and (min-width: $screen-md-min) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+  }
+}
+
+.skill-card {
+  &.skill-card--bold {
+    @extend .card-bold;
+    text-align: center;
+    padding: 4rem 2rem;
+
+    .skill-icon {
+      font-size: 4rem;
+      color: $clay-orange;
+      margin-bottom: 2rem;
+    }
+
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.4rem;
+      color: $text-secondary;
+    }
+  }
+}
+
+.values-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  margin-top: 4rem;
+
+  @media screen and (min-width: $screen-md-min) {
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+
+  .value-icon {
+    font-size: 3rem;
+    color: $clay-orange;
+    margin-bottom: 2rem;
+  }
+}
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 4rem;
+
+  @media screen and (min-width: $screen-md-min) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+  }
+}
+
+.interest-card {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: $background-primary;
+  border: 2px solid $primary-charcoal;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: $clay-orange;
+    box-shadow: 0 10px 30px rgba(28, 28, 28, 0.1);
+  }
+
+  .interest-icon {
+    font-size: 3rem;
+    color: $clay-orange;
+    margin-bottom: 1.5rem;
+  }
+
+  h3 {
+    font-family: $font-primary;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: $primary-charcoal;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: $text-secondary;
+    font-size: 1.3rem;
+  }
+}
+
+.about-closing {
+  margin-top: 6rem;
+  text-align: center;
+
+  p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: $text-secondary;
+    margin-bottom: 4rem;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.cta-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+
+  @media screen and (min-width: $screen-md-min) {
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  .btn-bold,
+  .btn {
+    i {
+      margin-right: 1rem;
+      font-size: 1.2em;
+    }
+  }
+}
+
+// Responsive bold typography
+@media screen and (max-width: $screen-sm-min) {
+  .bold-heading {
+    &.bold-heading--xl {
+      font-size: clamp(3rem, 10vw, 5rem);
+    }
+
+    &.bold-heading--lg {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+    }
+  }
+
+  .section-header-bold h2 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .interests-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Contact page specific styles
+.contact-hero {
+  padding: 8rem 0;
+}
+
+.contact-methods {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-top: 4rem;
+
+  @media screen and (min-width: $screen-md-min) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+  }
+}
+
+.contact-method-card {
+  @extend .card-bold;
+  text-align: center;
+  padding: 4rem 3rem;
+
+  .method-icon {
+    font-size: 4rem;
+    color: $clay-orange;
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: $text-negative;
+  }
+
+  p {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.contact-main {
+  padding: 8rem 0;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6rem;
+  align-items: start;
+
+  @media screen and (min-width: $screen-lg-min) {
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+  }
+}
+
+.contact-form-header,
+.calendly-section {
+  margin-bottom: 3rem;
+
+  .section-number {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $clay-orange;
+    margin-bottom: 1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-family: $font-primary;
+    font-weight: 700;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: $primary-charcoal;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.1;
+
+    i {
+      margin-right: 1rem;
+      color: $clay-orange;
+    }
+  }
+
+  p {
+    font-size: 1.5rem;
+    color: $text-secondary;
+    line-height: 1.5;
+  }
+}
+
+.contact-info {
+  padding: 8rem 0;
+}
+
+.contact-info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  margin-top: 4rem;
+
+  @media screen and (min-width: $screen-md-min) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
+  }
+}
+
+.contact-info-card {
+  text-align: center;
+  padding: 4rem 3rem;
+  background: $background-primary;
+  border: 3px solid $primary-charcoal;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: $clay-orange;
+    box-shadow: 0 15px 40px rgba(28, 28, 28, 0.15);
+  }
+
+  .info-icon {
+    font-size: 4rem;
+    color: $clay-orange;
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    font-family: $font-primary;
+    font-weight: 700;
+    font-size: 2rem;
+    color: $text-negative;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+  }
+
+  .info-detail {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+  }
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 6rem;
+  align-items: center;
+
+  @media screen and (min-width: $screen-md-min) {
+    flex-direction: row;
+    justify-content: center;
+    gap: 4rem;
+  }
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 2rem 3rem;
+  background: transparent;
+  color: $text-negative;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  font-family: $font-primary;
+  font-weight: 600;
+  font-size: 1.4rem;
+  transition: all 0.3s ease;
+  border-radius: 0;
+
+  &:hover {
+    border-color: $clay-orange;
+    background: $clay-orange;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(217, 101, 74, 0.3);
+  }
+
+  i {
+    margin-right: 1rem;
+    font-size: 1.5em;
+  }
+
+  span {
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+}

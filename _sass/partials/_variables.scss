@@ -1,34 +1,56 @@
-// Editorial Monochromatic Palette - Faculty Dept Inspired
-$primary-black: #000000;
+// Warm Professional Palette - Brand Aligned
+$primary-charcoal: #1c1c1c;
 $primary-gray: #333333;
 $accent-gray: #666666;
 $subtle-accent: #999999;
 
-$text-primary: #000000;
+$text-primary: #1c1c1c;
 $text-secondary: #666666;
 $text-muted: #999999;
 $text-light: #cccccc;
 $text-negative: #ffffff;
 
-$background-primary: #ffffff;
-$background-secondary: #fafafa;
-$background-accent: #f5f5f5;
-$background-dark: #000000;
+$background-primary: #f8f6f2; // Light cream
+$background-secondary: #e6dfd6; // Warm beige
+$background-accent: #ffffff; // White cards
+$background-dark: #1c1c1c;
 
-$border-light: #f0f0f0;
-$border-medium: #e0e0e0;
+$border-light: #e6dfd6;
+$border-medium: #d6d1c9;
 $border-dark: #cccccc;
 
-$success-color: #000000;
+// Brand accent colors
+$clay-orange: #d9654a; // Primary CTA color
+$soft-gray: #d6d1c9; // Secondary button color
+
+// Soft accent colors for balance
+$soft-lavender: #e8e4f3; // Gentle purple accent
+$sage-green: #e8f2e8; // Soft green accent
+$dusty-rose: #f2e8e8; // Warm pink accent
+$soft-blue: #e4f0f7; // Gentle blue accent
+$warm-cream: #faf8f5; // Warmer background option
+
+// Soft shadows and depth
+$shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+$shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+$shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.15);
+
+// Border radius values for softening
+$radius-small: 4px;
+$radius-medium: 8px;
+$radius-large: 12px;
+$radius-xl: 16px;
+
+$success-color: #1c1c1c;
 $warning-color: #666666;
 $error-color: #333333;
 
-$selection-bg-color: rgba(0, 0, 0, 0.1);
+$selection-bg-color: rgba(28, 28, 28, 0.1);
 
 // Legacy color mappings for compatibility
 $text-color: $text-primary;
-$brand-color: $primary-black;
-$link-color: $primary-black;
+$brand-color: $primary-charcoal;
+$link-color: $primary-charcoal;
 $link-hover-color: $accent-gray;
 $grey-bg-color: $background-secondary;
 $hairline-color: $border-light;
@@ -45,7 +67,7 @@ $code-font: $font-mono;
 $base-font-size: 62.5%;
 $base-font-weight: 300;
 $bold-font-weight: 500;
-$base-line-height: 1.4;
+$base-line-height: 1.6;
 
 // Typography scale
 $font-size-xs: 1.2rem;

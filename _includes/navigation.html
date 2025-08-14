@@ -1,11 +1,17 @@
 {% assign navurl = page.url | remove: 'index.html' %}
-<ul>
-{% for item in include.navigation %}
+<ul class="nav-bold">
+  {% for item in include.navigation %}
   <li>
-    <a href="{{ item.url }}"{% if item.url == navurl %} data-current="current page"{% endif %}>{{ item.text }}</a>
+    <a href="{{ item.url }}" class="nav-link{% if item.url == navurl %} active{% endif %}" {% if item.url==navurl %}
+      data-current="current page" {% endif %}>
+      {% if item.icon %}
+      <i class="{{ item.icon }}"></i>
+      {% endif %}
+      <span>{{ item.text }}</span>
+    </a>
     {% if item.subitems %}
-      {% include navigation.html navigation=item.subitems %}
+    {% include navigation.html navigation=item.subitems %}
     {% endif %}
   </li>
-{% endfor %}
+  {% endfor %}
 </ul>

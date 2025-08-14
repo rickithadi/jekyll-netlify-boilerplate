@@ -38,9 +38,9 @@ h5,
 h6 {
   font-family: $font-primary;
   font-weight: $base-font-weight;
-  line-height: 1.1;
+  line-height: 1.2;
   color: $text-primary;
-  letter-spacing: -0.02em;
+  letter-spacing: 0em;
   margin: 0;
   padding: 0;
 }
@@ -261,7 +261,7 @@ table {
 
 // Focus states
 :focus {
-  outline: 2px solid $primary-black;
+  outline: 2px solid $primary-charcoal;
   outline-offset: 2px;
 }
 

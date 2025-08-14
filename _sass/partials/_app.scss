@@ -55,7 +55,7 @@ header > h1 {
     }
   }
   a:hover {
-    color: $primary-black;
+    color: $primary-charcoal;
   }
 }
 
@@ -89,12 +89,12 @@ header > nav {
           padding: 1rem;
         }
         &[data-current="current page"] {
-          color: $primary-black;
+          color: $primary-charcoal;
           font-weight: 600;
         }
       }
       a:hover {
-        color: $primary-black;
+        color: $primary-charcoal;
         text-decoration: none !important;
         text-decoration-line: none !important;
       }
