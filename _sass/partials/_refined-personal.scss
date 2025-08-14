@@ -1,0 +1,602 @@
+// Refined Personal & Sophisticated Design Elements
+
+// Subtle parallax background elements (replacing floating shapes)
+.parallax-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+
+  .element {
+    position: absolute;
+    opacity: 0.015;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    &.element--circle {
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, $clay-orange 0%, transparent 70%);
+      border-radius: 50%;
+      top: 15%;
+      right: 10%;
+      filter: blur(1px);
+    }
+
+    &.element--organic {
+      width: 150px;
+      height: 150px;
+      background: $soft-gray;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      bottom: 20%;
+      left: 8%;
+      filter: blur(0.5px);
+    }
+  }
+}
+
+// Refined hero section
+.hero-refined {
+  padding: 10rem 0;
+  position: relative;
+  overflow: hidden;
+
+  @media screen and (max-width: $screen-md-min) {
+    padding: 8rem 0;
+  }
+
+  .hero-refined__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+
+    @media screen and (min-width: $screen-lg-min) {
+      grid-template-columns: 1fr 1fr;
+      gap: 8rem;
+    }
+  }
+
+  .hero-refined__content {
+    order: 2;
+
+    @media screen and (min-width: $screen-lg-min) {
+      order: 1;
+    }
+  }
+
+  .hero-refined__avatar {
+    order: 1;
+    display: flex;
+    justify-content: center;
+
+    @media screen and (min-width: $screen-lg-min) {
+      order: 2;
+      justify-content: flex-end;
+    }
+  }
+}
+
+// Sophisticated greeting (no continuous animation)
+.greeting-refined {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+
+  .greeting-emoji {
+    font-size: 3.2rem;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-origin: 70% 70%;
+    display: inline-block;
+    cursor: default;
+
+    &:hover {
+      transform: rotate(15deg) scale(1.1);
+    }
+  }
+
+  h1 {
+    font-family: $font-primary;
+    font-weight: 400;
+    font-size: clamp(3.8rem, 6vw, 6.4rem);
+    line-height: 1.05;
+    color: $text-primary;
+    margin: 0;
+    letter-spacing: -0.025em;
+    transition: letter-spacing 0.3s ease;
+
+    &:hover {
+      letter-spacing: -0.015em;
+    }
+  }
+}
+
+// Refined personal badges
+.badges-refined {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 3.5rem;
+
+  .badge-refined {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(217, 101, 74, 0.08);
+    color: $clay-orange;
+    border-radius: 3rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    border: 1px solid rgba(217, 101, 74, 0.15);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    letter-spacing: 0.02em;
+
+    &:hover {
+      background: rgba(217, 101, 74, 0.12);
+      border-color: rgba(217, 101, 74, 0.25);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(217, 101, 74, 0.15);
+    }
+  }
+}
+
+// Sophisticated avatar styling
+.avatar-refined {
+  position: relative;
+  display: inline-block;
+
+  .avatar-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+    filter: grayscale(0.1);
+
+    @media screen and (max-width: $screen-md-min) {
+      width: 240px;
+      height: 240px;
+    }
+
+    &:hover {
+      transform: scale(1.02);
+      filter: grayscale(0);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  // Subtle background glow (no pulsing)
+  &::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    background: radial-gradient(
+      circle,
+      rgba(217, 101, 74, 0.1) 0%,
+      transparent 70%
+    );
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+// Refined work cards
+.work-card-refined {
+  background: $background-accent;
+  padding: 3.5rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(217, 101, 74, 0.08);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, $clay-orange, rgba(217, 101, 74, 0.3));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    border-color: rgba(217, 101, 74, 0.15);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  .work-header-refined {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+
+    .work-emoji {
+      font-size: 2.8rem;
+      transition: transform 0.3s ease;
+      opacity: 0.9;
+    }
+
+    .work-title-group {
+      flex: 1;
+
+      h3 {
+        font-family: $font-primary;
+        font-weight: 400;
+        font-size: 2.4rem;
+        color: $text-primary;
+        margin: 0 0 0.8rem 0;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+      }
+
+      .work-meta-refined {
+        font-size: 1.3rem;
+        color: $clay-orange;
+        font-weight: 400;
+        opacity: 0.8;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+    }
+  }
+
+  .work-story {
+    color: $text-secondary;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    font-style: italic;
+    opacity: 0.9;
+    border-left: 2px solid rgba(217, 101, 74, 0.2);
+    padding-left: 2rem;
+  }
+
+  .work-tech-refined {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+
+    .tech-badge {
+      padding: 0.6rem 1.4rem;
+      background: rgba(102, 102, 102, 0.06);
+      color: $text-secondary;
+      border-radius: 2rem;
+      font-size: 1.2rem;
+      font-weight: 400;
+      border: 1px solid rgba(102, 102, 102, 0.1);
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: rgba(102, 102, 102, 0.1);
+        border-color: rgba(102, 102, 102, 0.2);
+      }
+    }
+  }
+}
+
+// Refined section headers
+.section-header-refined {
+  text-align: center;
+  margin-bottom: 6rem;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $clay-orange, transparent);
+  }
+
+  h2 {
+    font-family: $font-primary;
+    font-weight: 300;
+    font-size: clamp(3rem, 4vw, 4.5rem);
+    color: $text-primary;
+    margin: 0 0 2rem 0;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .section-intro {
+    font-size: 1.9rem;
+    color: $text-secondary;
+    line-height: 1.7;
+    max-width: 65rem;
+    margin: 0 auto;
+    opacity: 0.9;
+  }
+
+  .section-emoji {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    opacity: 0.8;
+  }
+}
+
+// Refined blog post cards
+.post-card-refined {
+  background: $background-accent;
+  padding: 3rem;
+  border-radius: 0.6rem;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  border: 1px solid rgba(217, 101, 74, 0.06);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    border-color: rgba(217, 101, 74, 0.12);
+  }
+
+  .post-date-refined {
+    font-size: 1.1rem;
+    color: $clay-orange;
+    font-weight: 400;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.8;
+  }
+
+  .post-title-refined {
+    font-family: $font-primary;
+    font-weight: 400;
+    font-size: 1.9rem;
+    color: $text-primary;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $clay-orange;
+      }
+    }
+  }
+
+  .post-excerpt-refined {
+    color: $text-secondary;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .read-more-refined {
+    color: $clay-orange;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    letter-spacing: 0.02em;
+
+    &:hover {
+      color: darken($clay-orange, 10%);
+      letter-spacing: 0.04em;
+    }
+
+    &::after {
+      content: " →";
+      transition: transform 0.3s ease;
+      display: inline-block;
+    }
+
+    &:hover::after {
+      transform: translateX(4px);
+    }
+  }
+}
+
+// Refined button interactions (no shimmer)
+.btn-refined {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 3rem;
+  border-radius: 3rem;
+  text-decoration: none;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  border: 2px solid transparent;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(217, 101, 74, 0.2);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.btn-primary-refined {
+  background: $clay-orange;
+  color: white;
+  border-color: $clay-orange;
+
+  &:hover {
+    background: transparent;
+    color: $clay-orange;
+    border-color: $clay-orange;
+  }
+}
+
+.btn-secondary-refined {
+  background: transparent;
+  color: $clay-orange;
+  border-color: $clay-orange;
+
+  &:hover {
+    background: $clay-orange;
+    color: white;
+    border-color: $clay-orange;
+  }
+}
+
+// Sophisticated form elements
+.form-refined {
+  .form-group {
+    position: relative;
+    margin-bottom: 2.5rem;
+
+    &:focus-within label {
+      color: $clay-orange;
+      transform: translateY(-1px);
+    }
+  }
+
+  label {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  input,
+  textarea {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(217, 101, 74, 0.08);
+      border-color: rgba(217, 101, 74, 0.3);
+    }
+  }
+}
+
+// Scroll-triggered animations
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &.in-view {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &.in-view {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Responsive adjustments
+@media screen and (max-width: $screen-sm-min) {
+  .badges-refined {
+    justify-content: center;
+    margin-top: 2.5rem;
+
+    .badge-refined {
+      font-size: 1.2rem;
+      padding: 0.8rem 1.6rem;
+    }
+  }
+
+  .avatar-refined .avatar-image {
+    width: 220px;
+    height: 220px;
+  }
+
+  .work-header-refined {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+
+    .work-emoji {
+      font-size: 2.4rem;
+    }
+  }
+
+  .work-story {
+    border-left: none;
+    padding-left: 0;
+    text-align: center;
+  }
+}
+
+// Subtle hover effects for interactive elements
+.interactive-element {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+// Professional typography enhancements
+.refined-text {
+  &.large {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+
+  &.medium {
+    font-size: 1.5rem;
+    line-height: 1.7;
+  }
+
+  &.small {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    opacity: 0.8;
+  }
+}

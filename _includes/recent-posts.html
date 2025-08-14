@@ -1,6 +1,6 @@
 <section class="section-minimal section-minimal--white">
   <div class="container">
-    <div class="section-header-personal">
+    <div class="section-header-refined">
       <span class="section-emoji">💭</span>
       <h2>Recent Insights</h2>
       <p class="section-intro">Thoughts on software engineering, cybersecurity, and building things that matter.</p>
@@ -8,19 +8,19 @@
 
     <div class="grid-minimal grid-minimal--3">
       {% for post in site.posts limit:3 %}
-      <article class="post-card-personal">
-        <time class="post-date-personal">{{ post.date | date: "%b %Y" }}</time>
-        <h3 class="post-title-personal">
+      <article class="post-card-refined interactive-element">
+        <time class="post-date-refined">{{ post.date | date: "%b %Y" }}</time>
+        <h3 class="post-title-refined">
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         </h3>
-        <p class="post-excerpt-personal">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
-        <a href="{{ post.url | relative_url }}" class="read-more-personal">Read More</a>
+        <p class="post-excerpt-refined">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+        <a href="{{ post.url | relative_url }}" class="read-more-refined">Read More</a>
       </article>
       {% endfor %}
     </div>
 
     <div class="space-minimal--lg" style="text-align: center;">
-      <a href="/blog" class="btn-minimal btn-minimal--secondary">View All Posts</a>
+      <a href="/blog" class="btn-refined btn-secondary-refined">View All Posts</a>
     </div>
   </div>
 </section>
