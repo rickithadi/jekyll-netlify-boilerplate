@@ -2,13 +2,9 @@
 
 - text: Home
   url: /
-  icon: fas fa-home
 - text: About
   url: /about
-  icon: fas fa-user
 - text: Contact
   url: /contact
-  icon: fas fa-envelope
 - text: Blog
   url: /blog
-  icon: fas fa-blog

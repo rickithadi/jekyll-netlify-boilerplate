@@ -1,0 +1,589 @@
+// Personal & Unique Design Elements
+
+// Floating background animations
+.floating-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+
+  .shape {
+    position: absolute;
+    opacity: 0.03;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+
+    &.shape--circle {
+      width: 120px;
+      height: 120px;
+      background: $clay-orange;
+      border-radius: 50%;
+      top: 20%;
+      right: 15%;
+      animation-name: floatCircle;
+    }
+
+    &.shape--triangle {
+      width: 0;
+      height: 0;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      border-bottom: 70px solid $soft-gray;
+      top: 60%;
+      left: 10%;
+      animation-name: floatTriangle;
+      animation-duration: 25s;
+    }
+
+    &.shape--square {
+      width: 80px;
+      height: 80px;
+      background: $text-secondary;
+      transform: rotate(45deg);
+      bottom: 30%;
+      right: 25%;
+      animation-name: floatSquare;
+      animation-duration: 30s;
+    }
+  }
+}
+
+// Personal hero section
+.hero-personal {
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+
+  @media screen and (max-width: $screen-md-min) {
+    padding: 6rem 0;
+  }
+
+  .hero-personal__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+
+    @media screen and (min-width: $screen-lg-min) {
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+    }
+  }
+
+  .hero-personal__content {
+    order: 2;
+
+    @media screen and (min-width: $screen-lg-min) {
+      order: 1;
+    }
+  }
+
+  .hero-personal__avatar {
+    order: 1;
+    display: flex;
+    justify-content: center;
+
+    @media screen and (min-width: $screen-lg-min) {
+      order: 2;
+      justify-content: flex-end;
+    }
+  }
+}
+
+// Hero greeting with wave
+.hero-greeting {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  .greeting-wave {
+    font-size: 3rem;
+    animation: wave 2s ease-in-out infinite;
+    transform-origin: 70% 70%;
+    display: inline-block;
+  }
+
+  h1 {
+    font-family: $font-primary;
+    font-weight: 500;
+    font-size: clamp(3.6rem, 6vw, 6rem);
+    line-height: 1.1;
+    color: $text-primary;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+}
+
+// Personal badges
+.hero-personal__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 3rem;
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 1.6rem;
+    background: rgba(217, 101, 74, 0.1);
+    color: $clay-orange;
+    border-radius: 2rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    border: 1px solid rgba(217, 101, 74, 0.2);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba(217, 101, 74, 0.15);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// Avatar styling with animations
+.avatar-container {
+  position: relative;
+  display: inline-block;
+
+  .avatar-image {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+
+    @media screen and (max-width: $screen-md-min) {
+      width: 220px;
+      height: 220px;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .avatar-ring {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 3px solid $clay-orange;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: pulse 3s ease-in-out infinite;
+  }
+}
+
+// Enhanced work cards with personality
+.work-card-personal {
+  background: $background-accent;
+  padding: 3rem;
+  box-shadow: $shadow-soft;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, $clay-orange, $soft-gray);
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-hover;
+
+    .work-emoji {
+      transform: scale(1.2) rotate(10deg);
+    }
+  }
+
+  .work-header-personal {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    .work-emoji {
+      font-size: 3rem;
+      transition: transform 0.3s ease;
+    }
+
+    .work-title-group {
+      flex: 1;
+
+      h3 {
+        font-family: $font-primary;
+        font-weight: 500;
+        font-size: 2.2rem;
+        color: $text-primary;
+        margin: 0 0 0.5rem 0;
+        line-height: 1.2;
+      }
+
+      .work-meta-personal {
+        font-size: 1.3rem;
+        color: $clay-orange;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .work-story {
+    color: $text-secondary;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+
+  .work-tech-personal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+
+    .tech-badge {
+      padding: 0.4rem 1rem;
+      background: rgba(102, 102, 102, 0.1);
+      color: $text-secondary;
+      border-radius: 1rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+  }
+}
+
+// Personal section headers
+.section-header-personal {
+  text-align: center;
+  margin-bottom: 5rem;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, $clay-orange, $soft-gray);
+    border-radius: 2px;
+  }
+
+  h2 {
+    font-family: $font-primary;
+    font-weight: 500;
+    font-size: clamp(2.8rem, 4vw, 4rem);
+    color: $text-primary;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .section-intro {
+    font-size: 1.8rem;
+    color: $text-secondary;
+    line-height: 1.6;
+    max-width: 60rem;
+    margin: 0 auto;
+  }
+
+  .section-emoji {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+}
+
+// Animated gradient backgrounds
+.gradient-bg {
+  background: linear-gradient(
+    -45deg,
+    $background-primary,
+    $background-secondary,
+    $warm-cream,
+    $background-primary
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+// Personal blog post cards
+.post-card-personal {
+  background: $background-accent;
+  padding: 2.5rem;
+  box-shadow: $shadow-soft;
+  transition: all 0.3s ease;
+  position: relative;
+  border-left: 4px solid transparent;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-medium;
+    border-left-color: $clay-orange;
+  }
+
+  .post-date-personal {
+    font-size: 1.2rem;
+    color: $clay-orange;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .post-title-personal {
+    font-family: $font-primary;
+    font-weight: 500;
+    font-size: 1.8rem;
+    color: $text-primary;
+    margin: 0 0 1rem 0;
+    line-height: 1.3;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $clay-orange;
+      }
+    }
+  }
+
+  .post-excerpt-personal {
+    color: $text-secondary;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .read-more-personal {
+    color: $clay-orange;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: darken($clay-orange, 15%);
+      text-decoration: underline;
+    }
+
+    &::after {
+      content: " →";
+      transition: transform 0.2s ease;
+    }
+
+    &:hover::after {
+      transform: translateX(3px);
+    }
+  }
+}
+
+// Keyframe animations
+@keyframes wave {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  10%,
+  30% {
+    transform: rotate(-10deg);
+  }
+  20% {
+    transform: rotate(12deg);
+  }
+  40%,
+  60% {
+    transform: rotate(9deg);
+  }
+  50% {
+    transform: rotate(-9deg);
+  }
+  70% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.1;
+  }
+}
+
+@keyframes floatCircle {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(10px) rotate(240deg);
+  }
+}
+
+@keyframes floatTriangle {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(-15px) translateX(10px);
+  }
+  50% {
+    transform: translateY(5px) translateX(-5px);
+  }
+  75% {
+    transform: translateY(-10px) translateX(15px);
+  }
+}
+
+@keyframes floatSquare {
+  0%,
+  100% {
+    transform: rotate(45deg) translateY(0px);
+  }
+  50% {
+    transform: rotate(225deg) translateY(-25px);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// Responsive adjustments
+@media screen and (max-width: $screen-sm-min) {
+  .hero-personal__badges {
+    justify-content: center;
+    margin-top: 2rem;
+
+    .badge {
+      font-size: 1.2rem;
+      padding: 0.6rem 1.2rem;
+    }
+  }
+
+  .avatar-container .avatar-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .floating-shapes .shape {
+    &.shape--circle {
+      width: 80px;
+      height: 80px;
+    }
+
+    &.shape--triangle {
+      border-left-width: 25px;
+      border-right-width: 25px;
+      border-bottom-width: 45px;
+    }
+
+    &.shape--square {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .work-header-personal {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+
+    .work-emoji {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+// Micro-interactions for buttons
+.btn-minimal {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.5s ease;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+}
+
+// Personal touch for form elements
+.form-minimal {
+  .form-group {
+    position: relative;
+
+    &:focus-within label {
+      color: $clay-orange;
+      transform: translateY(-2px);
+    }
+  }
+
+  label {
+    transition: all 0.2s ease;
+  }
+
+  input,
+  textarea {
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(217, 101, 74, 0.1);
+    }
+  }
+}

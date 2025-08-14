@@ -1,40 +1,41 @@
-<section class="hero hero-soft">
-  <!-- Subtle organic background element -->
-  <div class="hero-organic-bg"></div>
+<section class="hero-personal section-minimal--cream">
+  <!-- Subtle animated background elements -->
+  <div class="floating-shapes">
+    <div class="shape shape--circle"></div>
+    <div class="shape shape--triangle"></div>
+    <div class="shape shape--square"></div>
+  </div>
 
-  <!-- Bold geometric shapes for contrast -->
-  <div class="geometric-shape geometric-shape--triangle" style="top: 10%; right: 15%;"></div>
-  <div class="geometric-shape geometric-shape--square" style="bottom: 20%; left: 10%;"></div>
-  <div class="geometric-shape geometric-shape--line" style="top: 60%; right: 20%; transform: rotate(-15deg);"></div>
-
-  <div class="hero-content">
-    <div class="hero-text">
-      <h1 class="bold-heading bold-heading--xl soft-text-shadow">{{ page.title }}</h1>
-      {% if page.intro_paragraph and page.intro_paragraph != '' %}
-      <p class="intro">
-        {{ page.intro_paragraph | markdownify | remove: '
-      <p>' | remove: '</p>' }}
-      </p>
-      {% endif %}
-      <div class="hero-links">
-        <a href="/about" class="btn-bold btn-bold--accent">
-          <i class="fas fa-user-circle"></i>
-          <span>About Me</span>
-        </a>
-        <a href="/contact" class="btn btn-outline soft-transition">
-          <i class="fas fa-paper-plane"></i>
-          <span>Get In Touch</span>
-        </a>
+  <div class="container">
+    <div class="hero-personal__grid">
+      <div class="hero-personal__content">
+        <div class="hero-greeting">
+          <span class="greeting-wave">👋</span>
+          <h1>{{ page.title }}</h1>
+        </div>
+        {% if page.intro_paragraph and page.intro_paragraph != '' %}
+        <p class="intro">
+          {{ page.intro_paragraph | markdownify | remove: '
+        <p>' | remove: '</p>' }}
+        </p>
+        {% endif %}
+        <div class="hero-links space-minimal--md">
+          <a href="/about" class="btn-minimal btn-minimal--primary">About Me</a>
+          <a href="/contact" class="btn-minimal">Get In Touch</a>
+        </div>
+        <div class="hero-personal__badges">
+          <span class="badge">🏄‍♂️ Surfer</span>
+          <span class="badge">⛳ Golfer</span>
+          <span class="badge">🔒 Security Expert</span>
+        </div>
       </div>
-    </div>
-    <div class="hero-avatar">
-      <img src="{{ '/assets/img/uploads/avatar.jpg' | relative_url }}" alt="Hadi Rickit"
-        class="avatar-image floating-element">
+
+      <div class="hero-personal__avatar">
+        <div class="avatar-container">
+          <img src="{{ '/assets/img/uploads/avatar.jpg' | relative_url }}" alt="Hadi Rickit" class="avatar-image">
+          <div class="avatar-ring"></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-
-<!-- Sharp divider contrasting with curved wave -->
-<div class="sharp-divider sharp-divider--angled"></div>
-<!-- Curved wave divider -->
-<div class="wave-divider wave-divider--curved"></div>
