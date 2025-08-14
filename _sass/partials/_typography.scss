@@ -1,97 +1,286 @@
-// Basic Typographic Defaults
+// Editorial Typography System - Faculty Department Inspired
 
-// set font sizes in percent on the root element
-
+// Responsive font scaling
 html {
   font-size: $base-font-size;
   @media screen and (min-width: $screen-xs-min) {
-    font-size: $base-font-size * 1.2;
+    font-size: $base-font-size * 1.1;
   }
   @media screen and (min-width: $screen-md-min) {
-    font-size: $base-font-size * 1.4;
+    font-size: $base-font-size * 1.2;
+  }
+  @media screen and (min-width: $screen-lg-min) {
+    font-size: $base-font-size * 1.3;
   }
 }
 
-// now we can specify a single font size in rem for each of our elements
-// the root breakpoints above will then scale all elements together
-
+// Base body typography
 body {
-  color: $text-color;
-  font-family: $base-font;
+  color: $text-primary;
+  font-family: $font-primary;
   line-height: $base-line-height;
   font-weight: $base-font-weight;
   font-style: normal;
-	font-variant: normal;
-  font-size: 1.6rem; // this is equivalent to 16px
+  font-variant: normal;
+  font-size: $font-size-base;
+  background-color: $background-primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-h1,h2,h3,h4,h5,h6,p,figure,time {
-  padding-bottom: 2rem;
+// Editorial heading system
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-primary;
+  font-weight: $base-font-weight;
+  line-height: 1.1;
+  color: $text-primary;
+  letter-spacing: -0.02em;
+  margin: 0;
+  padding: 0;
 }
 
-h1,h2,h3,h4,h5,h6,figure {
-  p + &,
-  figure + & {
-    padding-top: 2rem;
-  }
-}
-
-
-p.intro {
-  font-size: 2.4rem;
-  color: lighten($text-color, 40%);
-  padding-bottom: 4rem;
-  @media screen and (min-width: $screen-sm-min) {
-    padding-bottom: 4rem;
-  }
-}
-
-h1,h2,h3,h4,h5,h6 {
-  font-weight: $bold-font-weight;
-  line-height: $base-line-height / 1.3;
+h1 {
+  font-size: clamp($font-size-4xl, 6vw, $font-size-6xl);
+  margin-bottom: 4rem;
 }
 
 h2 {
-  font-size: 3.2rem;
-  padding-bottom: 4rem;
+  font-size: clamp($font-size-3xl, 5vw, $font-size-5xl);
+  margin-bottom: 3rem;
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: clamp($font-size-2xl, 3vw, $font-size-3xl);
+  margin-bottom: 2rem;
+  line-height: 1.2;
 }
 
+h4 {
+  font-size: $font-size-xl;
+  margin-bottom: 2rem;
+}
+
+h5 {
+  font-size: $font-size-lg;
+  margin-bottom: 1.5rem;
+}
+
+h6 {
+  font-size: $font-size-base;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $text-secondary;
+}
+
+// Paragraph and text elements
+p {
+  font-size: $font-size-base;
+  line-height: $base-line-height;
+  color: $text-primary;
+  margin: 0 0 2rem 0;
+  padding: 0;
+
+  &.intro {
+    font-size: clamp($font-size-xl, 3vw, $font-size-3xl);
+    color: $text-secondary;
+    margin-bottom: 4rem;
+    max-width: 60rem;
+  }
+
+  &.large {
+    font-size: $font-size-lg;
+    line-height: 1.7;
+  }
+
+  &.small {
+    font-size: $font-size-sm;
+    color: $text-secondary;
+  }
+}
+
+// Links - minimal and clean
+a,
+a:visited {
+  color: $text-primary;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: all 0.2s ease;
+  border: none;
+
+  &:hover,
+  &:active {
+    text-decoration-thickness: 2px;
+    color: $text-secondary;
+  }
+}
+
+// Code and technical elements
 code {
   font-family: $code-font;
-  font-size: 1.2rem;
-  color: $text-color;
+  font-size: 0.9em;
+  color: $text-primary;
+  background: $background-accent;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
 }
 
-strong {
+pre {
+  font-family: $code-font;
+  font-size: $font-size-sm;
+  line-height: 1.5;
+  background: $background-accent;
+  padding: 2rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 2rem 0;
+
+  code {
+    background: none;
+    padding: 0;
+  }
+}
+
+// Text formatting
+strong,
+b {
   font-weight: $bold-font-weight;
+  color: $text-primary;
+}
+
+em,
+i {
+  font-style: italic;
 }
 
 small {
-	font-size: 1.2rem;
+  font-size: $font-size-sm;
+  color: $text-secondary;
 }
 
-a,
-a:visited {
-  border-bottom: 0.05em solid $link-color;
-	text-decoration: none;
-	color: $link-color;
+// Lists - clean and minimal
+ul,
+ol {
+  margin: 0 0 2rem 0;
+  padding-left: 2rem;
+
+  li {
+    margin-bottom: 0.5rem;
+    line-height: $base-line-height;
+  }
 }
 
-a:hover,
-a:active {
-  text-decoration: none;
-  border: 0;
-  color: $link-hover-color;
+ul {
+  list-style-type: none;
+
+  li {
+    position: relative;
+
+    &:before {
+      content: "—";
+      position: absolute;
+      left: -2rem;
+      color: $text-muted;
+    }
+  }
 }
 
-header > h1 {
-  line-height: $base-line-height;
-  font-weight: $base-font-weight;
-  @media screen and (min-width: $screen-sm-min) {
+ol {
+  list-style-type: decimal;
+}
+
+// Blockquotes
+blockquote {
+  margin: 4rem 0;
+  padding: 0 0 0 4rem;
+  border-left: 2px solid $border-medium;
+  font-size: $font-size-lg;
+  line-height: 1.6;
+  color: $text-secondary;
+  font-style: italic;
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  cite {
+    display: block;
+    margin-top: 2rem;
+    font-size: $font-size-base;
+    font-style: normal;
+    color: $text-muted;
+
+    &:before {
+      content: "— ";
+    }
+  }
+}
+
+// Tables
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: $font-size-sm;
+
+  th,
+  td {
+    padding: 1rem;
     text-align: left;
+    border-bottom: 1px solid $border-light;
+  }
+
+  th {
+    font-weight: $bold-font-weight;
+    color: $text-primary;
+    background: $background-secondary;
+  }
+
+  td {
+    color: $text-secondary;
+  }
+}
+
+// Selection styling
+::selection {
+  background: $selection-bg-color;
+  color: $text-primary;
+}
+
+::-moz-selection {
+  background: $selection-bg-color;
+  color: $text-primary;
+}
+
+// Focus states
+:focus {
+  outline: 2px solid $primary-black;
+  outline-offset: 2px;
+}
+
+// Responsive typography adjustments
+@media screen and (max-width: $screen-sm-min) {
+  h1 {
+    margin-bottom: 3rem;
+  }
+
+  h2 {
+    margin-bottom: 2rem;
+  }
+
+  p.intro {
+    margin-bottom: 3rem;
+  }
+
+  blockquote {
+    padding-left: 2rem;
+    margin: 3rem 0;
   }
 }
