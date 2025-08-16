@@ -1,9 +1,14 @@
 {% assign navurl = page.url | remove: 'index.html' %}
-<nav class="nav-minimalist">
-  {% for item in include.navigation %}
-  <a href="{{ item.url }}" class="nav-link{% if item.url == navurl %} active{% endif %}" {% if item.url==navurl %}
-    data-current="current page" {% endif %}>
-    {{ item.text }}
-  </a>
-  {% endfor %}
+<nav class="navigation">
+  <div class="container">
+    <a href="/" class="nav-brand">{{ site.title }}</a>
+    <div class="nav-links">
+      {% for item in include.navigation %}
+      <a href="{{ item.url }}" class="{% if item.url == navurl %}active{% endif %}" {% if item.url==navurl %}
+        data-current="current page" {% endif %}>
+        {{ item.text }}
+      </a>
+      {% endfor %}
+    </div>
+  </div>
 </nav>

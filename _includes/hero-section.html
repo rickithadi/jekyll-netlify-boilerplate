@@ -1,35 +1,25 @@
-<section class="hero-refined section-minimal--cream">
-  <!-- Subtle parallax background elements -->
-  <div class="parallax-elements">
-    <div class="element element--circle"></div>
-    <div class="element element--organic"></div>
-  </div>
-
-  <div class="container">
-    <div class="hero-refined__grid">
-      <div class="hero-refined__content">
-        <div class="greeting-refined">
-          <span class="greeting-emoji">👋</span>
-          <h1>{{ page.title }}</h1>
-        </div>
-        {% if page.intro_paragraph and page.intro_paragraph != '' %}
-        <p class="intro refined-text large">
-          {{ page.intro_paragraph | markdownify | remove: '
-        <p>' | remove: '</p>' }}
-        </p>
-        {% endif %}
-        <div class="hero-links space-minimal--md">
-          <a href="/about" class="btn-refined btn-primary-refined">About Me</a>
-          <a href="/contact" class="btn-refined btn-secondary-refined">Get In Touch</a>
-        </div>
-
+<section class="hero section--cream">
+  <div class="hero-content">
+    <div class="hero-text fade-in">
+      <div class="greeting">
+        <span class="emoji">👋</span>
+        <h1 class="hero-title">{{ page.title }}</h1>
+      </div>
+      {% if page.intro_paragraph and page.intro_paragraph != '' %}
+      <p class="intro text-large fade-in">
+        {{ page.intro_paragraph | markdownify | remove: '
+      <p>' | remove: '</p>' }}
+      </p>
+      {% endif %}
+      <div class="hero-buttons fade-in">
+        <a href="/about" class="btn btn--primary">About Me</a>
+        <a href="/contact" class="btn btn--secondary">Get In Touch</a>
       </div>
 
-      <div class="hero-refined__avatar">
-        <div class="avatar-refined">
-          <img src="{{ '/assets/img/uploads/avatar.jpg' | relative_url }}" alt="Hadi Rickit" class="avatar-image">
-        </div>
-      </div>
+    </div>
+
+    <div class="hero-avatar fade-in">
+      <img src="{{ '/assets/img/uploads/avatar.jpg' | relative_url }}" alt="Hadi Rickit">
     </div>
   </div>
 </section>

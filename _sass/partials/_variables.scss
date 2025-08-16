@@ -1,27 +1,40 @@
-// Warm Professional Palette - Brand Aligned
-$primary-charcoal: #1c1c1c;
-$primary-gray: #333333;
-$accent-gray: #666666;
-$subtle-accent: #999999;
+// Design System Colors - Professional • Competent • Muted • Friendly • Experienced
+$charcoal-black: #1c1c1c; // Primary text, headers, footer
+$light-cream: #f8f6f2; // Main background
+$warm-beige: #e6dfd6; // Section backgrounds, subtle fills
+$soft-gray: #d6d1c9; // Secondary elements, borders
+$clay-orange: #d9654a; // Accent only (5-10% usage)
+$white: #ffffff; // Cards, overlays
 
-$text-primary: #1c1c1c;
-$text-secondary: #666666;
-$text-muted: #999999;
-$text-light: #cccccc;
+// Text Hierarchy
+$text-primary: #1c1c1c; // Main headings, body text
+$text-secondary: #4a4a4a; // Subheadings, descriptions
+$text-muted: #6b6b6b; // Meta information, captions
+$text-light: #8a8a8a; // Placeholder text, disabled states
 $text-negative: #ffffff;
 
+// Background System
 $background-primary: #f8f6f2; // Light cream
 $background-secondary: #e6dfd6; // Warm beige
 $background-accent: #ffffff; // White cards
 $background-dark: #1c1c1c;
 
+// Border System
 $border-light: #e6dfd6;
 $border-medium: #d6d1c9;
 $border-dark: #cccccc;
 
-// Brand accent colors
-$clay-orange: #d9654a; // Primary CTA color
-$soft-gray: #d6d1c9; // Secondary button color
+// Functional Colors
+$success: #2d5a27; // Success states, positive feedback
+$warning: #8b5a00; // Warning states, attention needed
+$error: #8b2635; // Error states, critical feedback
+$info: #1c4b5a; // Information, neutral feedback
+
+// Legacy compatibility
+$primary-charcoal: $charcoal-black;
+$primary-gray: #333333;
+$accent-gray: #666666;
+$subtle-accent: #999999;
 
 // Soft accent colors for balance
 $soft-lavender: #e8e4f3; // Gentle purple accent
@@ -69,11 +82,47 @@ $base-font-weight: 300;
 $bold-font-weight: 500;
 $base-line-height: 1.6;
 
-// Typography scale
-$font-size-xs: 1.2rem;
-$font-size-sm: 1.4rem;
-$font-size-base: 1.6rem;
-$font-size-lg: 1.8rem;
+// Design System Spacing Scale (8px Grid System)
+$space-xs: 0.4rem; // 4px
+$space-sm: 0.8rem; // 8px
+$space-md: 1.6rem; // 16px
+$space-lg: 2.4rem; // 24px
+$space-xl: 3.2rem; // 32px
+$space-2xl: 4.8rem; // 48px
+$space-3xl: 6.4rem; // 64px
+$space-4xl: 9.6rem; // 96px
+$space-5xl: 12.8rem; // 128px
+
+// Enhanced Typography Scale & Hierarchy
+// Display Typography (Hero sections)
+$font-size-hero: clamp(4.8rem, 8vw, 8.4rem); // 48-84px
+$font-weight-hero: 300;
+$line-height-hero: 1.05;
+$letter-spacing-hero: -0.03em;
+
+// Heading Typography
+$font-size-h1: clamp(3.6rem, 6vw, 6.4rem); // 36-64px
+$font-size-h2: clamp(2.8rem, 4vw, 4.8rem); // 28-48px
+$font-size-h3: clamp(2.2rem, 3vw, 3.2rem); // 22-32px
+$font-size-h4: clamp(1.8rem, 2.5vw, 2.4rem); // 18-24px
+
+$font-weight-headings: 400;
+$line-height-headings: 1.2;
+$letter-spacing-headings: -0.02em;
+
+// Body Typography
+$font-size-large: 1.8rem; // 18px - Intro paragraphs
+$font-size-base: 1.6rem; // 16px - Body text
+$font-size-small: 1.4rem; // 14px - Captions, meta
+$font-size-xs: 1.2rem; // 12px - Fine print
+
+$font-weight-body: 400;
+$line-height-body: 1.6;
+$letter-spacing-body: 0;
+
+// Legacy typography scale for compatibility
+$font-size-sm: $font-size-small;
+$font-size-lg: $font-size-large;
 $font-size-xl: 2rem;
 $font-size-2xl: 2.4rem;
 $font-size-3xl: 3rem;
@@ -88,8 +137,14 @@ $screen-md-min: 992px;
 $screen-lg-min: 1240px;
 $screen-xl-min: 1920px;
 
-// Container width standards - Laptop-optimized for better horizontal space usage
-$container-narrow: 100rem; // 1000px - for text-heavy content (blog posts)
-$container-standard: 140rem; // 1400px - for balanced layouts (most pages)
-$container-wide: 160rem; // 1600px - for showcase content (home page)
-$container-full: 180rem; // 1800px - for maximum width sections
+// Container width standards - Design System Aligned
+$container-narrow: 72rem; // 720px - Blog posts, forms
+$container-standard: 120rem; // 1200px - Main content
+$container-wide: 140rem; // 1400px - Hero sections
+$container-full: 160rem; // 1600px - Maximum width
+
+// Responsive Breakpoints - Design System
+$breakpoint-sm: 48rem; // 768px - Tablet
+$breakpoint-md: 64rem; // 1024px - Small desktop
+$breakpoint-lg: 80rem; // 1280px - Desktop
+$breakpoint-xl: 120rem; // 1920px - Large desktop
