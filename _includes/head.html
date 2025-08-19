@@ -18,7 +18,7 @@
   <!-- Author and Keywords -->
   <meta name="author" content="Hadi Rickit">
   <meta name="keywords"
-    content="Hadi Rickit, Software Engineer, Cybersecurity Expert, Melbourne Software Developer, Beautiful Software Design, Scalable Systems, Security Auditing, Penetration Testing, Software Craftsmanship, Design Excellence, Robust Software Systems, Australia">
+    content="Hadi Rickit, Cybersecurity Expert Melbourne, Software Engineer Australia, Security Auditing, Penetration Testing, Application Security, OWASP, Secure Software Architecture, Melbourne Cybersecurity Consultant, Security Consulting Melbourne, Cybersecurity Services Australia, Software Security Expert, Web Application Security, Security Code Review, Vulnerability Assessment">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -61,18 +61,22 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
+    "@type": ["Person", "ProfessionalService"],
     "name": "Hadi Rickit",
     "url": "{{ site.url }}",
+    "image": "{{ site.url }}/assets/img/uploads/hadi-avatar.jpg",
     "sameAs": [
       "https://github.com/{{ site.github_username }}",
       "https://linkedin.com/in/{{ site.linkedin_username }}",
-      "https://twitter.com/{{ site.twitter_username }}"
+      "https://twitter.com/{{ site.twitter_username }}",
+      "https://stackoverflow.com/users/rickithadi"
     ],
     "jobTitle": "Software Engineer & Cybersecurity Expert",
     "worksFor": {
       "@type": "Organization",
-      "name": "Gallifrey Consulting"
+      "name": "Gallifrey Consulting",
+      "url": "{{ site.url }}",
+      "description": "Independent cybersecurity consulting practice"
     },
     "address": {
       "@type": "PostalAddress",
@@ -82,11 +86,58 @@
     },
     "description": "{{ site.description }}",
     "email": "{{ site.email }}",
-    "knowsAbout": ["Software Engineering", "Cybersecurity", "Penetration Testing", "Security Auditing", "Beautiful Software Design", "Scalable Systems", "Software Craftsmanship", "Design Excellence", "Full Stack Development", "Web Development", "JavaScript", "Python", "React", "Node.js"],
-    "hasCredential": "Master's in Cybersecurity (in progress)",
-    "workLocation": "Global Remote"
+    "knowsAbout": [
+      "Software Engineering", 
+      "Cybersecurity", 
+      "Penetration Testing", 
+      "Security Auditing", 
+      "Application Security",
+      "OWASP",
+      "Secure Software Architecture",
+      "Beautiful Software Design", 
+      "Scalable Systems", 
+      "Software Craftsmanship", 
+      "Full Stack Development", 
+      "Web Development", 
+      "JavaScript", 
+      "Python", 
+      "React", 
+      "Node.js",
+      "Jekyll",
+      "WordPress",
+      "PHP"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "Master's in Cybersecurity",
+        "credentialCategory": "degree",
+        "educationalLevel": "graduate"
+      }
+    ],
+    "workLocation": "Global Remote",
+    "areaServed": {
+      "@type": "Place",
+      "name": "Worldwide"
+    },
+    "serviceType": [
+      "Security Auditing",
+      "Penetration Testing", 
+      "Software Architecture Consulting",
+      "Web Development",
+      "Cybersecurity Consulting"
+    ],
+    "award": [
+      "15+ Successful Security Audits",
+      "100% Client Satisfaction Rate"
+    ]
   }
   </script>
+
+  <!-- Editorial Typography - Faculty Dept Inspired -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;550;650&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
 

@@ -2,12 +2,15 @@
 layout: default
 ---
 
-<div class="container" style="margin-top: 10rem;">
-  <div class="page-content">
-    <h2>{{ page.title }}</h2>
-
-    {% include page-intro.html %}
-
+<section class="page-section">
+  <div class="container">
+    {% if page.section != "contact" %}
+    <div class="page-content">
+      <h2>{{ page.title }}</h2>
+      {% include page-intro.html %}
+    </div>
+    {% endif %}
+    
     {{ content }}
   </div>
-</div>
+</section>

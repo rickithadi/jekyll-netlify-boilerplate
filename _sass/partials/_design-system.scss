@@ -118,38 +118,44 @@ h4,
   color: $text-muted;
 }
 
-// Navigation Header
+// Editorial Navigation - Minimal and clean
 .navigation {
-  height: 8rem;
-  background: rgba(248, 246, 242, 0.95);
+  height: 7rem;
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(214, 209, 201, 0.3);
+  border-bottom: 1px solid $border-light;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
+  transition: all 0.3s ease;
 
   .container {
     max-width: $container-wide;
     margin: 0 auto;
-    padding: 0 $space-lg;
+    padding: 0 $space-xl;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: $breakpoint-md) {
+      padding: 0 $space-lg;
+    }
   }
 
   .nav-brand {
-    font-size: 1.8rem;
-    font-weight: 500;
-    color: $charcoal-black;
-    letter-spacing: -0.01em;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: $text-primary;
+    letter-spacing: 0;
     text-decoration: none;
-    transition: color var(--transition-base);
+    transition: all var(--transition-base);
 
     &:hover {
-      color: $clay-orange;
+      color: $text-secondary;
+      text-decoration: none;
     }
   }
 
@@ -161,118 +167,151 @@ h4,
     padding: 0;
 
     a {
-      font-size: 1.5rem;
-      font-weight: 400;
-      color: $text-secondary;
+      font-size: $font-size-small;
+      font-weight: $font-weight-regular;
+      color: $text-tertiary;
       text-decoration: none;
       position: relative;
-      transition: color var(--transition-base);
+      padding: $space-sm 0;
+      transition: all var(--transition-base);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
 
-      &:hover,
+      &:hover {
+        color: $text-primary;
+        text-decoration: none;
+      }
+
       &.active {
-        color: $clay-orange;
-      }
-
-      &.active::after {
-        content: "";
-        position: absolute;
-        bottom: -0.4rem;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: $clay-orange;
-      }
-    }
-  }
-
-  @media (max-width: $breakpoint-md) {
-    .nav-links {
-      gap: $space-lg;
-    }
-  }
-}
-
-// Hero Section
-.hero {
-  padding: 2rem 0 8rem;
-  background: $light-cream;
-  position: relative;
-  overflow: hidden;
-  margin-top: 10rem; // Account for fixed navigation + extra spacing
-
-  @media (min-width: $breakpoint-md) {
-    padding: 4rem 0 10rem;
-    margin-top: 12rem; // More spacing on larger screens
-  }
-
-  .hero-content {
-    max-width: $container-wide;
-    margin: 0 auto;
-    padding: 0 $space-lg;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8rem;
-    align-items: center;
-
-    @media (max-width: $breakpoint-md) {
-      grid-template-columns: 1fr;
-      gap: 4rem;
-      text-align: center;
-    }
-  }
-
-  .hero-text {
-    .greeting {
-      display: flex;
-      align-items: center;
-      gap: 1.6rem;
-      margin-bottom: 2.4rem;
-
-      @media (max-width: $breakpoint-md) {
-        justify-content: center;
-      }
-
-      .emoji {
-        font-size: 3.2rem;
-        transition: transform var(--transition-base);
-        cursor: default;
-
-        &:hover {
-          transform: rotate(15deg) scale(1.1);
+        color: $text-primary;
+        
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background: $text-primary;
         }
       }
     }
 
+    @media (max-width: $breakpoint-md) {
+      gap: $space-lg;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      gap: $space-md;
+      
+      a {
+        font-size: $font-size-small;
+      }
+    }
+  }
+}
+
+// Editorial Hero Section - Magazine-style layout
+.hero {
+  padding: 8rem 0 12rem;
+  background: $background-primary;
+  position: relative;
+  margin-top: 8rem; // Account for minimal navigation
+
+  @media (min-width: $breakpoint-md) {
+    padding: 10rem 0 14rem;
+    margin-top: 8rem;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    padding: 12rem 0 16rem;
+  }
+
+  .hero-content {
+    max-width: 120rem; // Slightly narrower for editorial feel
+    margin: 0 auto;
+    padding: 0 $space-2xl;
+    display: grid;
+    grid-template-columns: 1.4fr 0.6fr; // More text-focused ratio
+    gap: 8rem;
+    align-items: start; // Align to top for editorial layout
+
+    @media (max-width: $breakpoint-lg) {
+      gap: $space-4xl;
+      padding: 0 $space-xl;
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+      gap: $space-3xl;
+      text-align: left; // Keep left-aligned for editorial feel
+      padding: 0 $space-lg;
+    }
+  }
+
+  .hero-text {
+    max-width: none; // Allow full width for editorial layout
+
+    .greeting {
+      font-size: $font-size-small;
+      color: $text-quaternary;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: $space-lg;
+      font-weight: $font-weight-medium;
+
+      @media (max-width: $breakpoint-md) {
+        text-align: left;
+      }
+    }
+
     h1 {
-      margin-bottom: 2.4rem;
+      margin-bottom: $space-xl;
+      line-height: 1.1;
+      font-weight: $font-weight-medium; // Lighter for editorial feel
+      max-width: 90%; // Constrain headline width
     }
 
     .intro {
       font-size: $font-size-large;
-      line-height: 1.6;
+      line-height: 1.7;
       color: $text-secondary;
-      margin-bottom: 4rem;
-      max-width: 48rem;
+      margin-bottom: $space-2xl;
+      max-width: 85%; // Editorial constraint
+      font-weight: $font-weight-regular;
+      font-family: $font-editorial; // Use serif for intro text
+      font-style: normal;
     }
   }
 
   .hero-avatar {
     display: flex;
     justify-content: center;
+    align-items: center;
 
     img {
-      width: 32rem;
-      height: 32rem;
+      width: 36rem;
+      height: 36rem;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 2rem 4rem rgba(28, 28, 28, 0.1);
-      transition: transform 0.4s ease;
+      box-shadow: 0 $space-lg $space-4xl rgba(26, 26, 26, 0.08), 
+                  0 $space-md $space-2xl rgba(26, 26, 26, 0.04);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border: 4px solid rgba(255, 255, 255, 0.8);
 
       &:hover {
-        transform: scale(1.02);
+        transform: scale(1.02) translateY(-0.4rem);
+        box-shadow: 0 $space-xl $space-5xl rgba(26, 26, 26, 0.12),
+                    0 $space-lg $space-3xl rgba(26, 26, 26, 0.06);
       }
 
       @media (max-width: $breakpoint-md) {
+        width: 28rem;
+        height: 28rem;
+      }
+
+      @media (max-width: $breakpoint-sm) {
         width: 24rem;
         height: 24rem;
       }
@@ -280,52 +319,62 @@ h4,
   }
 }
 
-// Button System
+// Editorial Button System - Minimal and sophisticated
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1.2rem 3.2rem;
-  border-radius: 3.2rem;
-  font-size: 1.5rem;
-  font-weight: 500;
+  padding: $space-md $space-xl;
+  border-radius: 0; // Square corners for editorial feel
+  font-size: $font-size-small;
+  font-weight: $font-weight-medium;
   text-decoration: none;
-  border: 2px solid transparent;
+  border: 1px solid $border-medium;
   cursor: pointer;
-  transition: all var(--transition-base);
-  letter-spacing: 0.01em;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   font-family: $font-primary;
+  position: relative;
 
   &:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 0.8rem 2.4rem rgba(217, 101, 74, 0.2);
+    transform: none; // No transform for editorial feel
+    background: $text-primary;
+    color: $background-primary;
+    border-color: $text-primary;
+  }
+
+  &:focus {
+    outline: 1px solid $text-primary;
+    outline-offset: 2px;
   }
 
   &:active {
-    transform: translateY(0);
+    transform: none;
   }
 
-  // Primary Button
+  // Primary Button - Editorial style
   &--primary {
-    background: $clay-orange;
-    color: white;
-    border-color: $clay-orange;
+    background: $text-primary;
+    color: $background-primary;
+    border-color: $text-primary;
 
     &:hover {
-      background: transparent;
-      color: $clay-orange;
+      background: $background-primary;
+      color: $text-primary;
+      border-color: $text-primary;
     }
   }
 
-  // Secondary Button
+  // Secondary Button - Editorial style
   &--secondary {
     background: transparent;
-    color: $clay-orange;
-    border-color: $clay-orange;
+    color: $text-primary;
+    border-color: $text-primary;
 
     &:hover {
-      background: $clay-orange;
-      color: white;
+      background: $text-primary;
+      color: $background-primary;
     }
   }
 
@@ -333,24 +382,38 @@ h4,
   &--ghost {
     background: transparent;
     color: $text-secondary;
-    border-color: $soft-gray;
+    border-color: $border-medium;
 
     &:hover {
-      color: $charcoal-black;
-      border-color: $charcoal-black;
+      color: $text-primary;
+      border-color: $border-strong;
+      background: rgba(26, 26, 26, 0.02);
     }
+  }
+
+  // Large Button
+  &--large {
+    padding: $space-lg $space-3xl;
+    font-size: $font-size-medium;
+  }
+
+  // Small Button
+  &--small {
+    padding: $space-sm $space-lg;
+    font-size: $font-size-small;
   }
 }
 
-// Hero Button Group
-.hero-buttons {
+// Hero Button Group - Enhanced spacing
+.hero-links {
   display: flex;
-  gap: $space-md;
-  margin-bottom: $space-2xl;
+  gap: $space-lg;
+  margin-top: $space-md;
 
   @media (max-width: $breakpoint-sm) {
     flex-direction: column;
     align-items: center;
+    gap: $space-md;
   }
 }
 
@@ -386,14 +449,15 @@ h4,
   }
 }
 
-// Card Components
+// Enhanced Card Components
 .card {
-  background: $white;
-  border-radius: var(--radius-md);
-  padding: $space-xl;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(214, 209, 201, 0.3);
-  transition: all var(--transition-base);
+  background: $background-accent;
+  border-radius: $space-md;
+  padding: $space-2xl;
+  box-shadow: 0 $space-xs $space-lg rgba(26, 26, 26, 0.04),
+              0 $space-sm $space-xl rgba(26, 26, 26, 0.08);
+  border: 1px solid $border-light;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
   overflow: hidden;
 
@@ -403,16 +467,17 @@ h4,
     top: 0;
     left: 0;
     width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, $clay-orange, transparent);
+    height: 3px;
+    background: linear-gradient(90deg, $accent-primary, $accent-light);
     opacity: 0;
     transition: opacity var(--transition-base);
   }
 
   &:hover {
-    transform: translateY(-0.4rem);
-    box-shadow: var(--shadow-md);
-    border-color: rgba(217, 101, 74, 0.2);
+    transform: translateY(-0.6rem);
+    box-shadow: 0 $space-md $space-3xl rgba(26, 26, 26, 0.08),
+                0 $space-lg $space-4xl rgba(26, 26, 26, 0.12);
+    border-color: $border-medium;
 
     &::before {
       opacity: 1;
@@ -423,104 +488,124 @@ h4,
     display: flex;
     align-items: flex-start;
     gap: $space-lg;
-    margin-bottom: $space-lg;
+    margin-bottom: $space-xl;
 
     .card-icon {
-      font-size: 2.8rem;
-      opacity: 0.8;
+      font-size: 3.2rem;
+      opacity: 0.85;
+      color: $accent-primary;
     }
 
     .card-title {
-      font-size: 2.2rem;
-      font-weight: 400;
-      color: $charcoal-black;
-      margin: 0 0 0.8rem 0;
-      line-height: 1.3;
+      font-size: $font-size-h4;
+      font-weight: $font-weight-semibold;
+      color: $text-primary;
+      margin: 0 0 $space-sm 0;
+      line-height: $line-height-headings;
     }
 
     .card-meta {
-      font-size: 1.2rem;
-      color: $clay-orange;
+      font-size: $font-size-xs;
+      color: $accent-primary;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      font-weight: 500;
+      font-weight: $font-weight-medium;
     }
   }
 
   .card-content {
     color: $text-secondary;
     font-size: $font-size-base;
-    line-height: 1.6;
+    line-height: $line-height-body;
     margin-bottom: $space-lg;
   }
 
   .card-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-sm);
+    gap: $space-sm;
 
     .tag {
-      padding: 0.4rem 1.2rem;
-      background: rgba(107, 107, 107, 0.08);
-      color: $text-muted;
-      border-radius: 1.6rem;
-      font-size: 1.2rem;
-      font-weight: 400;
+      padding: $space-xs $space-md;
+      background: rgba(26, 26, 26, 0.06);
+      color: $text-tertiary;
+      border-radius: $space-md;
+      font-size: $font-size-xs;
+      font-weight: $font-weight-medium;
+      letter-spacing: 0.02em;
     }
   }
 }
 
-// Section Styling
+// Enhanced Section Styling
 .section {
-  padding: $space-4xl 0;
+  padding: $space-5xl 0;
 
+  &--primary {
+    background: $background-primary;
+  }
+
+  &--secondary {
+    background: $background-secondary;
+  }
+
+  &--accent {
+    background: $background-accent;
+  }
+
+  &--tertiary {
+    background: $background-tertiary;
+  }
+
+  // Legacy compatibility
   &--cream {
-    background: $light-cream;
+    background: $background-primary;
   }
 
   &--beige {
-    background: $warm-beige;
+    background: $background-secondary;
   }
 
   &--white {
-    background: $white;
+    background: $background-accent;
   }
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: $space-4xl;
+  margin-bottom: $space-5xl;
   position: relative;
 
   &::before {
     content: "";
     position: absolute;
-    top: -3rem;
+    top: -$space-xl;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, $clay-orange, transparent);
+    width: 6rem;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, $accent-primary, transparent);
+    border-radius: 1px;
   }
 
   h2 {
-    margin-bottom: $space-lg;
+    margin-bottom: $space-xl;
   }
 
   .section-intro {
-    font-size: 1.9rem;
-    color: $text-secondary;
+    font-size: $font-size-large;
+    color: $text-tertiary;
     line-height: 1.7;
-    max-width: 65rem;
+    max-width: 70rem;
     margin: 0 auto;
-    opacity: 0.9;
+    font-weight: $font-weight-regular;
   }
 
   .section-emoji {
-    font-size: 2.2rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.4rem;
+    margin-bottom: $space-lg;
     display: block;
-    opacity: 0.8;
+    opacity: 0.85;
   }
 }
 

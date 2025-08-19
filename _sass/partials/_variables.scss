@@ -1,40 +1,70 @@
-// Design System Colors - Professional • Competent • Muted • Friendly • Experienced
-$charcoal-black: #1c1c1c; // Primary text, headers, footer
-$light-cream: #f8f6f2; // Main background
-$warm-beige: #e6dfd6; // Section backgrounds, subtle fills
-$soft-gray: #d6d1c9; // Secondary elements, borders
-$clay-orange: #d9654a; // Accent only (5-10% usage)
-$white: #ffffff; // Cards, overlays
+// Editorial Color System - Faculty Dept Inspired
+// Sophisticated neutral palette with minimal color
+$editorial-black: #111111; // Deep editorial black
+$editorial-charcoal: #1c1c1c; // Rich charcoal for text
+$editorial-gray-dark: #2a2a2a; // Dark gray for secondary elements
+$editorial-gray: #4a4a4a; // Medium gray for body text
+$editorial-gray-light: #6a6a6a; // Light gray for meta text
+$editorial-gray-subtle: #8a8a8a; // Subtle gray for captions
 
-// Text Hierarchy
-$text-primary: #1c1c1c; // Main headings, body text
-$text-secondary: #4a4a4a; // Subheadings, descriptions
-$text-muted: #6b6b6b; // Meta information, captions
-$text-light: #8a8a8a; // Placeholder text, disabled states
-$text-negative: #ffffff;
+// Editorial Background System: Pure and sophisticated
+$background-primary: #ffffff; // Pure white primary background
+$background-secondary: #fafafa; // Subtle off-white for sections
+$background-tertiary: #f5f5f5; // Light gray for subtle contrast
+$background-accent: #ffffff; // White for cards and overlays
+$background-dark: #111111; // Editorial black for dark elements
 
-// Background System
-$background-primary: #f8f6f2; // Light cream
-$background-secondary: #e6dfd6; // Warm beige
-$background-accent: #ffffff; // White cards
-$background-dark: #1c1c1c;
+// Minimal Accent System: Understated and sophisticated
+$accent-primary: #2a2a2a; // Dark charcoal as primary accent
+$accent-secondary: #4a4a4a; // Medium gray as secondary accent
+$accent-subtle: rgba(42, 42, 42, 0.05); // Very subtle accent backgrounds
+$accent-border: rgba(42, 42, 42, 0.1); // Subtle borders
 
-// Border System
-$border-light: #e6dfd6;
-$border-medium: #d6d1c9;
-$border-dark: #cccccc;
+// Editorial Text Hierarchy: Clear and readable
+$text-primary: #111111; // Editorial black for headlines and emphasis
+$text-secondary: #1c1c1c; // Rich charcoal for body text
+$text-tertiary: #4a4a4a; // Medium gray for secondary text
+$text-quaternary: #6a6a6a; // Light gray for meta information
+$text-subtle: #8a8a8a; // Subtle gray for captions and fine print
+$text-inverse: #ffffff; // White text on dark backgrounds
 
-// Functional Colors
-$success: #2d5a27; // Success states, positive feedback
-$warning: #8b5a00; // Warning states, attention needed
-$error: #8b2635; // Error states, critical feedback
-$info: #1c4b5a; // Information, neutral feedback
+// Legacy compatibility placeholders - will be defined later
+// (moved to end of file after all variables are defined)
 
-// Legacy compatibility
-$primary-charcoal: $charcoal-black;
-$primary-gray: #333333;
-$accent-gray: #666666;
-$subtle-accent: #999999;
+// Semantic Background Colors (using the new system)
+$page-background: $background-primary;
+$section-background: $background-secondary;
+$card-background: $background-accent;
+$hero-background: $background-primary;
+
+// Editorial Border System - Minimal and sophisticated
+$border-light: rgba(17, 17, 17, 0.05); // Very subtle borders
+$border-medium: rgba(17, 17, 17, 0.1); // Standard borders
+$border-strong: rgba(17, 17, 17, 0.15); // Emphasized borders
+$border-accent: rgba(42, 42, 42, 0.2); // Editorial accent borders
+
+// Functional Colors - Professional and accessible
+$success: #22543d; // Deep green for success states
+$warning: #744210; // Deep amber for warnings
+$error: #742a2a; // Deep red for errors
+$info: #2a4365; // Deep blue for information
+$neutral: #4a5568; // Neutral gray for general information
+
+// Functional backgrounds (light versions)
+$success-bg: rgba(34, 84, 61, 0.1);
+$warning-bg: rgba(116, 66, 16, 0.1);
+$error-bg: rgba(116, 42, 42, 0.1);
+$info-bg: rgba(42, 67, 101, 0.1);
+$neutral-bg: rgba(74, 85, 104, 0.1);
+
+// Legacy compatibility - maintain existing variable names
+$text-negative: $text-inverse;
+$text-muted: $text-tertiary;
+$text-light: $text-quaternary;
+$primary-charcoal: $editorial-black;
+$primary-gray: $editorial-gray-dark;
+$accent-gray: $editorial-gray;
+$subtle-accent: $editorial-gray-light;
 
 // Soft accent colors for balance
 $soft-lavender: #e8e4f3; // Gentle purple accent
@@ -68,19 +98,27 @@ $link-hover-color: $accent-gray;
 $grey-bg-color: $background-secondary;
 $hairline-color: $border-light;
 
-// Editorial typography system - Faculty Dept inspired
-$font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+// Editorial Typography System - Faculty Dept Inspired
+$font-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
   "Helvetica Neue", Arial, sans-serif;
-$font-secondary: "Times New Roman", Times, serif;
-$font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
-  "Courier New", monospace;
+$font-editorial: "Crimson Text", "Times New Roman", Times, serif; // For editorial content
+$font-mono: "JetBrains Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", 
+  Consolas, "Courier New", monospace;
 
+// Editorial Font weights - refined scale
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 450; // More subtle weight progression
+$font-weight-semibold: 550;
+$font-weight-bold: 650;
+
+// Base settings
 $base-font: $font-primary;
 $code-font: $font-mono;
-$base-font-size: 62.5%;
-$base-font-weight: 300;
-$bold-font-weight: 500;
-$base-line-height: 1.6;
+$base-font-size: 62.5%; // 10px base for rem calculations
+$base-font-weight: $font-weight-regular;
+$bold-font-weight: $font-weight-semibold;
+$base-line-height: 1.65; // Enhanced readability
 
 // Design System Spacing Scale (8px Grid System)
 $space-xs: 0.4rem; // 4px
@@ -93,32 +131,35 @@ $space-3xl: 6.4rem; // 64px
 $space-4xl: 9.6rem; // 96px
 $space-5xl: 12.8rem; // 128px
 
-// Enhanced Typography Scale & Hierarchy
-// Display Typography (Hero sections)
-$font-size-hero: clamp(4.8rem, 8vw, 8.4rem); // 48-84px
-$font-weight-hero: 300;
+// Editorial Typography Scale - Magazine Inspired
+// Display Typography (Editorial headlines)
+$font-size-hero: clamp(4.8rem, 8vw, 9.6rem); // 48-96px - More dramatic scale
+$font-weight-hero: $font-weight-light;
 $line-height-hero: 1.05;
-$letter-spacing-hero: -0.03em;
+$letter-spacing-hero: -0.035em; // Tighter letter spacing for headlines
 
-// Heading Typography
+// Editorial Heading Typography - Sophisticated hierarchy
 $font-size-h1: clamp(3.6rem, 6vw, 6.4rem); // 36-64px
-$font-size-h2: clamp(2.8rem, 4vw, 4.8rem); // 28-48px
-$font-size-h3: clamp(2.2rem, 3vw, 3.2rem); // 22-32px
-$font-size-h4: clamp(1.8rem, 2.5vw, 2.4rem); // 18-24px
+$font-size-h2: clamp(2.4rem, 4vw, 3.6rem); // 24-36px - Better ratio
+$font-size-h3: clamp(2rem, 3vw, 2.8rem); // 20-28px
+$font-size-h4: clamp(1.8rem, 2.5vw, 2.2rem); // 18-22px
+$font-size-h5: clamp(1.6rem, 2vw, 1.9rem); // 16-19px
+$font-size-h6: clamp(1.4rem, 1.5vw, 1.6rem); // 14-16px
 
-$font-weight-headings: 400;
+$font-weight-headings: $font-weight-medium; // Lighter for editorial feel
 $line-height-headings: 1.2;
 $letter-spacing-headings: -0.02em;
 
-// Body Typography
-$font-size-large: 1.8rem; // 18px - Intro paragraphs
-$font-size-base: 1.6rem; // 16px - Body text
-$font-size-small: 1.4rem; // 14px - Captions, meta
-$font-size-xs: 1.2rem; // 12px - Fine print
+// Editorial Body Typography - Magazine readability
+$font-size-large: 2.1rem; // 21px - Editorial intro paragraphs
+$font-size-medium: 1.9rem; // 19px - Large body text
+$font-size-base: 1.7rem; // 17px - Standard body text (larger for readability)
+$font-size-small: 1.5rem; // 15px - Captions, meta
+$font-size-xs: 1.3rem; // 13px - Fine print
 
-$font-weight-body: 400;
-$line-height-body: 1.6;
-$letter-spacing-body: 0;
+$font-weight-body: $font-weight-regular;
+$line-height-body: 1.7; // More generous for reading comfort
+$letter-spacing-body: 0.005em; // Very subtle letter spacing
 
 // Legacy typography scale for compatibility
 $font-size-sm: $font-size-small;
@@ -148,3 +189,15 @@ $breakpoint-sm: 48rem; // 768px - Tablet
 $breakpoint-md: 64rem; // 1024px - Small desktop
 $breakpoint-lg: 80rem; // 1280px - Desktop
 $breakpoint-xl: 120rem; // 1920px - Large desktop
+
+// === LEGACY COMPATIBILITY MAPPINGS ===
+// These must be at the end after all variables are defined
+$white: $background-accent;
+$light-cream: $background-primary;
+$warm-beige: $background-secondary;
+$soft-gray: $background-tertiary;
+$clay-orange: $accent-primary;
+$charcoal-black: $editorial-black;
+$font-secondary: $font-editorial;
+$accent-dark: $accent-secondary;
+$accent-light: $accent-subtle;

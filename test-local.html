@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Test - Hadi Rickit</title>
+    <style>
+        /* Manually compiled styles for testing */
+        @import url('_site/assets/main.css');
+        
+        /* Add our new card metrics styles */
+        .card-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-metrics .metric {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background-color: #e6dfd6;
+            color: #4a4a4a;
+            border: 1px solid #e6dfd6;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .card-metrics .metric:hover {
+            background-color: #d6d1c9;
+            transform: translateY(-1px);
+        }
+
+        /* Test the contact form layout */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            max-width: 140rem;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        @media (min-width: 80rem) {
+            .contact-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 6rem;
+                padding: 0 4rem;
+            }
+        }
+
+        .page-section {
+            padding: 8rem 0;
+            background: #f8f6f2;
+            min-height: calc(100vh - 200px);
+        }
+
+        /* Button fixes */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.8rem 3.6rem;
+            border: 2px solid #1c1c1c;
+            background: transparent;
+            color: #1c1c1c;
+            text-decoration: none;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-weight: 500;
+            font-size: 1.6rem;
+            line-height: 1;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            min-width: 16rem;
+            border-radius: 8px;
+        }
+
+        .btn:hover {
+            background: #1c1c1c;
+            color: #ffffff;
+            transform: translateY(-3px);
+        }
+
+        .btn--primary,
+        .btn-primary {
+            background: #d9654a;
+            color: #ffffff;
+            border-color: #d9654a;
+        }
+
+        .btn--primary:hover,
+        .btn-primary:hover {
+            background: #c55a42;
+            color: #ffffff;
+            border-color: #c55a42;
+        }
+    </style>
+</head>
+<body>
+    <h1>Local Testing Page</h1>
+    <p>This page is for testing our styling changes locally.</p>
+    
+    <h2>Card Metrics Test</h2>
+    <div class="card-metrics">
+        <span class="metric">🚀 95+ PageSpeed Score</span>
+        <span class="metric">📱 Fully Responsive</span>
+        <span class="metric">⚡ Sub-2s Load Time</span>
+    </div>
+
+    <h2>Button Test</h2>
+    <a href="#" class="btn btn--primary">Primary Button</a>
+    <a href="#" class="btn btn--secondary">Secondary Button</a>
+
+    <h2>Contact Form Test</h2>
+    <div class="contact-container">
+        <div class="contact-left">
+            <h2>Get in touch</h2>
+            <p>Test contact section layout</p>
+        </div>
+        <div class="contact-right">
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <p><a href="_site/index.html">View the actual built site</a></p>
+</body>
+</html>

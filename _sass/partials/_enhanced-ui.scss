@@ -70,7 +70,8 @@
   }
 
   // Primary button - clay orange for main actions
-  &.btn-primary {
+  &.btn-primary,
+  &.btn--primary {
     background: $clay-orange;
     color: $text-negative;
     border-color: $clay-orange;
@@ -89,10 +90,11 @@
   }
 
   // Outline button - secondary actions with soft gray
-  &.btn-outline {
+  &.btn-outline,
+  &.btn--secondary {
     border-color: $soft-gray;
     color: $text-primary;
-    background: $soft-gray;
+    background: transparent;
 
     &:hover {
       background: $primary-charcoal;
@@ -1071,6 +1073,202 @@
       margin-left: 0.8rem;
       font-size: 1.2rem;
     }
+  }
+}
+
+// Page layout consistency
+.page-section {
+  padding: 8rem 0;
+  background: $background-primary;
+  min-height: calc(100vh - 200px);
+  
+  @media screen and (min-width: $screen-md-min) {
+    padding: 10rem 0;
+  }
+  
+  &.page-section--contact {
+    padding: 6rem 0;
+    
+    @media screen and (min-width: $screen-md-min) {
+      padding: 8rem 0;
+    }
+  }
+}
+
+// Grid system fixes
+.grid {
+  display: grid;
+  gap: 2rem;
+  
+  &.grid--2-cols {
+    grid-template-columns: 1fr;
+    
+    @media screen and (min-width: $screen-md-min) {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+  }
+  
+  &.grid--3-cols {
+    grid-template-columns: 1fr;
+    
+    @media screen and (min-width: $screen-sm-min) {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    @media screen and (min-width: $screen-md-min) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+
+// Section system
+.section {
+  padding: 6rem 0;
+  
+  &.section--beige {
+    background: $background-secondary;
+  }
+  
+  &.section--white {
+    background: $background-accent;
+  }
+  
+  @media screen and (min-width: $screen-md-min) {
+    padding: 8rem 0;
+  }
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  
+  .section-emoji {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  
+  h2 {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-weight: $base-font-weight;
+    margin-bottom: 1.5rem;
+    color: $text-primary;
+  }
+  
+  .section-intro {
+    font-size: 1.6rem;
+    color: $text-secondary;
+    max-width: 60rem;
+    margin: 0 auto;
+  }
+}
+
+// Card system
+.card {
+  background: $background-accent;
+  border: 1px solid $border-light;
+  border-radius: $radius-medium;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: $shadow-soft;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-medium;
+  }
+  
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    
+    .card-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+    
+    .card-title {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin: 0 0 0.5rem 0;
+      color: $text-primary;
+    }
+    
+    .card-meta {
+      font-size: 1.2rem;
+      color: $text-muted;
+      margin: 0;
+    }
+  }
+  
+  .card-content {
+    margin-bottom: 1.5rem;
+    
+    p {
+      margin-bottom: 1rem;
+      color: $text-secondary;
+      line-height: 1.6;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    
+    .tag {
+      background: $warm-beige;
+      color: $text-secondary;
+      padding: 0.25rem 0.75rem;
+      border-radius: $radius-small;
+      font-size: 1.2rem;
+      font-weight: 500;
+      border: 1px solid $border-light;
+    }
+  }
+}
+
+// Utility classes for proper spacing
+.mb-sm { margin-bottom: $space-sm; }
+.mb-md { margin-bottom: $space-md; }
+.mb-lg { margin-bottom: $space-lg; }
+.mb-xl { margin-bottom: $space-xl; }
+
+.mt-sm { margin-top: $space-sm; }
+.mt-md { margin-top: $space-md; }
+.mt-lg { margin-top: $space-lg; }
+.mt-xl { margin-top: $space-xl; }
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-base { font-size: $font-size-base; }
+.text-lg { font-size: $font-size-large; }
+.text-sm { font-size: $font-size-small; }
+
+// Animation utility
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+  
+  &:nth-child(1) { animation-delay: 0.1s; }
+  &:nth-child(2) { animation-delay: 0.2s; }
+  &:nth-child(3) { animation-delay: 0.3s; }
+  &:nth-child(4) { animation-delay: 0.4s; }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

@@ -1,27 +1,32 @@
-<section class="section-minimal section-minimal--white">
+<section class="section section--white">
   <div class="container">
-    <div class="section-header-refined">
+    <div class="section-header">
       <span class="section-emoji">💭</span>
       <h2>Recent Insights</h2>
       <p class="section-intro">Thoughts on software engineering, cybersecurity, and building things that matter.</p>
     </div>
 
-    <div class="grid-minimal grid-minimal--3">
+    <div class="posts-grid">
       {% for post in site.posts limit:3 %}
-      <article class="post-card-refined interactive-element">
-        <time class="post-date-refined">{{ post.date | date: "%b %Y" }}</time>
-        <h3 class="post-title-refined">
+      <article class="post-card stagger-item">
+        <div class="post-header">
+          <span class="post-number">{{ forloop.index | prepend: '0' }}</span>
+          <time class="post-date">{{ post.date | date: "%b %Y" }}</time>
+        </div>
+        <h3 class="post-title">
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         </h3>
-        <p class="post-excerpt-refined">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
-        <a href="{{ post.url | relative_url }}" class="read-more-refined">Read More</a>
+        <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+        <div class="post-footer">
+          <a href="{{ post.url | relative_url }}" class="read-more">Read More →</a>
+        </div>
       </article>
       {% endfor %}
     </div>
 
-    <div class="space-minimal--lg" style="text-align: center;">
-      <a href="/blog" class="btn-refined btn-secondary-refined">Read Security Insights</a>
-      <a href="/contact" class="btn-refined btn-primary-refined" style="margin-left: 1.5rem;">Get Security Audit</a>
+    <div class="posts-cta">
+      <a href="/blog" class="btn btn--secondary">Read Security Insights</a>
+      <a href="/contact" class="btn btn--primary" style="margin-left: 1.5rem;">Get Security Audit</a>
     </div>
   </div>
 </section>

@@ -1,25 +1,20 @@
-<section class="hero section--cream">
+<section class="hero">
   <div class="hero-content">
-    <div class="hero-text fade-in">
-      <div class="greeting">
-        <span class="emoji">👋</span>
-        <h1 class="hero-title">{{ page.title }}</h1>
-      </div>
+    <div class="hero-text">
+      <h1>{{ page.title }}</h1>
       {% if page.intro_paragraph and page.intro_paragraph != '' %}
-      <p class="intro text-large fade-in">
-        {{ page.intro_paragraph | markdownify | remove: '
-      <p>' | remove: '</p>' }}
-      </p>
+      <div class="intro">
+        {{ page.intro_paragraph | markdownify }}
+      </div>
       {% endif %}
-      <div class="hero-buttons fade-in">
+      <div class="hero-links">
         <a href="/about" class="btn btn--primary">About Me</a>
         <a href="/contact" class="btn btn--secondary">Get In Touch</a>
       </div>
-
     </div>
 
-    <div class="hero-avatar fade-in">
-      <img src="{{ '/assets/img/uploads/avatar.jpg' | relative_url }}" alt="Hadi Rickit">
+    <div class="hero-avatar">
+      <img src="{{ '/assets/img/uploads/hadi-avatar.jpg' | relative_url }}" alt="Hadi Rickit" class="avatar-image">
     </div>
   </div>
 </section>

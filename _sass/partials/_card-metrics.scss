@@ -1,0 +1,38 @@
+// Card metrics styling for project impact display
+.card-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+
+  .metric {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    background-color: $warm-beige;
+    color: $text-secondary;
+    border: 1px solid $border-light;
+    border-radius: $radius-small;
+    font-size: 0.8rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      background-color: $soft-gray;
+      transform: translateY(-1px);
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .card-metrics {
+    gap: 0.25rem;
+    
+    .metric {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.4rem;
+    }
+  }
+}
