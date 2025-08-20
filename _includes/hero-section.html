@@ -7,7 +7,7 @@
         {{ page.intro_paragraph | markdownify }}
       </div>
       {% endif %}
-      <div class="hero-links animate">
+      <div class="hero-links">
         <a href="/about" class="btn btn--primary">About Me</a>
         <a href="/contact" class="btn btn--secondary">Get In Touch</a>
       </div>
@@ -19,7 +19,9 @@
            class="avatar-image"
            width="576" 
            height="576"
-           loading="eager">
+           loading="eager"
+           fetchpriority="high"
+           decoding="async">
     </div>
   </div>
 </section>

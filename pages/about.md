@@ -17,17 +17,29 @@ intro_paragraph: Hi, I'm Hadi. I build software and help teams make it more secu
         <p class="mb-lg">My focus areas are:</p>
 
         <div class="expertise-grid">
-          <div class="expertise-item stagger-item">
-            <strong>Custom development & security architecture</strong> — crafting secure applications with defense-in-depth from the foundation up
+          <div class="expertise-item expertise-item--security stagger-item">
+            <div class="expertise-icon">🔒</div>
+            <div class="expertise-content">
+              <strong>Custom development & security architecture</strong> — crafting secure applications with defense-in-depth from the foundation up
+            </div>
           </div>
-          <div class="expertise-item stagger-item">
-            <strong>Privacy engineering & compliance</strong> — implementing data protection by design and ensuring regulatory compliance
+          <div class="expertise-item expertise-item--privacy stagger-item">
+            <div class="expertise-icon">🛡️</div>
+            <div class="expertise-content">
+              <strong>Privacy engineering & compliance</strong> — implementing data protection by design and ensuring regulatory compliance
+            </div>
           </div>
-          <div class="expertise-item stagger-item">
-            <strong>Digital narrative & reputation management</strong> — crafting strategic online presence, SEO optimization, and brand narrative control for individuals and organizations
+          <div class="expertise-item expertise-item--narrative stagger-item">
+            <div class="expertise-icon">📝</div>
+            <div class="expertise-content">
+              <strong>Digital narrative & reputation management</strong> — crafting strategic online presence, SEO optimization, and brand narrative control for individuals and organizations
+            </div>
           </div>
-          <div class="expertise-item stagger-item">
-            <strong>System hardening & threat modeling</strong> — reducing attack surfaces, securing infrastructure, and anticipating adversarial thinking
+          <div class="expertise-item expertise-item--hardening stagger-item">
+            <div class="expertise-icon">⚡</div>
+            <div class="expertise-content">
+              <strong>System hardening & threat modeling</strong> — reducing attack surfaces, securing infrastructure, and anticipating adversarial thinking
+            </div>
           </div>
         </div>
 
@@ -44,17 +56,28 @@ intro_paragraph: Hi, I'm Hadi. I build software and help teams make it more secu
       </div>
     </section>
 
-    <footer class="text-center stagger-item">
-      <h2>Let's Chat</h2>
-      <div class="mb-xl">
-        <p class="text-large">I'm always up for chatting about security, privacy, or that weird bug you can't figure out. Sometimes I take on projects, sometimes I just enjoy the conversation.</p>
-      </div>
-      <div class="hero-links">
-        <a href="/contact" class="btn btn--primary">Get in touch</a>
-        <a href="/blog" class="btn btn--secondary">Read my thoughts</a>
-      </div>
-      <div class="mt-xl">
-        <p class="text-small"><em>Currently in Melbourne, working with teams everywhere</em></p>
+    <footer class="chat-bar-section stagger-item">
+      <div class="chat-bar">
+        <div class="chat-content">
+          <div class="chat-text">
+            <h3>Ready to discuss security, privacy, or that weird production bug?</h3>
+            <p>Let's build something secure together — <span class="location">Melbourne → Everywhere</span></p>
+          </div>
+          <div class="chat-actions">
+            <a href="/contact" class="cta-primary">
+              <span class="cta-label">Start conversation</span>
+              <div class="cta-arrow">→</div>
+            </a>
+            <a href="/blog" class="cta-secondary">
+              <span class="cta-label">Read insights</span>
+            </a>
+          </div>
+        </div>
+        
+        <div class="chat-pulse">
+          <div class="pulse-dot"></div>
+          <span class="pulse-text">Available for projects</span>
+        </div>
       </div>
     </footer>
     </article>

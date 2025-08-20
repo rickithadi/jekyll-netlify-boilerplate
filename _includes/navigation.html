@@ -1,15 +1,19 @@
 {% assign navurl = page.url | remove: 'index.html' %}
-<nav class="navigation">
+<nav class="navigation" role="navigation" aria-label="Main navigation">
   <div class="container">
     <a href="/" class="nav-brand">{{ site.title }}</a>
     
-    <button class="nav-toggle" aria-label="Toggle navigation">
-      <span class="nav-toggle-line"></span>
-      <span class="nav-toggle-line"></span>
-      <span class="nav-toggle-line"></span>
+    <button class="nav-toggle" 
+            aria-label="Toggle navigation menu" 
+            aria-expanded="false"
+            aria-controls="nav-menu"
+            type="button">
+      <span class="nav-toggle-line" aria-hidden="true"></span>
+      <span class="nav-toggle-line" aria-hidden="true"></span>
+      <span class="nav-toggle-line" aria-hidden="true"></span>
     </button>
     
-    <div class="nav-links">
+    <div class="nav-links" id="nav-menu" role="menu">
       {% for item in include.navigation %}
       <a href="{{ item.url }}" class="{% if item.url == navurl %}active{% endif %}" {% if item.url==navurl %}
         data-current="current page" {% endif %}>
@@ -27,9 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const navigation = document.querySelector('.navigation');
   
   navToggle.addEventListener('click', function() {
+    const isOpen = navLinks.classList.contains('nav-links--open');
     navLinks.classList.toggle('nav-links--open');
     navToggle.classList.toggle('nav-toggle--open');
     navigation.classList.toggle('navigation--open');
+    navToggle.setAttribute('aria-expanded', !isOpen);
   });
   
   // Close menu when clicking on a link
@@ -39,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
       navLinks.classList.remove('nav-links--open');
       navToggle.classList.remove('nav-toggle--open');
       navigation.classList.remove('navigation--open');
+      navToggle.setAttribute('aria-expanded', 'false');
     });
   });
 });

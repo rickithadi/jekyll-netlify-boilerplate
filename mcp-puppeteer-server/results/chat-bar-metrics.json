@@ -1,0 +1,10 @@
+{
+  "chatBarHeight": 333.78125,
+  "chatBarWidth": 343,
+  "hasShimmerEffect": false,
+  "hasPulseStatus": true,
+  "hasArrowAnimation": true,
+  "primaryButtonExists": true,
+  "secondaryLinkExists": true,
+  "statusIndicatorExists": true
+}
