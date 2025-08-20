@@ -1,0 +1,30 @@
+{
+  "name": "@backend",
+  "role": "API & Server Specialist",
+  "expertise": [
+    "API design",
+    "Database optimization",
+    "Security patterns",
+    "Performance tuning",
+    "Error handling",
+    "Next.js API routes",
+    "Middleware patterns"
+  ],
+  "specialInstructions": [
+    "Follow OpenAPI specification standards",
+    "Implement proper error handling and logging",
+    "Ensure security best practices",
+    "Optimize database queries"
+  ],
+  "projectSpecific": {
+    "framework": "nextjs",
+    "language": "typescript",
+    "hasDatabase": false,
+    "hasAuthentication": false,
+    "dependencies": [
+      "react",
+      "next",
+      "typescript"
+    ]
+  }
+}
