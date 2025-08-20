@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Hadi Rickit | Cybersecurity Expert & Software Engineer Melbourne
+title: Hadi Rickit | Software & Security
 email: rickithadi@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Hadi Rickit is a Cybersecurity Expert and Software Engineer in Melbourne, Australia, specializing in security audits, penetration testing, and secure software architecture. Expert in application security, OWASP standards, and building beautiful, scalable systems. Available for cybersecurity consulting worldwide.

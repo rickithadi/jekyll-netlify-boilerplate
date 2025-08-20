@@ -1,15 +1,17 @@
-// Design System Implementation
-// Professional • Competent • Muted • Friendly • Experienced
+// Modern Design System Implementation
+// Clean • Technical • Sophisticated • Minimal • Professional
 
 // CSS Custom Properties Setup
 :root {
-  // Colors
-  --color-charcoal: #{$charcoal-black};
-  --color-cream: #{$light-cream};
-  --color-beige: #{$warm-beige};
-  --color-gray: #{$soft-gray};
-  --color-orange: #{$clay-orange};
-  --color-white: #{$white};
+  // Colors - Earthy Sophisticated with Friendly Touch
+  --color-primary: #{$earth-coral};
+  --color-text: #{$earth-text-primary};
+  --color-text-secondary: #{$earth-text-secondary};
+  --color-text-muted: #{$earth-text-tertiary};
+  --color-background: #{$earth-background};
+  --color-background-subtle: #{$earth-background-subtle};
+  --color-surface: #{$earth-surface};
+  --color-accent: #{$accent-primary};
 
   // Typography
   --font-primary: #{$font-primary};
@@ -44,14 +46,45 @@
   --transition-slow: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-// Enhanced Typography System
+// Sophisticated Typography System
 .hero-title {
   font-size: $font-size-hero;
   font-weight: $font-weight-hero;
   line-height: $line-height-hero;
   letter-spacing: $letter-spacing-hero;
-  color: $charcoal-black;
-  font-family: $font-primary;
+  color: $text-primary;
+  font-family: $font-display; // Use display font for maximum sophistication
+  font-feature-settings: "kern" 1, "liga" 1, "swsh" 1;
+  text-rendering: optimizeLegibility;
+  
+  // Waving hand animation
+  .wave-emoji {
+    display: inline-block;
+    animation: wave 2s ease-in-out infinite;
+    transform-origin: 70% 70%;
+  }
+}
+
+// Keyframe animation for waving hand
+@keyframes wave {
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  10%, 30% { 
+    transform: rotate(14deg); 
+  }
+  20% { 
+    transform: rotate(-8deg); 
+  }
+  40%, 60% { 
+    transform: rotate(14deg); 
+  }
+  50% { 
+    transform: rotate(-8deg); 
+  }
+  70%, 90% { 
+    transform: rotate(0deg); 
+  }
 }
 
 h1,
@@ -60,8 +93,10 @@ h1,
   font-weight: $font-weight-headings;
   line-height: $line-height-headings;
   letter-spacing: $letter-spacing-headings;
-  color: $charcoal-black;
+  color: $text-primary;
+  font-family: $font-display;
   margin-bottom: $space-lg;
+  font-feature-settings: "kern" 1, "liga" 1;
 }
 
 h2,
@@ -70,8 +105,10 @@ h2,
   font-weight: $font-weight-headings;
   line-height: $line-height-headings;
   letter-spacing: $letter-spacing-headings;
-  color: $charcoal-black;
+  color: $text-primary;
+  font-family: $font-display;
   margin-bottom: $space-lg;
+  font-feature-settings: "kern" 1, "liga" 1;
 }
 
 h3,
@@ -80,18 +117,22 @@ h3,
   font-weight: $font-weight-headings;
   line-height: $line-height-headings;
   letter-spacing: $letter-spacing-headings;
-  color: $charcoal-black;
+  color: $text-primary;
+  font-family: $font-display;
   margin-bottom: $space-md;
+  font-feature-settings: "kern" 1, "liga" 1;
 }
 
 h4,
 .h4 {
   font-size: $font-size-h4;
-  font-weight: $font-weight-headings;
+  font-weight: $font-weight-semibold;
   line-height: $line-height-headings;
   letter-spacing: $letter-spacing-headings;
-  color: $charcoal-black;
+  color: $text-primary;
+  font-family: $font-primary; // Use primary for smaller headings
   margin-bottom: $space-md;
+  font-feature-settings: "kern" 1, "liga" 1;
 }
 
 .text-large {
@@ -118,18 +159,83 @@ h4,
   color: $text-muted;
 }
 
-// Editorial Navigation - Minimal and clean
+// Fine Art Typography Utilities - Editorial & Gallery Inspired
+.text-display {
+  font-family: $font-display;
+  font-weight: $font-weight-light;
+  letter-spacing: -0.045em; // More dramatic for fine art feel
+  line-height: 0.98;
+  font-feature-settings: "kern" 1, "liga" 1, "swsh" 1, "calt" 1;
+  text-rendering: optimizeLegibility;
+}
+
+.text-refined {
+  letter-spacing: -0.02em; // Tighter for sophisticated feel
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  text-rendering: optimizeLegibility;
+}
+
+.text-editorial {
+  font-family: $font-display;
+  font-style: italic;
+  font-weight: $font-weight-regular;
+  letter-spacing: 0.005em;
+  line-height: 1.4;
+  font-feature-settings: "kern" 1, "liga" 1, "swsh" 1;
+}
+
+.text-elegant {
+  font-family: $font-display;
+  font-style: italic;
+  font-weight: $font-weight-light; // Lighter for fine art
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+}
+
+.text-sophisticated {
+  font-weight: $font-weight-light;
+  letter-spacing: 0.08em; // More spacing for gallery feel
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+
+.text-luxury {
+  font-family: $font-display;
+  font-weight: $font-weight-light;
+  font-size: 1.15em; // Slightly larger for presence
+  line-height: 1.65;
+  letter-spacing: -0.005em; // Subtle negative tracking
+}
+
+.text-gallery {
+  font-family: $font-display;
+  font-weight: $font-weight-thin;
+  letter-spacing: 0.02em;
+  line-height: 1.8;
+  font-style: normal;
+}
+
+.text-fine-art {
+  font-family: $font-display;
+  font-weight: $font-weight-light;
+  font-size: 1.2em;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  font-feature-settings: "kern" 1, "liga" 1, "swsh" 1;
+}
+
+// Modern Navigation - Clean and minimal
 .navigation {
-  height: 7rem;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
+  height: 6rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px) saturate(180%);
   border-bottom: 1px solid $border-light;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  transition: all 0.3s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
   .container {
     max-width: $container-wide;
@@ -161,39 +267,29 @@ h4,
 
   .nav-links {
     display: flex;
-    gap: $space-xl;
+    gap: $space-2xl;
     list-style: none;
     margin: 0;
     padding: 0;
 
     a {
       font-size: $font-size-small;
-      font-weight: $font-weight-regular;
-      color: $text-tertiary;
+      font-weight: $font-weight-medium;
+      color: $text-secondary;
       text-decoration: none;
       position: relative;
-      padding: $space-sm 0;
-      transition: all var(--transition-base);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      padding: $space-sm $space-md;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 6px;
 
       &:hover {
-        color: $text-primary;
-        text-decoration: none;
+        color: $earth-coral;
+        background: $accent-subtle;
       }
 
       &.active {
-        color: $text-primary;
-        
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          height: 1px;
-          background: $text-primary;
-        }
+        color: $earth-coral;
+        background: $accent-subtle;
       }
     }
 
@@ -211,41 +307,41 @@ h4,
   }
 }
 
-// Editorial Hero Section - Magazine-style layout
+// Fine Art Hero Section - Editorial Magazine Layout
 .hero {
-  padding: 8rem 0 12rem;
+  padding: 4rem 0 10rem; // More generous spacing for editorial feel
   background: $background-primary;
   position: relative;
-  margin-top: 8rem; // Account for minimal navigation
+  margin-top: 3rem; // Reduced for tighter editorial layout
 
   @media (min-width: $breakpoint-md) {
-    padding: 10rem 0 14rem;
-    margin-top: 8rem;
+    padding: 6rem 0 14rem; // More dramatic spacing
+    margin-top: 3rem;
   }
 
   @media (min-width: $breakpoint-lg) {
-    padding: 12rem 0 16rem;
+    padding: 8rem 0 16rem; // Gallery-like generous spacing
   }
 
   .hero-content {
-    max-width: 120rem; // Slightly narrower for editorial feel
+    max-width: $container-wide;
     margin: 0 auto;
-    padding: 0 $space-2xl;
+    padding: 0 $space-xl;
     display: grid;
-    grid-template-columns: 1.4fr 0.6fr; // More text-focused ratio
-    gap: 8rem;
-    align-items: start; // Align to top for editorial layout
+    grid-template-columns: 1.2fr 0.8fr; // Editorial magazine ratio - more text emphasis
+    gap: $space-5xl;
+    align-items: start; // Top align for editorial sophistication
 
     @media (max-width: $breakpoint-lg) {
       gap: $space-4xl;
-      padding: 0 $space-xl;
-      grid-template-columns: 1.2fr 0.8fr;
+      padding: 0 $space-lg;
+      grid-template-columns: 1fr 0.6fr;
     }
 
     @media (max-width: $breakpoint-md) {
       grid-template-columns: 1fr;
-      gap: $space-3xl;
-      text-align: left; // Keep left-aligned for editorial feel
+      gap: $space-4xl; // More generous mobile spacing
+      text-align: left; // Left align for editorial feel on mobile
       padding: 0 $space-lg;
     }
   }
@@ -257,9 +353,9 @@ h4,
       font-size: $font-size-small;
       color: $text-quaternary;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: $space-lg;
-      font-weight: $font-weight-medium;
+      letter-spacing: 0.12em; // More spacing for fine art feel
+      margin-bottom: $space-xl; // More space for editorial feel
+      font-weight: $font-weight-light; // Lighter for sophistication
 
       @media (max-width: $breakpoint-md) {
         text-align: left;
@@ -267,21 +363,26 @@ h4,
     }
 
     h1 {
-      margin-bottom: $space-xl;
-      line-height: 1.1;
-      font-weight: $font-weight-medium; // Lighter for editorial feel
-      max-width: 90%; // Constrain headline width
+      margin-bottom: $space-2xl; // More generous spacing
+      line-height: 1.05; // Tighter for editorial sophistication
+      font-weight: $font-weight-light; // Much lighter for fine art feel
+      max-width: 85%; // More constrained for editorial layout
+      letter-spacing: -0.03em; // Refined negative tracking
+      font-feature-settings: "kern" 1, "liga" 1, "swsh" 1, "calt" 1;
+      text-rendering: optimizeLegibility;
     }
 
     .intro {
       font-size: $font-size-large;
-      line-height: 1.7;
+      line-height: 1.65; // More refined line height
       color: $text-secondary;
-      margin-bottom: $space-2xl;
-      max-width: 85%; // Editorial constraint
-      font-weight: $font-weight-regular;
-      font-family: $font-editorial; // Use serif for intro text
-      font-style: normal;
+      margin-bottom: $space-3xl; // More generous bottom spacing
+      max-width: 80%; // More editorial constraint
+      font-weight: $font-weight-light; // Lighter for sophistication
+      font-family: $font-display; // Use display serif for sophisticated intro text
+      font-style: italic; // Editorial italic styling
+      letter-spacing: 0.005em; // Subtle positive tracking for readability
+      font-feature-settings: "kern" 1, "liga" 1, "swsh" 1;
     }
   }
 
@@ -319,88 +420,191 @@ h4,
   }
 }
 
-// Editorial Button System - Minimal and sophisticated
+// Sophisticated Button System - Premium and Refined
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: $space-md $space-xl;
-  border-radius: 0; // Square corners for editorial feel
-  font-size: $font-size-small;
-  font-weight: $font-weight-medium;
+  padding: 1.4rem 2.8rem; // More refined proportions
+  border-radius: 8px; // Slightly more sophisticated radius
+  font-size: 1.4rem; // Precise sizing
+  font-weight: 450; // Subtle weight between regular and medium
   text-decoration: none;
-  border: 1px solid $border-medium;
+  border: 1.5px solid $border-medium; // Slightly thicker for sophistication
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); // More sophisticated easing
+  letter-spacing: 0.005em; // Refined letter spacing
   font-family: $font-primary;
   position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  
+  // Sophisticated backdrop
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+  }
 
   &:hover {
-    transform: none; // No transform for editorial feel
-    background: $text-primary;
-    color: $background-primary;
-    border-color: $text-primary;
+    transform: translateY(-2px); // More pronounced lift
+    box-shadow: 
+      0 8px 25px rgba(184, 118, 94, 0.12),
+      0 3px 10px rgba(184, 118, 94, 0.08); // Layered sophisticated shadows
+    
+    &::before {
+      left: 100%; // Subtle shimmer effect
+    }
   }
 
   &:focus {
-    outline: 1px solid $text-primary;
-    outline-offset: 2px;
+    outline: none;
+    box-shadow: 
+      0 0 0 3px rgba(184, 118, 94, 0.2),
+      0 8px 25px rgba(184, 118, 94, 0.12);
   }
 
   &:active {
-    transform: none;
+    transform: translateY(-1px);
+    transition: all 0.1s ease;
   }
 
-  // Primary Button - Editorial style
+  // Primary Button - Sophisticated Earthy Premium
   &--primary {
-    background: $text-primary;
-    color: $background-primary;
-    border-color: $text-primary;
+    background: linear-gradient(135deg, $earth-coral 0%, #a67c6a 100%);
+    color: white;
+    border-color: $earth-coral;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(184, 118, 94, 0.15);
 
     &:hover {
-      background: $background-primary;
-      color: $text-primary;
-      border-color: $text-primary;
+      background: linear-gradient(135deg, #a36952 0%, #956450 100%);
+      border-color: #a36952;
+      color: white;
+      box-shadow: 
+        0 12px 35px rgba(163, 105, 82, 0.2),
+        0 5px 15px rgba(163, 105, 82, 0.12);
     }
   }
 
-  // Secondary Button - Editorial style
+  // Secondary Button - Refined Minimal
   &--secondary {
-    background: transparent;
+    background: rgba(248, 247, 244, 0.8);
     color: $text-primary;
-    border-color: $text-primary;
+    border-color: $border-strong;
+    backdrop-filter: blur(10px);
+    font-weight: 450;
 
     &:hover {
-      background: $text-primary;
-      color: $background-primary;
+      background: rgba(240, 239, 235, 0.95);
+      border-color: $earth-stone;
+      color: $earth-coral;
+      backdrop-filter: blur(15px);
     }
   }
 
-  // Ghost Button
+  // Ghost Button - Sophisticated Minimal
   &--ghost {
     background: transparent;
-    color: $text-secondary;
-    border-color: $border-medium;
+    color: $text-tertiary;
+    border: none;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 1px;
+      background: $earth-coral;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
 
     &:hover {
-      color: $text-primary;
-      border-color: $border-strong;
-      background: rgba(26, 26, 26, 0.02);
+      color: $earth-coral;
+      background: transparent;
+      
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+  
+  // Sophisticated Tertiary Button
+  &--tertiary {
+    background: linear-gradient(135deg, $earth-sage 0%, #6b7763 100%);
+    color: white;
+    border-color: $earth-sage;
+    font-weight: 500;
+    
+    &:hover {
+      background: linear-gradient(135deg, #6b7763 0%, #5d6b5d 100%);
+      border-color: #6b7763;
     }
   }
 
-  // Large Button
+  // Large Button - Premium Sizing
   &--large {
-    padding: $space-lg $space-3xl;
-    font-size: $font-size-medium;
+    padding: 1.8rem 3.6rem;
+    font-size: 1.6rem;
+    border-radius: 10px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
   }
 
-  // Small Button
+  // Small Button - Refined Compact
   &--small {
-    padding: $space-sm $space-lg;
-    font-size: $font-size-small;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    font-weight: 450;
+    letter-spacing: 0.005em;
+  }
+  
+  // Pill Button - Modern Sophisticated
+  &--pill {
+    border-radius: 50px;
+    padding: 1.2rem 2.4rem;
+    font-weight: 450;
+    
+    &.btn--large {
+      border-radius: 60px;
+    }
+    
+    &.btn--small {
+      border-radius: 40px;
+    }
+  }
+  
+  // Icon Button - Sophisticated
+  &--icon {
+    padding: 1.4rem;
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: 8px;
+    
+    &.btn--small {
+      width: 3.6rem;
+      height: 3.6rem;
+      padding: 1rem;
+      border-radius: 6px;
+    }
+    
+    &.btn--large {
+      width: 5.6rem;
+      height: 5.6rem;
+      padding: 1.8rem;
+      border-radius: 10px;
+    }
   }
 }
 
@@ -449,104 +653,235 @@ h4,
   }
 }
 
-// Enhanced Card Components
+// Minimal Card Components - Boring Industries Inspired
 .card {
-  background: $background-accent;
-  border-radius: $space-md;
-  padding: $space-2xl;
-  box-shadow: 0 $space-xs $space-lg rgba(26, 26, 26, 0.04),
-              0 $space-sm $space-xl rgba(26, 26, 26, 0.08);
-  border: 1px solid $border-light;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: transparent;
+  border: none;
+  padding: $space-xl 0;
+  border-bottom: 1px solid $border-light;
+  transition: all 0.2s ease;
   position: relative;
-  overflow: hidden;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, $accent-primary, $accent-light);
-    opacity: 0;
-    transition: opacity var(--transition-base);
+  &:last-child {
+    border-bottom: none;
   }
 
   &:hover {
-    transform: translateY(-0.6rem);
-    box-shadow: 0 $space-md $space-3xl rgba(26, 26, 26, 0.08),
-                0 $space-lg $space-4xl rgba(26, 26, 26, 0.12);
-    border-color: $border-medium;
-
-    &::before {
-      opacity: 1;
-    }
+    background: $background-secondary;
+    padding-left: $space-lg;
+    padding-right: $space-lg;
+    margin: 0 (-$space-lg);
+    border-bottom-color: $border-medium;
   }
 
-  .card-header {
-    display: flex;
-    align-items: flex-start;
-    gap: $space-lg;
-    margin-bottom: $space-xl;
+  // Minimal card variant - completely stripped back
+  &--minimal {
+    background: transparent;
+    border: none;
+    padding: $space-lg 0;
+    border-radius: 0;
 
-    .card-icon {
-      font-size: 3.2rem;
-      opacity: 0.85;
-      color: $accent-primary;
+    &:hover {
+      background: transparent;
+      padding-left: 0;
+      padding-right: 0;
+      margin: 0;
     }
 
     .card-title {
-      font-size: $font-size-h4;
-      font-weight: $font-weight-semibold;
       color: $text-primary;
-      margin: 0 0 $space-sm 0;
-      line-height: $line-height-headings;
-    }
-
-    .card-meta {
-      font-size: $font-size-xs;
-      color: $accent-primary;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-weight: $font-weight-medium;
+      
+      &:hover {
+        color: $earth-coral;
+      }
     }
   }
 
-  .card-content {
-    color: $text-secondary;
-    font-size: $font-size-base;
-    line-height: $line-height-body;
-    margin-bottom: $space-lg;
-  }
-
-  .card-tags {
+  // List-style card variant
+  &--list {
     display: flex;
-    flex-wrap: wrap;
-    gap: $space-sm;
+    align-items: center;
+    padding: $space-md 0;
+    border: none;
+    border-bottom: 1px solid $border-light;
 
-    .tag {
-      padding: $space-xs $space-md;
-      background: rgba(26, 26, 26, 0.06);
-      color: $text-tertiary;
-      border-radius: $space-md;
-      font-size: $font-size-xs;
-      font-weight: $font-weight-medium;
-      letter-spacing: 0.02em;
+    &:hover {
+      background: transparent;
+      padding-left: 0;
+      padding-right: 0;
+      margin: 0;
+      border-bottom-color: $earth-coral;
+    }
+  }
+
+  // Product/Service card variant
+  &--product {
+    padding: 0;
+    
+    .card-image {
+      width: 100%;
+      height: 200px;
+      background: $neutral-100;
+      border-radius: 16px 16px 0 0;
+      overflow: hidden;
+      position: relative;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .card-body {
+      padding: $space-xl;
+    }
+  }
+
+  // Feature card variant  
+  &--feature {
+    text-align: center;
+    padding: $space-3xl $space-xl;
+    
+    .card-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, $earth-coral, #d19473);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto $space-lg auto;
+      color: white;
+      font-size: $font-size-h4;
+    }
+  }
+
+  // Testimonial card variant
+  &--testimonial {
+    background: linear-gradient(135deg, $background-accent 0%, $neutral-50 100%);
+    border: none;
+    
+    .card-quote {
+      font-size: $font-size-large;
+      font-style: italic;
+      color: $text-secondary;
+      line-height: 1.6;
+      margin-bottom: $space-xl;
+      
+      &::before {
+        content: '"';
+        font-size: 3rem;
+        color: $earth-coral;
+        opacity: 0.3;
+        position: absolute;
+        top: -10px;
+        left: -5px;
+      }
+    }
+    
+    .card-author {
+      display: flex;
+      align-items: center;
+      gap: $space-md;
+      
+      .author-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: $neutral-200;
+        overflow: hidden;
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      
+      .author-info {
+        .name {
+          font-weight: $font-weight-semibold;
+          color: $text-primary;
+          margin: 0;
+        }
+        
+        .title {
+          font-size: $font-size-xs;
+          color: $text-quaternary;
+          margin: 0;
+        }
+      }
+    }
+  }
+  // Minimal card content structure - Boring Industries inspired
+  .card-title {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: $text-primary;
+    margin: 0 0 $space-xs 0;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+      
+      &:hover {
+        color: $earth-coral;
+      }
+    }
+  }
+
+  .card-meta {
+    font-size: $font-size-xs;
+    color: $text-quaternary;
+    font-weight: $font-weight-regular;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .card-description {
+    font-size: $font-size-small;
+    color: $text-tertiary;
+    line-height: 1.5;
+    margin: $space-sm 0 0 0;
+  }
+
+  .card-year {
+    font-size: $font-size-xs;
+    color: $text-quaternary;
+    font-weight: $font-weight-medium;
+    margin: 0;
+  }
+
+  // Minimal link styling
+  .card-link {
+    display: inline-block;
+    font-size: $font-size-small;
+    font-weight: $font-weight-medium;
+    color: $text-primary;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $earth-coral;
     }
   }
 }
 
-// Enhanced Section Styling
+// Fine Art Gallery Section Styling - Editorial Spacing
 .section {
-  padding: $space-5xl 0;
+  padding: calc($space-5xl + $space-xl) 0; // More generous spacing for gallery feel
 
   &--primary {
     background: $background-primary;
   }
 
   &--secondary {
-    background: $background-secondary;
+    background: transparent; // Clean gallery-like background
   }
 
   &--accent {
@@ -563,49 +898,74 @@ h4,
   }
 
   &--beige {
-    background: $background-secondary;
+    background: transparent; // Gallery aesthetic
   }
 
   &--white {
     background: $background-accent;
   }
+
+  // Fine art section variants
+  &--gallery {
+    padding: calc($space-5xl + $space-2xl) 0; // Extra generous for gallery sections
+    background: transparent;
+  }
+
+  &--editorial {
+    padding: $space-5xl 0 calc($space-5xl + $space-xl) 0; // Asymmetric editorial spacing
+    background: $background-primary;
+  }
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: $space-5xl;
+  margin-bottom: calc($space-5xl + $space-xl); // More generous spacing
   position: relative;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: -$space-xl;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 6rem;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, $accent-primary, transparent);
-    border-radius: 1px;
-  }
+  // Remove decorative line for cleaner gallery aesthetic
+  // &::before removed for minimalism
 
   h2 {
-    margin-bottom: $space-xl;
+    margin-bottom: $space-2xl; // More generous spacing
+    font-weight: $font-weight-light; // Lighter for sophistication
+    letter-spacing: -0.02em; // Refined tracking
+    font-family: $font-display; // Use display font for section headers
   }
 
   .section-intro {
     font-size: $font-size-large;
     color: $text-tertiary;
-    line-height: 1.7;
-    max-width: 70rem;
+    line-height: 1.65; // More refined
+    max-width: 65rem; // Slightly narrower for editorial feel
     margin: 0 auto;
-    font-weight: $font-weight-regular;
+    font-weight: $font-weight-light; // Lighter for sophistication
+    font-family: $font-display; // Editorial serif
+    font-style: italic; // Editorial styling
+    letter-spacing: 0.005em; // Subtle positive tracking
   }
 
   .section-emoji {
-    font-size: 2.4rem;
-    margin-bottom: $space-lg;
+    font-size: 2rem; // Slightly smaller for sophistication
+    margin-bottom: $space-xl; // More generous spacing
     display: block;
-    opacity: 0.85;
+    opacity: 0.6; // More subtle
+  }
+
+  // Gallery-style section header variant
+  &--gallery {
+    text-align: left; // Left align for gallery aesthetic
+    margin-bottom: $space-4xl;
+    
+    h2 {
+      text-align: left;
+      max-width: none;
+    }
+    
+    .section-intro {
+      text-align: left;
+      max-width: 80%;
+      margin: 0;
+    }
   }
 }
 
@@ -807,5 +1167,157 @@ h4,
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+// Fine Art Gallery Inspired Work List - Minimal & Sophisticated
+.work-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  
+  .work-item {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: $space-xl 0; // More generous padding for gallery feel
+    border-bottom: 1px solid rgba(230, 228, 223, 0.3); // Subtler borders
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); // More sophisticated easing
+    
+    &:first-child {
+      padding-top: $space-lg; // Reduce top padding for first item
+    }
+    
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0; // Remove bottom padding for last item
+    }
+    
+    &:hover {
+      background: transparent; // No background for cleaner feel
+      transform: translateX(8px); // Subtle shift instead of background
+      
+      .work-title {
+        color: $earth-coral;
+        letter-spacing: -0.01em; // Subtle refinement on hover
+      }
+      
+      .work-year {
+        opacity: 1;
+        color: $earth-coral;
+      }
+    }
+    
+    .work-content {
+      flex: 1;
+      
+      .work-title {
+        font-size: $font-size-large; // Larger for gallery presence
+        font-weight: $font-weight-light; // Lighter for sophistication
+        color: $text-primary;
+        margin: 0 0 $space-sm 0;
+        line-height: 1.3; // Tighter for editorial feel
+        transition: all 0.3s ease;
+        font-family: $font-display; // Use display font for sophistication
+        letter-spacing: -0.005em; // Subtle negative tracking
+      }
+      
+      .work-description {
+        font-size: $font-size-base; // Slightly larger for readability
+        color: $text-tertiary;
+        line-height: 1.6; // More generous line height
+        margin: 0;
+        font-weight: $font-weight-regular;
+        max-width: 85%; // Constrain for editorial feel
+        letter-spacing: 0.002em; // Subtle positive tracking
+      }
+    }
+    
+    .work-year {
+      font-size: $font-size-xs;
+      color: $text-quaternary;
+      font-weight: $font-weight-light; // Lighter for sophistication
+      text-transform: uppercase;
+      letter-spacing: 0.1em; // More spacing for gallery aesthetic
+      white-space: nowrap;
+      margin-left: $space-xl;
+      opacity: 0.7; // Start more subtle
+      transition: all 0.3s ease;
+    }
+  }
+}
+
+// Fine Art Editorial Blog Posts - Gallery Aesthetic
+.post-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  
+  .post-item {
+    padding: $space-xl 0; // More generous spacing
+    border-bottom: 1px solid rgba(230, 228, 223, 0.3); // Subtler borders
+    
+    &:first-child {
+      padding-top: $space-lg;
+    }
+    
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    
+    .post-link {
+      display: block;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      
+      &:hover {
+        background: transparent; // Clean hover without background
+        transform: translateX(6px); // Subtle shift
+        
+        .post-title {
+          color: $earth-coral;
+          letter-spacing: -0.01em;
+        }
+        
+        .post-meta {
+          opacity: 1;
+          color: $earth-coral;
+        }
+      }
+    }
+    
+    .post-meta {
+      font-size: $font-size-xs;
+      color: $text-quaternary;
+      font-weight: $font-weight-light; // Lighter for sophistication
+      text-transform: uppercase;
+      letter-spacing: 0.1em; // More spacing for gallery feel
+      margin: 0 0 $space-sm 0;
+      opacity: 0.7;
+      transition: all 0.3s ease;
+    }
+    
+    .post-title {
+      font-size: $font-size-large; // Larger for presence
+      font-weight: $font-weight-light; // Lighter for sophistication
+      color: $text-primary;
+      margin: 0 0 $space-sm 0;
+      line-height: 1.3; // Tighter for editorial feel
+      transition: all 0.3s ease;
+      font-family: $font-display; // Use display font
+      letter-spacing: -0.005em; // Subtle negative tracking
+    }
+    
+    .post-excerpt {
+      font-size: $font-size-base; // Larger for readability
+      color: $text-tertiary;
+      line-height: 1.6; // More generous line height
+      margin: 0;
+      font-weight: $font-weight-regular;
+      max-width: 85%; // Editorial constraint
+      letter-spacing: 0.002em; // Subtle positive tracking
+    }
   }
 }
