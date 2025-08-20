@@ -266,7 +266,7 @@ h4,
   font-feature-settings: "kern" 1, "liga" 1, "swsh" 1;
 }
 
-// Modern Navigation - Clean and minimal
+// Modern Navigation - Clean and minimal with mobile support
 .navigation {
   height: 6rem;
   background: rgba(255, 255, 255, 0.8);
@@ -279,6 +279,11 @@ h4,
   z-index: 1000;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
+  &--open {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+  }
+
   .container {
     max-width: $container-wide;
     margin: 0 auto;
@@ -287,6 +292,7 @@ h4,
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 
     @media (max-width: $breakpoint-md) {
       padding: 0 $space-lg;
@@ -300,10 +306,49 @@ h4,
     letter-spacing: 0;
     text-decoration: none;
     transition: all var(--transition-base);
+    z-index: 1001;
 
     &:hover {
       color: $text-secondary;
       text-decoration: none;
+    }
+  }
+
+  // Mobile hamburger toggle
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+    
+    @media (max-width: $breakpoint-md) {
+      display: flex;
+    }
+    
+    .nav-toggle-line {
+      width: 2rem;
+      height: 2px;
+      background: $text-primary;
+      transition: all 0.3s ease;
+      margin: 0.15rem 0;
+      border-radius: 1px;
+    }
+    
+    &--open {
+      .nav-toggle-line:nth-child(1) {
+        transform: rotate(45deg) translate(0.4rem, 0.4rem);
+      }
+      
+      .nav-toggle-line:nth-child(2) {
+        opacity: 0;
+      }
+      
+      .nav-toggle-line:nth-child(3) {
+        transform: rotate(-45deg) translate(0.4rem, -0.4rem);
+      }
     }
   }
 
@@ -313,6 +358,30 @@ h4,
     list-style: none;
     margin: 0;
     padding: 0;
+
+    @media (max-width: $breakpoint-md) {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: $background-primary; // Use consistent background
+      flex-direction: column;
+      padding: $space-lg;
+      gap: 0;
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid $border-light;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); // Lighter shadow
+      z-index: 999;
+      
+      &--open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
 
     a {
       font-size: $font-size-small;
@@ -324,45 +393,57 @@ h4,
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       border-radius: 6px;
 
+      @media (max-width: $breakpoint-md) {
+        padding: $space-md 0;
+        font-size: $font-size-base;
+        border-bottom: 1px solid rgba(230, 228, 223, 0.3);
+        
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
       &:hover {
         color: $earth-coral;
         background: $accent-subtle;
+        
+        @media (max-width: $breakpoint-md) {
+          background: transparent;
+          text-decoration: underline;
+          text-decoration-thickness: 1px;
+          text-underline-offset: 3px;
+        }
       }
 
       &.active {
         color: $earth-coral;
         background: $accent-subtle;
-      }
-    }
-
-    @media (max-width: $breakpoint-md) {
-      gap: $space-lg;
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      gap: $space-md;
-      
-      a {
-        font-size: $font-size-small;
+        
+        @media (max-width: $breakpoint-md) {
+          background: transparent;
+          text-decoration: underline;
+          text-decoration-thickness: 1px;
+          text-underline-offset: 3px;
+        }
       }
     }
   }
 }
 
-// Fine Art Hero Section - Editorial Magazine Layout
+// Ultra Tight Hero Section - Boring Industries Inspired
 .hero {
-  padding: 4rem 0 10rem; // More generous spacing for editorial feel
+  padding: 2rem 0 2rem; // Ultra tight spacing
   background: $background-primary;
   position: relative;
-  margin-top: 3rem; // Reduced for tighter editorial layout
+  margin-top: 1rem; // Minimal top margin
 
   @media (min-width: $breakpoint-md) {
-    padding: 6rem 0 14rem; // More dramatic spacing
-    margin-top: 3rem;
+    padding: 3rem 0 3rem; // Still very tight on larger screens
+    margin-top: 1rem;
   }
 
   @media (min-width: $breakpoint-lg) {
-    padding: 8rem 0 16rem; // Gallery-like generous spacing
+    padding: 4rem 0 4rem; // Moderately tight on large screens
   }
 
   .hero-content {
@@ -370,49 +451,78 @@ h4,
     margin: 0 auto;
     padding: 0 $space-xl;
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr; // Editorial magazine ratio - more text emphasis
-    gap: $space-5xl;
-    align-items: start; // Top align for editorial sophistication
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: $space-3xl;
+    align-items: start;
 
     @media (max-width: $breakpoint-lg) {
-      gap: $space-4xl;
+      gap: $space-2xl;
       padding: 0 $space-lg;
       grid-template-columns: 1fr 0.6fr;
     }
 
     @media (max-width: $breakpoint-md) {
       grid-template-columns: 1fr;
-      gap: $space-4xl; // More generous mobile spacing
-      text-align: left; // Left align for editorial feel on mobile
+      gap: $space-xl;
+      text-align: center; // Center on mobile
       padding: 0 $space-lg;
+      grid-template-areas: 
+        "avatar"
+        "text"
+        "cta";
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      padding: 0 $space-md;
+      gap: $space-lg;
     }
   }
 
   .hero-text {
-    max-width: none; // Allow full width for editorial layout
+    max-width: none;
+    grid-area: text; // Assign grid area for mobile ordering
+
+    @media (max-width: $breakpoint-md) {
+      order: 2; // Ensure text comes after avatar on mobile
+    }
 
     .greeting {
       font-size: $font-size-small;
       color: $text-quaternary;
       text-transform: uppercase;
-      letter-spacing: 0.12em; // More spacing for fine art feel
-      margin-bottom: $space-xl; // More space for editorial feel
-      font-weight: $font-weight-light; // Lighter for sophistication
+      letter-spacing: 0.12em;
+      margin-bottom: $space-xl;
+      font-weight: $font-weight-light;
 
       @media (max-width: $breakpoint-md) {
-        text-align: left;
+        text-align: center; // Center on mobile
       }
     }
 
     h1 {
-      margin-bottom: $space-2xl;
-      line-height: 1.1; // Slightly more open for readability
-      font-weight: $font-weight-medium; // Medium weight for better presence
-      max-width: 90%; // Wider for better balance
-      letter-spacing: -0.02em; // Subtle negative tracking
-      font-feature-settings: "kern" 1, "liga" 1; // Focus on kerning and ligatures
+      margin-bottom: $space-lg;
+      line-height: 1.05;
+      font-weight: $font-weight-medium;
+      max-width: 90%;
+      letter-spacing: -0.04em;
+      font-feature-settings: "kern" 1, "liga" 1;
       text-rendering: optimizeLegibility;
-      font-family: $font-primary; // Clean sans-serif for main headline
+      font-family: $font-primary;
+      
+      @media (max-width: $breakpoint-md) {
+        max-width: 100%;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        text-align: center; // Center h1 on mobile
+      }
+      
+      @media (max-width: $breakpoint-sm) {
+        font-size: $font-size-h1;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        margin-bottom: $space-md;
+        text-align: center; // Center h1 on small mobile
+      }
       
       // Subtle slide-in animation
       opacity: 0;
@@ -429,15 +539,20 @@ h4,
 
     .intro {
       font-size: $font-size-large;
-      line-height: 1.6; // Clean, readable line height
+      line-height: 1.5;
       color: $text-secondary;
-      margin-bottom: $space-3xl;
-      max-width: 85%; // Slightly wider for better readability
-      font-weight: $font-weight-regular; // Regular weight for clarity
-      font-family: $font-primary; // Clean sans-serif instead of serif
-      font-style: normal; // Remove italic for cleaner look
-      letter-spacing: -0.01em; // Subtle negative tracking for modern feel
-      font-feature-settings: "kern" 1, "liga" 1; // Keep kerning and ligatures
+      margin-bottom: $space-2xl;
+      max-width: 85%;
+      font-weight: $font-weight-regular;
+      font-family: $font-primary;
+      font-style: normal;
+      letter-spacing: -0.015em;
+      font-feature-settings: "kern" 1, "liga" 1;
+      
+      @media (max-width: $breakpoint-md) {
+        max-width: 100%; // Full width on mobile
+        text-align: center; // Center intro text on mobile
+      }
       
       // Subtle fade-in animation
       opacity: 0;
@@ -479,6 +594,12 @@ h4,
     display: flex;
     justify-content: center;
     align-items: center;
+    grid-area: avatar; // Assign grid area for mobile ordering
+
+    @media (max-width: $breakpoint-md) {
+      order: 1; // Avatar first on mobile
+      margin-bottom: $space-lg; // Add space below avatar on mobile
+    }
 
     img {
       width: 36rem;
@@ -497,13 +618,13 @@ h4,
       }
 
       @media (max-width: $breakpoint-md) {
-        width: 28rem;
-        height: 28rem;
+        width: 20rem; // Smaller on mobile for better layout
+        height: 20rem;
       }
 
       @media (max-width: $breakpoint-sm) {
-        width: 24rem;
-        height: 24rem;
+        width: 18rem; // Even smaller on small mobile
+        height: 18rem;
       }
     }
   }
@@ -701,12 +822,25 @@ h4,
 .hero-links {
   display: flex;
   gap: $space-lg;
-  margin-top: $space-2xl;
+  margin-top: $space-xl;
+  grid-area: cta; // Assign grid area for mobile ordering
   
-  // Subtle staggered animation
-  opacity: 0;
-  transform: translateY(15px);
-  animation: subtleSlideUp 0.8s ease-out 0.6s forwards;
+  // Default visible state
+  opacity: 1;
+  transform: translateY(0);
+  
+  // Animation for hero context
+  &.animate {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: subtleSlideUp 0.8s ease-out 0.6s forwards;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    order: 3; // CTA buttons last on mobile
+    justify-content: center; // Center buttons on mobile
+    margin-top: $space-lg; // Reduced margin on mobile
+  }
 
   .btn {
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -720,6 +854,12 @@ h4,
     flex-direction: column;
     align-items: center;
     gap: $space-md;
+    width: 100%; // Full width container
+    
+    .btn {
+      width: 100%; // Full width buttons on small mobile
+      max-width: 280px; // But not too wide
+    }
   }
 }
 
@@ -974,16 +1114,98 @@ h4,
   }
 }
 
-// Fine Art Gallery Section Styling - Editorial Spacing
+// Page Layout Styling - Consistent with Homepage
+.page-section {
+  padding: calc($space-5xl + $space-xl) 0;
+  background: $background-primary;
+  
+  .page-content {
+    text-align: center;
+    margin-bottom: calc($space-5xl + $space-xl);
+    
+    h2 {
+      font-size: $font-size-h1;
+      font-weight: $font-weight-medium;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      font-feature-settings: "kern" 1, "liga" 1;
+      text-rendering: optimizeLegibility;
+      font-family: $font-primary;
+      margin-bottom: $space-2xl;
+      color: $text-primary;
+      
+      // Subtle animation
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease-out 0.1s forwards;
+    }
+    
+    .intro {
+      font-size: $font-size-large;
+      line-height: 1.6;
+      color: $text-secondary;
+      max-width: 80%;
+      margin: 0 auto;
+      font-weight: $font-weight-regular;
+      font-family: $font-primary;
+      letter-spacing: -0.01em;
+      font-feature-settings: "kern" 1, "liga" 1;
+      
+      // Subtle animation
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeInUp 0.8s ease-out 0.3s forwards;
+      
+      // Bold keywords styling
+      strong, b {
+        font-weight: $font-weight-semibold;
+        color: $text-primary;
+        letter-spacing: -0.015em;
+      }
+      
+      // Highlight key phrases
+      .highlight {
+        font-weight: $font-weight-medium;
+        color: $earth-coral;
+        position: relative;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 1px;
+          background: $earth-coral;
+          transition: width 0.6s ease;
+        }
+        
+        &:hover::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// Ultra Tight Section Spacing - Boring Industries Inspired  
 .section {
-  padding: calc($space-5xl + $space-xl) 0; // More generous spacing for gallery feel
+  padding: $space-2xl 0; // Much tighter desktop spacing
+
+  @media (max-width: $breakpoint-md) {
+    padding: $space-xl 0; // Tighter on tablets
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $space-lg 0; // Tight on mobile
+  }
 
   &--primary {
     background: $background-primary;
   }
 
   &--secondary {
-    background: transparent; // Clean gallery-like background
+    background: transparent;
   }
 
   &--accent {
@@ -1000,72 +1222,86 @@ h4,
   }
 
   &--beige {
-    background: transparent; // Gallery aesthetic
+    background: transparent;
   }
 
   &--white {
     background: $background-accent;
   }
 
-  // Fine art section variants
+  // Tight section variants
   &--gallery {
-    padding: calc($space-5xl + $space-2xl) 0; // Extra generous for gallery sections
+    padding: $space-2xl 0; // Much tighter gallery spacing
     background: transparent;
+    
+    @media (max-width: $breakpoint-md) {
+      padding: $space-xl 0;
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      padding: $space-lg 0;
+    }
   }
 
   &--editorial {
-    padding: $space-5xl 0 calc($space-5xl + $space-xl) 0; // Asymmetric editorial spacing
+    padding: $space-2xl 0; // Much tighter editorial spacing
     background: $background-primary;
+    
+    @media (max-width: $breakpoint-md) {
+      padding: $space-xl 0;
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      padding: $space-lg 0;
+    }
   }
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: calc($space-5xl + $space-xl); // More generous spacing
+  margin-bottom: $space-lg; // Even tighter spacing
   position: relative;
 
-  // Remove decorative line for cleaner gallery aesthetic
-  // &::before removed for minimalism
-
   h2 {
-    margin-bottom: $space-2xl; // More generous spacing
-    font-weight: $font-weight-light; // Lighter for sophistication
-    letter-spacing: -0.02em; // Refined tracking
-    font-family: $font-display; // Use display font for section headers
+    margin-bottom: $space-md; // Much tighter spacing
+    font-weight: $font-weight-medium;
+    letter-spacing: -0.03em;
+    font-family: $font-primary;
   }
 
   .section-intro {
-    font-size: $font-size-large;
+    font-size: $font-size-base; // Smaller, more minimal
     color: $text-tertiary;
-    line-height: 1.65; // More refined
-    max-width: 65rem; // Slightly narrower for editorial feel
+    line-height: 1.5; // Tighter line height
+    max-width: 50rem; // Narrower for minimal feel
     margin: 0 auto;
-    font-weight: $font-weight-light; // Lighter for sophistication
-    font-family: $font-display; // Editorial serif
-    font-style: italic; // Editorial styling
-    letter-spacing: 0.005em; // Subtle positive tracking
+    font-weight: $font-weight-regular;
+    font-family: $font-primary; // Clean sans-serif
+    font-style: normal; // No italic for cleaner look
+    letter-spacing: -0.01em; // Tight kerning
   }
 
   .section-emoji {
-    font-size: 2rem; // Slightly smaller for sophistication
-    margin-bottom: $space-xl; // More generous spacing
+    font-size: 1.6rem; // Smaller for minimal approach
+    margin-bottom: $space-md; // Reduced spacing
     display: block;
-    opacity: 0.6; // More subtle
+    opacity: 0.4; // More subtle
   }
 
-  // Gallery-style section header variant
-  &--gallery {
-    text-align: left; // Left align for gallery aesthetic
-    margin-bottom: $space-4xl;
+  // Minimal header variant
+  &--minimal {
+    text-align: left;
+    margin-bottom: $space-lg;
     
     h2 {
       text-align: left;
       max-width: none;
+      font-size: $font-size-h2;
     }
     
     .section-intro {
       text-align: left;
-      max-width: 80%;
+      max-width: 70%;
       margin: 0;
     }
   }
@@ -1097,11 +1333,19 @@ h4,
   }
 }
 
-// Container System
+// Container System with Mobile Support
 .container {
   max-width: $container-standard;
   margin: 0 auto;
   padding: 0 $space-lg;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 0 $space-md;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 0 $space-sm;
+  }
 
   &--narrow {
     max-width: $container-narrow;
@@ -1272,81 +1516,177 @@ h4,
   }
 }
 
-// Fine Art Gallery Inspired Work List - Minimal & Sophisticated
+// Boring Industries Inspired Work Cards - Minimal & Responsive
 .work-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $space-md;
+  
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $space-md;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: $space-sm;
+  }
   
   .work-item {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    padding: $space-xl 0; // More generous padding for gallery feel
-    border-bottom: 1px solid rgba(230, 228, 223, 0.3); // Subtler borders
+    display: block;
+    padding: $space-lg;
+    background: rgba(248, 247, 244, 0.4);
+    border: 1px solid rgba(230, 228, 223, 0.6);
+    border-radius: 4px;
     text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); // More sophisticated easing
+    transition: all 0.2s ease;
+    position: relative;
+    min-height: 140px;
+    width: 100%; // Ensure full width
+    box-sizing: border-box; // Include padding in width calculation
     
-    &:first-child {
-      padding-top: $space-lg; // Reduce top padding for first item
-    }
-    
-    &:last-child {
-      border-bottom: none;
-      padding-bottom: 0; // Remove bottom padding for last item
+    @media (max-width: $breakpoint-sm) {
+      padding: $space-md;
+      min-height: 120px;
     }
     
     &:hover {
-      background: transparent; // No background for cleaner feel
-      transform: translateX(8px); // Subtle shift instead of background
+      background: rgba(248, 247, 244, 0.8);
+      border-color: $earth-coral;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(184, 118, 94, 0.15);
       
       .work-title {
         color: $earth-coral;
-        letter-spacing: -0.01em; // Subtle refinement on hover
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
       }
       
       .work-year {
-        opacity: 1;
         color: $earth-coral;
+        opacity: 1;
       }
     }
     
     .work-content {
-      flex: 1;
+      padding-right: 4rem; // Space for year badge
+      
+      @media (max-width: $breakpoint-sm) {
+        padding-right: 3rem;
+      }
       
       .work-title {
-        font-size: $font-size-large; // Larger for gallery presence
-        font-weight: $font-weight-light; // Lighter for sophistication
+        font-size: $font-size-h4;
+        font-weight: $font-weight-medium;
         color: $text-primary;
         margin: 0 0 $space-sm 0;
-        line-height: 1.3; // Tighter for editorial feel
-        transition: all 0.3s ease;
-        font-family: $font-display; // Use display font for sophistication
-        letter-spacing: -0.005em; // Subtle negative tracking
+        line-height: 1.2;
+        transition: all 0.2s ease;
+        font-family: $font-primary;
+        letter-spacing: -0.02em;
+        
+        @media (max-width: $breakpoint-sm) {
+          font-size: $font-size-base;
+          line-height: 1.3;
+          margin-bottom: $space-xs;
+        }
       }
       
       .work-description {
-        font-size: $font-size-base; // Slightly larger for readability
-        color: $text-tertiary;
-        line-height: 1.6; // More generous line height
+        font-size: $font-size-small;
+        color: $text-secondary;
+        line-height: 1.4;
         margin: 0;
         font-weight: $font-weight-regular;
-        max-width: 85%; // Constrain for editorial feel
-        letter-spacing: 0.002em; // Subtle positive tracking
+        letter-spacing: -0.005em;
+        
+        @media (max-width: $breakpoint-sm) {
+          font-size: $font-size-xs;
+          line-height: 1.5;
+        }
       }
     }
     
     .work-year {
       font-size: $font-size-xs;
       color: $text-quaternary;
-      font-weight: $font-weight-light; // Lighter for sophistication
+      font-weight: $font-weight-medium;
       text-transform: uppercase;
-      letter-spacing: 0.1em; // More spacing for gallery aesthetic
-      white-space: nowrap;
-      margin-left: $space-xl;
-      opacity: 0.7; // Start more subtle
-      transition: all 0.3s ease;
+      letter-spacing: 0.08em;
+      position: absolute;
+      top: $space-lg;
+      right: $space-lg;
+      opacity: 0.6;
+      transition: all 0.2s ease;
+      
+      @media (max-width: $breakpoint-sm) {
+        top: $space-md;
+        right: $space-md;
+        font-size: 1rem;
+      }
     }
+  }
+}
+
+// About Page Content Grids - Clean & Organized
+.expertise-grid,
+.philosophy-grid,
+.deliverables-grid,
+.personal-grid {
+  display: grid;
+  gap: $space-lg;
+  margin-top: $space-xl;
+  
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: $space-md;
+  }
+}
+
+.expertise-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.philosophy-grid,
+.deliverables-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.personal-grid {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.expertise-item,
+.philosophy-item,
+.deliverable-item,
+.personal-item {
+  padding: $space-lg;
+  border-left: 2px solid $earth-coral;
+  background: rgba(248, 247, 244, 0.3);
+  border-radius: $radius-small;
+  transition: all 0.3s ease;
+  
+  strong {
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    letter-spacing: -0.015em;
+  }
+  
+  &:hover {
+    background: rgba(248, 247, 244, 0.5);
+    border-left-color: $earth-coral;
+    transform: translateX(4px);
+  }
+}
+
+.personal-item {
+  border-left-color: $earth-sage;
+  background: rgba(122, 132, 113, 0.05);
+  
+  &:hover {
+    background: rgba(122, 132, 113, 0.1);
+    border-left-color: $earth-sage;
   }
 }
 

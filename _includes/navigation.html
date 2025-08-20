@@ -2,6 +2,13 @@
 <nav class="navigation">
   <div class="container">
     <a href="/" class="nav-brand">{{ site.title }}</a>
+    
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+    
     <div class="nav-links">
       {% for item in include.navigation %}
       <a href="{{ item.url }}" class="{% if item.url == navurl %}active{% endif %}" {% if item.url==navurl %}
@@ -12,3 +19,27 @@
     </div>
   </div>
 </nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const navigation = document.querySelector('.navigation');
+  
+  navToggle.addEventListener('click', function() {
+    navLinks.classList.toggle('nav-links--open');
+    navToggle.classList.toggle('nav-toggle--open');
+    navigation.classList.toggle('navigation--open');
+  });
+  
+  // Close menu when clicking on a link
+  const links = navLinks.querySelectorAll('a');
+  links.forEach(link => {
+    link.addEventListener('click', function() {
+      navLinks.classList.remove('nav-links--open');
+      navToggle.classList.remove('nav-toggle--open');
+      navigation.classList.remove('navigation--open');
+    });
+  });
+});
+</script>
