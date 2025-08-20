@@ -13,24 +13,24 @@ intro_paragraph: Hi, I'm Hadi. I build software and help teams make it more secu
       <h2>What I Actually Do</h2>
       <div class="text-base">
         <p class="mb-lg">I work on applications where security isn't an afterthought. This usually means diving into systems to understand how data flows, where it's vulnerable, and how to protect it without making everything impossible to use.</p>
-        
+
         <p class="mb-lg">My focus areas are:</p>
-        
+
         <div class="expertise-grid">
           <div class="expertise-item stagger-item">
-            <strong>Custom development</strong> — building secure applications from scratch
+            <strong>Custom development & security architecture</strong> — crafting secure applications with defense-in-depth from the foundation up
           </div>
           <div class="expertise-item stagger-item">
-            <strong>Data privacy compliance</strong> — making sure personal data is handled properly
+            <strong>Privacy engineering & compliance</strong> — implementing data protection by design and ensuring regulatory compliance
           </div>
           <div class="expertise-item stagger-item">
-            <strong>System hardening</strong> — reducing attack surfaces and securing infrastructure
+            <strong>Digital narrative & reputation management</strong> — crafting strategic online presence, SEO optimization, and brand narrative control for individuals and organizations
           </div>
           <div class="expertise-item stagger-item">
-            <strong>Security architecture</strong> — building defenses into applications from the start
+            <strong>System hardening & threat modeling</strong> — reducing attack surfaces, securing infrastructure, and anticipating adversarial thinking
           </div>
         </div>
-        
+
         <p class="mt-xl">Most of my work involves either building new secure systems or fixing existing ones that have grown... <span class="highlight">interesting</span> over time.</p>
       </div>
     </section>
@@ -39,7 +39,7 @@ intro_paragraph: Hi, I'm Hadi. I build software and help teams make it more secu
       <h2>Outside of Work</h2>
       <div class="text-base">
         <p class="mb-lg">I'm probably drinking too much coffee, arguing about programming languages on the internet, or trying to convince my houseplants to stay alive. I also write occasionally about security things that annoy me enough to put into words.</p>
-        
+
         <p>Melbourne's weather gives me plenty of excuses to stay inside and code, which works out well for everyone involved.</p>
       </div>
     </section>
@@ -58,4 +58,5 @@ intro_paragraph: Hi, I'm Hadi. I build software and help teams make it more secu
       </div>
     </footer>
     </article>
+
 </div>

@@ -1,0 +1,32 @@
+{
+  "name": "jekyll-netlify-boilerplate-jsmaw",
+  "version": "1.0.0",
+  "description": "Jekyll site with JSMAW (Jekyll SEO-First Multi-Agent Workflow)",
+  "scripts": {
+    "dev": "bundle exec jekyll serve --livereload",
+    "build": "bundle exec jekyll build",
+    "jsmaw": "npm run jsmaw:start",
+    "jsmaw:start": "concurrently \"npm run dev\" \"npm run jsmaw:agents\"",
+    "jsmaw:agents": "concurrently \"npm run agent:content\" \"npm run agent:seo\" \"npm run agent:design\" \"npm run agent:performance\" \"npm run agent:review\"",
+    "agent:content": "claude --dangerously-skip-permissions",
+    "agent:seo": "claude --dangerously-skip-permissions", 
+    "agent:design": "claude --dangerously-skip-permissions",
+    "agent:performance": "claude --dangerously-skip-permissions",
+    "agent:review": "claude --dangerously-skip-permissions"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "keywords": [
+    "jekyll",
+    "seo",
+    "multi-agent",
+    "jsmaw",
+    "claude-code"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/jekyll-netlify-boilerplate"
+  },
+  "license": "MIT"
+}
