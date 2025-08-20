@@ -65,7 +65,7 @@
   }
 }
 
-// Keyframe animation for waving hand
+// Clean Animation System
 @keyframes wave {
   0%, 100% { 
     transform: rotate(0deg); 
@@ -84,6 +84,48 @@
   }
   70%, 90% { 
     transform: rotate(0deg); 
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes subtleSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -363,26 +405,73 @@ h4,
     }
 
     h1 {
-      margin-bottom: $space-2xl; // More generous spacing
-      line-height: 1.05; // Tighter for editorial sophistication
-      font-weight: $font-weight-light; // Much lighter for fine art feel
-      max-width: 85%; // More constrained for editorial layout
-      letter-spacing: -0.03em; // Refined negative tracking
-      font-feature-settings: "kern" 1, "liga" 1, "swsh" 1, "calt" 1;
+      margin-bottom: $space-2xl;
+      line-height: 1.1; // Slightly more open for readability
+      font-weight: $font-weight-medium; // Medium weight for better presence
+      max-width: 90%; // Wider for better balance
+      letter-spacing: -0.02em; // Subtle negative tracking
+      font-feature-settings: "kern" 1, "liga" 1; // Focus on kerning and ligatures
       text-rendering: optimizeLegibility;
+      font-family: $font-primary; // Clean sans-serif for main headline
+      
+      // Subtle slide-in animation
+      opacity: 0;
+      transform: translateX(-20px);
+      animation: slideInLeft 0.8s ease-out 0.1s forwards;
+      
+      // Animate the wave emoji separately
+      .wave-emoji {
+        display: inline-block;
+        animation: wave 2s ease-in-out infinite, fadeIn 0.8s ease-out 0.8s both;
+        transform-origin: 70% 70%;
+      }
     }
 
     .intro {
       font-size: $font-size-large;
-      line-height: 1.65; // More refined line height
+      line-height: 1.6; // Clean, readable line height
       color: $text-secondary;
-      margin-bottom: $space-3xl; // More generous bottom spacing
-      max-width: 80%; // More editorial constraint
-      font-weight: $font-weight-light; // Lighter for sophistication
-      font-family: $font-display; // Use display serif for sophisticated intro text
-      font-style: italic; // Editorial italic styling
-      letter-spacing: 0.005em; // Subtle positive tracking for readability
-      font-feature-settings: "kern" 1, "liga" 1, "swsh" 1;
+      margin-bottom: $space-3xl;
+      max-width: 85%; // Slightly wider for better readability
+      font-weight: $font-weight-regular; // Regular weight for clarity
+      font-family: $font-primary; // Clean sans-serif instead of serif
+      font-style: normal; // Remove italic for cleaner look
+      letter-spacing: -0.01em; // Subtle negative tracking for modern feel
+      font-feature-settings: "kern" 1, "liga" 1; // Keep kerning and ligatures
+      
+      // Subtle fade-in animation
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeInUp 0.8s ease-out 0.3s forwards;
+      
+      // Bold keywords styling
+      strong, b {
+        font-weight: $font-weight-semibold;
+        color: $text-primary;
+        letter-spacing: -0.015em; // Tighter tracking for bold text
+      }
+      
+      // Highlight key phrases
+      .highlight {
+        font-weight: $font-weight-medium;
+        color: $earth-coral;
+        position: relative;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 1px;
+          background: $earth-coral;
+          transition: width 0.6s ease;
+        }
+        
+        &:hover::after {
+          width: 100%;
+        }
+      }
     }
   }
 
@@ -608,11 +697,24 @@ h4,
   }
 }
 
-// Hero Button Group - Enhanced spacing
+// Hero Button Group - Enhanced spacing with animations
 .hero-links {
   display: flex;
   gap: $space-lg;
-  margin-top: $space-md;
+  margin-top: $space-2xl;
+  
+  // Subtle staggered animation
+  opacity: 0;
+  transform: translateY(15px);
+  animation: subtleSlideUp 0.8s ease-out 0.6s forwards;
+
+  .btn {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    &:hover {
+      transform: translateY(-3px) scale(1.02);
+    }
+  }
 
   @media (max-width: $breakpoint-sm) {
     flex-direction: column;
