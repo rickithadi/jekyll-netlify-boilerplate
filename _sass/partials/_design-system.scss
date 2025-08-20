@@ -146,9 +146,9 @@ h1,
 h2,
 .h2 {
   font-size: $font-size-h2;
-  font-weight: $font-weight-regular; // Lighter weight for more sophistication
+  font-weight: 300; // Even lighter for more sophistication
   line-height: 1.1; // Tight editorial
-  letter-spacing: -0.03em; // Tight kerning
+  letter-spacing: -0.04em; // Increased negative tracking
   color: $text-primary;
   font-family: $font-primary; // Clean sans-serif
   margin-bottom: $space-md; // Tighter margins
@@ -218,9 +218,9 @@ h4,
 // Default paragraph styling
 p {
   font-size: $font-size-base;
-  line-height: 1.4; // Compressed for consistency
+  line-height: 1.4; // Compressed for tighter feel
   color: $text-secondary;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.01em; // Increased negative tracking for tighter feel
   margin-bottom: $space-md;
   font-weight: $font-weight-regular;
   
@@ -566,15 +566,15 @@ p {
     }
 
     .intro {
-      font-size: $font-size-large;
-      line-height: 1.4; // Compressed line height for tighter feel
+      font-size: 1.8rem; // Increased from 1.6rem for better presence
+      line-height: 1.35; // Tighter for editorial feel
       color: $text-secondary;
       margin-bottom: $space-2xl;
       max-width: 85%;
       font-weight: $font-weight-regular;
       font-family: $font-primary;
       font-style: normal;
-      letter-spacing: -0.015em;
+      letter-spacing: -0.015em; // Refined letter spacing
       font-feature-settings: "kern" 1, "liga" 1;
       
       // Subtle fade-in animation
@@ -1492,6 +1492,9 @@ p {
 .mb-2xl {
   margin-bottom: var(--space-2xl);
 }
+.mb-3xl {
+  margin-bottom: var(--space-3xl);
+}
 
 .mt-0 {
   margin-top: 0;
@@ -1510,6 +1513,9 @@ p {
 }
 .mt-2xl {
   margin-top: var(--space-2xl);
+}
+.mt-3xl {
+  margin-top: var(--space-3xl);
 }
 
 // Accessibility
@@ -1579,6 +1585,8 @@ p {
       
       .work-year {
         color: $earth-coral;
+        opacity: 1;
+        transform: scale(1.05);
       }
     }
     
@@ -1621,7 +1629,8 @@ p {
       letter-spacing: 0.08em;
       white-space: nowrap;
       margin-left: $space-lg;
-      transition: all 0.2s ease;
+      opacity: 0.8;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
   }
 }
@@ -1658,32 +1667,53 @@ p {
 .philosophy-item,
 .deliverable-item,
 .personal-item {
-  padding: $space-lg;
-  border-left: 2px solid $earth-coral;
-  background: rgba(248, 247, 244, 0.3);
-  border-radius: $radius-small;
-  transition: all 0.3s ease;
+  background: linear-gradient(135deg, rgba(184, 118, 94, 0.03) 0%, rgba(255, 255, 255, 0.8) 100%);
+  border: 1px solid rgba(184, 118, 94, 0.08);
+  border-radius: 12px;
+  padding: 2.4rem;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(10px);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, $earth-coral 0%, rgba(184, 118, 94, 0.3) 100%);
+    border-radius: 2px 0 0 2px;
+  }
   
   strong {
     font-weight: $font-weight-semibold;
     color: $text-primary;
     letter-spacing: -0.015em;
+    display: block;
+    margin-bottom: $space-xs;
   }
   
   &:hover {
-    background: rgba(248, 247, 244, 0.5);
-    border-left-color: $earth-coral;
-    transform: translateX(4px);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(184, 118, 94, 0.12);
+    border-color: rgba(184, 118, 94, 0.15);
+    background: linear-gradient(135deg, rgba(184, 118, 94, 0.05) 0%, rgba(255, 255, 255, 0.9) 100%);
   }
 }
 
 .personal-item {
-  border-left-color: $earth-sage;
-  background: rgba(122, 132, 113, 0.05);
+  background: linear-gradient(135deg, rgba(122, 132, 113, 0.03) 0%, rgba(255, 255, 255, 0.8) 100%);
+  border-color: rgba(122, 132, 113, 0.08);
+  
+  &::before {
+    background: linear-gradient(180deg, $earth-sage 0%, rgba(122, 132, 113, 0.3) 100%);
+  }
   
   &:hover {
-    background: rgba(122, 132, 113, 0.1);
-    border-left-color: $earth-sage;
+    background: linear-gradient(135deg, rgba(122, 132, 113, 0.05) 0%, rgba(255, 255, 255, 0.9) 100%);
+    border-color: rgba(122, 132, 113, 0.15);
+    box-shadow: 0 8px 32px rgba(122, 132, 113, 0.12);
   }
 }
 

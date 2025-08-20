@@ -61,6 +61,13 @@ defaults:
 # Build settings
 markdown: kramdown
 
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-redirect-from
+
 # Kramdown options
 kramdown:
   # Prevent IDs from being added to h1-h6 tags
