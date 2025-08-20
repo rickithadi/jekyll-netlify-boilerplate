@@ -57,4 +57,8 @@ Grid system with auto-fit columns:
 - Progressive spacing reduction
 - Typography scaling for readability
 
-Always maintain the minimal, sophisticated aesthetic inspired by boring.industries.
+Always maintain the minimal, sophisticated aesthetic inspired by boring.industries.[byterover-mcp]
+
+# important 
+always use byterover-retrieve-knowledge tool to get the related context before any tasks 
+always use byterover-store-knowledge to store all the critical informations after sucessful tasks

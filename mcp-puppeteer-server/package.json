@@ -1,0 +1,30 @@
+{
+  "name": "mcp-puppeteer-server",
+  "version": "0.3.0",
+  "description": "MCP server for browser automation using Puppeteer",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts"
+  },
+  "keywords": ["mcp", "puppeteer", "browser", "automation"],
+  "author": "Claude Code Assistant",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "puppeteer": "^23.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0"
+  },
+  "bin": {
+    "mcp-puppeteer-server": "./dist/index.js"
+  },
+  "files": [
+    "dist/**/*"
+  ]
+}
