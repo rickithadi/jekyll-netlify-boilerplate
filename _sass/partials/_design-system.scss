@@ -2211,7 +2211,7 @@ p {
   white-space: nowrap;
   
   &:hover {
-    background: darken($earth-coral, 8%);
+    background: #a36952; // Manually darkened earth-coral
     transform: translateY(-1px);
     box-shadow: 0 4px 16px rgba(184, 118, 94, 0.3);
   }
