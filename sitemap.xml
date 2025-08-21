@@ -10,13 +10,15 @@ layout: null
     <priority>1.0</priority>
   </url>
   {% for page in site.pages %}
-    {% unless page.url contains '/admin' %}
-    <url>
-      <loc>{{ site.url }}{{ page.url }}</loc>
-      <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-    </url>
+    {% unless page.url contains '/admin' or page.url contains '.css' or page.url contains '.map' or page.url contains '.json' or page.url contains '.xml' or page.url contains '404' %}
+      {% if page.url != '/' %}
+        <url>
+          <loc>{{ site.url }}{{ page.url }}</loc>
+          <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+          <changefreq>monthly</changefreq>
+          <priority>0.8</priority>
+        </url>
+      {% endif %}
     {% endunless %}
   {% endfor %}
   {% for post in site.posts %}

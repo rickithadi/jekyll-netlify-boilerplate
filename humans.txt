@@ -1,0 +1,24 @@
+# Humans.txt - https://rickithadi.dev
+
+/* TEAM */
+Developer: Hadi Rickit
+Contact: rickithadi@gmail.com
+From: Melbourne, Australia
+GitHub: github.com/rickithadi
+LinkedIn: linkedin.com/in/hadi-rickit
+
+/* SITE */
+Last Update: 2025/01/23
+Language: English
+Doctype: HTML5
+IDE: VS Code, Claude Code
+Technology: Jekyll, Sass, HTML5, CSS3, JavaScript
+Hosting: Netlify
+Domain: rickithadi.dev
+
+/* THANKS */
+Jekyll: jekyllrb.com
+Netlify: netlify.com
+Font Awesome: fontawesome.com
+Inter Font: rsms.me/inter
+Playfair Display: fonts.google.com
