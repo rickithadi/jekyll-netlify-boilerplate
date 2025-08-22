@@ -1,34 +1,22 @@
-<section class="recent-posts">
-  <div class="section-header">
-    <div class="section-number">02</div>
-    <h2>Recent Insights</h2>
-    <p class="section-intro">Thoughts on software engineering, cybersecurity, and the art of building things that
-      matter.</p>
-  </div>
+<section class="section section--white">
+  <div class="container">
+    <div class="section-header">
+      <h2>Recent Insights</h2>
+      <p class="section-intro">Thoughts on software engineering, cybersecurity, and building things that matter.</p>
+    </div>
 
-  <div class="posts-grid">
-    {% assign post_counter = 1 %}
-    {% for post in site.posts limit:3 %}
-    <article class="post-card post-card--compact">
-      <div class="post-header">
-        <div class="post-number">0{{ post_counter }}</div>
-        <time class="post-date">{{ post.date | date: "%b %Y" }}</time>
-      </div>
-      <h3 class="post-title">
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      </h3>
-      <p class="post-excerpt">
-        {{ post.excerpt | strip_html | truncatewords: 15 }}
-      </p>
-      <div class="post-footer">
-        <a href="{{ post.url | relative_url }}" class="read-more">Read More</a>
-      </div>
-    </article>
-    {% assign post_counter = post_counter | plus: 1 %}
-    {% endfor %}
-  </div>
+    <div class="post-grid">
+      {% for post in site.posts limit:3 %}
+      <article class="post-item stagger-item">
+        <a href="{{ post.url | relative_url }}" class="post-link">
+          <p class="post-meta">{{ post.date | date: "%b %Y" }}</p>
+          <h3 class="post-title">{{ post.title }}</h3>
+          <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+        </a>
+      </article>
+      {% endfor %}
+    </div>
 
-  <div class="posts-cta">
-    <a href="/blog" class="btn btn-outline">View All Posts</a>
+
   </div>
 </section>

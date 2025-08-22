@@ -13,10 +13,10 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Hadi Rickit | Software & Security
+title: Hadi Rickit | Personal Site - Software & Security
 email: rickithadi@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Hadi Rickit is a Software Engineer and Cybersecurity Expert based in Melbourne, Australia, specializing in crafting beautiful, scalable, and secure software systems. Currently pursuing a Master's in Cybersecurity.
+  Hadi Rickit is a Cybersecurity Expert and Software Engineer in Melbourne, Australia, specializing in security audits, penetration testing, and secure software architecture. Expert in application security, OWASP standards, and building beautiful, scalable systems. Available for cybersecurity consulting worldwide.
 baseurl: "" # the subpath of your site if applicable, e.g. /blog
 url: "https://rickithadi.dev" # the base hostname & protocol for your site, e.g. https://example.com
 
@@ -61,6 +61,12 @@ defaults:
 # Build settings
 markdown: kramdown
 
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-redirect-from
+
 # Kramdown options
 kramdown:
   # Prevent IDs from being added to h1-h6 tags
@@ -88,3 +94,17 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - package.json
+  - package-lock.json
+  - CLAUDE.md
+  - DESIGNER_RESTART.md
+  - DESIGN_IMPLEMENTATION.md
+  - DESIGN_SYSTEM_SPECIFICATION.md
+  - JSMAW-VSCODE-SETUP.md
+  - MULTI_AGENT_WORKFLOW.md
+  - restart-context/
+  - claude-contexts/
+  - collaboration/
+  - mcp-puppeteer-server/
+  - test-cards.html
+  - test-local.html

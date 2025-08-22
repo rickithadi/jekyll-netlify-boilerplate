@@ -1,7 +1,28 @@
----
-layout: null
----
 User-agent: *
 Allow: /
 
-Sitemap: {{ site.url }}/sitemap.xml
+# Sitemap
+Sitemap: https://rickithadi.dev/sitemap.xml
+
+# Disallow admin and technical files
+Disallow: /admin/
+Disallow: /_includes/
+Disallow: /_layouts/
+Disallow: /_sass/
+Disallow: /assets/js/
+Disallow: /node_modules/
+Disallow: /*.css$
+Disallow: /*.css.map$
+Disallow: /*.json$
+Disallow: /404.html
+Disallow: /feed.xml
+
+# Allow important content and assets
+Allow: /assets/css/main.css
+Allow: /assets/img/
+Allow: /blog/
+Allow: /about/
+Allow: /contact/
+
+# Crawl delay for politeness
+Crawl-delay: 1

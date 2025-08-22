@@ -14,7 +14,7 @@ html {
   }
 }
 
-// Base body typography
+// Base body typography - Enhanced
 body {
   color: $text-primary;
   font-family: $font-primary;
@@ -24,12 +24,14 @@ body {
   font-variant: normal;
   font-size: $font-size-base;
   background-color: $background-primary;
+  letter-spacing: $letter-spacing-body;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
 }
 
-// Editorial heading system
+// Editorial heading system - Faculty Dept inspired
 h1,
 h2,
 h3,
@@ -37,88 +39,127 @@ h4,
 h5,
 h6 {
   font-family: $font-primary;
-  font-weight: $base-font-weight;
-  line-height: 1.1;
+  font-weight: $font-weight-headings;
+  line-height: $line-height-headings;
   color: $text-primary;
-  letter-spacing: -0.02em;
+  letter-spacing: $letter-spacing-headings;
   margin: 0;
   padding: 0;
+  font-feature-settings: "kern" 1, "liga" 1;
+  font-optical-sizing: auto;
 }
 
 h1 {
-  font-size: clamp($font-size-4xl, 6vw, $font-size-6xl);
-  margin-bottom: 4rem;
+  font-size: $font-size-h1;
+  margin-bottom: $space-2xl;
+  font-weight: $font-weight-bold;
 }
 
 h2 {
-  font-size: clamp($font-size-3xl, 5vw, $font-size-5xl);
-  margin-bottom: 3rem;
+  font-size: $font-size-h2;
+  margin-bottom: $space-xl;
+  font-weight: $font-weight-semibold;
 }
 
 h3 {
-  font-size: clamp($font-size-2xl, 3vw, $font-size-3xl);
-  margin-bottom: 2rem;
-  line-height: 1.2;
+  font-size: $font-size-h3;
+  margin-bottom: $space-lg;
+  font-weight: $font-weight-semibold;
 }
 
 h4 {
-  font-size: $font-size-xl;
-  margin-bottom: 2rem;
+  font-size: $font-size-h4;
+  margin-bottom: $space-lg;
+  font-weight: $font-weight-medium;
 }
 
 h5 {
-  font-size: $font-size-lg;
-  margin-bottom: 1.5rem;
+  font-size: $font-size-h5;
+  margin-bottom: $space-md;
+  font-weight: $font-weight-medium;
 }
 
 h6 {
-  font-size: $font-size-base;
-  margin-bottom: 1.5rem;
+  font-size: $font-size-h6;
+  margin-bottom: $space-md;
+  font-weight: $font-weight-semibold;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: $text-secondary;
 }
 
-// Paragraph and text elements
+// Paragraph and text elements - Enhanced hierarchy
 p {
   font-size: $font-size-base;
-  line-height: $base-line-height;
-  color: $text-primary;
-  margin: 0 0 2rem 0;
+  line-height: $line-height-body;
+  color: $text-secondary;
+  margin: 0 0 $space-lg 0;
   padding: 0;
+  letter-spacing: $letter-spacing-body;
 
   &.intro {
-    font-size: clamp($font-size-xl, 3vw, $font-size-3xl);
+    font-size: $font-size-large;
+    color: $text-tertiary;
+    margin-bottom: $space-2xl;
+    max-width: 65rem;
+    line-height: 1.6;
+    font-weight: $font-weight-regular;
+  }
+
+  &.lead {
+    font-size: $font-size-medium;
+    line-height: 1.7;
     color: $text-secondary;
-    margin-bottom: 4rem;
-    max-width: 60rem;
+    margin-bottom: $space-xl;
   }
 
   &.large {
-    font-size: $font-size-lg;
+    font-size: $font-size-large;
     line-height: 1.7;
   }
 
   &.small {
-    font-size: $font-size-sm;
-    color: $text-secondary;
+    font-size: $font-size-small;
+    color: $text-tertiary;
+    line-height: 1.6;
+  }
+
+  &.caption {
+    font-size: $font-size-xs;
+    color: $text-quaternary;
+    line-height: 1.5;
+    margin-bottom: $space-sm;
   }
 }
 
-// Links - minimal and clean
+// Links - Professional and accessible
 a,
 a:visited {
-  color: $text-primary;
+  color: $accent-primary;
   text-decoration: underline;
   text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-  transition: all 0.2s ease;
+  text-decoration-color: rgba(196, 90, 60, 0.4);
+  text-underline-offset: 0.2em;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   border: none;
 
-  &:hover,
-  &:active {
+  &:hover {
+    color: $accent-dark;
     text-decoration-thickness: 2px;
-    color: $text-secondary;
+    text-decoration-color: $accent-dark;
+    text-underline-offset: 0.25em;
+  }
+
+  &:focus {
+    outline: 2px solid $accent-primary;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  // Inline code links
+  code & {
+    color: inherit;
+    text-decoration-color: $accent-primary;
   }
 }
 
@@ -261,7 +302,7 @@ table {
 
 // Focus states
 :focus {
-  outline: 2px solid $primary-black;
+  outline: 2px solid $primary-charcoal;
   outline-offset: 2px;
 }
 

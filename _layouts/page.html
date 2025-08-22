@@ -2,12 +2,13 @@
 layout: default
 ---
 
-<div class="container">
-  <div class="page-content">
-    <h2>{{ page.title }}</h2>
-
-    {% include page-intro.html %}
-
+<section class="page-section">
+  <div class="container">
+    <div class="page-content">
+      <h1>{{ page.title }}</h1>
+      {% include page-intro.html %}
+    </div>
+    
     {{ content }}
   </div>
-</div>
+</section>

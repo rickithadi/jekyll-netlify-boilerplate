@@ -1,57 +1,197 @@
-// Editorial Monochromatic Palette - Faculty Dept Inspired
-$primary-black: #000000;
-$primary-gray: #333333;
-$accent-gray: #666666;
-$subtle-accent: #999999;
+// Sophisticated Earthy Color System with Anthropic's Friendly Touch
+// Grounded, capable, yet approachable palette blending earth tones with warm corals
+$earth-coral: #b8765e; // Primary earthy coral - Anthropic's warmth grounded
+$earth-sage: #7a8471; // Secondary sage green - sophisticated and natural
+$earth-stone: #9b9088; // Tertiary stone gray - warm and neutral
+$earth-clay: #a67c6a; // Clay brown accent - earthy depth
+$earth-moss: #6b7763; // Darker earth green for contrast
 
-$text-primary: #000000;
-$text-secondary: #666666;
-$text-muted: #999999;
-$text-light: #cccccc;
-$text-negative: #ffffff;
+// Earthy accent variations
+$earth-coral-light: rgba(184, 118, 94, 0.1); // Light coral for backgrounds
+$earth-coral-subtle: rgba(184, 118, 94, 0.05); // Very subtle coral
+$earth-sage-light: rgba(122, 132, 113, 0.08); // Light sage for surfaces
 
-$background-primary: #ffffff;
-$background-secondary: #fafafa;
-$background-accent: #f5f5f5;
-$background-dark: #000000;
+// Sophisticated Neutral System - Grounded and Capable
+$earth-text-primary: #2c2a27; // Deep warm charcoal for primary text
+$earth-text-secondary: #524f4a; // Warm medium gray for secondary text
+$earth-text-tertiary: #6b6761; // Lighter warm gray for tertiary text
+$earth-text-quaternary: #8a8580; // Subtle warm gray for captions
+$earth-background: #fefefe; // Soft white background
+$earth-background-warm: #fcfbf9; // Warm cream white
+$earth-background-subtle: #f8f7f4; // Earthy off-white
+$earth-surface: #f4f3f0; // Warm neutral surface color
 
-$border-light: #f0f0f0;
-$border-medium: #e0e0e0;
-$border-dark: #cccccc;
+// Earthy Professional Neutral Scale - Warm and Grounded
+$neutral-50: #fcfbf9; // Warm cream
+$neutral-100: #f8f7f4; // Soft warm white
+$neutral-200: #f0efeb; // Light warm gray
+$neutral-300: #e6e4df; // Medium warm gray
+$neutral-400: #b8b5af; // Balanced warm gray
+$neutral-500: #8a8580; // Earth stone gray
+$neutral-600: #5c5952; // Dark warm gray
+$neutral-700: #3d3a35; // Deep warm charcoal
+$neutral-800: #2c2a27; // Rich dark brown
+$neutral-900: #1a1916; // Deep earth black
 
-$success-color: #000000;
+// Earthy Primary Color System
+$background-primary: $earth-background;
+$background-secondary: $earth-background-warm;
+$background-tertiary: $earth-background-subtle;
+$background-accent: $earth-background;
+$background-dark: $neutral-900;
+
+// Sophisticated Accent System - Friendly yet Grounded
+$accent-primary: $earth-coral; // Primary earthy coral accent
+$accent-secondary: $earth-sage; // Secondary sage green
+$accent-tertiary: $earth-stone; // Tertiary stone gray
+$accent-subtle: $earth-coral-light;
+$accent-border: rgba(184, 118, 94, 0.2);
+
+// Earthy Text Hierarchy - Professional and Grounded
+$text-primary: $earth-text-primary;
+$text-secondary: $earth-text-secondary;
+$text-tertiary: $earth-text-tertiary;
+$text-quaternary: $earth-text-quaternary;
+$text-subtle: $neutral-400;
+$text-inverse: #ffffff;
+
+// Legacy compatibility placeholders - will be defined later
+// (moved to end of file after all variables are defined)
+
+// Semantic Background Colors (using the new system)
+$page-background: $background-primary;
+$section-background: $background-secondary;
+$card-background: $background-accent;
+$hero-background: $background-primary;
+
+// Earthy Border System - Sophisticated and Grounded
+$border-light: rgba(230, 228, 223, 0.6); // Very subtle warm earth borders
+$border-medium: $neutral-200; // Standard warm borders
+$border-strong: $neutral-300; // Emphasized earth borders
+$border-accent: $accent-border; // Sage accent borders
+
+// Earthy Functional Colors - Grounded yet Friendly
+$success: #6b7763; // Deep earthy green for success
+$warning: #b8926a; // Warm earth brown for warnings
+$error: #a56b6b; // Muted earth red for errors
+$info: $earth-coral; // Use earthy coral for information
+$neutral: $neutral-500; // Warm neutral gray for general information
+
+// Functional backgrounds (light versions)
+$success-bg: rgba(45, 90, 69, 0.1);
+$warning-bg: rgba(184, 101, 10, 0.1);
+$error-bg: rgba(184, 59, 59, 0.1);
+$info-bg: $accent-subtle;
+$neutral-bg: rgba(111, 109, 102, 0.1);
+
+// Legacy compatibility - maintain existing variable names
+$text-negative: $text-inverse;
+$text-muted: $text-tertiary;
+$text-light: $text-quaternary;
+$primary-charcoal: $earth-text-primary;
+$primary-gray: $neutral-700;
+$accent-gray: $neutral-600;
+$subtle-accent: $neutral-400;
+
+// Soft accent colors for balance
+$soft-lavender: #e8e4f3; // Gentle purple accent
+$sage-green: #e8f2e8; // Soft green accent
+$dusty-rose: #f2e8e8; // Warm pink accent
+$soft-blue: #e4f0f7; // Gentle blue accent
+$warm-cream: #faf8f5; // Warmer background option
+
+// Soft shadows and depth
+$shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+$shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+$shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.15);
+
+// Border radius values for softening
+$radius-small: 4px;
+$radius-medium: 8px;
+$radius-large: 12px;
+$radius-xl: 16px;
+
+$success-color: #1c1c1c;
 $warning-color: #666666;
 $error-color: #333333;
 
-$selection-bg-color: rgba(0, 0, 0, 0.1);
+$selection-bg-color: rgba(28, 28, 28, 0.1);
 
 // Legacy color mappings for compatibility
 $text-color: $text-primary;
-$brand-color: $primary-black;
-$link-color: $primary-black;
+$brand-color: $primary-charcoal;
+$link-color: $primary-charcoal;
 $link-hover-color: $accent-gray;
 $grey-bg-color: $background-secondary;
 $hairline-color: $border-light;
 
-// Editorial typography system - Faculty Dept inspired
-$font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+// Sophisticated Typography System
+$font-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
   "Helvetica Neue", Arial, sans-serif;
-$font-secondary: "Times New Roman", Times, serif;
-$font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
-  "Courier New", monospace;
+$font-display: "Playfair Display", "Times New Roman", Times, serif; // For sophisticated headlines
+$font-mono: "JetBrains Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", 
+  Consolas, "Courier New", monospace;
 
+// Sophisticated Font weights - precise scale for luxury feel
+$font-weight-thin: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 450;
+$font-weight-semibold: 500;
+$font-weight-bold: 600;
+
+// Base settings
 $base-font: $font-primary;
 $code-font: $font-mono;
-$base-font-size: 62.5%;
-$base-font-weight: 300;
-$bold-font-weight: 500;
-$base-line-height: 1.4;
+$base-font-size: 62.5%; // 10px base for rem calculations
+$base-font-weight: $font-weight-regular;
+$bold-font-weight: $font-weight-semibold;
+$base-line-height: 1.65; // Enhanced readability
 
-// Typography scale
-$font-size-xs: 1.2rem;
-$font-size-sm: 1.4rem;
-$font-size-base: 1.6rem;
-$font-size-lg: 1.8rem;
+// Design System Spacing Scale (8px Grid System)
+$space-xs: 0.4rem; // 4px
+$space-sm: 0.8rem; // 8px
+$space-md: 1.6rem; // 16px
+$space-lg: 2.4rem; // 24px
+$space-xl: 3.2rem; // 32px
+$space-2xl: 4.8rem; // 48px
+$space-3xl: 6.4rem; // 64px
+$space-4xl: 9.6rem; // 96px
+$space-5xl: 12.8rem; // 128px
+
+// Sophisticated Typography Scale - Luxury Inspired
+// Display Typography - Ultra refined
+$font-size-hero: clamp(5.6rem, 10vw, 12rem); // 56-120px - More dramatic and elegant
+$font-weight-hero: $font-weight-light;
+$line-height-hero: 0.95; // Tighter for sophistication
+$letter-spacing-hero: -0.045em; // More refined letter spacing
+
+// Sophisticated Heading Typography - Elegant hierarchy
+$font-size-h1: clamp(4.0rem, 7vw, 7.2rem); // 40-72px - More elegant scale
+$font-size-h2: clamp(2.8rem, 5vw, 4.8rem); // 28-48px - Refined proportions
+$font-size-h3: clamp(2.2rem, 3.5vw, 3.2rem); // 22-32px
+$font-size-h4: clamp(1.8rem, 2.8vw, 2.4rem); // 18-24px
+$font-size-h5: clamp(1.6rem, 2.2vw, 2.0rem); // 16-20px
+$font-size-h6: clamp(1.4rem, 1.8vw, 1.7rem); // 14-17px
+
+$font-weight-headings: $font-weight-medium; // Refined weight
+$line-height-headings: 1.15; // Tighter for sophistication
+$letter-spacing-headings: -0.025em; // More refined spacing
+
+// Sophisticated Body Typography - Luxury readability
+$font-size-large: 2.2rem; // 22px - Elegant intro paragraphs
+$font-size-medium: 1.9rem; // 19px - Premium body text
+$font-size-base: 1.6rem; // 16px - Refined standard text
+$font-size-small: 1.4rem; // 14px - Sophisticated captions
+$font-size-xs: 1.2rem; // 12px - Elegant fine print
+
+$font-weight-body: $font-weight-regular;
+$line-height-body: 1.6; // More refined line height
+$letter-spacing-body: -0.003em; // Subtle negative tracking for sophistication
+
+// Legacy typography scale for compatibility
+$font-size-sm: $font-size-small;
+$font-size-lg: $font-size-large;
 $font-size-xl: 2rem;
 $font-size-2xl: 2.4rem;
 $font-size-3xl: 3rem;
@@ -66,8 +206,26 @@ $screen-md-min: 992px;
 $screen-lg-min: 1240px;
 $screen-xl-min: 1920px;
 
-// Container width standards - Laptop-optimized for better horizontal space usage
-$container-narrow: 100rem; // 1000px - for text-heavy content (blog posts)
-$container-standard: 140rem; // 1400px - for balanced layouts (most pages)
-$container-wide: 160rem; // 1600px - for showcase content (home page)
-$container-full: 180rem; // 1800px - for maximum width sections
+// Container width standards - Design System Aligned
+$container-narrow: 72rem; // 720px - Blog posts, forms
+$container-standard: 120rem; // 1200px - Main content
+$container-wide: 140rem; // 1400px - Hero sections
+$container-full: 160rem; // 1600px - Maximum width
+
+// Responsive Breakpoints - Design System
+$breakpoint-sm: 48rem; // 768px - Tablet
+$breakpoint-md: 64rem; // 1024px - Small desktop
+$breakpoint-lg: 80rem; // 1280px - Desktop
+$breakpoint-xl: 120rem; // 1920px - Large desktop
+
+// === LEGACY COMPATIBILITY MAPPINGS ===
+// These must be at the end after all variables are defined
+$white: $background-accent;
+$light-cream: $background-primary;
+$warm-beige: $background-secondary;
+$soft-gray: $background-tertiary;
+$clay-orange: $accent-primary; // Now maps to earthy sage
+$charcoal-black: $earth-text-primary;
+$font-secondary: $font-display;
+$accent-dark: $accent-secondary;
+$accent-light: $accent-subtle;

@@ -1,0 +1,159 @@
+{
+  "version": "1.0.0",
+  "projectType": "custom",
+  "primaryGoal": "review",
+  "experienceLevel": "expert",
+  "agents": [
+    {
+      "name": "@pm",
+      "role": "Product Manager",
+      "enabled": true,
+      "expertise": [
+        "Requirements gathering and analysis",
+        "User story creation and management",
+        "Roadmap planning and prioritization",
+        "Stakeholder communication",
+        "Product strategy and vision",
+        "Market research and competitive analysis",
+        "Feature specification and acceptance criteria",
+        "User persona development",
+        "Product metrics and KPI tracking"
+      ],
+      "technicalStack": [
+        "JIRA/Linear",
+        "Confluence/Notion",
+        "Figma/Miro",
+        "Google Analytics",
+        "User research tools",
+        "A/B testing platforms"
+      ]
+    },
+    {
+      "name": "@design",
+      "role": "UX/UI Designer",
+      "enabled": true,
+      "expertise": [
+        "User interface design",
+        "User experience research",
+        "Design systems and component libraries",
+        "Wireframing and prototyping",
+        "Accessibility compliance (WCAG 2.1)",
+        "User flow optimization",
+        "Mobile-first design",
+        "Information architecture",
+        "Visual design and branding"
+      ],
+      "technicalStack": [
+        "Figma",
+        "Adobe Creative Suite",
+        "WCAG 2.1 guidelines",
+        "Responsive design patterns",
+        "Progressive enhancement",
+        "Design tokens",
+        "Storybook"
+      ]
+    },
+    {
+      "name": "@frontend",
+      "role": "Frontend Architecture Specialist",
+      "enabled": true,
+      "expertise": [
+        "Component architecture",
+        "State management",
+        "Performance optimization",
+        "Responsive design",
+        "Browser compatibility",
+        "Next.js App Router",
+        "Server components",
+        "Static generation"
+      ],
+      "technicalStack": [
+        "typescript",
+        "nextjs",
+        "Next.js 14",
+        "React Server Components"
+      ]
+    },
+    {
+      "name": "@backend",
+      "role": "API & Server Specialist",
+      "enabled": true,
+      "expertise": [
+        "API design",
+        "Database optimization",
+        "Security patterns",
+        "Performance tuning",
+        "Error handling",
+        "Next.js API routes",
+        "Middleware patterns"
+      ],
+      "technicalStack": [
+        "typescript",
+        "Next.js API Routes"
+      ]
+    },
+    {
+      "name": "@qa",
+      "role": "QA Engineer",
+      "enabled": true,
+      "expertise": [
+        "Test strategy design",
+        "Unit testing patterns",
+        "Integration testing",
+        "End-to-end testing",
+        "Test automation"
+      ],
+      "technicalStack": []
+    },
+    {
+      "name": "@security",
+      "role": "Security & Authentication Specialist",
+      "enabled": true,
+      "expertise": [
+        "Authentication patterns",
+        "Authorization strategies",
+        "Security vulnerabilities",
+        "Data protection",
+        "Secure coding practices",
+        "OWASP Top 10 compliance",
+        "Threat modeling",
+        "Vulnerability scanning"
+      ],
+      "technicalStack": [
+        "JWT tokens",
+        "OAuth 2.0",
+        "Session management",
+        "CSRF protection",
+        "HTTPS/TLS",
+        "Security headers"
+      ]
+    }
+  ],
+  "features": {
+    "dashboard": true,
+    "vscodeIntegration": true,
+    "autoSuggestions": true,
+    "contextAware": true
+  },
+  "ui": {
+    "theme": "auto",
+    "animations": true,
+    "statusIndicators": true,
+    "progressBars": true
+  },
+  "projectContext": {
+    "framework": "nextjs",
+    "language": "typescript",
+    "hasAPI": true,
+    "hasDatabase": false,
+    "hasAuthentication": false,
+    "hasTesting": true,
+    "dependencies": [
+      "react",
+      "next",
+      "typescript"
+    ]
+  },
+  "createdAt": "2025-08-20T17:02:20.232Z",
+  "lastUpdated": "2025-08-20T17:02:20.236Z"
+}

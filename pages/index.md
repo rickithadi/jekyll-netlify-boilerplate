@@ -1,8 +1,8 @@
 ---
 layout: home
-title: Hi, I'm Hadi
-meta_description: Hadi Rickit is a Software Engineer and Cybersecurity Expert based in Melbourne, Australia. When not coding, you'll find him surfing, golfing, or building satirical websites. Welcome to his corner of the internet.
+title: Hi I'm Hadi <span class="wave-emoji">👋</span>
+meta_description: Hadi Rickit - Expert cybersecurity consultant & software engineer specializing in security audits, penetration testing, secure software architecture & OWASP standards. Available worldwide for cybersecurity consulting projects.
 permalink: /
 section: home
-intro_paragraph: I'm a software engineer and cybersecurity enthusiast based in Melbourne who believes technology should be both powerful and human. When I'm not crafting secure systems or diving into code, you'll find me catching waves along the coast, working on my golf swing, or building playful projects like <a href="https://canhadi.surf" target="_blank">canhadi.surf</a>. I'm passionate about open source, digital privacy, and creating tech that actually makes life better.
+intro_paragraph: I help teams build technology that **works for people**, not against them. Based in Australia, available for projects worldwide. I guide teams toward <span class="highlight">privacy-focused</span> solutions that are **secure** and <span class="highlight">thoughtfully designed</span> — because good technology should feel **natural** and **trustworthy**.
 ---

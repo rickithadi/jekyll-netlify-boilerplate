@@ -1,11 +1,6 @@
-<header>
+<!-- Skip to main content link for screen readers and keyboard users -->
+<a href="#main-content" class="skip-to-content">Skip to main content</a>
 
-  <h1>
-    <a href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
-  </h1>
-
-  <nav>
-    {% include navigation.html navigation=site.data.navigation %}
-  </nav>
-
+<header role="banner">
+  {% include navigation.html navigation=site.data.navigation %}
 </header>

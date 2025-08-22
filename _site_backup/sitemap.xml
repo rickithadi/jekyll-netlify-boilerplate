@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://0.0.0.0:4000/</loc>
+    <lastmod>2025-08-14T22:18:18+10:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+    
+    <url>
+      <loc>http://0.0.0.0:4000/404.html</loc>
+      <lastmod>2025-08-14T22:18:18+10:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://0.0.0.0:4000/about</loc>
+      <lastmod>2025-08-14T22:18:18+10:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://0.0.0.0:4000/blog</loc>
+      <lastmod>2025-08-14T22:18:18+10:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://0.0.0.0:4000/contact</loc>
+      <lastmod>2025-08-14T22:18:18+10:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://0.0.0.0:4000/design-showcase/</loc>
+      <lastmod>2025-08-14T22:18:18+10:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://0.0.0.0:4000/</loc>
+      <lastmod>2025-08-14T22:18:18+10:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://0.0.0.0:4000/assets/main.css</loc>
+      <lastmod>2025-08-14T22:18:18+10:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://0.0.0.0:4000/robots.txt</loc>
+      <lastmod>2025-08-14T22:18:18+10:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+    
+    <url>
+      <loc>http://0.0.0.0:4000/sitemap.xml</loc>
+      <lastmod>2025-08-14T22:18:18+10:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    
+  
+  
+    <url>
+      <loc>http://0.0.0.0:4000/blog/case-study-on-vastaamo-data-breach</loc>
+      <lastmod>2024-11-17T22:25:05+11:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+    </url>
+  
+    <url>
+      <loc>http://0.0.0.0:4000/blog/ai-code-completion-its-ethics-and-repercussions</loc>
+      <lastmod>2024-09-16T07:12:03+10:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+    </url>
+  
+    <url>
+      <loc>http://0.0.0.0:4000/blog/setting-up-payments-with-durianpay</loc>
+      <lastmod>2023-08-25T23:42:22+10:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+    </url>
+  
+    <url>
+      <loc>http://0.0.0.0:4000/blog/deploy-your-notion-site-on-a-custom-domain</loc>
+      <lastmod>2022-08-03T18:50:25+10:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+    </url>
+  
+    <url>
+      <loc>http://0.0.0.0:4000/blog/the-pros-and-cons-of-open-source</loc>
+      <lastmod>2021-03-08T12:11:42+11:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+    </url>
+  
+    <url>
+      <loc>http://0.0.0.0:4000/blog/lost-all-my-data-lol</loc>
+      <lastmod>2021-02-11T00:06:12+11:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+    </url>
+  
+</urlset>

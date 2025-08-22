@@ -1,26 +1,85 @@
 ---
 layout: page
-title: About Hadi Rickit
-meta_description: Learn more about Hadi Rickit, a Software Engineer and Cybersecurity Expert based in Melbourne, Australia. Discover Hadi's expertise in software craftsmanship, security auditing, beautiful software design, and his pursuit of technical excellence.
+title: About
+meta_description: Learn more about Hadi Rickit, a security-focused software engineer based in Melbourne, Australia. Discover how Hadi helps teams build secure, privacy-focused applications with security woven into the foundation.
 permalink: /about
 section: about
-intro_paragraph: Hi, I'm Hadi. When I'm not crafting secure systems or diving into code, you'll find me catching waves along Melbourne's coast, working on my golf swing, or building playful projects like [canhadi.surf](https://canhadi.surf). I believe technology should be both powerful and human - enabling meaningful solutions while remaining approachable and fun.
+intro_paragraph: Hi, I'm Hadi. I build software and help teams make it more secure. Based in Melbourne, I spend most of my time thinking about **data privacy**, **system hardening**, and why things break when you least expect them to.
 ---
 
-### Professional Focus
+<div class="container container--narrow">
+  <article>
+    <section class="mb-3xl stagger-item">
+      <h2>What I Actually Do</h2>
+      <div class="text-base">
+        <p class="mb-lg">I work on applications where security isn't an afterthought. This usually means diving into systems to understand how data flows, where it's vulnerable, and how to protect it without making everything impossible to use.</p>
 
-Currently pursuing a Master's in Cybersecurity, I specialize in creating robust, scalable systems with an unwavering focus on security. Through my consulting work, I help organizations build secure, beautiful software solutions that stand the test of time. My expertise spans software engineering, security auditing, penetration testing, and system architecture.
+        <p class="mb-lg">My focus areas are:</p>
 
-With half a decade of experience, I combine technical excellence with aesthetic design principles, believing that truly great software should be beautiful, secure, and built to last. My approach delivers solutions that are not only functional but also maintainable and scalable.
+        <div class="expertise-grid">
+          <div class="expertise-item expertise-item--security stagger-item">
+            <div class="expertise-icon">🔒</div>
+            <div class="expertise-content">
+              <strong>Custom development & security architecture</strong> — crafting secure applications with defense-in-depth from the foundation up
+            </div>
+          </div>
+          <div class="expertise-item expertise-item--privacy stagger-item">
+            <div class="expertise-icon">🛡️</div>
+            <div class="expertise-content">
+              <strong>Privacy engineering & compliance</strong> — implementing data protection by design and ensuring regulatory compliance
+            </div>
+          </div>
+          <div class="expertise-item expertise-item--narrative stagger-item">
+            <div class="expertise-icon">📝</div>
+            <div class="expertise-content">
+              <strong>Digital narrative & reputation management</strong> — crafting strategic online presence, SEO optimization, and brand narrative control for individuals and organizations
+            </div>
+          </div>
+          <div class="expertise-item expertise-item--hardening stagger-item">
+            <div class="expertise-icon">⚡</div>
+            <div class="expertise-content">
+              <strong>System hardening & threat modeling</strong> — reducing attack surfaces, securing infrastructure, and anticipating adversarial thinking
+            </div>
+          </div>
+        </div>
 
-### Philosophy & Values
+        <p class="mt-xl">Most of my work involves either building new secure systems or fixing existing ones that have grown... <span class="highlight">interesting</span> over time.</p>
+      </div>
+    </section>
 
-I'm passionate about Free Software and open source principles. As an active contributor to multiple FOSS projects, I strongly believe in avoiding proprietary technologies where possible. I disagree with the current state of data privacy and reject the blatant mass collection of personal information.
+    <section class="mb-3xl stagger-item">
+      <h2>Outside of Work</h2>
+      <div class="text-base">
+        <p class="mb-lg">I'm probably drinking too much coffee, arguing about programming languages on the internet, or trying to convince my houseplants to stay alive. I also write occasionally about security things that annoy me enough to put into words.</p>
 
-Tech literacy for the masses is something I feel very strongly about - I try to involve myself with mentoring and teaching where I can. I believe technology should empower people, not control them, and that digital and political freedoms are fundamental rights worth defending.
+        <p>Melbourne's weather gives me plenty of excuses to stay inside and code, which works out well for everyone involved.</p>
+      </div>
+    </section>
 
-### Beyond Code
+    <footer class="chat-bar-section stagger-item">
+      <div class="chat-bar">
+        <div class="chat-content">
+          <div class="chat-text">
+            <h3>Ready to discuss security, privacy, or that weird production bug?</h3>
+            <p>Let's build something secure together — <span class="location">Melbourne → Everywhere</span></p>
+          </div>
+          <div class="chat-actions">
+            <a href="/contact" class="cta-primary">
+              <span class="cta-label">Start conversation</span>
+              <div class="cta-arrow">→</div>
+            </a>
+            <a href="/blog" class="cta-secondary">
+              <span class="cta-label">Read insights</span>
+            </a>
+          </div>
+        </div>
+        
+        <div class="chat-pulse">
+          <div class="pulse-dot"></div>
+          <span class="pulse-text">Available for projects</span>
+        </div>
+      </div>
+    </footer>
+    </article>
 
-Life's too short to only talk about work! My satirical websites poke fun at tech culture and society, reminding me that technology should be approachable and fun, not just functional. There's something about both surfing and golf that mirrors good software engineering - patience, precision, and the constant pursuit of improvement.
-
-My other interests include optimizing athletic performance with technology, collecting and restoring old ThinkPads, experimenting with minimal Linux distros, and exploring decentralized finance. When I'm not crafting software or conducting security assessments, you can find me contributing to open source projects, mentoring aspiring developers, or diving into the latest developments in cybersecurity and software engineering.
+</div>

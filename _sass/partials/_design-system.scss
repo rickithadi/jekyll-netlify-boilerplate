@@ -1,0 +1,2315 @@
+// Modern Design System Implementation
+// Clean • Technical • Sophisticated • Minimal • Professional
+
+// CSS Custom Properties Setup
+:root {
+  // Colors - Earthy Sophisticated with Friendly Touch
+  --color-primary: #{$earth-coral};
+  --color-text: #{$earth-text-primary};
+  --color-text-secondary: #{$earth-text-secondary};
+  --color-text-muted: #{$earth-text-tertiary};
+  --color-background: #{$earth-background};
+  --color-background-subtle: #{$earth-background-subtle};
+  --color-surface: #{$earth-surface};
+  --color-accent: #{$accent-primary};
+
+  // Typography
+  --font-primary: #{$font-primary};
+  --font-secondary: #{$font-secondary};
+  --font-mono: #{$font-mono};
+
+  // Spacing
+  --space-xs: #{$space-xs};
+  --space-sm: #{$space-sm};
+  --space-md: #{$space-md};
+  --space-lg: #{$space-lg};
+  --space-xl: #{$space-xl};
+  --space-2xl: #{$space-2xl};
+  --space-3xl: #{$space-3xl};
+  --space-4xl: #{$space-4xl};
+  --space-5xl: #{$space-5xl};
+
+  // Shadows
+  --shadow-sm: 0 0.4rem 2rem rgba(28, 28, 28, 0.04);
+  --shadow-md: 0 0.8rem 3rem rgba(28, 28, 28, 0.08);
+  --shadow-lg: 0 1.6rem 4rem rgba(28, 28, 28, 0.12);
+
+  // Border Radius
+  --radius-sm: 0.4rem;
+  --radius-md: 0.8rem;
+  --radius-lg: 1.6rem;
+  --radius-full: 50%;
+
+  // Transitions
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-slow: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+// Sophisticated Typography System
+.hero-title {
+  font-size: $font-size-hero;
+  font-weight: $font-weight-hero;
+  line-height: $line-height-hero;
+  letter-spacing: $letter-spacing-hero;
+  color: $text-primary;
+  font-family: $font-display; // Use display font for maximum sophistication
+  font-feature-settings: "kern" 1, "liga" 1, "swsh" 1;
+  text-rendering: optimizeLegibility;
+  
+  // Waving hand animation
+  .wave-emoji {
+    display: inline-block;
+    animation: wave 2s ease-in-out infinite;
+    transform-origin: 70% 70%;
+  }
+}
+
+// Clean Animation System
+@keyframes wave {
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  10%, 30% { 
+    transform: rotate(14deg); 
+  }
+  20% { 
+    transform: rotate(-8deg); 
+  }
+  40%, 60% { 
+    transform: rotate(14deg); 
+  }
+  50% { 
+    transform: rotate(-8deg); 
+  }
+  70%, 90% { 
+    transform: rotate(0deg); 
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes subtleSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Unified Typography Hierarchy - Boring Industries Editorial Style
+h1,
+.h1 {
+  font-size: $font-size-h1;
+  font-weight: $font-weight-medium;
+  line-height: 1.05; // Tight like hero
+  letter-spacing: -0.05em; // Tighter kerning for boring.industries feel
+  color: $text-primary;
+  font-family: $font-primary; // Clean sans-serif
+  margin-bottom: $space-lg;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+}
+
+h2,
+.h2 {
+  font-size: $font-size-h2;
+  font-weight: 300; // Even lighter for more sophistication
+  line-height: 1.1; // Tight editorial
+  letter-spacing: -0.04em; // Increased negative tracking
+  color: $text-primary;
+  font-family: $font-primary; // Clean sans-serif
+  margin-bottom: $space-md; // Tighter margins
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+}
+
+h3,
+.h3 {
+  font-size: $font-size-h3;
+  font-weight: $font-weight-medium;
+  line-height: 1.2; // Slightly more open
+  letter-spacing: -0.02em; // Tight kerning
+  color: $text-primary;
+  font-family: $font-primary; // Clean sans-serif
+  margin-bottom: $space-sm; // Tighter margins
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+}
+
+h4,
+.h4 {
+  font-size: $font-size-h4;
+  font-weight: $font-weight-medium;
+  line-height: 1.3; // Readable
+  letter-spacing: -0.015em; // Subtle kerning
+  color: $text-primary;
+  font-family: $font-primary;
+  margin-bottom: $space-sm;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+}
+
+// Unified Body Text Styles
+.text-large {
+  font-size: $font-size-large;
+  line-height: 1.5; // Match intro paragraphs
+  color: $text-secondary;
+  letter-spacing: -0.01em; // Subtle kerning
+  font-weight: $font-weight-regular;
+}
+
+.text-base {
+  font-size: $font-size-base;
+  line-height: 1.5; // Consistent line height
+  color: $text-secondary;
+  letter-spacing: -0.005em; // Subtle kerning
+  font-weight: $font-weight-regular;
+}
+
+.text-small {
+  font-size: $font-size-small;
+  line-height: 1.4; // Slightly tighter for small text
+  color: rgba(0, 0, 0, 0.6); // Simplified gray
+  letter-spacing: -0.005em;
+  font-weight: $font-weight-regular;
+}
+
+.text-xs {
+  font-size: $font-size-xs;
+  line-height: 1.4;
+  color: rgba(0, 0, 0, 0.4); // Lighter gray
+  letter-spacing: 0.02em; // Slight positive tracking for small text
+  font-weight: $font-weight-regular;
+}
+
+// Default paragraph styling
+p {
+  font-size: $font-size-base;
+  line-height: 1.4; // Compressed for tighter feel
+  color: $text-secondary;
+  letter-spacing: -0.01em; // Increased negative tracking for tighter feel
+  margin-bottom: $space-md;
+  font-weight: $font-weight-regular;
+  
+  // Bold text styling
+  strong, b {
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    letter-spacing: -0.01em;
+  }
+}
+
+// Fine Art Typography Utilities - Editorial & Gallery Inspired
+.text-display {
+  font-family: $font-display;
+  font-weight: $font-weight-light;
+  letter-spacing: -0.045em; // More dramatic for fine art feel
+  line-height: 0.98;
+  font-feature-settings: "kern" 1, "liga" 1, "swsh" 1, "calt" 1;
+  text-rendering: optimizeLegibility;
+}
+
+.text-refined {
+  letter-spacing: -0.02em; // Tighter for sophisticated feel
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  text-rendering: optimizeLegibility;
+}
+
+.text-editorial {
+  font-family: $font-display;
+  font-style: italic;
+  font-weight: $font-weight-regular;
+  letter-spacing: 0.005em;
+  line-height: 1.4;
+  font-feature-settings: "kern" 1, "liga" 1, "swsh" 1;
+}
+
+.text-elegant {
+  font-family: $font-display;
+  font-style: italic;
+  font-weight: $font-weight-light; // Lighter for fine art
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+}
+
+.text-sophisticated {
+  font-weight: $font-weight-light;
+  letter-spacing: 0.08em; // More spacing for gallery feel
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+
+.text-luxury {
+  font-family: $font-display;
+  font-weight: $font-weight-light;
+  font-size: 1.15em; // Slightly larger for presence
+  line-height: 1.65;
+  letter-spacing: -0.005em; // Subtle negative tracking
+}
+
+.text-gallery {
+  font-family: $font-display;
+  font-weight: $font-weight-thin;
+  letter-spacing: 0.02em;
+  line-height: 1.8;
+  font-style: normal;
+}
+
+.text-fine-art {
+  font-family: $font-display;
+  font-weight: $font-weight-light;
+  font-size: 1.2em;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  font-feature-settings: "kern" 1, "liga" 1, "swsh" 1;
+}
+
+// Modern Navigation - Clean and minimal with mobile support
+.navigation {
+  height: 6rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid $border-light;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &--open {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+  }
+
+  .container {
+    max-width: $container-wide;
+    margin: 0 auto;
+    padding: 0 $space-xl;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    @media (max-width: $breakpoint-md) {
+      padding: 0 $space-lg;
+    }
+  }
+
+  .nav-brand {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: $text-primary;
+    letter-spacing: 0;
+    text-decoration: none;
+    transition: all var(--transition-base);
+    z-index: 1001;
+
+    &:hover {
+      color: $text-secondary;
+      text-decoration: none;
+    }
+  }
+
+  // Mobile hamburger toggle
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 1.2rem; // Increased for 44px minimum touch target
+    z-index: 1001;
+    
+    @media (max-width: $breakpoint-md) {
+      display: flex;
+    }
+    
+    .nav-toggle-line {
+      width: 2rem;
+      height: 2px;
+      background: $text-primary;
+      transition: all 0.3s ease;
+      margin: 0.15rem 0;
+      border-radius: 1px;
+    }
+    
+    &--open {
+      .nav-toggle-line:nth-child(1) {
+        transform: rotate(45deg) translate(0.4rem, 0.4rem);
+      }
+      
+      .nav-toggle-line:nth-child(2) {
+        opacity: 0;
+      }
+      
+      .nav-toggle-line:nth-child(3) {
+        transform: rotate(-45deg) translate(0.4rem, -0.4rem);
+      }
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: $space-2xl;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @media (max-width: $breakpoint-md) {
+      position: fixed;
+      top: 6rem;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      padding: $space-xl;
+      gap: 0;
+      transform: translateX(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border-bottom: 1px solid $border-light;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+      z-index: 998;
+      height: calc(100vh - 6rem);
+      
+      &--open {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    a {
+      font-size: $font-size-small;
+      font-weight: $font-weight-medium;
+      color: $text-secondary;
+      text-decoration: none;
+      position: relative;
+      padding: $space-sm $space-md;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 6px;
+
+      @media (max-width: $breakpoint-md) {
+        padding: $space-md 0;
+        font-size: $font-size-base;
+        border-bottom: 1px solid rgba(230, 228, 223, 0.3);
+        
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
+      &:hover {
+        color: $earth-coral;
+        background: $accent-subtle;
+        
+        @media (max-width: $breakpoint-md) {
+          background: transparent;
+          text-decoration: underline;
+          text-decoration-thickness: 1px;
+          text-underline-offset: 3px;
+        }
+      }
+
+      &.active {
+        color: $earth-coral;
+        background: $accent-subtle;
+        
+        @media (max-width: $breakpoint-md) {
+          background: transparent;
+          text-decoration: underline;
+          text-decoration-thickness: 1px;
+          text-underline-offset: 3px;
+        }
+      }
+    }
+  }
+}
+
+// Ultra Tight Hero Section - Boring Industries Inspired
+.hero {
+  padding: 1.5rem 0 1.5rem; // 25% reduction from 2rem
+  background: $background-primary;
+  position: relative;
+  margin-top: 6rem; // Add space for fixed navigation
+
+  @media (min-width: $breakpoint-md) {
+    padding: 2.25rem 0 2.25rem; // 25% reduction from 3rem
+    margin-top: 6rem; // Consistent nav spacing
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    padding: 3rem 0 3rem; // 25% reduction from 4rem
+    margin-top: 6rem; // Consistent nav spacing
+  }
+
+  .hero-content {
+    max-width: $container-wide;
+    margin: 0 auto;
+    padding: 0 $space-xl;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: $space-3xl;
+    align-items: start;
+
+    @media (max-width: $breakpoint-lg) {
+      gap: $space-2xl;
+      padding: 0 $space-lg;
+      grid-template-columns: 1fr 0.6fr;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      display: flex;
+      flex-direction: column;
+      gap: $space-xl;
+      text-align: center;
+      padding: 0 $space-lg;
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      padding: 0 $space-md;
+      gap: $space-lg;
+    }
+  }
+
+  .hero-text {
+    max-width: none;
+
+    @media (max-width: $breakpoint-md) {
+      order: 2; // Text comes after avatar on mobile
+    }
+
+    .greeting {
+      font-size: $font-size-small;
+      color: $text-quaternary;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: $space-xl;
+      font-weight: $font-weight-light;
+
+      @media (max-width: $breakpoint-md) {
+        text-align: center; // Center on mobile
+      }
+    }
+
+    h1 {
+      margin-bottom: $space-lg;
+      line-height: 1.05;
+      font-weight: $font-weight-medium;
+      max-width: 90%;
+      letter-spacing: -0.06em; // Even tighter for more dramatic scale contrast
+      font-feature-settings: "kern" 1, "liga" 1;
+      text-rendering: optimizeLegibility;
+      font-family: $font-primary;
+      
+      // Subtle slide-in animation
+      opacity: 0;
+      transform: translateX(-20px);
+      animation: slideInLeft 0.8s ease-out 0.1s forwards;
+      
+      @media (max-width: $breakpoint-md) {
+        max-width: 100%;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        text-align: center; // Center h1 on mobile
+      }
+      
+      @media (max-width: $breakpoint-sm) {
+        font-size: $font-size-h1;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        margin-bottom: $space-md;
+        text-align: center; // Center h1 on small mobile
+      }
+      
+      // Animate the wave emoji separately
+      .wave-emoji {
+        display: inline-block;
+        animation: wave 2s ease-in-out infinite, fadeIn 0.8s ease-out 0.8s both;
+        transform-origin: 70% 70%;
+      }
+    }
+
+    .intro {
+      font-size: 1.8rem; // Increased from 1.6rem for better presence
+      line-height: 1.35; // Tighter for editorial feel
+      color: $text-secondary;
+      margin-bottom: $space-2xl;
+      max-width: 85%;
+      font-weight: $font-weight-regular;
+      font-family: $font-primary;
+      font-style: normal;
+      letter-spacing: -0.015em; // Refined letter spacing
+      font-feature-settings: "kern" 1, "liga" 1;
+      
+      // Subtle fade-in animation
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeInUp 0.8s ease-out 0.3s forwards;
+      
+      @media (max-width: $breakpoint-md) {
+        max-width: 100%; // Full width on mobile
+        text-align: center; // Center intro text on mobile
+      }
+      
+      // Bold keywords styling
+      strong, b {
+        font-weight: $font-weight-semibold;
+        color: $text-primary;
+        letter-spacing: -0.015em; // Tighter tracking for bold text
+      }
+      
+      // Highlight key phrases
+      .highlight {
+        font-weight: $font-weight-medium;
+        color: $earth-coral;
+        position: relative;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 1px;
+          background: $earth-coral;
+          transition: width 0.6s ease;
+        }
+        
+        &:hover::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .hero-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: $breakpoint-md) {
+      order: 1; // Avatar first on mobile
+    }
+
+    img {
+      width: 32rem;
+      height: 32rem;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 $space-lg $space-4xl rgba(26, 26, 26, 0.08), 
+                  0 $space-md $space-2xl rgba(26, 26, 26, 0.04);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border: 4px solid rgba(255, 255, 255, 0.8);
+
+      &:hover {
+        transform: scale(1.02) translateY(-0.4rem);
+        box-shadow: 0 $space-xl $space-5xl rgba(26, 26, 26, 0.12),
+                    0 $space-lg $space-3xl rgba(26, 26, 26, 0.06);
+      }
+
+      @media (max-width: $breakpoint-lg) {
+        width: 28rem;
+        height: 28rem;
+      }
+
+      @media (max-width: $breakpoint-md) {
+        width: 20rem;
+        height: 20rem;
+      }
+
+      @media (max-width: $breakpoint-sm) {
+        width: 16rem;
+        height: 16rem;
+      }
+    }
+  }
+}
+
+// Sophisticated Button System - Premium and Refined
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.4rem 2.8rem; // More refined proportions
+  border-radius: 8px; // Slightly more sophisticated radius
+  font-size: 1.4rem; // Precise sizing
+  font-weight: 450; // Subtle weight between regular and medium
+  text-decoration: none;
+  border: 1.5px solid $border-medium; // Slightly thicker for sophistication
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); // More sophisticated easing
+  letter-spacing: 0.005em; // Refined letter spacing
+  font-family: $font-primary;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  
+  // Sophisticated backdrop
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+  }
+
+  &:hover {
+    transform: translateY(-1px); // More subtle lift for sophistication
+    box-shadow: 
+      0 4px 16px rgba(184, 118, 94, 0.08),
+      0 2px 8px rgba(184, 118, 94, 0.04); // Subtler shadows
+    
+    &::before {
+      left: 100%; // Subtle shimmer effect
+    }
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 
+      0 0 0 3px rgba(184, 118, 94, 0.2),
+      0 8px 25px rgba(184, 118, 94, 0.12);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    transition: all 0.1s ease;
+  }
+
+  // Primary Button - Sophisticated Earthy Premium
+  &--primary {
+    background: linear-gradient(135deg, $earth-coral 0%, #a67c6a 100%);
+    color: white;
+    border-color: $earth-coral;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(184, 118, 94, 0.15);
+
+    &:hover {
+      background: linear-gradient(135deg, #a36952 0%, #956450 100%);
+      border-color: #a36952;
+      color: white;
+      box-shadow: 
+        0 6px 20px rgba(163, 105, 82, 0.12),
+        0 3px 8px rgba(163, 105, 82, 0.08); // Subtler hover shadow
+    }
+  }
+
+  // Secondary Button - Refined Minimal with Better Contrast
+  &--secondary {
+    background: rgba(255, 255, 255, 0.9);
+    color: $text-primary;
+    border-color: rgba(150, 150, 150, 0.4);
+    backdrop-filter: blur(10px);
+    font-weight: 450;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background: rgba(255, 255, 255, 1);
+      border-color: $earth-coral;
+      color: $earth-coral;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); // Subtler shadow
+    }
+  }
+
+  // Ghost Button - Sophisticated Minimal
+  &--ghost {
+    background: transparent;
+    color: $text-tertiary;
+    border: none;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 1px;
+      background: $earth-coral;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    &:hover {
+      color: $earth-coral;
+      background: transparent;
+      
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+  
+  // Sophisticated Tertiary Button
+  &--tertiary {
+    background: linear-gradient(135deg, $earth-sage 0%, #6b7763 100%);
+    color: white;
+    border-color: $earth-sage;
+    font-weight: 500;
+    
+    &:hover {
+      background: linear-gradient(135deg, #6b7763 0%, #5d6b5d 100%);
+      border-color: #6b7763;
+    }
+  }
+
+  // Large Button - Premium Sizing
+  &--large {
+    padding: 1.8rem 3.6rem;
+    font-size: 1.6rem;
+    border-radius: 10px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  // Small Button - Refined Compact
+  &--small {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    font-weight: 450;
+    letter-spacing: 0.005em;
+  }
+  
+  // Pill Button - Modern Sophisticated
+  &--pill {
+    border-radius: 50px;
+    padding: 1.2rem 2.4rem;
+    font-weight: 450;
+    
+    &.btn--large {
+      border-radius: 60px;
+    }
+    
+    &.btn--small {
+      border-radius: 40px;
+    }
+  }
+  
+  // Icon Button - Sophisticated
+  &--icon {
+    padding: 1.4rem;
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: 8px;
+    
+    &.btn--small {
+      width: 3.6rem;
+      height: 3.6rem;
+      padding: 1rem;
+      border-radius: 6px;
+    }
+    
+    &.btn--large {
+      width: 5.6rem;
+      height: 5.6rem;
+      padding: 1.8rem;
+      border-radius: 10px;
+    }
+  }
+}
+
+// Hero Button Group - Enhanced spacing with animations
+.hero-links {
+  display: flex;
+  gap: $space-lg;
+  margin-top: $space-xl;
+  
+  // Default visible state
+  opacity: 1;
+  transform: translateY(0);
+  
+  // Animation for hero context
+  &.animate {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: subtleSlideUp 0.8s ease-out 0.6s forwards;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    justify-content: center; // Center buttons on mobile
+    margin-top: $space-lg; // Reduced margin on mobile
+  }
+
+  .btn {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    &:hover {
+      transform: translateY(-3px) scale(1.02);
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    align-items: center;
+    gap: $space-md;
+    width: 100%; // Full width container
+    
+    .btn {
+      width: 100%; // Full width buttons on small mobile
+      max-width: 280px; // But not too wide
+    }
+  }
+}
+
+// Badge System
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-md;
+
+  @media (max-width: $breakpoint-md) {
+    justify-content: center;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(217, 101, 74, 0.08);
+    color: $clay-orange;
+    border-radius: 3rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    border: 1px solid rgba(217, 101, 74, 0.15);
+    transition: all var(--transition-base);
+    letter-spacing: 0.02em;
+
+    &:hover {
+      background: rgba(217, 101, 74, 0.12);
+      border-color: rgba(217, 101, 74, 0.25);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(217, 101, 74, 0.15);
+    }
+  }
+}
+
+// Minimal Card Components - Boring Industries Inspired
+.card {
+  background: transparent;
+  border: none;
+  padding: $space-xl 0;
+  border-bottom: 1px solid $border-light;
+  transition: all 0.2s ease;
+  position: relative;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: $background-secondary;
+    padding-left: $space-lg;
+    padding-right: $space-lg;
+    margin: 0 (-$space-lg);
+    border-bottom-color: $border-medium;
+  }
+
+  // Minimal card variant - completely stripped back
+  &--minimal {
+    background: transparent;
+    border: none;
+    padding: $space-lg 0;
+    border-radius: 0;
+
+    &:hover {
+      background: transparent;
+      padding-left: 0;
+      padding-right: 0;
+      margin: 0;
+    }
+
+    .card-title {
+      color: $text-primary;
+      
+      &:hover {
+        color: $earth-coral;
+      }
+    }
+  }
+
+  // List-style card variant
+  &--list {
+    display: flex;
+    align-items: center;
+    padding: $space-md 0;
+    border: none;
+    border-bottom: 1px solid $border-light;
+
+    &:hover {
+      background: transparent;
+      padding-left: 0;
+      padding-right: 0;
+      margin: 0;
+      border-bottom-color: $earth-coral;
+    }
+  }
+
+  // Product/Service card variant
+  &--product {
+    padding: 0;
+    
+    .card-image {
+      width: 100%;
+      height: 200px;
+      background: $neutral-100;
+      border-radius: 16px 16px 0 0;
+      overflow: hidden;
+      position: relative;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .card-body {
+      padding: $space-xl;
+    }
+  }
+
+  // Feature card variant  
+  &--feature {
+    text-align: center;
+    padding: $space-3xl $space-xl;
+    
+    .card-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, $earth-coral, #d19473);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto $space-lg auto;
+      color: white;
+      font-size: $font-size-h4;
+    }
+  }
+
+  // Testimonial card variant
+  &--testimonial {
+    background: linear-gradient(135deg, $background-accent 0%, $neutral-50 100%);
+    border: none;
+    
+    .card-quote {
+      font-size: $font-size-large;
+      font-style: italic;
+      color: $text-secondary;
+      line-height: 1.6;
+      margin-bottom: $space-xl;
+      
+      &::before {
+        content: '"';
+        font-size: 3rem;
+        color: $earth-coral;
+        opacity: 0.3;
+        position: absolute;
+        top: -10px;
+        left: -5px;
+      }
+    }
+    
+    .card-author {
+      display: flex;
+      align-items: center;
+      gap: $space-md;
+      
+      .author-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: $neutral-200;
+        overflow: hidden;
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      
+      .author-info {
+        .name {
+          font-weight: $font-weight-semibold;
+          color: $text-primary;
+          margin: 0;
+        }
+        
+        .title {
+          font-size: $font-size-xs;
+          color: $text-quaternary;
+          margin: 0;
+        }
+      }
+    }
+  }
+  // Minimal card content structure - Boring Industries inspired
+  .card-title {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: $text-primary;
+    margin: 0 0 $space-xs 0;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+      
+      &:hover {
+        color: $earth-coral;
+      }
+    }
+  }
+
+  .card-meta {
+    font-size: $font-size-xs;
+    color: $text-quaternary;
+    font-weight: $font-weight-regular;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .card-description {
+    font-size: $font-size-small;
+    color: $text-tertiary;
+    line-height: 1.5;
+    margin: $space-sm 0 0 0;
+  }
+
+  .card-year {
+    font-size: $font-size-xs;
+    color: $text-quaternary;
+    font-weight: $font-weight-medium;
+    margin: 0;
+  }
+
+  // Minimal link styling
+  .card-link {
+    display: inline-block;
+    font-size: $font-size-small;
+    font-weight: $font-weight-medium;
+    color: $text-primary;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $earth-coral;
+    }
+  }
+}
+
+// Page Layout Styling - Unified with Home Aesthetic
+.page-section {
+  padding: 2rem 0; // Consistent boring.industries ultra-tight spacing
+  background: $background-primary;
+  margin-top: 6rem; // Consistent space for fixed navigation
+  
+  @media (max-width: $breakpoint-md) {
+    padding: 1.5rem 0; // Proportionally tight on tablets
+    margin-top: 5rem;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 1rem 0; // Ultra-tight on mobile for consistency
+    margin-top: 4rem;
+  }
+  
+  .page-content {
+    text-align: center;
+    margin-bottom: $space-xl; // Consistent with home hero spacing
+    
+    // Unified page title styling across all pages
+    h1 {
+      font-size: clamp(3.2rem, 6vw, 5.6rem); // Larger, more consistent with home hero feel
+      font-weight: $font-weight-medium;
+      line-height: 1.02; // Ultra-tight for boring.industries aesthetic
+      letter-spacing: -0.045em; // Consistent with hero typography
+      font-feature-settings: "kern" 1, "liga" 1;
+      text-rendering: optimizeLegibility;
+      font-family: $font-primary;
+      margin-bottom: $space-lg;
+      color: $text-primary;
+      margin-top: 0;
+      
+      // Add subtle animation for premium feel
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    // Legacy h2 support with consistent styling
+    h2 {
+      font-size: clamp(3.2rem, 6vw, 5.6rem); // Match h1 for consistency
+      font-weight: $font-weight-medium;
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      font-feature-settings: "kern" 1, "liga" 1;
+      text-rendering: optimizeLegibility;
+      font-family: $font-primary;
+      margin-bottom: $space-lg;
+      color: $text-primary;
+      margin-top: 0;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    .intro {
+      font-size: clamp(1.8rem, 2.5vw, 2.2rem); // Responsive like hero intro
+      line-height: 1.35; // Tighter for boring.industries feel
+      color: $text-secondary;
+      max-width: 60rem; // Narrower for better focus
+      margin: 0 auto $space-lg auto; // Better spacing
+      font-weight: $font-weight-regular;
+      font-family: $font-primary;
+      letter-spacing: -0.02em; // Tighter kerning for premium feel
+      font-feature-settings: "kern" 1, "liga" 1;
+      text-rendering: optimizeLegibility;
+      
+      // Subtle animation for premium feel
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+      
+      // Bold keywords styling - more sophisticated
+      strong, b {
+        font-weight: $font-weight-semibold;
+        color: $text-primary;
+        letter-spacing: -0.02em;
+      }
+      
+      // Enhanced highlight styling
+      .highlight {
+        font-weight: $font-weight-medium;
+        color: $earth-coral;
+        position: relative;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: linear-gradient(90deg, $earth-coral, transparent);
+          transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        &:hover::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// Ultra Tight Section Spacing - Boring Industries Inspired  
+.section {
+  padding: 2rem 0; // Consistent ultra-tight spacing across all pages
+  background: $background-primary;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 1.5rem 0; // Proportionally tight on tablets
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 1rem 0; // Ultra-tight on mobile for premium feel
+  }
+
+  &--primary {
+    background: $background-primary;
+  }
+
+  &--secondary {
+    background: transparent;
+  }
+
+  &--accent {
+    background: $background-accent;
+  }
+
+  &--tertiary {
+    background: $background-tertiary;
+  }
+
+  // Legacy compatibility
+  &--cream {
+    background: $background-primary;
+  }
+
+  &--beige {
+    background: transparent;
+  }
+
+  &--white {
+    background: $background-accent;
+  }
+
+  // Tight section variants
+  &--gallery {
+    padding: 2rem 0; // Consistent ultra tight spacing
+    background: transparent;
+    
+    @media (max-width: $breakpoint-md) {
+      padding: $space-md 0;
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      padding: $space-sm 0;
+    }
+  }
+
+  &--editorial {
+    padding: 2rem 0; // Consistent ultra tight spacing
+    background: $background-primary;
+    
+    @media (max-width: $breakpoint-md) {
+      padding: $space-md 0;
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      padding: $space-sm 0;
+    }
+  }
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: $space-lg; // Even tighter spacing
+  position: relative;
+
+  h2 {
+    margin-bottom: $space-md; // Much tighter spacing
+    font-weight: $font-weight-medium;
+    letter-spacing: -0.03em;
+    font-family: $font-primary;
+  }
+
+  .section-intro {
+    font-size: $font-size-base; // Smaller, more minimal
+    color: $text-tertiary;
+    line-height: 1.5; // Tighter line height
+    max-width: 50rem; // Narrower for minimal feel
+    margin: 0 auto;
+    font-weight: $font-weight-regular;
+    font-family: $font-primary; // Clean sans-serif
+    font-style: normal; // No italic for cleaner look
+    letter-spacing: -0.01em; // Tight kerning
+  }
+
+  .section-emoji {
+    display: none; // Remove emojis for sophistication
+  }
+
+  // Minimal header variant
+  &--minimal {
+    text-align: left;
+    margin-bottom: $space-lg;
+    
+    h2 {
+      text-align: left;
+      max-width: none;
+      font-size: $font-size-h2;
+    }
+    
+    .section-intro {
+      text-align: left;
+      max-width: 70%;
+      margin: 0;
+    }
+  }
+}
+
+// Grid System
+.grid {
+  display: grid;
+  gap: $space-xl;
+
+  &--2-cols {
+    grid-template-columns: repeat(2, 1fr);
+
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--3-cols {
+    grid-template-columns: repeat(3, 1fr);
+
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// Container System with Mobile Support
+.container {
+  max-width: $container-standard;
+  margin: 0 auto;
+  padding: 0 $space-lg;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 0 $space-md;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 0 $space-sm;
+  }
+
+  &--narrow {
+    max-width: $container-narrow;
+  }
+
+  &--wide {
+    max-width: $container-wide;
+  }
+
+  &--full {
+    max-width: $container-full;
+  }
+}
+
+// Animation Classes
+.fade-in {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: all var(--transition-slow);
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-item {
+  opacity: 1; // Make visible by default
+  transform: translateY(0); // No transform by default
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  // Only apply initial hidden state if JavaScript is available and page is loaded
+  &.animate-on-load {
+    opacity: 0;
+    transform: translateY(2rem);
+    
+    &:nth-child(1) {
+      transition-delay: 0.1s;
+    }
+    &:nth-child(2) {
+      transition-delay: 0.2s;
+    }
+    &:nth-child(3) {
+      transition-delay: 0.3s;
+    }
+    &:nth-child(4) {
+      transition-delay: 0.4s;
+    }
+  }
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Minimal Form Elements - Aligned with Design System
+.form-group {
+  margin-bottom: $space-lg;
+
+  label {
+    display: block;
+    font-size: $font-size-small;
+    font-weight: $font-weight-medium;
+    color: $text-primary;
+    margin-bottom: $space-sm;
+    letter-spacing: -0.01em; // Consistent with design system
+    font-family: $font-primary;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 1.6rem 2rem; // More generous, sophisticated padding
+    border: 1px solid rgba(0, 0, 0, 0.1); // Minimal border
+    border-radius: 8px; // Consistent with buttons
+    font-size: $font-size-base;
+    font-family: $font-primary;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    letter-spacing: -0.005em; // Consistent typography
+
+    &:focus {
+      outline: none;
+      border-color: $earth-coral;
+      box-shadow: 0 0 0 3px rgba(184, 118, 94, 0.1);
+      background: rgba(255, 255, 255, 1);
+      transform: translateY(-1px); // Subtle lift on focus
+    }
+    
+    &:hover:not(:focus) {
+      border-color: rgba(184, 118, 94, 0.2);
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.4);
+      font-style: italic;
+    }
+  }
+
+  textarea {
+    min-height: 12rem;
+    resize: vertical;
+    line-height: 1.5; // Consistent with body text
+  }
+}
+
+// Utility Classes
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+.mb-sm {
+  margin-bottom: var(--space-sm);
+}
+.mb-md {
+  margin-bottom: var(--space-md);
+}
+.mb-lg {
+  margin-bottom: var(--space-lg);
+}
+.mb-xl {
+  margin-bottom: var(--space-xl);
+}
+.mb-2xl {
+  margin-bottom: var(--space-2xl);
+}
+.mb-3xl {
+  margin-bottom: var(--space-3xl);
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+.mt-sm {
+  margin-top: var(--space-sm);
+}
+.mt-md {
+  margin-top: var(--space-md);
+}
+.mt-lg {
+  margin-top: var(--space-lg);
+}
+.mt-xl {
+  margin-top: var(--space-xl);
+}
+.mt-2xl {
+  margin-top: var(--space-2xl);
+}
+.mt-3xl {
+  margin-top: var(--space-3xl);
+}
+
+// Accessibility
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Skip to content link for keyboard navigation
+.skip-to-content {
+  position: fixed;
+  top: -100px;
+  left: 1rem;
+  z-index: 10000;
+  padding: 1rem 1.5rem;
+  background: $earth-coral;
+  color: white;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  border-radius: 0 0 0.5rem 0.5rem;
+  transition: top 0.3s ease;
+  font-size: 1.4rem;
+
+  &:focus {
+    top: 0;
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+  }
+
+  &:hover {
+    background: #a36952;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+// Focus indicators
+*:focus {
+  outline: 2px solid $clay-orange;
+  outline-offset: 2px;
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// Ultra Minimal Work Cards - Boring Industries Style
+.work-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: $space-xl;
+  
+  .work-item {
+    display: block;
+    padding: $space-xl 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    
+    @media (max-width: $breakpoint-md) {
+      padding: $space-lg 0;
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      padding: $space-md 0;
+    }
+    
+    &:first-child {
+      padding-top: 0;
+    }
+    
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    
+    &:hover {
+      background: rgba(184, 118, 94, 0.02);
+      border-bottom-color: rgba(184, 118, 94, 0.3);
+      padding-left: $space-md;
+      padding-right: $space-md;
+      margin-left: -$space-md;
+      margin-right: -$space-md;
+      border-radius: 8px;
+      
+      .work-title {
+        color: $earth-coral;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+      }
+      
+      .work-year {
+        color: $earth-coral;
+        opacity: 1;
+        transform: scale(1.05);
+      }
+    }
+    
+    .work-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: $space-lg;
+      
+      @media (max-width: $breakpoint-sm) {
+        flex-direction: column;
+        gap: $space-sm;
+      }
+      
+      .work-info {
+        flex: 1;
+        min-width: 0; // Allow flexbox shrinking
+        
+        .work-title {
+          font-size: $font-size-large;
+          font-weight: $font-weight-medium;
+          color: $text-primary;
+          margin: 0 0 $space-xs 0;
+          line-height: 1.3;
+          transition: all 0.3s ease;
+          font-family: $font-primary;
+          letter-spacing: -0.02em;
+          
+          @media (max-width: $breakpoint-sm) {
+            font-size: $font-size-base;
+          }
+        }
+        
+        .work-description {
+          font-size: $font-size-base;
+          color: $text-secondary;
+          line-height: 1.4;
+          margin: 0;
+          font-weight: $font-weight-regular;
+          letter-spacing: -0.01em;
+          
+          @media (max-width: $breakpoint-sm) {
+            font-size: $font-size-small;
+            max-width: 100%;
+          }
+        }
+      }
+    }
+    
+    .work-year {
+      font-size: $font-size-xs;
+      color: $text-quaternary;
+      font-weight: $font-weight-medium;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+      flex-shrink: 0;
+      opacity: 0.8;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      
+      @media (max-width: $breakpoint-sm) {
+        align-self: flex-start;
+        font-size: $font-size-xs;
+        margin-top: $space-xs;
+      }
+    }
+  }
+}
+
+// About Page Content Grids - Clean & Organized
+.expertise-grid,
+.philosophy-grid,
+.deliverables-grid,
+.personal-grid {
+  display: grid;
+  gap: $space-lg;
+  margin-top: $space-xl;
+  
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: $space-md;
+  }
+}
+
+.expertise-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.philosophy-grid,
+.deliverables-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.personal-grid {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.expertise-item,
+.philosophy-item,
+.deliverable-item,
+.personal-item {
+  background: linear-gradient(135deg, rgba(184, 118, 94, 0.03) 0%, rgba(255, 255, 255, 0.8) 100%);
+  border: 1px solid rgba(184, 118, 94, 0.08);
+  border-radius: 12px;
+  padding: 3rem; // More generous padding for better whitespace
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(10px);
+  margin-bottom: $space-lg; // Better spacing between items
+  display: flex;
+  align-items: flex-start;
+  gap: $space-lg; // Space between icon and content
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, $earth-coral 0%, rgba(184, 118, 94, 0.3) 100%);
+    border-radius: 2px 0 0 2px;
+  }
+  
+  strong {
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    letter-spacing: -0.015em;
+    display: block;
+    margin-bottom: $space-xs;
+  }
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(184, 118, 94, 0.12);
+    border-color: rgba(184, 118, 94, 0.15);
+    background: linear-gradient(135deg, rgba(184, 118, 94, 0.05) 0%, rgba(255, 255, 255, 0.9) 100%);
+  }
+}
+
+.personal-item {
+  background: linear-gradient(135deg, rgba(122, 132, 113, 0.03) 0%, rgba(255, 255, 255, 0.8) 100%);
+  border-color: rgba(122, 132, 113, 0.08);
+  
+  &::before {
+    background: linear-gradient(180deg, $earth-sage 0%, rgba(122, 132, 113, 0.3) 100%);
+  }
+  
+  &:hover {
+    background: linear-gradient(135deg, rgba(122, 132, 113, 0.05) 0%, rgba(255, 255, 255, 0.9) 100%);
+    border-color: rgba(122, 132, 113, 0.15);
+    box-shadow: 0 8px 32px rgba(122, 132, 113, 0.12);
+  }
+}
+
+// Fine Art Editorial Blog Posts - Gallery Aesthetic
+.post-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  
+  .post-item {
+    padding: $space-xl 0; // More generous spacing
+    border-bottom: 1px solid rgba(230, 228, 223, 0.3); // Subtler borders
+    
+    &:first-child {
+      padding-top: $space-lg;
+    }
+    
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    
+    .post-link {
+      display: block;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      
+      &:hover {
+        background: transparent; // Clean hover without background
+        transform: translateX(6px); // Subtle shift
+        
+        .post-title {
+          color: $earth-coral;
+          letter-spacing: -0.01em;
+        }
+        
+        .post-meta {
+          opacity: 1;
+          color: $earth-coral;
+        }
+      }
+    }
+    
+    .post-meta {
+      font-size: $font-size-xs;
+      color: $text-quaternary;
+      font-weight: $font-weight-light; // Lighter for sophistication
+      text-transform: uppercase;
+      letter-spacing: 0.1em; // More spacing for gallery feel
+      margin: 0 0 $space-sm 0;
+      opacity: 0.7;
+      transition: all 0.3s ease;
+    }
+    
+    .post-title {
+      font-size: $font-size-large; // Larger for presence
+      font-weight: $font-weight-light; // Lighter for sophistication
+      color: $text-primary;
+      margin: 0 0 $space-sm 0;
+      line-height: 1.3; // Tighter for editorial feel
+      transition: all 0.3s ease;
+      font-family: $font-display; // Use display font
+      letter-spacing: -0.005em; // Subtle negative tracking
+    }
+    
+    .post-excerpt {
+      font-size: $font-size-base; // Larger for readability
+      color: $text-tertiary;
+      line-height: 1.6; // More generous line height
+      margin: 0;
+      font-weight: $font-weight-regular;
+      max-width: 85%; // Editorial constraint
+      letter-spacing: 0.002em; // Subtle positive tracking
+    }
+  }
+}
+
+// Expertise Item Icon Styling
+.expertise-icon {
+  font-size: 2.4rem; // Large enough to be impactful
+  min-width: 3.2rem; // Consistent width
+  height: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(184, 118, 94, 0.1) 0%, rgba(255, 255, 255, 0.8) 100%);
+  border-radius: 8px;
+  border: 1px solid rgba(184, 118, 94, 0.15);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  margin-top: 0.2rem; // Slight alignment adjustment
+}
+
+.expertise-content {
+  flex: 1; // Take remaining space
+  font-size: $font-size-base;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  
+  strong {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-size: 1.7rem;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    letter-spacing: -0.02em;
+  }
+}
+
+// Enhanced hover effects for expertise items
+.expertise-item:hover {
+  .expertise-icon {
+    background: linear-gradient(135deg, rgba(184, 118, 94, 0.2) 0%, rgba(255, 255, 255, 0.9) 100%);
+    border-color: rgba(184, 118, 94, 0.3);
+    transform: translateY(-2px);
+  }
+}
+
+// Contact Page Service Grid
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $space-lg;
+  margin: $space-2xl 0;
+  
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: $space-md;
+    margin: $space-xl 0;
+  }
+}
+
+.service-item {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-md;
+  padding: $space-lg;
+  background: linear-gradient(135deg, rgba(184, 118, 94, 0.02) 0%, rgba(255, 255, 255, 0.7) 100%);
+  border: 1px solid rgba(184, 118, 94, 0.06);
+  border-radius: 10px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(5px);
+  
+  &:hover {
+    background: linear-gradient(135deg, rgba(184, 118, 94, 0.05) 0%, rgba(255, 255, 255, 0.9) 100%);
+    border-color: rgba(184, 118, 94, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(184, 118, 94, 0.08);
+  }
+}
+
+.service-icon {
+  font-size: 2rem;
+  min-width: 2.8rem;
+  height: 2.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(184, 118, 94, 0.08) 0%, rgba(255, 255, 255, 0.8) 100%);
+  border-radius: 6px;
+  border: 1px solid rgba(184, 118, 94, 0.1);
+  transition: all 0.3s ease;
+}
+
+.service-content {
+  flex: 1;
+  
+  strong {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: $font-weight-semibold;
+    color: $text-primary;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+  }
+  
+  span {
+    display: block;
+    font-size: $font-size-small;
+    color: $text-tertiary;
+    line-height: 1.4;
+    letter-spacing: 0.002em;
+  }
+}
+
+// Contact intro and location styling
+.contact-intro {
+  text-align: center;
+  
+  > p:first-child {
+    font-size: clamp(1.7rem, 2.2vw, 2rem);
+    line-height: 1.4;
+    color: $text-secondary;
+    margin-bottom: $space-xl;
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.location-note {
+  text-align: center;
+  font-size: $font-size-base;
+  color: $text-tertiary;
+  font-style: italic;
+  margin-top: $space-xl;
+  
+  strong {
+    color: $earth-coral;
+    font-weight: $font-weight-medium;
+  }
+}
+
+// Hero Section Button Links
+.hero-links {
+  display: flex;
+  gap: $space-lg;
+  margin-top: $space-xl;
+  flex-wrap: wrap;
+  align-items: center;
+  
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: $space-md;
+    
+    .btn {
+      text-align: center;
+    }
+  }
+  
+  // Optional animation class for staggered entrance
+  &.animate {
+    .btn {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease-out forwards;
+      
+      &:first-child {
+        animation-delay: 0.2s;
+      }
+      
+      &:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+    }
+  }
+}
+
+// Chat Bar Section - Sophisticated & Space-Efficient
+.chat-bar-section {
+  margin-top: $space-4xl;
+  
+  @media (max-width: $breakpoint-sm) {
+    margin-top: $space-3xl;
+  }
+}
+
+.chat-bar {
+  background: linear-gradient(135deg, rgba(184, 118, 94, 0.04) 0%, rgba(255, 255, 255, 0.95) 100%);
+  border: 1px solid rgba(184, 118, 94, 0.12);
+  border-radius: 16px;
+  padding: $space-2xl;
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  &:hover {
+    background: linear-gradient(135deg, rgba(184, 118, 94, 0.06) 0%, rgba(255, 255, 255, 0.98) 100%);
+    border-color: rgba(184, 118, 94, 0.18);
+    box-shadow: 0 8px 32px rgba(184, 118, 94, 0.08);
+    
+    .cta-arrow {
+      transform: translateX(4px);
+    }
+  }
+  
+  // Subtle animated background
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(184, 118, 94, 0.02), transparent);
+    animation: shimmer 8s ease-in-out infinite;
+    pointer-events: none;
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    padding: $space-xl;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    padding: $space-lg;
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% { left: -100%; }
+  50% { left: 100%; }
+}
+
+.chat-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-2xl;
+  margin-bottom: $space-lg;
+  
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $space-xl;
+    text-align: left;
+  }
+}
+
+.chat-text {
+  flex: 1;
+  
+  h3 {
+    font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+    font-weight: $font-weight-medium;
+    color: $text-primary;
+    margin: 0 0 $space-sm 0;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+  
+  p {
+    font-size: $font-size-base;
+    color: $text-secondary;
+    margin: 0;
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+    
+    .location {
+      color: $earth-coral;
+      font-weight: $font-weight-medium;
+      font-style: italic;
+      opacity: 0.9;
+    }
+  }
+}
+
+.chat-actions {
+  display: flex;
+  align-items: center;
+  gap: $space-lg;
+  
+  @media (max-width: $breakpoint-md) {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: $space-md;
+  }
+}
+
+.cta-primary {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  padding: 1.2rem 2rem;
+  background: $earth-coral;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: $font-size-small;
+  font-weight: $font-weight-semibold;
+  letter-spacing: -0.01em;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  white-space: nowrap;
+  
+  &:hover {
+    background: #a36952; // Manually darkened earth-coral
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(184, 118, 94, 0.3);
+  }
+}
+
+.cta-secondary {
+  padding: 1.2rem 2rem;
+  color: $text-primary;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: $font-size-small;
+  font-weight: $font-weight-medium;
+  letter-spacing: -0.01em;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: $earth-coral;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+  
+  &:hover {
+    color: $earth-coral;
+    
+    &::after {
+      width: 70%;
+    }
+  }
+}
+
+.cta-arrow {
+  font-size: 1.4rem;
+  transition: transform 0.3s ease;
+  font-weight: normal;
+}
+
+.chat-pulse {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  justify-content: center;
+  opacity: 0.8;
+  
+  @media (max-width: $breakpoint-md) {
+    justify-content: flex-start;
+  }
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: pulse-status 2s ease-in-out infinite;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #22c55e;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: pulse-ring 2s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse-status {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes pulse-ring {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.3; 
+  }
+  50% { 
+    transform: scale(1.5);
+    opacity: 0; 
+  }
+}
+
+.pulse-text {
+  font-size: $font-size-xs;
+  color: $text-tertiary;
+  font-weight: $font-weight-medium;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}

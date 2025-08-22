@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "yzhang.markdown-all-in-one",
+    "ms-vscode.vscode-json",
+    "bradlc.vscode-tailwindcss", 
+    "esbenp.prettier-vscode"
+  ]
+}
