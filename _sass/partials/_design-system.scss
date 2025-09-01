@@ -309,7 +309,7 @@ p {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 1001;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
   &--open {
@@ -328,7 +328,7 @@ p {
     position: relative;
 
     @media (max-width: $breakpoint-md) {
-      padding: 0 $space-lg;
+      padding: 0 $space-sm; // Reduced padding on mobile
     }
   }
 
@@ -353,18 +353,19 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: none;
+    background: transparent;
     border: none;
     cursor: pointer;
-    padding: 1.2rem;
+    padding: 1rem;
     z-index: 1001;
     min-width: 44px;
     min-height: 44px;
     border-radius: 6px;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
+    position: relative;
     
     @media (max-width: $breakpoint-md) {
-      display: flex;
+      display: flex !important;
     }
     
     &:hover {
@@ -375,19 +376,25 @@ p {
       background: rgba(184, 118, 94, 0.1);
     }
     
+    &:focus {
+      outline: 2px solid $earth-coral;
+      outline-offset: 2px;
+    }
+    
     .nav-toggle-line {
       width: 2rem;
       height: 2px;
       background: $text-primary;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      margin: 0.15rem 0;
+      margin: 0.2rem 0;
       border-radius: 1px;
       transform-origin: center;
+      display: block;
     }
     
     &--open {
       .nav-toggle-line:nth-child(1) {
-        transform: rotate(45deg) translate(0.4rem, 0.4rem);
+        transform: rotate(45deg) translate(0.5rem, 0.5rem);
       }
       
       .nav-toggle-line:nth-child(2) {
@@ -396,7 +403,7 @@ p {
       }
       
       .nav-toggle-line:nth-child(3) {
-        transform: rotate(-45deg) translate(0.4rem, -0.4rem);
+        transform: rotate(-45deg) translate(0.5rem, -0.5rem);
       }
     }
   }
@@ -407,33 +414,46 @@ p {
     list-style: none;
     margin: 0;
     padding: 0;
+    
+    @media (min-width: calc($breakpoint-md + 1px)) {
+      display: flex !important;
+      position: static !important;
+      transform: none !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      background: transparent !important;
+      backdrop-filter: none !important;
+      box-shadow: none !important;
+    }
 
     @media (max-width: $breakpoint-md) {
       position: fixed;
-      top: 6rem;
+      top: 0;
       left: 0;
       right: 0;
       bottom: 0;
       background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
       flex-direction: column;
-      padding: $space-xl;
-      gap: 0;
-      transform: translateY(-100%);
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      gap: 2rem;
       opacity: 0;
       visibility: hidden;
-      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      border-bottom: 1px solid $border-light;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-      z-index: 999;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      
-      &--open {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1000;
+      transform: translateY(-20px);
+    }
+    
+    &--open {
+      @media (max-width: $breakpoint-md) {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: all !important;
+        transform: translateY(0) !important;
       }
     }
 
@@ -448,40 +468,47 @@ p {
       border-radius: 6px;
 
       @media (max-width: $breakpoint-md) {
-        padding: $space-lg 0;
-        font-size: $font-size-base;
-        border-bottom: 1px solid rgba(230, 228, 223, 0.3);
-        min-height: 44px;
+        padding: 1.2rem 2rem;
+        font-size: 2.4rem;
+        font-weight: 400;
+        border: none;
+        border-radius: 8px;
+        min-height: 60px;
         display: flex;
         align-items: center;
-        width: 100%;
+        justify-content: center;
+        width: auto;
+        min-width: 200px;
+        text-align: center;
+        color: $text-primary;
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
         
-        &:last-child {
-          border-bottom: none;
+        &:hover {
+          background: $earth-coral;
+          color: white;
+          transform: translateY(-2px);
         }
       }
 
       &:hover {
-        color: $earth-coral;
-        background: $accent-subtle;
-        
-        @media (max-width: $breakpoint-md) {
-          background: transparent;
-          text-decoration: underline;
-          text-decoration-thickness: 1px;
-          text-underline-offset: 3px;
+        @media (min-width: 64.01rem) {
+          color: $earth-coral;
+          background: $accent-subtle;
         }
       }
 
       &.active {
-        color: $earth-coral;
-        background: $accent-subtle;
+        @media (min-width: 64.01rem) {
+          color: $earth-coral;
+          background: $accent-subtle;
+        }
         
         @media (max-width: $breakpoint-md) {
-          background: transparent;
-          text-decoration: underline;
-          text-decoration-thickness: 1px;
-          text-underline-offset: 3px;
+          background: $earth-coral !important;
+          color: white !important;
+          font-weight: 500;
         }
       }
     }
@@ -513,10 +540,12 @@ p {
     grid-template-columns: 1.2fr 0.8fr;
     gap: $space-3xl;
     align-items: start;
+    width: 100%;
+    box-sizing: border-box;
 
     @media (max-width: $breakpoint-lg) {
       gap: $space-2xl;
-      padding: 0 $space-lg;
+      padding: 0 $space-md;
       grid-template-columns: 1fr 0.6fr;
     }
 
@@ -525,12 +554,16 @@ p {
       flex-direction: column;
       gap: $space-2xl;
       text-align: center;
-      padding: 0 $space-lg;
+      padding: 0 $space-md;
+      align-items: center;
+      max-width: 100vw;
+      overflow: hidden;
     }
     
     @media (max-width: $breakpoint-sm) {
-      padding: 0 $space-lg;
+      padding: 0 $space-xs; // Minimal padding on mobile - 4px
       gap: $space-xl;
+      max-width: 100vw; // Full viewport width
     }
   }
 
@@ -539,6 +572,12 @@ p {
 
     @media (max-width: $breakpoint-md) {
       order: 2; // Text comes after avatar on mobile
+      text-align: center; // Center all text content on mobile
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%; // Ensure full width for proper centering
+      padding: 0; // Remove any padding that might offset centering
     }
 
     .greeting {
@@ -655,8 +694,10 @@ p {
     }
 
     img {
-      width: 32rem;
-      height: 32rem;
+      width: clamp(16rem, 20vw, 32rem);
+      height: clamp(16rem, 20vw, 32rem);
+      max-width: 32rem;
+      max-height: 32rem;
       border-radius: 50%;
       object-fit: cover;
       box-shadow: 0 $space-lg $space-4xl rgba(26, 26, 26, 0.08), 
@@ -671,18 +712,19 @@ p {
       }
 
       @media (max-width: $breakpoint-lg) {
-        width: 28rem;
-        height: 28rem;
+        width: clamp(16rem, 18vw, 28rem);
+        height: clamp(16rem, 18vw, 28rem);
       }
 
       @media (max-width: $breakpoint-md) {
-        width: 20rem;
-        height: 20rem;
+        width: clamp(12rem, 25vw, 20rem);
+        height: clamp(12rem, 25vw, 20rem);
+        margin: 0 auto;
       }
 
       @media (max-width: $breakpoint-sm) {
-        width: 16rem;
-        height: 16rem;
+        width: clamp(10rem, 30vw, 16rem);
+        height: clamp(10rem, 30vw, 16rem);
       }
     }
   }
@@ -697,7 +739,7 @@ p {
   border-radius: 8px; // Slightly more sophisticated radius
   font-size: 1.4rem; // Precise sizing
   font-weight: 450; // Subtle weight between regular and medium
-  text-decoration: none;
+  text-decoration: none !important;
   border: 1.5px solid $border-medium; // Slightly thicker for sophistication
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); // More sophisticated easing
@@ -706,6 +748,10 @@ p {
   position: relative;
   white-space: nowrap;
   overflow: hidden;
+  text-align: center;
+  line-height: 1.2;
+  min-height: 48px; // Ensure consistent button height
+  box-sizing: border-box;
   
   // Sophisticated backdrop
   &::before {
@@ -741,11 +787,18 @@ p {
     transform: translateY(-1px);
     transition: all 0.1s ease;
   }
+  
+  // Mobile responsiveness
+  @media (max-width: $breakpoint-sm) {
+    padding: 1.2rem 2rem;
+    font-size: 1.3rem;
+    min-height: 44px; // Touch-friendly minimum
+  }
 
   // Primary Button - Sophisticated Earthy Premium
   &--primary {
     background: linear-gradient(135deg, $earth-coral 0%, #a67c6a 100%);
-    color: white;
+    color: white !important;
     border-color: $earth-coral;
     font-weight: 500;
     box-shadow: 0 2px 8px rgba(184, 118, 94, 0.15);
@@ -753,17 +806,27 @@ p {
     &:hover {
       background: linear-gradient(135deg, #a36952 0%, #956450 100%);
       border-color: #a36952;
-      color: white;
+      color: white !important;
+      text-decoration: none;
       box-shadow: 
         0 6px 20px rgba(163, 105, 82, 0.12),
         0 3px 8px rgba(163, 105, 82, 0.08); // Subtler hover shadow
+    }
+    
+    &:focus {
+      color: white !important;
+      text-decoration: none;
+    }
+    
+    &:visited {
+      color: white !important;
     }
   }
 
   // Secondary Button - Refined Minimal with Better Contrast
   &--secondary {
     background: rgba(255, 255, 255, 0.9);
-    color: $text-primary;
+    color: $text-primary !important;
     border-color: rgba(150, 150, 150, 0.4);
     backdrop-filter: blur(10px);
     font-weight: 450;
@@ -772,9 +835,19 @@ p {
     &:hover {
       background: rgba(255, 255, 255, 1);
       border-color: $earth-coral;
-      color: $earth-coral;
+      color: $earth-coral !important;
+      text-decoration: none;
       backdrop-filter: blur(15px);
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); // Subtler shadow
+    }
+    
+    &:focus {
+      color: $text-primary !important;
+      text-decoration: none;
+    }
+    
+    &:visited {
+      color: $text-primary !important;
     }
   }
 
@@ -883,7 +956,7 @@ p {
   display: flex;
   gap: $space-lg;
   margin-top: $space-xl;
-  justify-content: center; // Center buttons on desktop
+  justify-content: flex-start; // Left-align buttons for better layout
   
   // Default visible state
   opacity: 1;
@@ -899,29 +972,39 @@ p {
   @media (max-width: $breakpoint-md) {
     justify-content: center; // Center buttons on mobile
     margin-top: $space-xl; // Better spacing on mobile
+    align-self: center; // Center the entire button container
+    width: 100%; // Full width to ensure centering works
+    margin-left: auto;
+    margin-right: auto;
   }
   
   @media (max-width: $breakpoint-sm) {
     margin-top: $space-lg; // More compact on very small screens
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $space-md;
+    width: 100%; // Full width container
+    max-width: 100%; // Allow full width
+    padding: 0 $space-xs; // Minimal padding on mobile for full width
+    box-sizing: border-box;
   }
 
   .btn {
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     
     &:hover {
-      transform: translateY(-3px) scale(1.02);
+      transform: translateY(-2px); // More subtle hover effect
     }
-  }
-
-  @media (max-width: $breakpoint-sm) {
-    flex-direction: column;
-    align-items: center;
-    gap: $space-md;
-    width: 100%; // Full width container
     
-    .btn {
+    @media (max-width: $breakpoint-sm) {
       width: 100%; // Full width buttons on small mobile
       max-width: 280px; // But not too wide
+      text-align: center;
+      margin: 0 auto; // Center each individual button
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }
@@ -1431,7 +1514,7 @@ p {
   }
 
   @media (max-width: $breakpoint-sm) {
-    padding: 0 $space-sm;
+    padding: 0 $space-xs; // Much smaller padding on mobile - 4px instead of 8px
   }
 
   &--narrow {
