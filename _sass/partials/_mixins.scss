@@ -1,4 +1,5 @@
 // List your mixins in here to keep things tidy
+@use "variables" as *;
 
 // A basic button
 @mixin button($btn-bg, $btn-text) {

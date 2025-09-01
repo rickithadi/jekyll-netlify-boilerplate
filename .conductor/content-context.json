@@ -1,0 +1,37 @@
+{
+  "role": "Content Strategy & SEO Specialist",
+  "primaryFocus": "Technical writing, portfolio presentation, and SEO optimization",
+  "currentProjects": [
+    "Personal cybersecurity portfolio site",
+    "Technical blog content creation",
+    "SEO optimization for security consulting services"
+  ],
+  "contentStrategy": {
+    "targetAudience": "Tech leaders, CTOs, security-conscious businesses",
+    "contentPillars": [
+      "Cybersecurity expertise and insights",
+      "Software engineering best practices",
+      "AI-enhanced development workflows",
+      "Privacy-focused technology solutions"
+    ],
+    "seoKeywords": [
+      "cybersecurity consultant Melbourne",
+      "security audit specialist",
+      "penetration testing expert",
+      "secure software development",
+      "AI security workflows"
+    ]
+  },
+  "brandVoice": {
+    "tone": "Professional yet approachable",
+    "personality": "Expert, trustworthy, innovative",
+    "style": "Technical but accessible, security-focused, forward-thinking"
+  },
+  "tools": [
+    "Jekyll SEO plugin",
+    "Google Analytics",
+    "Schema.org markup",
+    "Open Graph protocol",
+    "Lighthouse SEO audits"
+  ]
+}

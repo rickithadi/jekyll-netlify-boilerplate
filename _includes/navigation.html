@@ -29,24 +29,51 @@ document.addEventListener('DOMContentLoaded', function() {
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
   const navigation = document.querySelector('.navigation');
+  const body = document.body;
   
-  navToggle.addEventListener('click', function() {
+  function toggleMenu() {
     const isOpen = navLinks.classList.contains('nav-links--open');
     navLinks.classList.toggle('nav-links--open');
     navToggle.classList.toggle('nav-toggle--open');
     navigation.classList.toggle('navigation--open');
     navToggle.setAttribute('aria-expanded', !isOpen);
-  });
+    
+    // Prevent body scroll when menu is open
+    if (!isOpen) {
+      body.style.overflow = 'hidden';
+    } else {
+      body.style.overflow = '';
+    }
+  }
+  
+  function closeMenu() {
+    navLinks.classList.remove('nav-links--open');
+    navToggle.classList.remove('nav-toggle--open');
+    navigation.classList.remove('navigation--open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    body.style.overflow = '';
+  }
+  
+  navToggle.addEventListener('click', toggleMenu);
   
   // Close menu when clicking on a link
   const links = navLinks.querySelectorAll('a');
   links.forEach(link => {
-    link.addEventListener('click', function() {
-      navLinks.classList.remove('nav-links--open');
-      navToggle.classList.remove('nav-toggle--open');
-      navigation.classList.remove('navigation--open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    });
+    link.addEventListener('click', closeMenu);
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', function(event) {
+    if (!navigation.contains(event.target) && navLinks.classList.contains('nav-links--open')) {
+      closeMenu();
+    }
+  });
+  
+  // Close menu on escape key
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && navLinks.classList.contains('nav-links--open')) {
+      closeMenu();
+    }
   });
 });
 </script>

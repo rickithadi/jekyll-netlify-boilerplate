@@ -51,38 +51,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Parallax effect for hero section (subtle)
-  const hero = document.querySelector(".hero");
-  if (hero) {
-    window.addEventListener(
-      "scroll",
-      () => {
-        const scrolled = window.pageYOffset;
-        const rate = scrolled * -0.3;
-        hero.style.transform = `translateY(${rate}px)`;
-      },
-      { passive: true }
-    );
-  }
-
-  // Typewriter effect for hero title (subtle)
+  // Reduced motion check for performance
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
+  // Simple fade-in for hero title (performance optimized)
   const heroTitle = document.querySelector(".hero-title");
-  if (heroTitle) {
-    const text = heroTitle.textContent;
-    heroTitle.textContent = "";
-    heroTitle.style.opacity = "1";
-
-    let i = 0;
-    const typeWriter = () => {
-      if (i < text.length) {
-        heroTitle.textContent += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 50);
-      }
-    };
-
-    // Start typewriter after a short delay
-    setTimeout(typeWriter, 500);
+  if (heroTitle && !prefersReducedMotion) {
+    heroTitle.style.opacity = "0";
+    setTimeout(() => {
+      heroTitle.style.opacity = "1";
+      heroTitle.style.transition = "opacity 0.8s ease-out";
+    }, 200);
   }
 
   // Smooth scroll for navigation links

@@ -11,7 +11,7 @@ intro_paragraph: "Let's discuss how I can help you build **secure**, **privacy-f
   <article>
     <section class="mb-2xl">
       <div class="contact-intro text-base">
-        <p>I help teams build technology that <strong>protects privacy</strong> and <strong>strengthens security</strong> without compromising on user experience.</p>
+        <p>I help teams build technology that <strong>protects privacy</strong> and <strong>strengthens security</strong> without compromising on user experience. My workflow integrates <strong>AI-powered tools</strong> for enhanced code analysis, threat detection, and security automation — always with human oversight.</p>
         
         <div class="service-grid">
           <div class="service-item">
@@ -40,6 +40,13 @@ intro_paragraph: "Let's discuss how I can help you build **secure**, **privacy-f
             <div class="service-content">
               <strong>Secure Architecture</strong>
               <span>Building robust, scalable security foundations from the ground up</span>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="service-icon">🤖</div>
+            <div class="service-content">
+              <strong>AI-Enhanced Workflows</strong>
+              <span>Integrating AI tools for code analysis, threat modeling, and security automation</span>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "projectType": "custom",
-  "primaryGoal": "review",
+  "projectType": "jekyll-portfolio",
+  "primaryGoal": "development",
   "experienceLevel": "expert",
   "agents": [
     {
@@ -55,55 +55,72 @@
     },
     {
       "name": "@frontend",
-      "role": "Frontend Architecture Specialist",
+      "role": "Jekyll & Static Site Specialist",
       "enabled": true,
       "expertise": [
-        "Component architecture",
-        "State management",
-        "Performance optimization",
+        "Jekyll architecture and Liquid templating",
+        "SCSS/CSS design systems",
+        "Static site optimization",
         "Responsive design",
         "Browser compatibility",
-        "Next.js App Router",
-        "Server components",
-        "Static generation"
+        "Mobile-first development",
+        "Performance optimization",
+        "SEO implementation"
       ],
       "technicalStack": [
-        "typescript",
-        "nextjs",
-        "Next.js 14",
-        "React Server Components"
+        "Jekyll",
+        "Liquid templating",
+        "SCSS/Sass",
+        "HTML5 semantic markup",
+        "JavaScript ES6+",
+        "CSS Grid & Flexbox",
+        "Web Standards"
       ]
     },
     {
       "name": "@backend",
-      "role": "API & Server Specialist",
+      "role": "Jekyll Backend & Hosting Specialist",
       "enabled": true,
       "expertise": [
-        "API design",
-        "Database optimization",
-        "Security patterns",
-        "Performance tuning",
-        "Error handling",
-        "Next.js API routes",
-        "Middleware patterns"
+        "Jekyll configuration and optimization",
+        "Static site hosting (Netlify, GitHub Pages)",
+        "CI/CD with GitHub Actions",
+        "Form handling and integrations",
+        "Performance optimization",
+        "CDN configuration",
+        "Site monitoring and analytics"
       ],
       "technicalStack": [
-        "typescript",
-        "Next.js API Routes"
+        "Jekyll",
+        "GitHub Actions",
+        "Netlify",
+        "GitHub Pages",
+        "Ruby gems",
+        "Git workflows"
       ]
     },
     {
       "name": "@qa",
-      "role": "QA Engineer",
+      "role": "QA & Performance Engineer",
       "enabled": true,
       "expertise": [
-        "Test strategy design",
-        "Unit testing patterns",
-        "Integration testing",
-        "End-to-end testing",
-        "Test automation"
+        "Static site testing strategies",
+        "Cross-browser compatibility testing",
+        "Mobile responsiveness testing",
+        "Performance auditing",
+        "SEO testing and optimization",
+        "Accessibility testing (WCAG)",
+        "Content validation",
+        "Link checking and site integrity"
       ],
-      "technicalStack": []
+      "technicalStack": [
+        "Lighthouse",
+        "PageSpeed Insights",
+        "WAVE accessibility tool",
+        "HTMLProofer",
+        "Jekyll Doctor",
+        "Browser DevTools"
+      ]
     },
     {
       "name": "@security",
@@ -127,6 +144,53 @@
         "HTTPS/TLS",
         "Security headers"
       ]
+    },
+    {
+      "name": "@content",
+      "role": "Content Strategy & SEO Specialist",
+      "enabled": true,
+      "expertise": [
+        "Technical writing and blog content",
+        "SEO optimization and keyword strategy",
+        "Content structure and information architecture",
+        "Portfolio presentation and case studies",
+        "Technical documentation",
+        "Meta descriptions and structured data",
+        "Content performance optimization",
+        "Personal branding and voice"
+      ],
+      "technicalStack": [
+        "Markdown",
+        "SEO tools",
+        "Google Analytics",
+        "Schema.org markup",
+        "Open Graph protocol",
+        "Jekyll SEO plugin"
+      ]
+    },
+    {
+      "name": "@ai",
+      "role": "AI Integration & Workflow Specialist",
+      "enabled": true,
+      "expertise": [
+        "AI-enhanced development workflows",
+        "Code analysis and optimization",
+        "Automated content generation",
+        "AI tool integration strategies",
+        "Security analysis automation",
+        "Performance monitoring with AI",
+        "Cost optimization for AI services",
+        "Ethical AI implementation practices"
+      ],
+      "technicalStack": [
+        "Claude Code",
+        "GitHub Copilot",
+        "AI APIs",
+        "Automation scripts",
+        "Claude API",
+        "OpenAI API",
+        "AI monitoring tools"
+      ]
     }
   ],
   "features": {
@@ -142,18 +206,22 @@
     "progressBars": true
   },
   "projectContext": {
-    "framework": "nextjs",
-    "language": "typescript",
-    "hasAPI": true,
+    "framework": "jekyll",
+    "language": "ruby",
+    "hasAPI": false,
     "hasDatabase": false,
     "hasAuthentication": false,
     "hasTesting": true,
+    "hasPortfolio": true,
+    "hasBlog": true,
+    "hasContactForm": true,
     "dependencies": [
-      "react",
-      "next",
-      "typescript"
+      "jekyll",
+      "sass",
+      "liquid",
+      "markdown"
     ]
   },
   "createdAt": "2025-08-20T17:02:20.232Z",
-  "lastUpdated": "2025-08-20T17:02:20.236Z"
+  "lastUpdated": "2025-08-21T01:03:54.000Z"
 }

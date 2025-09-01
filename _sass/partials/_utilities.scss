@@ -1,4 +1,6 @@
 // utilities for modifying some default browser behaviour
+@use "variables" as *;
+@use "mixins" as *;
 
 html,
 body,
