@@ -49,20 +49,105 @@
 
 // Sophisticated Typography System
 .hero-title {
-  font-size: clamp(6.4rem, 12vw, 16rem); // More dramatic scaling
-  font-weight: $font-weight-hero;
-  line-height: $line-height-hero;
-  letter-spacing: -0.06em; // More refined letter spacing
+  font-size: clamp(5.4rem, 12vw, 16rem); // Increased size for impact
+  font-weight: 400; // Clean, modern weight
+  line-height: 0.88; // Tighter for drama
+  letter-spacing: -0.06em; // More aggressive kerning
   color: $text-primary;
-  font-family: $font-display; // Use display font for maximum sophistication
-  font-feature-settings: "kern" 1, "liga" 1, "swsh" 1;
+  font-family: $font-display;
+  font-feature-settings: "kern" 1, "liga" 1;
   text-rendering: optimizeLegibility;
+  margin: $space-sm 0 $space-lg 0;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.03);
+  
+  @media (prefers-reduced-motion: no-preference) {
+    animation: heroReveal 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transform: translateY(30px) scale(0.95);
+    opacity: 0;
+    animation-delay: 0.2s;
+  }
   
   // Waving hand animation
   .wave-emoji {
     display: inline-block;
-    animation: wave 2s ease-in-out infinite;
+    animation: wave 2.5s ease-in-out infinite;
+    animation-delay: 1s;
     transform-origin: 70% 70%;
+    cursor: pointer;
+    
+    &:hover {
+      animation-duration: 0.6s;
+      animation-iteration-count: 3;
+    }
+  }
+}
+
+// Hero greeting - Small, subtle introduction
+.hero-greeting {
+  font-size: clamp(1.6rem, 2.5vw, 2rem);
+  font-weight: 500;
+  color: $earth-coral;
+  letter-spacing: -0.01em;
+  margin-bottom: $space-md;
+  font-family: $font-primary;
+  text-transform: uppercase;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  letter-spacing: 0.1em;
+  
+  @media (prefers-reduced-motion: no-preference) {
+    animation: heroReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transform: translateY(20px);
+    opacity: 0;
+    animation-delay: 0s;
+  }
+}
+
+// Hero subtitle - Compelling, concise value proposition
+.hero-subtitle {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  color: $text-secondary;
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+  margin: $space-xl 0 $space-3xl 0;
+  max-width: 50ch;
+  font-family: $font-primary;
+  position: relative;
+  
+  @media (prefers-reduced-motion: no-preference) {
+    animation: heroReveal 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transform: translateY(25px);
+    opacity: 0;
+    animation-delay: 0.4s;
+  }
+  
+  // Subtle underline decoration for emphasized text
+  strong {
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, $earth-coral, transparent);
+      opacity: 0.4;
+      transform: scaleX(0);
+      animation: underlineGrow 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 1.2s;
+      transform-origin: left;
+    }
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  strong {
+    color: $text-primary;
+    font-weight: 500;
   }
 }
 
@@ -123,6 +208,17 @@
   from {
     opacity: 0;
     transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes navFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
   to {
     opacity: 1;
@@ -301,26 +397,28 @@ p {
 // Modern Navigation - Clean and minimal with mobile support
 .navigation {
   height: 6rem;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border-bottom: 1px solid $border-light;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(230, 228, 223, 0.3);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1001;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  // Fade-in animation on page load
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: navFadeIn 0.8s ease-out 0.2s forwards;
 
   &--open {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
+    background: #ffffff;
   }
 
   .container {
-    max-width: $container-wide;
-    margin: 0 auto;
-    padding: 0 $space-xl;
+    max-width: 100%;
+    margin: 0;
+    padding: 0 $space-2xl;
     height: 100%;
     display: flex;
     align-items: center;
@@ -328,15 +426,19 @@ p {
     position: relative;
 
     @media (max-width: $breakpoint-md) {
-      padding: 0 $space-sm; // Reduced padding on mobile
+      padding: 0 $space-lg;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      padding: 0 $space-md;
     }
   }
 
   .nav-brand {
-    font-size: $font-size-base;
-    font-weight: $font-weight-medium;
+    font-size: 1.8rem;
+    font-weight: 500;
     color: $text-primary;
-    letter-spacing: 0;
+    letter-spacing: -0.01em;
     text-decoration: none;
     transition: all var(--transition-base);
     z-index: 1001;
@@ -386,15 +488,16 @@ p {
       height: 2px;
       background: $text-primary;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      margin: 0.2rem 0;
+      margin: 0.25rem 0;
       border-radius: 1px;
       transform-origin: center;
       display: block;
+      will-change: transform, opacity;
     }
     
     &--open {
       .nav-toggle-line:nth-child(1) {
-        transform: rotate(45deg) translate(0.5rem, 0.5rem);
+        transform: rotate(45deg) translate(0.65rem, 0.65rem);
       }
       
       .nav-toggle-line:nth-child(2) {
@@ -403,14 +506,14 @@ p {
       }
       
       .nav-toggle-line:nth-child(3) {
-        transform: rotate(-45deg) translate(0.5rem, -0.5rem);
+        transform: rotate(-45deg) translate(0.65rem, -0.65rem);
       }
     }
   }
 
   .nav-links {
     display: flex;
-    gap: $space-2xl;
+    gap: $space-xl;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -427,25 +530,26 @@ p {
     }
 
     @media (max-width: $breakpoint-md) {
-      position: fixed;
-      top: 0;
+      position: absolute;
+      top: 100%;
       left: 0;
       right: 0;
-      bottom: 0;
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      background: #ffffff;
+      border-top: 1px solid rgba(230, 228, 223, 0.3);
+      box-shadow: 0 4px 20px rgba(28, 28, 28, 0.1);
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      gap: 2rem;
+      align-items: stretch;
+      padding: $space-lg 0;
+      gap: 0;
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: 1000;
-      transform: translateY(-20px);
+      transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                  visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 999;
+      transform: translateY(-10px);
+      will-change: transform, opacity;
     }
     
     &--open {
@@ -458,8 +562,8 @@ p {
     }
 
     a {
-      font-size: $font-size-small;
-      font-weight: $font-weight-medium;
+      font-size: 1.5rem;
+      font-weight: 450;
       color: $text-secondary;
       text-decoration: none;
       position: relative;
@@ -468,27 +572,23 @@ p {
       border-radius: 6px;
 
       @media (max-width: $breakpoint-md) {
-        padding: 1.2rem 2rem;
-        font-size: 2.4rem;
+        padding: $space-md $space-xl;
+        font-size: 1.6rem;
         font-weight: 400;
-        border: none;
-        border-radius: 8px;
-        min-height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: auto;
-        min-width: 200px;
-        text-align: center;
         color: $text-primary;
-        background: rgba(255, 255, 255, 0.8);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
+        border-bottom: 1px solid rgba(230, 228, 223, 0.2);
+        transition: all 0.2s ease;
+        display: block;
+        width: 100%;
+        text-align: left;
+        
+        &:last-child {
+          border-bottom: none;
+        }
         
         &:hover {
-          background: $earth-coral;
-          color: white;
-          transform: translateY(-2px);
+          background: rgba(230, 228, 223, 0.1);
+          color: $earth-coral;
         }
       }
 
@@ -506,30 +606,36 @@ p {
         }
         
         @media (max-width: $breakpoint-md) {
-          background: $earth-coral !important;
-          color: white !important;
+          background: rgba(248, 145, 124, 0.1) !important;
+          color: $earth-coral !important;
           font-weight: 500;
+          border-left: 3px solid $earth-coral;
         }
       }
     }
   }
 }
 
-// Ultra Tight Hero Section - Boring Industries Inspired
+// Sophisticated Hero Section with Visual Impact
 .hero {
-  padding: 1.5rem 0 1.5rem; // 25% reduction from 2rem
+  padding: 4rem 0 6rem; // Further reduced padding for viewport fit
   background: $background-primary;
   position: relative;
-  margin-top: 6rem; // Add space for fixed navigation
+  margin-top: 3rem; // Reduced space below nav for better viewport fit
+  min-height: 45vh; // Smaller min-height to fit in viewport
+  display: flex;
+  align-items: center;
 
   @media (min-width: $breakpoint-md) {
-    padding: 2.25rem 0 2.25rem; // 25% reduction from 3rem
-    margin-top: 6rem; // Consistent nav spacing
+    padding: 5rem 0 7rem; // Reduced desktop padding
+    margin-top: 3rem;
+    min-height: 50vh;
   }
 
   @media (min-width: $breakpoint-lg) {
-    padding: 3rem 0 3rem; // 25% reduction from 4rem
-    margin-top: 6rem; // Consistent nav spacing
+    padding: 6rem 0 8rem; // Reduced large screen padding
+    margin-top: 3rem;
+    min-height: 55vh;
   }
 
   .hero-content {
@@ -537,16 +643,18 @@ p {
     margin: 0 auto;
     padding: 0 $space-xl;
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: $space-3xl;
-    align-items: start;
+    grid-template-columns: 1fr 0.5fr;
+    gap: $space-4xl;
+    align-items: center;
     width: 100%;
     box-sizing: border-box;
+    position: relative;
+    z-index: 1;
 
     @media (max-width: $breakpoint-lg) {
-      gap: $space-2xl;
-      padding: 0 $space-md;
-      grid-template-columns: 1fr 0.6fr;
+      gap: $space-3xl;
+      padding: 0 $space-lg;
+      grid-template-columns: 1fr 0.4fr;
     }
 
     @media (max-width: $breakpoint-md) {
@@ -1245,6 +1353,7 @@ p {
     margin: 0;
   }
 
+
   // Minimal link styling
   .card-link {
     display: inline-block;
@@ -1359,17 +1468,17 @@ p {
   }
 }
 
-// Ultra Tight Section Spacing - Boring Industries Inspired  
+// Sophisticated Spacing - Luxurious Breathing Room  
 .section {
-  padding: 2rem 0; // Consistent ultra-tight spacing across all pages
+  padding: 6rem 0; // Luxurious spacing for sophisticated layout
   background: $background-primary;
 
   @media (max-width: $breakpoint-md) {
-    padding: 1.5rem 0; // Proportionally tight on tablets
+    padding: 4rem 0; // Generous spacing on tablets
   }
 
   @media (max-width: $breakpoint-sm) {
-    padding: 1rem 0; // Ultra-tight on mobile for premium feel
+    padding: 3rem 0; // Maintained breathing room on mobile
   }
 
   &--primary {
@@ -1431,15 +1540,15 @@ p {
 
 .section-header {
   text-align: center;
-  margin-bottom: $space-lg; // Even tighter spacing
+  margin-bottom: $space-3xl; // Generous spacing for breathing room
   position: relative;
 
-  h2 {
+  h1, h2 {
     margin-bottom: $space-md; // Much tighter spacing
-    font-weight: $font-weight-medium;
-    letter-spacing: -0.03em;
+    font-weight: 450; // Slightly lighter for boring.industries aesthetic
+    letter-spacing: -0.04em; // Tighter kerning like boring.industries
     font-family: $font-primary;
-    font-size: clamp(3.6rem, 6vw, 6.4rem); // Larger section headers
+    font-size: clamp(2.8rem, 5vw, 4.8rem); // More restrained, boring.industries style
   }
 
   .section-intro {
@@ -1452,6 +1561,12 @@ p {
     font-family: $font-primary; // Clean sans-serif
     font-style: normal; // No italic for cleaner look
     letter-spacing: -0.01em; // Tight kerning
+  }
+  
+  // Blog page specific styling - use accent color
+  .section--beige & .section-intro {
+    color: $earth-coral;
+    font-weight: 500;
   }
 
   .section-emoji {
@@ -1955,8 +2070,13 @@ p {
 .work-grid--compact {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: $space-lg;
+  gap: $space-xl;
   margin-top: $space-xl;
+
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: repeat(3, 1fr); // Force 3 columns on desktop
+    gap: $space-2xl; // More spacing for luxurious look
+  }
 
   @media (max-width: $breakpoint-md) {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1999,22 +2119,30 @@ p {
     z-index: 2;
   }
   
+  .work-card-icon {
+    font-size: 3rem;
+    margin-bottom: $space-md;
+    display: block;
+    opacity: 0.8;
+  }
+  
   .work-card-title {
     font-family: $font-primary;
-    font-size: $font-size-lg;
-    font-weight: $font-weight-medium;
+    font-size: clamp(1.8rem, 2.5vw, 2.2rem); // Fluid typography like boring.industries
+    font-weight: 450; // Consistent lighter weight
     color: $text-primary;
     margin-bottom: $space-sm;
-    line-height: 1.3;
-    letter-spacing: -0.01em;
+    line-height: 1.25; // Tighter line height
+    letter-spacing: -0.025em; // Tighter kerning for sophistication
   }
   
   .work-card-description {
-    font-size: $font-size-base;
+    font-size: clamp(1.4rem, 1.8vw, 1.6rem); // Fluid scaling
     color: $text-secondary;
-    line-height: 1.5;
+    line-height: 1.4; // Tighter line height for boring.industries aesthetic
     margin-bottom: $space-lg;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em; // Refined kerning
+    font-weight: 400;
   }
   
   .work-card-meta {
@@ -2080,6 +2208,12 @@ p {
   &--delivered {
     background: rgba(122, 132, 113, 0.1);
     color: $earth-sage;
+  }
+  
+  &--published {
+    background: rgba(107, 119, 99, 0.1);
+    color: $earth-moss;
+    border-color: rgba(107, 119, 99, 0.2);
   }
 }
 
@@ -2946,4 +3080,85 @@ p {
   font-weight: $font-weight-medium;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+
+
+// Site footer styling
+footer {
+  padding: 4rem 0;
+  background: #fefcfa;
+  border-top: 1px solid rgba(230, 228, 223, 0.2);
+  margin-top: 6rem;
+  
+  @media (max-width: 48rem) {
+    padding: 3rem 0;
+    margin-top: 4rem;
+  }
+  
+  small {
+    display: block;
+    text-align: center;
+    
+    > div {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      align-items: center;
+      
+      @media (max-width: 48rem) {
+        gap: 1.5rem;
+      }
+    }
+    
+    a {
+      opacity: 0.7;
+      transition: opacity 0.2s ease;
+      
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+
+// Hero reveal animation keyframes
+@keyframes heroReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+// Underline grow animation for emphasized text
+@keyframes underlineGrow {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 0.4;
+  }
+}
+
+// Subtle hover effects for interactive elements
+.hero-links {
+  .btn {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
 }

@@ -1,7 +1,12 @@
+// Enhanced Navigation Script with Performance Optimizations
 console.log('Navigation script loaded');
 
 (function() {
   'use strict';
+  
+  // Performance optimizations
+  let isAnimating = false;
+  const ANIMATION_DURATION = 300;
   
   // Wait for DOM to be ready
   function initNavigation() {
@@ -25,31 +30,62 @@ console.log('Navigation script loaded');
     console.log('Navigation initialized successfully');
     
     function toggleMenu() {
+      // Prevent multiple rapid clicks during animation
+      if (isAnimating) {
+        console.log('Animation in progress, ignoring toggle');
+        return;
+      }
+      
+      isAnimating = true;
       const isOpen = navLinks.classList.contains('nav-links--open');
       console.log('Toggling menu. Currently open:', isOpen);
       
-      navLinks.classList.toggle('nav-links--open');
-      navToggle.classList.toggle('nav-toggle--open');
-      navigation.classList.toggle('navigation--open');
-      navToggle.setAttribute('aria-expanded', !isOpen);
+      // Use requestAnimationFrame for smooth animations
+      requestAnimationFrame(() => {
+        navLinks.classList.toggle('nav-links--open');
+        navToggle.classList.toggle('nav-toggle--open');
+        navigation.classList.toggle('navigation--open');
+        navToggle.setAttribute('aria-expanded', !isOpen);
+        
+        // Prevent body scroll when menu is open
+        if (!isOpen) {
+          body.style.overflow = 'hidden';
+          body.setAttribute('data-nav-open', 'true');
+          console.log('Menu opened, body scroll disabled');
+        } else {
+          body.style.overflow = '';
+          body.removeAttribute('data-nav-open');
+          console.log('Menu closed, body scroll enabled');
+        }
+      });
       
-      // Prevent body scroll when menu is open
-      if (!isOpen) {
-        body.style.overflow = 'hidden';
-        console.log('Menu opened, body scroll disabled');
-      } else {
-        body.style.overflow = '';
-        console.log('Menu closed, body scroll enabled');
-      }
+      // Reset animation flag after animation completes
+      setTimeout(() => {
+        isAnimating = false;
+      }, ANIMATION_DURATION);
     }
     
     function closeMenu() {
+      if (isAnimating) {
+        console.log('Animation in progress, ignoring close');
+        return;
+      }
+      
       console.log('Closing menu');
-      navLinks.classList.remove('nav-links--open');
-      navToggle.classList.remove('nav-toggle--open');
-      navigation.classList.remove('navigation--open');
-      navToggle.setAttribute('aria-expanded', 'false');
-      body.style.overflow = '';
+      isAnimating = true;
+      
+      requestAnimationFrame(() => {
+        navLinks.classList.remove('nav-links--open');
+        navToggle.classList.remove('nav-toggle--open');
+        navigation.classList.remove('navigation--open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+        body.removeAttribute('data-nav-open');
+      });
+      
+      setTimeout(() => {
+        isAnimating = false;
+      }, ANIMATION_DURATION);
     }
     
     // Add click handler to toggle button
@@ -86,13 +122,19 @@ console.log('Navigation script loaded');
       }
     });
     
-    // Handle window resize
-    window.addEventListener('resize', function() {
-      if (window.innerWidth > 1024) { // Above tablet breakpoint
-        console.log('Window resized to desktop, closing menu');
-        closeMenu();
-      }
-    });
+    // Handle window resize with debouncing
+    let resizeTimeout;
+    function handleResize() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        if (window.innerWidth > 1024) { // Above tablet breakpoint
+          console.log('Window resized to desktop, closing menu');
+          closeMenu();
+        }
+      }, 150); // Debounce resize events
+    }
+    
+    window.addEventListener('resize', handleResize);
     
     // Test button visibility
     const computedStyle = window.getComputedStyle(navToggle);

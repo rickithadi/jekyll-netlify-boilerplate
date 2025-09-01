@@ -1,10 +1,10 @@
 ---
-layout: page
-title: Contact
+layout: contact
+title: Let's work together
 meta_description: Get in touch with Hadi Rickit for cybersecurity consulting, security audits, penetration testing, and secure software development projects.
 permalink: /contact
 section: contact
-intro_paragraph: "Let's discuss how I can help you build **secure**, **privacy-focused** technology that <span class='highlight'>works for people</span>."
+intro_paragraph: "Building something that matters? I help teams architect **secure, scalable solutions** that work from day one — no retrofitting required."
 ---
 
 <div class="container container--narrow">

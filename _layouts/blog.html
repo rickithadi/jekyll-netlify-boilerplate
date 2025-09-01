@@ -2,28 +2,31 @@
 layout: default
 ---
 
-<section class="page-section">
-  <div class="container container--narrow">
-    <div class="page-content">
-      <h1>{{ page.title }}</h1>
-      {% if page.intro_paragraph and page.intro_paragraph != '' %}
-      <div class="intro">
-        {{ page.intro_paragraph | markdownify }}
-      </div>
-      {% endif %}
+<section class="section section--beige" aria-labelledby="blog-heading">
+  <div class="container">
+    <div class="section-header">
+      <h1 id="blog-heading">{{ page.title }}</h1>
+      <p class="section-intro">{{ page.intro_paragraph | markdownify | strip_html }}</p>
     </div>
 
     {{ content }}
 
-    <div class="post-grid">
+    <div class="work-grid work-grid--compact">
       {% for post in site.posts %}
       {% assign author = site.data.authors[post.author] %}
-      <article class="post-item stagger-item">
-        <a href="{{ post.url | relative_url }}" class="post-link">
-          <p class="post-meta">{{ post.date | date: "%b %Y" }}{% if author %} • {{ author.name }}{% endif %}</p>
-          <h3 class="post-title">{{ post.title }}</h3>
-          <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
-        </a>
+      <article class="work-card work-card--insight stagger-item">
+        <div class="work-card-header">
+          <span class="work-status work-status--published">Article</span>
+        </div>
+        <div class="work-card-content">
+          <h3 class="work-card-title">{{ post.title }}</h3>
+          <p class="work-card-description">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+          <div class="work-card-meta">
+            <span class="work-type">{{ post.categories[0] | default: "Insight" | capitalize }}</span>
+            <span class="work-year">{{ post.date | date: "%b %Y" }}</span>
+          </div>
+        </div>
+        <a href="{{ post.url | relative_url }}" class="work-card-link" aria-label="Read {{ post.title }}"></a>
       </article>
       {% endfor %}
     </div>

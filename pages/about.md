@@ -1,149 +1,134 @@
 ---
-layout: page
+layout: default
 title: About
 meta_description: Learn about Hadi Rickit, AI-enhanced cybersecurity consultant & software engineer in Melbourne. Expert in security audits, penetration testing, AI-powered security workflows, and secure software architecture. Serving clients worldwide.
 permalink: /about
 section: about
-intro_paragraph: Hi, I'm Hadi. I build software and help teams make it more secure. Based in Melbourne, I spend most of my time thinking about **data privacy**, **system hardening**, and why things break when you least expect them to.
+intro_paragraph: Software engineer and security architect based in Melbourne. I specialize in building **resilient systems** where security isn't an afterthought — it's foundational to how things work.
 ---
 
-<div class="container container--narrow">
-  <article>
-    <section class="mb-3xl stagger-item">
-      <h2>What I Actually Do</h2>
-      <div class="text-base">
-        <p class="mb-lg">I work on applications where security isn't an afterthought. This usually means diving into systems to understand how data flows, where it's vulnerable, and how to protect it without making everything impossible to use.</p>
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-greeting">About me</div>
+      <h1 class="hero-title">Building things that work</h1>
+      <div class="hero-subtitle">
+        <p>I'm a software engineer in Melbourne who happens to be good at security. I spend my days building applications, breaking things to understand how they work, and helping teams ship code that won't embarrass them later.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <p class="mb-lg">My focus areas are:</p>
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>What I Do</h2>
+      <p class="section-intro">I build software and occasionally help other teams do the same — but better and more securely.</p>
+    </div>
 
-        <div class="expertise-grid">
-          <div class="expertise-item expertise-item--security stagger-item">
-            <div class="expertise-icon">🔒</div>
-            <div class="expertise-content">
-              <strong>Custom development & security architecture</strong> — crafting secure applications with defense-in-depth from the foundation up
-            </div>
-          </div>
-          <div class="expertise-item expertise-item--privacy stagger-item">
-            <div class="expertise-icon">🛡️</div>
-            <div class="expertise-content">
-              <strong>Privacy engineering & compliance</strong> — implementing data protection by design and ensuring regulatory compliance
-            </div>
-          </div>
-          <div class="expertise-item expertise-item--narrative stagger-item">
-            <div class="expertise-icon">📝</div>
-            <div class="expertise-content">
-              <strong>Digital narrative & reputation management</strong> — crafting strategic online presence, SEO optimization, and brand narrative control for individuals and organizations
-            </div>
-          </div>
-          <div class="expertise-item expertise-item--ai stagger-item">
-            <div class="expertise-icon">🤖</div>
-            <div class="expertise-content">
-              <strong>AI-enhanced security workflows</strong> — leveraging AI tools for code analysis, threat detection, and security automation while maintaining human oversight and ethical practices
-            </div>
-          </div>
-          <div class="expertise-item expertise-item--hardening stagger-item">
-            <div class="expertise-icon">⚡</div>
-            <div class="expertise-content">
-              <strong>System hardening & threat modeling</strong> — reducing attack surfaces, securing infrastructure, and anticipating adversarial thinking
-            </div>
+    <div class="work-grid work-grid--compact">
+      <article class="work-card work-card--service stagger-item">
+        <div class="work-card-content">
+          <div class="work-card-icon">💻</div>
+          <h3 class="work-card-title">Development</h3>
+          <p class="work-card-description">JavaScript, Python, React. I build applications and help teams ship faster</p>
+          <div class="work-card-meta">
+            <span class="work-type">Full Stack</span>
+            <span class="work-year">2018–Present</span>
           </div>
         </div>
+      </article>
 
-        <p class="mt-xl">Most of my work involves either building new secure systems or fixing existing ones that have grown... <span class="highlight">interesting</span> over time.</p>
-      </div>
-    </section>
-
-    <section class="mb-3xl stagger-item">
-      <div class="section-header section-header--minimal">
-        <h2>Technical Foundation</h2>
-        <p class="section-subtitle">Areas of focus and professional competency</p>
-      </div>
-
-      <div class="text-base">
-        <div class="competency-areas">
-          <div class="competency-group">
-            <h3 class="competency-title">Security Architecture</h3>
-            <div class="competency-list">
-              <span>Application Security</span>
-              <span>Penetration Testing</span>
-              <span>Vulnerability Assessment</span>
-              <span>OWASP Standards</span>
-              <span>Threat Modeling</span>
-              <span>Secure Design Patterns</span>
-            </div>
-          </div>
-
-          <div class="competency-group">
-            <h3 class="competency-title">Software Engineering</h3>
-            <div class="competency-list">
-              <span>JavaScript & TypeScript</span>
-              <span>Python Development</span>
-              <span>React & Next.js</span>
-              <span>Node.js Systems</span>
-              <span>API Design</span>
-              <span>Database Architecture</span>
-            </div>
-          </div>
-
-          <div class="competency-group">
-            <h3 class="competency-title">Modern Toolchain</h3>
-            <div class="competency-list">
-              <span>AI-Enhanced Workflows</span>
-              <span>Infrastructure as Code</span>
-              <span>CI/CD Pipelines</span>
-              <span>Performance Optimization</span>
-              <span>Monitoring & Observability</span>
-              <span>Cloud Security</span>
-            </div>
+      <article class="work-card work-card--service stagger-item">
+        <div class="work-card-content">
+          <div class="work-card-icon">🔍</div>
+          <h3 class="work-card-title">Security</h3>
+          <p class="work-card-description">Finding vulnerabilities and fixing them. Consulting when teams need security audits</p>
+          <div class="work-card-meta">
+            <span class="work-type">Consulting</span>
+            <span class="work-year">Penetration Testing</span>
           </div>
         </div>
+      </article>
 
-        <div class="technical-note">
-          <p>Technology choices are driven by <strong>security requirements</strong>, <strong>maintainability</strong>, and <strong>pragmatic constraints</strong> — not trends or personal preference.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="mb-3xl stagger-item">
-      <div class="section-header section-header--minimal">
-        <h2>Outside of Work</h2>
-        <p class="section-subtitle">Life beyond terminals and threat models</p>
-      </div>
-      <div class="text-base">
-        <p class="mb-lg">When I'm not deep in code or security audits, you'll find me on a surfboard trying to read waves instead of logs, or on a golf course where my approach to hazards is unfortunately more aggressive than my cybersecurity stance.</p>
-
-        <p class="mb-lg">I occasionally build satirical projects like <a href="https://tanyongkang.com" target="_blank" class="highlight-link">tanyongkang.com</a> because sometimes the tech world needs a gentle roast. My personal site <a href="https://canhadi.surf" target="_blank" class="highlight-link">canhadi.surf</a> exists in a parallel universe where I pretend work doesn't follow me everywhere.</p>
-
-        <p class="mb-lg">Fair warning: I'm an AI enthusiast who <span class="highlight">definitely</span> spends too much on API credits. You'll find AI integrated throughout my workflow — from code analysis to threat modeling to content generation. I believe in using these tools responsibly to amplify human expertise, not replace it.</p>
-
-        <p>Melbourne's unpredictable weather gives me plenty of excuses to stay inside with coffee and convince my houseplants they're worth keeping alive. The plants remain skeptical, but the coffee never complains.</p>
-      </div>
-    </section>
-
-    <footer class="chat-bar-section stagger-item">
-      <div class="chat-bar">
-        <div class="chat-content">
-          <div class="chat-text">
-            <h3>Ready to discuss security, privacy, or that weird production bug?</h3>
-            <p>Let's build something secure together — <span class="location">Melbourne → Everywhere</span></p>
-          </div>
-          <div class="chat-actions">
-            <a href="/contact" class="cta-primary">
-              <span class="cta-label">Start conversation</span>
-              <div class="cta-arrow">→</div>
-            </a>
-            <a href="/blog" class="cta-secondary">
-              <span class="cta-label">Read insights</span>
-            </a>
+      <article class="work-card work-card--service stagger-item">
+        <div class="work-card-content">
+          <div class="work-card-icon">🏄‍♂️</div>
+          <h3 class="work-card-title">Interests</h3>
+          <p class="work-card-description">Surfing, golf, and building <a href="https://tanyongkang.com" target="_blank">satirical projects</a> in my spare time</p>
+          <div class="work-card-meta">
+            <span class="work-type">Personal</span>
+            <span class="work-year">Melbourne</span>
           </div>
         </div>
+      </article>
+    </div>
+  </div>
+</section>
 
-        <div class="chat-pulse">
-          <div class="pulse-dot"></div>
-          <span class="pulse-text">Available for projects</span>
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>How I Approach Things</h2>
+      <p class="section-intro">I pick tools based on what works, not what's trendy. Security comes first, but it shouldn't make everything horrible to use.</p>
+    </div>
+    
+    <div class="work-grid work-grid--compact">
+      <article class="work-card work-card--skill stagger-item">
+        <div class="work-card-content">
+          <div class="work-card-icon">🔒</div>
+          <h3 class="work-card-title">Security & Privacy</h3>
+          <p class="work-card-description">Application security, threat modeling, and privacy-by-design. I believe technology should protect people, not exploit them</p>
+          <div class="work-card-meta">
+            <span class="work-type">Ethics-First</span>
+            <span class="work-year">OWASP Standards</span>
+          </div>
         </div>
-      </div>
-    </footer>
-    </article>
+      </article>
 
-</div>
+      <article class="work-card work-card--skill stagger-item">
+        <div class="work-card-content">
+          <div class="work-card-icon">🎓</div>
+          <h3 class="work-card-title">Academic Foundation</h3>
+          <p class="work-card-description">Academic background in cybersecurity with focus on digital freedoms and ethical technology design</p>
+          <div class="work-card-meta">
+            <span class="work-type">Research</span>
+            <span class="work-year">Privacy Rights</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-card work-card--skill stagger-item">
+        <div class="work-card-content">
+          <div class="work-card-icon">⚖️</div>
+          <h3 class="work-card-title">Digital Rights</h3>
+          <p class="work-card-description">Strong advocate for digital privacy and freedom. Security should enhance liberty, not restrict it</p>
+          <div class="work-card-meta">
+            <span class="work-type">Philosophy</span>
+            <span class="work-year">Human Rights</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>When I'm Not Coding</h2>
+      <p class="section-intro">Life outside of software development.</p>
+    </div>
+
+    <div class="hero-subtitle">
+      <p>I surf and play golf when I'm not working. Sometimes I build things like <a href="https://tanyongkang.com" target="_blank" class="highlight-link">tanyongkang.com</a> and <a href="https://canhadi.surf" target="_blank" class="highlight-link">canhadi.surf</a> for fun.</p>
+
+      <p>Teams occasionally ask for help with their applications. I enjoy working with organizations that care about building ethical technology that respects user privacy.</p>
+    </div>
+
+    <div class="section-footer">
+      <a href="/contact" class="btn btn--primary">Work Together</a>
+      <a href="/blog" class="btn btn--secondary">Read More</a>
+    </div>
+  </div>
+</section>
