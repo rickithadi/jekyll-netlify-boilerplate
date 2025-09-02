@@ -621,20 +621,20 @@ p {
   padding: 4rem 0 6rem; // Further reduced padding for viewport fit
   background: $background-primary;
   position: relative;
-  margin-top: 3rem; // Reduced space below nav for better viewport fit
-  min-height: 45vh; // Smaller min-height to fit in viewport
+  margin-top: 3rem; // Keep original mobile spacing
+  min-height: 100vh; // Full viewport height on mobile
   display: flex;
   align-items: center;
 
   @media (min-width: $breakpoint-md) {
     padding: 5rem 0 7rem; // Reduced desktop padding
-    margin-top: 3rem;
+    margin-top: 1rem;
     min-height: 50vh;
   }
 
   @media (min-width: $breakpoint-lg) {
     padding: 6rem 0 8rem; // Reduced large screen padding
-    margin-top: 3rem;
+    margin-top: 0.5rem;
     min-height: 55vh;
   }
 
@@ -645,11 +645,12 @@ p {
     display: grid;
     grid-template-columns: 1fr 0.5fr;
     gap: $space-4xl;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
     box-sizing: border-box;
     position: relative;
     z-index: 1;
+    padding-top: $space-xl;
 
     @media (max-width: $breakpoint-lg) {
       gap: $space-3xl;
@@ -794,18 +795,23 @@ p {
 
   .hero-avatar {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: $space-lg;
+    height: 100%;
+    min-height: 50vh;
 
     @media (max-width: $breakpoint-md) {
       order: 1; // Avatar first on mobile
+      min-height: auto;
     }
 
-    img {
-      width: clamp(16rem, 20vw, 32rem);
-      height: clamp(16rem, 20vw, 32rem);
-      max-width: 32rem;
-      max-height: 32rem;
+    .avatar-image {
+      width: clamp(16rem, 20vw, 28rem);
+      height: clamp(16rem, 20vw, 28rem);
+      max-width: 28rem;
+      max-height: 28rem;
       border-radius: 50%;
       object-fit: cover;
       box-shadow: 0 $space-lg $space-4xl rgba(26, 26, 26, 0.08), 
@@ -820,8 +826,8 @@ p {
       }
 
       @media (max-width: $breakpoint-lg) {
-        width: clamp(16rem, 18vw, 28rem);
-        height: clamp(16rem, 18vw, 28rem);
+        width: clamp(14rem, 18vw, 24rem);
+        height: clamp(14rem, 18vw, 24rem);
       }
 
       @media (max-width: $breakpoint-md) {
@@ -833,6 +839,221 @@ p {
       @media (max-width: $breakpoint-sm) {
         width: clamp(10rem, 30vw, 16rem);
         height: clamp(10rem, 30vw, 16rem);
+      }
+    }
+    
+    .hero-social {
+      display: flex;
+      justify-content: center;
+      gap: $space-md;
+      
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        
+        &:hover {
+          background: $earth-coral;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(184, 118, 94, 0.3);
+          
+          svg {
+            opacity: 1;
+            color: white;
+          }
+        }
+        
+        svg {
+          width: 16px;
+          height: 16px;
+          opacity: 0.6;
+          transition: all 0.3s ease;
+          color: #333;
+        }
+      }
+    }
+  }
+}
+
+// Blog Post Layout - Responsive and Mobile-Optimized
+.post-article {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  
+  .post-content {
+    max-width: 75ch;
+    margin: 0 auto;
+    padding: 0 $space-lg;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    
+    @media (max-width: $breakpoint-sm) {
+      padding: 0 $space-md;
+      max-width: 100%;
+    }
+    
+    .post-header {
+      text-align: center;
+      margin-bottom: $space-xl;
+      
+      h1 {
+        font-size: clamp(2.4rem, 5vw, 4.8rem);
+        font-weight: $font-weight-medium;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        color: $text-primary;
+        margin-bottom: $space-md;
+        word-wrap: break-word;
+        hyphens: auto;
+      }
+      
+      time {
+        font-size: $font-size-small;
+        color: $text-secondary;
+        font-weight: $font-weight-medium;
+      }
+    }
+    
+    .post-body {
+      line-height: 1.7;
+      font-size: clamp(1.6rem, 2vw, 1.8rem);
+      color: $text-primary;
+      
+      // Ensure all content elements are responsive
+      * {
+        max-width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+      
+      // Typography improvements
+      h2, h3, h4, h5, h6 {
+        font-weight: $font-weight-medium;
+        color: $text-primary;
+        margin: $space-xl 0 $space-lg 0;
+        line-height: 1.3;
+        letter-spacing: -0.02em;
+      }
+      
+      h2 {
+        font-size: clamp(2rem, 4vw, 3.2rem);
+      }
+      
+      h3 {
+        font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      }
+      
+      p {
+        margin-bottom: $space-lg;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      
+      // Code blocks and preformatted text
+      pre, code {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: pre-wrap;
+        
+        @media (max-width: $breakpoint-sm) {
+          font-size: 1.4rem;
+        }
+      }
+      
+      pre {
+        overflow-x: auto;
+        padding: $space-md;
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 8px;
+        margin: $space-lg 0;
+      }
+      
+      // Images
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: $space-lg 0;
+      }
+      
+      // Lists
+      ul, ol {
+        margin-bottom: $space-lg;
+        padding-left: $space-lg;
+      }
+      
+      // Links
+      a {
+        color: $earth-coral;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 2px;
+        
+        &:hover {
+          text-decoration-thickness: 2px;
+        }
+      }
+      
+      // Blockquotes
+      blockquote {
+        border-left: 4px solid $earth-coral;
+        padding: $space-md 0 $space-md $space-lg;
+        margin: $space-lg 0;
+        font-style: italic;
+        color: $text-secondary;
+      }
+    }
+    
+    .post-navigation {
+      margin-top: $space-3xl;
+      padding-top: $space-xl;
+      border-top: 1px solid $border-light;
+      
+      ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        gap: $space-md;
+        
+        @media (max-width: $breakpoint-sm) {
+          flex-direction: column;
+          gap: $space-lg;
+        }
+      }
+      
+      li {
+        flex: 1;
+        
+        &:last-child {
+          text-align: right;
+          
+          @media (max-width: $breakpoint-sm) {
+            text-align: left;
+          }
+        }
+      }
+      
+      a {
+        color: $text-secondary;
+        text-decoration: none;
+        font-size: $font-size-small;
+        font-weight: $font-weight-medium;
+        transition: color 0.3s ease;
+        word-wrap: break-word;
+        
+        &:hover {
+          color: $earth-coral;
+        }
       }
     }
   }
@@ -2674,6 +2895,93 @@ p {
   }
 }
 
+// About Page Typography Enhancements - Sophisticated Editorial Style
+.section--about-typography {
+  
+  // Enhanced text hierarchy for About page
+  .text-editorial {
+    max-width: 68ch;
+    margin: 0 auto;
+    font-size: clamp(1.7rem, 2.4vw, 2rem);
+    line-height: 1.65;
+    letter-spacing: -0.012em;
+    color: $text-secondary;
+    font-weight: $font-weight-regular;
+    
+    p {
+      margin-bottom: 2.8rem;
+      font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+      text-rendering: optimizeLegibility;
+      
+      @media (max-width: $breakpoint-sm) {
+        margin-bottom: 2.2rem;
+        font-size: clamp(1.5rem, 3vw, 1.7rem);
+      }
+    }
+    
+    a {
+      color: $earth-coral;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(217, 101, 74, 0.3);
+      transition: all 0.3s ease;
+      
+      &:hover {
+        color: rgba(195, 91, 66, 1);
+        border-bottom-color: $earth-coral;
+      }
+    }
+  }
+  
+  // Refined section headings
+  .section-title-refined {
+    font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+    font-weight: 300;
+    color: $text-primary;
+    margin-bottom: 3.5rem;
+    text-align: center;
+    letter-spacing: -0.035em;
+    font-family: $font-primary;
+    line-height: 1.1;
+    
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 2.8rem;
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      font-size: clamp(2.2rem, 6vw, 2.6rem);
+      margin-bottom: 2.2rem;
+    }
+  }
+}
+
+// About page specific responsive adjustments
+body[data-page="about"] {
+  
+  .section--editorial {
+    padding: 5rem 0;
+    
+    @media (max-width: $breakpoint-md) {
+      padding: 3.5rem 0;
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      padding: 2.5rem 0;
+    }
+  }
+  
+  // Ensure proper text flow and readability
+  .hero-subtitle p {
+    font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+    max-width: 52ch;
+    
+    @media (max-width: $breakpoint-sm) {
+      max-width: none;
+    }
+  }
+}
+
 // Expertise Item Icon Styling
 .expertise-icon {
   font-size: 2.4rem; // Large enough to be impactful
@@ -3162,3 +3470,4 @@ footer {
     }
   }
 }
+

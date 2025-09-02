@@ -2,13 +2,20 @@
 layout: default
 ---
 
-<section class="section section--beige" aria-labelledby="blog-heading">
-  <div class="container">
-    <div class="section-header">
-      <h1 id="blog-heading">{{ page.title }}</h1>
-      <p class="section-intro">{{ page.intro_paragraph | markdownify | strip_html }}</p>
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-greeting">Blog</div>
+      <h1 class="hero-title">{{ page.title }}</h1>
+      <div class="hero-subtitle">
+        <p>{{ page.intro_paragraph | markdownify | strip_html }}</p>
+      </div>
     </div>
+  </div>
+</section>
 
+<section class="section section--editorial">
+  <div class="container">
     {{ content }}
 
     <div class="work-grid work-grid--compact">
