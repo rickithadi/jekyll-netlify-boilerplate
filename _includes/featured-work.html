@@ -1,50 +1,85 @@
-<section class="section section--beige">
+<section class="section section--beige" aria-labelledby="featured-work-heading">
   <div class="container">
     <div class="section-header">
-      <h2>Featured Work</h2>
+      <h2 id="featured-work-heading">Featured Work</h2>
       <p class="section-intro">Selected projects showcasing expertise in secure software development and user-centered design.</p>
     </div>
 
-    <div class="work-grid">
-      <a href="https://canhadi.surf" target="_blank" class="work-item stagger-item">
-        <div class="work-content">
-          <div class="work-info">
-            <h3 class="work-title">CanHadi Surf</h3>
-            <p class="work-description">Satirical surf platform combining tech humor with modern JAMstack architecture</p>
-          </div>
-          <span class="work-year">2024</span>
+    <div class="work-grid work-grid--compact">
+      <article class="work-card work-card--professional stagger-item">
+        <div class="work-card-header">
+          <span class="work-status work-status--active">Active</span>
         </div>
-      </a>
+        <div class="work-card-content">
+          <h3 class="work-card-title">Gallifrey Consulting</h3>
+          <p class="work-card-description">Independent cybersecurity practice specializing in secure software architecture and penetration testing</p>
+          <div class="work-card-meta">
+            <span class="work-type">Security Consulting</span>
+            <span class="work-year">2023–Present</span>
+          </div>
+        </div>
+        <a href="/contact" class="work-card-link" aria-label="Learn more about Gallifrey Consulting"></a>
+      </article>
 
-      <a href="/contact" class="work-item stagger-item">
-        <div class="work-content">
-          <div class="work-info">
-            <h3 class="work-title">Gallifrey Consulting</h3>
-            <p class="work-description">Independent cybersecurity practice specializing in secure software architecture</p>
-          </div>
-          <span class="work-year">2023</span>
+      <article class="work-card work-card--external stagger-item">
+        <div class="work-card-header">
+          <span class="work-status work-status--live">Live</span>
         </div>
-      </a>
+        <div class="work-card-content">
+          <h3 class="work-card-title">CanHadi Surf</h3>
+          <p class="work-card-description">Satirical surf platform combining tech humor with modern JAMstack architecture</p>
+          <div class="work-card-meta">
+            <span class="work-type">Personal Project</span>
+            <span class="work-year">2024</span>
+          </div>
+        </div>
+        <a href="https://canhadi.surf" target="_blank" class="work-card-link" aria-label="Visit CanHadi Surf"></a>
+      </article>
 
-      <a href="/contact" class="work-item stagger-item">
-        <div class="work-content">
-          <div class="work-info">
-            <h3 class="work-title">Strata Multi Services</h3>
-            <p class="work-description">Digital transformation with custom CRM integration and automated reporting systems</p>
-          </div>
-          <span class="work-year">2023</span>
+      <article class="work-card work-card--satirical stagger-item">
+        <div class="work-card-header">
+          <span class="work-status work-status--live">Live</span>
         </div>
-      </a>
+        <div class="work-card-content">
+          <h3 class="work-card-title">Tan Yong Kang</h3>
+          <p class="work-card-description">Satirical tech commentary platform where industry trends meet gentle roasting</p>
+          <div class="work-card-meta">
+            <span class="work-type">Satirical</span>
+            <span class="work-year">2024</span>
+          </div>
+        </div>
+        <a href="https://tanyongkang.com" target="_blank" class="work-card-link" aria-label="Visit Tan Yong Kang"></a>
+      </article>
 
-      <a href="/contact" class="work-item stagger-item">
-        <div class="work-content">
-          <div class="work-info">
-            <h3 class="work-title">Big Duck Music</h3>
-            <p class="work-description">Interactive portfolio platform with audio streaming and event management capabilities</p>
-          </div>
-          <span class="work-year">2023</span>
+      <article class="work-card work-card--enterprise stagger-item">
+        <div class="work-card-header">
+          <span class="work-status work-status--delivered">Delivered</span>
         </div>
-      </a>
+        <div class="work-card-content">
+          <h3 class="work-card-title">Strata Multi Services</h3>
+          <p class="work-card-description">Digital transformation with custom CRM integration and automated reporting systems</p>
+          <div class="work-card-meta">
+            <span class="work-type">Enterprise</span>
+            <span class="work-year">2023</span>
+          </div>
+        </div>
+        <a href="/contact" class="work-card-link" aria-label="Learn more about Strata Multi Services project"></a>
+      </article>
+
+      <article class="work-card work-card--creative stagger-item">
+        <div class="work-card-header">
+          <span class="work-status work-status--delivered">Delivered</span>
+        </div>
+        <div class="work-card-content">
+          <h3 class="work-card-title">Big Duck Music</h3>
+          <p class="work-card-description">Interactive portfolio platform with audio streaming and event management capabilities</p>
+          <div class="work-card-meta">
+            <span class="work-type">Creative</span>
+            <span class="work-year">2023</span>
+          </div>
+        </div>
+        <a href="/contact" class="work-card-link" aria-label="Learn more about Big Duck Music project"></a>
+      </article>
     </div>
   </div>
 </section>

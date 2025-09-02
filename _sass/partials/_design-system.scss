@@ -1,5 +1,6 @@
 // Modern Design System Implementation
 // Clean • Technical • Sophisticated • Minimal • Professional
+@use "variables" as *;
 
 // CSS Custom Properties Setup
 :root {
@@ -48,20 +49,105 @@
 
 // Sophisticated Typography System
 .hero-title {
-  font-size: $font-size-hero;
-  font-weight: $font-weight-hero;
-  line-height: $line-height-hero;
-  letter-spacing: $letter-spacing-hero;
+  font-size: clamp(5.4rem, 12vw, 16rem); // Increased size for impact
+  font-weight: 400; // Clean, modern weight
+  line-height: 0.88; // Tighter for drama
+  letter-spacing: -0.06em; // More aggressive kerning
   color: $text-primary;
-  font-family: $font-display; // Use display font for maximum sophistication
-  font-feature-settings: "kern" 1, "liga" 1, "swsh" 1;
+  font-family: $font-display;
+  font-feature-settings: "kern" 1, "liga" 1;
   text-rendering: optimizeLegibility;
+  margin: $space-sm 0 $space-lg 0;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.03);
+  
+  @media (prefers-reduced-motion: no-preference) {
+    animation: heroReveal 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transform: translateY(30px) scale(0.95);
+    opacity: 0;
+    animation-delay: 0.2s;
+  }
   
   // Waving hand animation
   .wave-emoji {
     display: inline-block;
-    animation: wave 2s ease-in-out infinite;
+    animation: wave 2.5s ease-in-out infinite;
+    animation-delay: 1s;
     transform-origin: 70% 70%;
+    cursor: pointer;
+    
+    &:hover {
+      animation-duration: 0.6s;
+      animation-iteration-count: 3;
+    }
+  }
+}
+
+// Hero greeting - Small, subtle introduction
+.hero-greeting {
+  font-size: clamp(1.6rem, 2.5vw, 2rem);
+  font-weight: 500;
+  color: $earth-coral;
+  letter-spacing: -0.01em;
+  margin-bottom: $space-md;
+  font-family: $font-primary;
+  text-transform: uppercase;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  letter-spacing: 0.1em;
+  
+  @media (prefers-reduced-motion: no-preference) {
+    animation: heroReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transform: translateY(20px);
+    opacity: 0;
+    animation-delay: 0s;
+  }
+}
+
+// Hero subtitle - Compelling, concise value proposition
+.hero-subtitle {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  color: $text-secondary;
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+  margin: $space-xl 0 $space-3xl 0;
+  max-width: 50ch;
+  font-family: $font-primary;
+  position: relative;
+  
+  @media (prefers-reduced-motion: no-preference) {
+    animation: heroReveal 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transform: translateY(25px);
+    opacity: 0;
+    animation-delay: 0.4s;
+  }
+  
+  // Subtle underline decoration for emphasized text
+  strong {
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, $earth-coral, transparent);
+      opacity: 0.4;
+      transform: scaleX(0);
+      animation: underlineGrow 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: 1.2s;
+      transform-origin: left;
+    }
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  strong {
+    color: $text-primary;
+    font-weight: 500;
   }
 }
 
@@ -122,6 +208,17 @@
   from {
     opacity: 0;
     transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes navFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
   to {
     opacity: 1;
@@ -300,25 +397,28 @@ p {
 // Modern Navigation - Clean and minimal with mobile support
 .navigation {
   height: 6rem;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(16px) saturate(180%);
-  border-bottom: 1px solid $border-light;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(230, 228, 223, 0.3);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 1001;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  // Fade-in animation on page load
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: navFadeIn 0.8s ease-out 0.2s forwards;
 
   &--open {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
+    background: #ffffff;
   }
 
   .container {
-    max-width: $container-wide;
-    margin: 0 auto;
-    padding: 0 $space-xl;
+    max-width: 100%;
+    margin: 0;
+    padding: 0 $space-2xl;
     height: 100%;
     display: flex;
     align-items: center;
@@ -328,13 +428,17 @@ p {
     @media (max-width: $breakpoint-md) {
       padding: 0 $space-lg;
     }
+
+    @media (max-width: $breakpoint-sm) {
+      padding: 0 $space-md;
+    }
   }
 
   .nav-brand {
-    font-size: $font-size-base;
-    font-weight: $font-weight-medium;
+    font-size: 1.8rem;
+    font-weight: 500;
     color: $text-primary;
-    letter-spacing: 0;
+    letter-spacing: -0.01em;
     text-decoration: none;
     transition: all var(--transition-base);
     z-index: 1001;
@@ -349,76 +453,117 @@ p {
   .nav-toggle {
     display: none;
     flex-direction: column;
-    background: none;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
     border: none;
     cursor: pointer;
-    padding: 1.2rem; // Increased for 44px minimum touch target
+    padding: 1rem;
     z-index: 1001;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    position: relative;
     
     @media (max-width: $breakpoint-md) {
-      display: flex;
+      display: flex !important;
+    }
+    
+    &:hover {
+      background: rgba(184, 118, 94, 0.05);
+    }
+    
+    &:active {
+      background: rgba(184, 118, 94, 0.1);
+    }
+    
+    &:focus {
+      outline: 2px solid $earth-coral;
+      outline-offset: 2px;
     }
     
     .nav-toggle-line {
       width: 2rem;
       height: 2px;
       background: $text-primary;
-      transition: all 0.3s ease;
-      margin: 0.15rem 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      margin: 0.25rem 0;
       border-radius: 1px;
+      transform-origin: center;
+      display: block;
+      will-change: transform, opacity;
     }
     
     &--open {
       .nav-toggle-line:nth-child(1) {
-        transform: rotate(45deg) translate(0.4rem, 0.4rem);
+        transform: rotate(45deg) translate(0.65rem, 0.65rem);
       }
       
       .nav-toggle-line:nth-child(2) {
         opacity: 0;
+        transform: scale(0);
       }
       
       .nav-toggle-line:nth-child(3) {
-        transform: rotate(-45deg) translate(0.4rem, -0.4rem);
+        transform: rotate(-45deg) translate(0.65rem, -0.65rem);
       }
     }
   }
 
   .nav-links {
     display: flex;
-    gap: $space-2xl;
+    gap: $space-xl;
     list-style: none;
     margin: 0;
     padding: 0;
+    
+    @media (min-width: calc($breakpoint-md + 1px)) {
+      display: flex !important;
+      position: static !important;
+      transform: none !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      background: transparent !important;
+      backdrop-filter: none !important;
+      box-shadow: none !important;
+    }
 
     @media (max-width: $breakpoint-md) {
-      position: fixed;
-      top: 6rem;
+      position: absolute;
+      top: 100%;
       left: 0;
       right: 0;
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(20px);
+      background: #ffffff;
+      border-top: 1px solid rgba(230, 228, 223, 0.3);
+      box-shadow: 0 4px 20px rgba(28, 28, 28, 0.1);
       flex-direction: column;
-      padding: $space-xl;
+      align-items: stretch;
+      padding: $space-lg 0;
       gap: 0;
-      transform: translateX(-100%);
       opacity: 0;
       visibility: hidden;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      border-bottom: 1px solid $border-light;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-      z-index: 998;
-      height: calc(100vh - 6rem);
-      
-      &--open {
-        transform: translateX(0);
-        opacity: 1;
-        visibility: visible;
+      pointer-events: none;
+      transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                  visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 999;
+      transform: translateY(-10px);
+      will-change: transform, opacity;
+    }
+    
+    &--open {
+      @media (max-width: $breakpoint-md) {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: all !important;
+        transform: translateY(0) !important;
       }
     }
 
     a {
-      font-size: $font-size-small;
-      font-weight: $font-weight-medium;
+      font-size: 1.5rem;
+      font-weight: 450;
       color: $text-secondary;
       text-decoration: none;
       position: relative;
@@ -427,57 +572,70 @@ p {
       border-radius: 6px;
 
       @media (max-width: $breakpoint-md) {
-        padding: $space-md 0;
-        font-size: $font-size-base;
-        border-bottom: 1px solid rgba(230, 228, 223, 0.3);
+        padding: $space-md $space-xl;
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: $text-primary;
+        border-bottom: 1px solid rgba(230, 228, 223, 0.2);
+        transition: all 0.2s ease;
+        display: block;
+        width: 100%;
+        text-align: left;
         
         &:last-child {
           border-bottom: none;
         }
+        
+        &:hover {
+          background: rgba(230, 228, 223, 0.1);
+          color: $earth-coral;
+        }
       }
 
       &:hover {
-        color: $earth-coral;
-        background: $accent-subtle;
-        
-        @media (max-width: $breakpoint-md) {
-          background: transparent;
-          text-decoration: underline;
-          text-decoration-thickness: 1px;
-          text-underline-offset: 3px;
+        @media (min-width: 64.01rem) {
+          color: $earth-coral;
+          background: $accent-subtle;
         }
       }
 
       &.active {
-        color: $earth-coral;
-        background: $accent-subtle;
+        @media (min-width: 64.01rem) {
+          color: $earth-coral;
+          background: $accent-subtle;
+        }
         
         @media (max-width: $breakpoint-md) {
-          background: transparent;
-          text-decoration: underline;
-          text-decoration-thickness: 1px;
-          text-underline-offset: 3px;
+          background: rgba(248, 145, 124, 0.1) !important;
+          color: $earth-coral !important;
+          font-weight: 500;
+          border-left: 3px solid $earth-coral;
         }
       }
     }
   }
 }
 
-// Ultra Tight Hero Section - Boring Industries Inspired
+// Sophisticated Hero Section with Visual Impact
 .hero {
-  padding: 1.5rem 0 1.5rem; // 25% reduction from 2rem
+  padding: 4rem 0 6rem; // Further reduced padding for viewport fit
   background: $background-primary;
   position: relative;
-  margin-top: 6rem; // Add space for fixed navigation
+  margin-top: 3rem; // Keep original mobile spacing
+  min-height: 100vh; // Full viewport height on mobile
+  display: flex;
+  align-items: center;
 
   @media (min-width: $breakpoint-md) {
-    padding: 2.25rem 0 2.25rem; // 25% reduction from 3rem
-    margin-top: 6rem; // Consistent nav spacing
+    padding: 5rem 0 7rem; // Reduced desktop padding
+    margin-top: 1rem;
+    min-height: 50vh;
   }
 
   @media (min-width: $breakpoint-lg) {
-    padding: 3rem 0 3rem; // 25% reduction from 4rem
-    margin-top: 6rem; // Consistent nav spacing
+    padding: 6rem 0 8rem; // Reduced large screen padding
+    margin-top: 0.5rem;
+    min-height: 55vh;
   }
 
   .hero-content {
@@ -485,27 +643,36 @@ p {
     margin: 0 auto;
     padding: 0 $space-xl;
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: $space-3xl;
-    align-items: start;
+    grid-template-columns: 1fr 0.5fr;
+    gap: $space-4xl;
+    align-items: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    padding-top: $space-xl;
 
     @media (max-width: $breakpoint-lg) {
-      gap: $space-2xl;
+      gap: $space-3xl;
       padding: 0 $space-lg;
-      grid-template-columns: 1fr 0.6fr;
+      grid-template-columns: 1fr 0.4fr;
     }
 
     @media (max-width: $breakpoint-md) {
       display: flex;
       flex-direction: column;
-      gap: $space-xl;
+      gap: $space-2xl;
       text-align: center;
-      padding: 0 $space-lg;
+      padding: 0 $space-md;
+      align-items: center;
+      max-width: 100vw;
+      overflow: hidden;
     }
     
     @media (max-width: $breakpoint-sm) {
-      padding: 0 $space-md;
-      gap: $space-lg;
+      padding: 0 $space-xs; // Minimal padding on mobile - 4px
+      gap: $space-xl;
+      max-width: 100vw; // Full viewport width
     }
   }
 
@@ -514,6 +681,12 @@ p {
 
     @media (max-width: $breakpoint-md) {
       order: 2; // Text comes after avatar on mobile
+      text-align: center; // Center all text content on mobile
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%; // Ensure full width for proper centering
+      padding: 0; // Remove any padding that might offset centering
     }
 
     .greeting {
@@ -622,16 +795,23 @@ p {
 
   .hero-avatar {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: $space-lg;
+    height: 100%;
+    min-height: 50vh;
 
     @media (max-width: $breakpoint-md) {
       order: 1; // Avatar first on mobile
+      min-height: auto;
     }
 
-    img {
-      width: 32rem;
-      height: 32rem;
+    .avatar-image {
+      width: clamp(16rem, 20vw, 28rem);
+      height: clamp(16rem, 20vw, 28rem);
+      max-width: 28rem;
+      max-height: 28rem;
       border-radius: 50%;
       object-fit: cover;
       box-shadow: 0 $space-lg $space-4xl rgba(26, 26, 26, 0.08), 
@@ -646,18 +826,234 @@ p {
       }
 
       @media (max-width: $breakpoint-lg) {
-        width: 28rem;
-        height: 28rem;
+        width: clamp(14rem, 18vw, 24rem);
+        height: clamp(14rem, 18vw, 24rem);
       }
 
       @media (max-width: $breakpoint-md) {
-        width: 20rem;
-        height: 20rem;
+        width: clamp(12rem, 25vw, 20rem);
+        height: clamp(12rem, 25vw, 20rem);
+        margin: 0 auto;
       }
 
       @media (max-width: $breakpoint-sm) {
-        width: 16rem;
-        height: 16rem;
+        width: clamp(10rem, 30vw, 16rem);
+        height: clamp(10rem, 30vw, 16rem);
+      }
+    }
+    
+    .hero-social {
+      display: flex;
+      justify-content: center;
+      gap: $space-md;
+      
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        
+        &:hover {
+          background: $earth-coral;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(184, 118, 94, 0.3);
+          
+          svg {
+            opacity: 1;
+            color: white;
+          }
+        }
+        
+        svg {
+          width: 16px;
+          height: 16px;
+          opacity: 0.6;
+          transition: all 0.3s ease;
+          color: #333;
+        }
+      }
+    }
+  }
+}
+
+// Blog Post Layout - Responsive and Mobile-Optimized
+.post-article {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  
+  .post-content {
+    max-width: 75ch;
+    margin: 0 auto;
+    padding: 0 $space-lg;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    
+    @media (max-width: $breakpoint-sm) {
+      padding: 0 $space-md;
+      max-width: 100%;
+    }
+    
+    .post-header {
+      text-align: center;
+      margin-bottom: $space-xl;
+      
+      h1 {
+        font-size: clamp(2.4rem, 5vw, 4.8rem);
+        font-weight: $font-weight-medium;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        color: $text-primary;
+        margin-bottom: $space-md;
+        word-wrap: break-word;
+        hyphens: auto;
+      }
+      
+      time {
+        font-size: $font-size-small;
+        color: $text-secondary;
+        font-weight: $font-weight-medium;
+      }
+    }
+    
+    .post-body {
+      line-height: 1.7;
+      font-size: clamp(1.6rem, 2vw, 1.8rem);
+      color: $text-primary;
+      
+      // Ensure all content elements are responsive
+      * {
+        max-width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+      
+      // Typography improvements
+      h2, h3, h4, h5, h6 {
+        font-weight: $font-weight-medium;
+        color: $text-primary;
+        margin: $space-xl 0 $space-lg 0;
+        line-height: 1.3;
+        letter-spacing: -0.02em;
+      }
+      
+      h2 {
+        font-size: clamp(2rem, 4vw, 3.2rem);
+      }
+      
+      h3 {
+        font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      }
+      
+      p {
+        margin-bottom: $space-lg;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      
+      // Code blocks and preformatted text
+      pre, code {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: pre-wrap;
+        
+        @media (max-width: $breakpoint-sm) {
+          font-size: 1.4rem;
+        }
+      }
+      
+      pre {
+        overflow-x: auto;
+        padding: $space-md;
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 8px;
+        margin: $space-lg 0;
+      }
+      
+      // Images
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: $space-lg 0;
+      }
+      
+      // Lists
+      ul, ol {
+        margin-bottom: $space-lg;
+        padding-left: $space-lg;
+      }
+      
+      // Links
+      a {
+        color: $earth-coral;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 2px;
+        
+        &:hover {
+          text-decoration-thickness: 2px;
+        }
+      }
+      
+      // Blockquotes
+      blockquote {
+        border-left: 4px solid $earth-coral;
+        padding: $space-md 0 $space-md $space-lg;
+        margin: $space-lg 0;
+        font-style: italic;
+        color: $text-secondary;
+      }
+    }
+    
+    .post-navigation {
+      margin-top: $space-3xl;
+      padding-top: $space-xl;
+      border-top: 1px solid $border-light;
+      
+      ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        gap: $space-md;
+        
+        @media (max-width: $breakpoint-sm) {
+          flex-direction: column;
+          gap: $space-lg;
+        }
+      }
+      
+      li {
+        flex: 1;
+        
+        &:last-child {
+          text-align: right;
+          
+          @media (max-width: $breakpoint-sm) {
+            text-align: left;
+          }
+        }
+      }
+      
+      a {
+        color: $text-secondary;
+        text-decoration: none;
+        font-size: $font-size-small;
+        font-weight: $font-weight-medium;
+        transition: color 0.3s ease;
+        word-wrap: break-word;
+        
+        &:hover {
+          color: $earth-coral;
+        }
       }
     }
   }
@@ -672,7 +1068,7 @@ p {
   border-radius: 8px; // Slightly more sophisticated radius
   font-size: 1.4rem; // Precise sizing
   font-weight: 450; // Subtle weight between regular and medium
-  text-decoration: none;
+  text-decoration: none !important;
   border: 1.5px solid $border-medium; // Slightly thicker for sophistication
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); // More sophisticated easing
@@ -681,6 +1077,10 @@ p {
   position: relative;
   white-space: nowrap;
   overflow: hidden;
+  text-align: center;
+  line-height: 1.2;
+  min-height: 48px; // Ensure consistent button height
+  box-sizing: border-box;
   
   // Sophisticated backdrop
   &::before {
@@ -716,11 +1116,18 @@ p {
     transform: translateY(-1px);
     transition: all 0.1s ease;
   }
+  
+  // Mobile responsiveness
+  @media (max-width: $breakpoint-sm) {
+    padding: 1.2rem 2rem;
+    font-size: 1.3rem;
+    min-height: 44px; // Touch-friendly minimum
+  }
 
   // Primary Button - Sophisticated Earthy Premium
   &--primary {
     background: linear-gradient(135deg, $earth-coral 0%, #a67c6a 100%);
-    color: white;
+    color: white !important;
     border-color: $earth-coral;
     font-weight: 500;
     box-shadow: 0 2px 8px rgba(184, 118, 94, 0.15);
@@ -728,17 +1135,27 @@ p {
     &:hover {
       background: linear-gradient(135deg, #a36952 0%, #956450 100%);
       border-color: #a36952;
-      color: white;
+      color: white !important;
+      text-decoration: none;
       box-shadow: 
         0 6px 20px rgba(163, 105, 82, 0.12),
         0 3px 8px rgba(163, 105, 82, 0.08); // Subtler hover shadow
+    }
+    
+    &:focus {
+      color: white !important;
+      text-decoration: none;
+    }
+    
+    &:visited {
+      color: white !important;
     }
   }
 
   // Secondary Button - Refined Minimal with Better Contrast
   &--secondary {
     background: rgba(255, 255, 255, 0.9);
-    color: $text-primary;
+    color: $text-primary !important;
     border-color: rgba(150, 150, 150, 0.4);
     backdrop-filter: blur(10px);
     font-weight: 450;
@@ -747,9 +1164,19 @@ p {
     &:hover {
       background: rgba(255, 255, 255, 1);
       border-color: $earth-coral;
-      color: $earth-coral;
+      color: $earth-coral !important;
+      text-decoration: none;
       backdrop-filter: blur(15px);
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); // Subtler shadow
+    }
+    
+    &:focus {
+      color: $text-primary !important;
+      text-decoration: none;
+    }
+    
+    &:visited {
+      color: $text-primary !important;
     }
   }
 
@@ -858,6 +1285,7 @@ p {
   display: flex;
   gap: $space-lg;
   margin-top: $space-xl;
+  justify-content: flex-start; // Left-align buttons for better layout
   
   // Default visible state
   opacity: 1;
@@ -872,26 +1300,40 @@ p {
 
   @media (max-width: $breakpoint-md) {
     justify-content: center; // Center buttons on mobile
-    margin-top: $space-lg; // Reduced margin on mobile
+    margin-top: $space-xl; // Better spacing on mobile
+    align-self: center; // Center the entire button container
+    width: 100%; // Full width to ensure centering works
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    margin-top: $space-lg; // More compact on very small screens
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $space-md;
+    width: 100%; // Full width container
+    max-width: 100%; // Allow full width
+    padding: 0 $space-xs; // Minimal padding on mobile for full width
+    box-sizing: border-box;
   }
 
   .btn {
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     
     &:hover {
-      transform: translateY(-3px) scale(1.02);
+      transform: translateY(-2px); // More subtle hover effect
     }
-  }
-
-  @media (max-width: $breakpoint-sm) {
-    flex-direction: column;
-    align-items: center;
-    gap: $space-md;
-    width: 100%; // Full width container
     
-    .btn {
+    @media (max-width: $breakpoint-sm) {
       width: 100%; // Full width buttons on small mobile
       max-width: 280px; // But not too wide
+      text-align: center;
+      margin: 0 auto; // Center each individual button
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }
@@ -1132,6 +1574,7 @@ p {
     margin: 0;
   }
 
+
   // Minimal link styling
   .card-link {
     display: inline-block;
@@ -1246,17 +1689,17 @@ p {
   }
 }
 
-// Ultra Tight Section Spacing - Boring Industries Inspired  
+// Sophisticated Spacing - Luxurious Breathing Room  
 .section {
-  padding: 2rem 0; // Consistent ultra-tight spacing across all pages
+  padding: 6rem 0; // Luxurious spacing for sophisticated layout
   background: $background-primary;
 
   @media (max-width: $breakpoint-md) {
-    padding: 1.5rem 0; // Proportionally tight on tablets
+    padding: 4rem 0; // Generous spacing on tablets
   }
 
   @media (max-width: $breakpoint-sm) {
-    padding: 1rem 0; // Ultra-tight on mobile for premium feel
+    padding: 3rem 0; // Maintained breathing room on mobile
   }
 
   &--primary {
@@ -1318,14 +1761,15 @@ p {
 
 .section-header {
   text-align: center;
-  margin-bottom: $space-lg; // Even tighter spacing
+  margin-bottom: $space-3xl; // Generous spacing for breathing room
   position: relative;
 
-  h2 {
+  h1, h2 {
     margin-bottom: $space-md; // Much tighter spacing
-    font-weight: $font-weight-medium;
-    letter-spacing: -0.03em;
+    font-weight: 450; // Slightly lighter for boring.industries aesthetic
+    letter-spacing: -0.04em; // Tighter kerning like boring.industries
     font-family: $font-primary;
+    font-size: clamp(2.8rem, 5vw, 4.8rem); // More restrained, boring.industries style
   }
 
   .section-intro {
@@ -1338,6 +1782,12 @@ p {
     font-family: $font-primary; // Clean sans-serif
     font-style: normal; // No italic for cleaner look
     letter-spacing: -0.01em; // Tight kerning
+  }
+  
+  // Blog page specific styling - use accent color
+  .section--beige & .section-intro {
+    color: $earth-coral;
+    font-weight: 500;
   }
 
   .section-emoji {
@@ -1400,7 +1850,7 @@ p {
   }
 
   @media (max-width: $breakpoint-sm) {
-    padding: 0 $space-sm;
+    padding: 0 $space-xs; // Much smaller padding on mobile - 4px instead of 8px
   }
 
   &--narrow {
@@ -1744,6 +2194,248 @@ p {
       }
     }
   }
+  
+  // Enhanced work item variants with visual indicators
+  .work-indicator {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    margin-bottom: $space-sm;
+    
+    .work-icon {
+      font-size: 1.8rem;
+      opacity: 0.8;
+      transition: all 0.3s ease;
+    }
+    
+    .work-status {
+      font-size: $font-size-xs;
+      font-weight: $font-weight-medium;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      background: rgba(184, 118, 94, 0.1);
+      color: $earth-coral;
+      border: 1px solid rgba(184, 118, 94, 0.2);
+    }
+  }
+  
+  .work-tags {
+    display: flex;
+    gap: $space-xs;
+    margin-top: $space-sm;
+    flex-wrap: wrap;
+    
+    .tag {
+      font-size: $font-size-xs;
+      font-weight: $font-weight-medium;
+      color: $text-tertiary;
+      background: rgba(122, 132, 113, 0.08);
+      padding: 0.2rem 0.6rem;
+      border-radius: 8px;
+      border: 1px solid rgba(122, 132, 113, 0.15);
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+    }
+  }
+  
+  // Work item type variants
+  &.work-item--external {
+    .work-status {
+      background: rgba(45, 90, 69, 0.1);
+      color: #2d5a45;
+      border-color: rgba(45, 90, 69, 0.2);
+    }
+  }
+  
+  &.work-item--consulting {
+    .work-status {
+      background: rgba(184, 118, 94, 0.1);
+      color: $earth-coral;
+      border-color: rgba(184, 118, 94, 0.2);
+    }
+  }
+  
+  &.work-item--enterprise {
+    .work-status {
+      background: rgba(155, 144, 136, 0.1);
+      color: $earth-stone;
+      border-color: rgba(155, 144, 136, 0.2);
+    }
+  }
+  
+  &.work-item--creative {
+    .work-status {
+      background: rgba(107, 119, 99, 0.1);
+      color: $earth-moss;
+      border-color: rgba(107, 119, 99, 0.2);
+    }
+  }
+  
+  &:hover {
+    .work-indicator .work-icon {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    
+    .work-tags .tag {
+      background: rgba(122, 132, 113, 0.12);
+      border-color: rgba(122, 132, 113, 0.25);
+      color: $text-secondary;
+    }
+  }
+}
+
+// Compact Work Cards - Modern Card Layout
+.work-grid--compact {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $space-xl;
+  margin-top: $space-xl;
+
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: repeat(3, 1fr); // Force 3 columns on desktop
+    gap: $space-2xl; // More spacing for luxurious look
+  }
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: $space-md;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: $space-md;
+  }
+}
+
+.work-card {
+  position: relative;
+  background: $background-primary;
+  border: 1px solid $border-light;
+  border-radius: 8px;
+  padding: $space-lg;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+  
+  &:hover {
+    border-color: $border-medium;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    
+    .work-card-link::after {
+      opacity: 1;
+    }
+  }
+  
+  .work-card-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: $space-md;
+  }
+  
+  .work-card-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .work-card-icon {
+    font-size: 3rem;
+    margin-bottom: $space-md;
+    display: block;
+    opacity: 0.8;
+  }
+  
+  .work-card-title {
+    font-family: $font-primary;
+    font-size: clamp(1.8rem, 2.5vw, 2.2rem); // Fluid typography like boring.industries
+    font-weight: 450; // Consistent lighter weight
+    color: $text-primary;
+    margin-bottom: $space-sm;
+    line-height: 1.25; // Tighter line height
+    letter-spacing: -0.025em; // Tighter kerning for sophistication
+  }
+  
+  .work-card-description {
+    font-size: clamp(1.4rem, 1.8vw, 1.6rem); // Fluid scaling
+    color: $text-secondary;
+    line-height: 1.4; // Tighter line height for boring.industries aesthetic
+    margin-bottom: $space-lg;
+    letter-spacing: -0.015em; // Refined kerning
+    font-weight: 400;
+  }
+  
+  .work-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    .work-type {
+      font-size: $font-size-xs;
+      color: $text-tertiary;
+      font-weight: $font-weight-medium;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    .work-year {
+      font-size: $font-size-xs;
+      color: $text-quaternary;
+      font-weight: $font-weight-medium;
+    }
+  }
+  
+  .work-card-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(184, 118, 94, 0.02) 0%, rgba(184, 118, 94, 0.04) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  }
+}
+
+.work-status {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  
+  &--active {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+  }
+  
+  &--live {
+    background: rgba(184, 118, 94, 0.1);
+    color: $earth-coral;
+  }
+  
+  &--delivered {
+    background: rgba(122, 132, 113, 0.1);
+    color: $earth-sage;
+  }
+  
+  &--published {
+    background: rgba(107, 119, 99, 0.1);
+    color: $earth-moss;
+    border-color: rgba(107, 119, 99, 0.2);
+  }
 }
 
 // About Page Content Grids - Clean & Organized
@@ -1881,6 +2573,33 @@ p {
       margin: 0 0 $space-sm 0;
       opacity: 0.7;
       transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: $space-sm;
+      flex-wrap: wrap;
+      
+      time {
+        color: inherit;
+      }
+      
+      .post-category {
+        background: rgba(184, 118, 94, 0.1);
+        color: $earth-coral;
+        padding: 0.2rem 0.6rem;
+        border-radius: 6px;
+        font-size: $font-size-xs;
+        font-weight: $font-weight-medium;
+        text-transform: none;
+        letter-spacing: 0.02em;
+      }
+      
+      .post-reading-time {
+        color: $text-quaternary;
+        font-weight: $font-weight-regular;
+        text-transform: none;
+        letter-spacing: 0;
+        opacity: 0.6;
+      }
     }
     
     .post-title {
@@ -1898,10 +2617,367 @@ p {
       font-size: $font-size-base; // Larger for readability
       color: $text-tertiary;
       line-height: 1.6; // More generous line height
-      margin: 0;
+      margin: 0 0 $space-sm 0;
       font-weight: $font-weight-regular;
       max-width: 85%; // Editorial constraint
       letter-spacing: 0.002em; // Subtle positive tracking
+    }
+    
+    .post-tags {
+      display: flex;
+      gap: $space-xs;
+      margin-top: $space-sm;
+      
+      .tag {
+        font-size: $font-size-xs;
+        font-weight: $font-weight-medium;
+        color: $text-tertiary;
+        background: rgba(122, 132, 113, 0.08);
+        padding: 0.2rem 0.6rem;
+        border-radius: 8px;
+        border: 1px solid rgba(122, 132, 113, 0.15);
+        letter-spacing: 0.02em;
+        transition: all 0.2s ease;
+      }
+    }
+  }
+}
+
+// Section footer styling
+.section-footer {
+  text-align: center;
+  margin-top: $space-2xl;
+  padding-top: $space-xl;
+  border-top: 1px solid rgba(230, 228, 223, 0.3);
+}
+
+// Competency Areas - Sophisticated Professional Layout
+.competency-areas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $space-2xl;
+  margin-top: $space-2xl;
+  
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+    gap: $space-xl;
+    margin-top: $space-xl;
+  }
+}
+
+.competency-group {
+  position: relative;
+  
+  .competency-title {
+    font-family: $font-primary;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    color: $text-primary;
+    margin-bottom: $space-lg;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      width: 2rem;
+      height: 1px;
+      background: $earth-coral;
+      opacity: 0.4;
+    }
+  }
+}
+
+.competency-list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+  
+  span {
+    font-size: $font-size-base;
+    font-weight: 400;
+    color: $text-secondary;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    padding: $space-xs 0;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      color: $text-primary;
+      border-bottom-color: rgba(184, 118, 94, 0.2);
+      padding-left: $space-xs;
+    }
+  }
+}
+
+// Section Header Minimal Variant
+.section-header--minimal {
+  text-align: left;
+  margin-bottom: $space-xl;
+  
+  h2 {
+    margin-bottom: $space-sm;
+  }
+  
+  .section-subtitle {
+    font-size: $font-size-base;
+    color: $text-tertiary;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    font-style: italic;
+    margin: 0;
+  }
+}
+
+// Technical Note - Sophisticated Callout
+.technical-note {
+  margin-top: $space-2xl;
+  padding: $space-xl;
+  background: linear-gradient(135deg, rgba(230, 228, 223, 0.3) 0%, rgba(230, 228, 223, 0.1) 100%);
+  border-left: 3px solid $earth-coral;
+  border-radius: 0 8px 8px 0;
+  
+  p {
+    font-size: $font-size-base;
+    color: $text-secondary;
+    margin: 0;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    
+    strong {
+      color: $text-primary;
+      font-weight: $font-weight-medium;
+    }
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    padding: $space-lg;
+    margin-top: $space-xl;
+  }
+}
+
+// Highlight Link - Sophisticated External Links
+.highlight-link {
+  color: $earth-coral;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(184, 118, 94, 0.3);
+  font-weight: $font-weight-medium;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    color: $text-primary;
+    border-bottom-color: $earth-coral;
+    background: rgba(184, 118, 94, 0.05);
+    padding: 0 0.2rem;
+    margin: 0 -0.2rem;
+    border-radius: 3px;
+  }
+}
+
+// Accessibility Enhancements
+// Focus management for keyboard navigation
+*:focus {
+  outline: 2px solid $earth-coral;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+// Skip to content link for screen readers
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: $earth-coral;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 10000;
+  font-weight: 600;
+  
+  &:focus {
+    top: 16px;
+    outline: 2px solid white;
+  }
+}
+
+// Enhanced button focus states
+.btn:focus-visible {
+  outline: 2px solid $earth-coral;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(184, 118, 94, 0.2);
+}
+
+// Navigation accessibility
+.nav-toggle:focus-visible {
+  outline: 2px solid $earth-coral;
+  outline-offset: 2px;
+  background: rgba(184, 118, 94, 0.1);
+}
+
+.nav-links a:focus-visible {
+  outline: 2px solid $earth-coral;
+  outline-offset: 2px;
+  background: rgba(184, 118, 94, 0.1);
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .work-item {
+    border-bottom-color: $text-primary;
+  }
+  
+  .skill-tag {
+    border-width: 2px;
+  }
+  
+  .nav-links a {
+    border: 1px solid transparent;
+    
+    &:focus {
+      border-color: $text-primary;
+    }
+  }
+}
+
+// Reduced motion preferences
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .hero {
+    transform: none !important;
+  }
+  
+  .skill-tag:hover {
+    transform: none !important;
+  }
+  
+  .work-item:hover {
+    transform: none !important;
+  }
+}
+
+// Print styles for accessibility
+@media print {
+  .navigation,
+  .skip-to-content,
+  .btn {
+    display: none;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    color: black;
+    background: white;
+  }
+  
+  a {
+    text-decoration: underline;
+    color: black;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    font-weight: bold;
+  }
+  
+  .section {
+    page-break-inside: avoid;
+  }
+}
+
+// About Page Typography Enhancements - Sophisticated Editorial Style
+.section--about-typography {
+  
+  // Enhanced text hierarchy for About page
+  .text-editorial {
+    max-width: 68ch;
+    margin: 0 auto;
+    font-size: clamp(1.7rem, 2.4vw, 2rem);
+    line-height: 1.65;
+    letter-spacing: -0.012em;
+    color: $text-secondary;
+    font-weight: $font-weight-regular;
+    
+    p {
+      margin-bottom: 2.8rem;
+      font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+      text-rendering: optimizeLegibility;
+      
+      @media (max-width: $breakpoint-sm) {
+        margin-bottom: 2.2rem;
+        font-size: clamp(1.5rem, 3vw, 1.7rem);
+      }
+    }
+    
+    a {
+      color: $earth-coral;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(217, 101, 74, 0.3);
+      transition: all 0.3s ease;
+      
+      &:hover {
+        color: rgba(195, 91, 66, 1);
+        border-bottom-color: $earth-coral;
+      }
+    }
+  }
+  
+  // Refined section headings
+  .section-title-refined {
+    font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+    font-weight: 300;
+    color: $text-primary;
+    margin-bottom: 3.5rem;
+    text-align: center;
+    letter-spacing: -0.035em;
+    font-family: $font-primary;
+    line-height: 1.1;
+    
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: 2.8rem;
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      font-size: clamp(2.2rem, 6vw, 2.6rem);
+      margin-bottom: 2.2rem;
+    }
+  }
+}
+
+// About page specific responsive adjustments
+body[data-page="about"] {
+  
+  .section--editorial {
+    padding: 5rem 0;
+    
+    @media (max-width: $breakpoint-md) {
+      padding: 3.5rem 0;
+    }
+    
+    @media (max-width: $breakpoint-sm) {
+      padding: 2.5rem 0;
+    }
+  }
+  
+  // Ensure proper text flow and readability
+  .hero-subtitle p {
+    font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+    max-width: 52ch;
+    
+    @media (max-width: $breakpoint-sm) {
+      max-width: none;
     }
   }
 }
@@ -2313,3 +3389,85 @@ p {
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
+
+
+// Site footer styling
+footer {
+  padding: 4rem 0;
+  background: #fefcfa;
+  border-top: 1px solid rgba(230, 228, 223, 0.2);
+  margin-top: 6rem;
+  
+  @media (max-width: 48rem) {
+    padding: 3rem 0;
+    margin-top: 4rem;
+  }
+  
+  small {
+    display: block;
+    text-align: center;
+    
+    > div {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      align-items: center;
+      
+      @media (max-width: 48rem) {
+        gap: 1.5rem;
+      }
+    }
+    
+    a {
+      opacity: 0.7;
+      transition: opacity 0.2s ease;
+      
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+
+// Hero reveal animation keyframes
+@keyframes heroReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+// Underline grow animation for emphasized text
+@keyframes underlineGrow {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 0.4;
+  }
+}
+
+// Subtle hover effects for interactive elements
+.hero-links {
+  .btn {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+

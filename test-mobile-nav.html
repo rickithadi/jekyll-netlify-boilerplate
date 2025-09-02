@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Navigation Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-item {
+            margin: 15px 0;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            background: #f9f9f9;
+        }
+        .test-item.pass { border-color: #4CAF50; background: #e8f5e8; }
+        .test-item.fail { border-color: #f44336; background: #ffeaea; }
+        .test-item.pending { border-color: #ff9800; background: #fff3e0; }
+        .test-title { font-weight: bold; margin-bottom: 10px; }
+        .test-description { font-size: 14px; color: #666; margin-bottom: 10px; }
+        .test-button {
+            background: #007cba;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover { background: #005a8a; }
+        .iframe-container {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+        .device-selector {
+            margin: 10px 0;
+        }
+        .device-selector button {
+            margin: 5px;
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .device-selector button.active {
+            background: #007cba;
+            color: white;
+        }
+        .results {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Mobile Navigation Test Suite</h1>
+        <p>This test validates the mobile navigation functionality on the Jekyll site.</p>
+        
+        <div class="device-selector">
+            <strong>Test Device:</strong>
+            <button onclick="setDevice(375, 667)" data-device="iphone">iPhone (375x667)</button>
+            <button onclick="setDevice(414, 896)" data-device="iphone-x" class="active">iPhone X (414x896)</button>
+            <button onclick="setDevice(768, 1024)" data-device="ipad">iPad (768x1024)</button>
+            <button onclick="setDevice(360, 640)" data-device="android">Android (360x640)</button>
+        </div>
+
+        <div class="iframe-container">
+            <iframe id="testFrame" src="http://127.0.0.1:4000" width="414" height="896"></iframe>
+        </div>
+
+        <div class="test-item pending" id="test1">
+            <div class="test-title">Test 1: Hamburger Menu Visibility</div>
+            <div class="test-description">Verify that the hamburger menu (3 lines) is visible on mobile screens</div>
+            <button class="test-button" onclick="runTest1()">Run Test</button>
+            <div id="test1-result"></div>
+        </div>
+
+        <div class="test-item pending" id="test2">
+            <div class="test-title">Test 2: Menu Toggle Functionality</div>
+            <div class="test-description">Click the hamburger menu and verify the overlay appears</div>
+            <button class="test-button" onclick="runTest2()">Run Test</button>
+            <div id="test2-result"></div>
+        </div>
+
+        <div class="test-item pending" id="test3">
+            <div class="test-title">Test 3: Menu Item Accessibility</div>
+            <div class="test-description">Verify navigation links are touch-friendly (min 44px) and readable</div>
+            <button class="test-button" onclick="runTest3()">Run Test</button>
+            <div id="test3-result"></div>
+        </div>
+
+        <div class="test-item pending" id="test4">
+            <div class="test-title">Test 4: Overlay Position & Styling</div>
+            <div class="test-description">Check that the navigation overlay covers the full screen with proper backdrop</div>
+            <button class="test-button" onclick="runTest4()">Run Test</button>
+            <div id="test4-result"></div>
+        </div>
+
+        <div class="test-item pending" id="test5">
+            <div class="test-title">Test 5: Close Menu Functionality</div>
+            <div class="test-description">Verify menu closes when clicking outside or pressing escape</div>
+            <button class="test-button" onclick="runTest5()">Run Test</button>
+            <div id="test5-result"></div>
+        </div>
+
+        <div class="test-item pending" id="test6">
+            <div class="test-title">Test 6: Desktop Behavior</div>
+            <div class="test-description">Ensure hamburger menu is hidden and normal navigation shows on desktop</div>
+            <button class="test-button" onclick="runTest6()">Run Test</button>
+            <div id="test6-result"></div>
+        </div>
+
+        <div class="results">
+            <h3>Test Results Summary</h3>
+            <div id="summary">Click "Run All Tests" to begin testing</div>
+            <button class="test-button" onclick="runAllTests()" style="margin-top: 10px;">Run All Tests</button>
+        </div>
+    </div>
+
+    <script>
+        let currentDevice = {width: 414, height: 896, name: 'iPhone X'};
+
+        function setDevice(width, height) {
+            const iframe = document.getElementById('testFrame');
+            iframe.width = width;
+            iframe.height = height;
+            
+            // Update active button
+            document.querySelectorAll('.device-selector button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            currentDevice = {width, height, name: event.target.textContent};
+            resetAllTests();
+        }
+
+        function resetAllTests() {
+            for(let i = 1; i <= 6; i++) {
+                const testEl = document.getElementById(`test${i}`);
+                testEl.className = 'test-item pending';
+                document.getElementById(`test${i}-result`).innerHTML = '';
+            }
+            updateSummary();
+        }
+
+        function setTestResult(testNum, passed, message) {
+            const testEl = document.getElementById(`test${testNum}`);
+            const resultEl = document.getElementById(`test${testNum}-result`);
+            
+            testEl.className = `test-item ${passed ? 'pass' : 'fail'}`;
+            resultEl.innerHTML = `<strong>${passed ? 'PASS' : 'FAIL'}:</strong> ${message}`;
+            
+            updateSummary();
+        }
+
+        function updateSummary() {
+            const tests = [];
+            let passed = 0, failed = 0, pending = 0;
+            
+            for(let i = 1; i <= 6; i++) {
+                const testEl = document.getElementById(`test${i}`);
+                if(testEl.classList.contains('pass')) passed++;
+                else if(testEl.classList.contains('fail')) failed++;
+                else pending++;
+            }
+            
+            document.getElementById('summary').innerHTML = `
+                Device: ${currentDevice.name} (${currentDevice.width}x${currentDevice.height})<br>
+                <span style="color: #4CAF50;">Passed: ${passed}</span> | 
+                <span style="color: #f44336;">Failed: ${failed}</span> | 
+                <span style="color: #ff9800;">Pending: ${pending}</span>
+            `;
+        }
+
+        function runTest1() {
+            // Test hamburger menu visibility on mobile
+            try {
+                const iframe = document.getElementById('testFrame');
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                const navToggle = iframeDoc.querySelector('.nav-toggle');
+                
+                if (!navToggle) {
+                    setTestResult(1, false, 'Hamburger menu element not found');
+                    return;
+                }
+                
+                const computedStyle = iframe.contentWindow.getComputedStyle(navToggle);
+                const isVisible = computedStyle.display !== 'none' && computedStyle.visibility !== 'hidden';
+                
+                if (currentDevice.width <= 1024) {
+                    // Should be visible on mobile/tablet
+                    setTestResult(1, isVisible, 
+                        isVisible ? 'Hamburger menu is correctly visible on mobile' : 'Hamburger menu should be visible on mobile screens');
+                } else {
+                    // Should be hidden on desktop
+                    setTestResult(1, !isVisible, 
+                        !isVisible ? 'Hamburger menu is correctly hidden on desktop' : 'Hamburger menu should be hidden on desktop');
+                }
+            } catch (error) {
+                setTestResult(1, false, `Error testing hamburger visibility: ${error.message}`);
+            }
+        }
+
+        function runTest2() {
+            // Test menu toggle functionality
+            try {
+                const iframe = document.getElementById('testFrame');
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                const navToggle = iframeDoc.querySelector('.nav-toggle');
+                const navLinks = iframeDoc.querySelector('.nav-links');
+                
+                if (!navToggle || !navLinks) {
+                    setTestResult(2, false, 'Navigation elements not found');
+                    return;
+                }
+                
+                // Check initial state
+                const initiallyOpen = navLinks.classList.contains('nav-links--open');
+                
+                // Simulate click
+                navToggle.click();
+                
+                // Check after click
+                setTimeout(() => {
+                    const afterClickOpen = navLinks.classList.contains('nav-links--open');
+                    const toggledCorrectly = initiallyOpen !== afterClickOpen;
+                    
+                    setTestResult(2, toggledCorrectly, 
+                        toggledCorrectly ? 'Menu toggle functionality works correctly' : 'Menu did not toggle when hamburger was clicked');
+                }, 100);
+                
+            } catch (error) {
+                setTestResult(2, false, `Error testing menu toggle: ${error.message}`);
+            }
+        }
+
+        function runTest3() {
+            // Test touch-friendly links
+            try {
+                const iframe = document.getElementById('testFrame');
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                const navLinks = iframeDoc.querySelectorAll('.nav-links a');
+                
+                if (navLinks.length === 0) {
+                    setTestResult(3, false, 'No navigation links found');
+                    return;
+                }
+                
+                let allTouchFriendly = true;
+                let minHeight = Infinity;
+                
+                navLinks.forEach(link => {
+                    const computedStyle = iframe.contentWindow.getComputedStyle(link);
+                    const height = parseFloat(computedStyle.height);
+                    const minHeightValue = parseFloat(computedStyle.minHeight) || 0;
+                    const actualHeight = Math.max(height, minHeightValue);
+                    
+                    if (actualHeight < 44) {
+                        allTouchFriendly = false;
+                    }
+                    minHeight = Math.min(minHeight, actualHeight);
+                });
+                
+                setTestResult(3, allTouchFriendly, 
+                    allTouchFriendly ? `All navigation links are touch-friendly (min height: ${minHeight.toFixed(1)}px)` : `Some links are too small for touch (min height: ${minHeight.toFixed(1)}px, should be ≥44px)`);
+                
+            } catch (error) {
+                setTestResult(3, false, `Error testing touch accessibility: ${error.message}`);
+            }
+        }
+
+        function runTest4() {
+            // Test overlay positioning and styling
+            try {
+                const iframe = document.getElementById('testFrame');
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                const navToggle = iframeDoc.querySelector('.nav-toggle');
+                const navLinks = iframeDoc.querySelector('.nav-links');
+                
+                // Open menu first
+                if (!navLinks.classList.contains('nav-links--open')) {
+                    navToggle.click();
+                }
+                
+                setTimeout(() => {
+                    const computedStyle = iframe.contentWindow.getComputedStyle(navLinks);
+                    const position = computedStyle.position;
+                    const zIndex = parseInt(computedStyle.zIndex);
+                    const opacity = parseFloat(computedStyle.opacity);
+                    
+                    const isFullscreen = position === 'fixed';
+                    const hasProperZIndex = zIndex >= 999;
+                    const isVisible = opacity > 0.5;
+                    
+                    const allGood = isFullscreen && hasProperZIndex && isVisible;
+                    
+                    setTestResult(4, allGood, 
+                        allGood ? 'Overlay has correct positioning, z-index, and visibility' : 
+                        `Overlay issues - Position: ${position}, Z-index: ${zIndex}, Opacity: ${opacity}`);
+                }, 200);
+                
+            } catch (error) {
+                setTestResult(4, false, `Error testing overlay styling: ${error.message}`);
+            }
+        }
+
+        function runTest5() {
+            // Test close menu functionality
+            try {
+                const iframe = document.getElementById('testFrame');
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                const navToggle = iframeDoc.querySelector('.nav-toggle');
+                const navLinks = iframeDoc.querySelector('.nav-links');
+                
+                // Open menu first
+                if (!navLinks.classList.contains('nav-links--open')) {
+                    navToggle.click();
+                }
+                
+                setTimeout(() => {
+                    // Test escape key
+                    const escapeEvent = new KeyboardEvent('keydown', { key: 'Escape' });
+                    iframeDoc.dispatchEvent(escapeEvent);
+                    
+                    setTimeout(() => {
+                        const closedByEscape = !navLinks.classList.contains('nav-links--open');
+                        
+                        setTestResult(5, closedByEscape, 
+                            closedByEscape ? 'Menu correctly closes with Escape key' : 'Menu did not close with Escape key');
+                    }, 100);
+                }, 200);
+                
+            } catch (error) {
+                setTestResult(5, false, `Error testing close functionality: ${error.message}`);
+            }
+        }
+
+        function runTest6() {
+            // Test desktop behavior by temporarily resizing
+            try {
+                const iframe = document.getElementById('testFrame');
+                const originalWidth = iframe.width;
+                
+                // Temporarily set to desktop size
+                iframe.width = 1200;
+                
+                setTimeout(() => {
+                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                    const navToggle = iframeDoc.querySelector('.nav-toggle');
+                    const navLinks = iframeDoc.querySelector('.nav-links');
+                    
+                    const toggleStyle = iframe.contentWindow.getComputedStyle(navToggle);
+                    const linksStyle = iframe.contentWindow.getComputedStyle(navLinks);
+                    
+                    const toggleHidden = toggleStyle.display === 'none';
+                    const linksVisible = linksStyle.display === 'flex';
+                    
+                    // Restore original size
+                    iframe.width = originalWidth;
+                    
+                    const desktopBehaviorCorrect = toggleHidden && linksVisible;
+                    
+                    setTestResult(6, desktopBehaviorCorrect, 
+                        desktopBehaviorCorrect ? 'Desktop behavior correct: hamburger hidden, nav links visible' : 
+                        `Desktop behavior issues - Toggle display: ${toggleStyle.display}, Links display: ${linksStyle.display}`);
+                }, 200);
+                
+            } catch (error) {
+                setTestResult(6, false, `Error testing desktop behavior: ${error.message}`);
+            }
+        }
+
+        function runAllTests() {
+            resetAllTests();
+            
+            // Run tests with delays to avoid conflicts
+            setTimeout(() => runTest1(), 100);
+            setTimeout(() => runTest2(), 800);
+            setTimeout(() => runTest3(), 1500);
+            setTimeout(() => runTest4(), 2200);
+            setTimeout(() => runTest5(), 2900);
+            setTimeout(() => runTest6(), 3600);
+        }
+
+        // Initialize
+        updateSummary();
+    </script>
+</body>
+</html>

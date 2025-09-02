@@ -1,85 +1,74 @@
 ---
-layout: page
+layout: default
 title: About
-meta_description: Learn more about Hadi Rickit, a security-focused software engineer based in Melbourne, Australia. Discover how Hadi helps teams build secure, privacy-focused applications with security woven into the foundation.
+meta_description: Learn about Hadi Rickit, AI-enhanced cybersecurity consultant & software engineer in Melbourne. Expert in security audits, penetration testing, AI-powered security workflows, and secure software architecture. Serving clients worldwide.
 permalink: /about
 section: about
-intro_paragraph: Hi, I'm Hadi. I build software and help teams make it more secure. Based in Melbourne, I spend most of my time thinking about **data privacy**, **system hardening**, and why things break when you least expect them to.
+intro_paragraph: Software engineer and security architect based in Melbourne. I specialize in building **resilient systems** where security isn't an afterthought — it's foundational to how things work.
 ---
 
-<div class="container container--narrow">
-  <article>
-    <section class="mb-3xl stagger-item">
-      <h2>What I Actually Do</h2>
-      <div class="text-base">
-        <p class="mb-lg">I work on applications where security isn't an afterthought. This usually means diving into systems to understand how data flows, where it's vulnerable, and how to protect it without making everything impossible to use.</p>
-
-        <p class="mb-lg">My focus areas are:</p>
-
-        <div class="expertise-grid">
-          <div class="expertise-item expertise-item--security stagger-item">
-            <div class="expertise-icon">🔒</div>
-            <div class="expertise-content">
-              <strong>Custom development & security architecture</strong> — crafting secure applications with defense-in-depth from the foundation up
-            </div>
-          </div>
-          <div class="expertise-item expertise-item--privacy stagger-item">
-            <div class="expertise-icon">🛡️</div>
-            <div class="expertise-content">
-              <strong>Privacy engineering & compliance</strong> — implementing data protection by design and ensuring regulatory compliance
-            </div>
-          </div>
-          <div class="expertise-item expertise-item--narrative stagger-item">
-            <div class="expertise-icon">📝</div>
-            <div class="expertise-content">
-              <strong>Digital narrative & reputation management</strong> — crafting strategic online presence, SEO optimization, and brand narrative control for individuals and organizations
-            </div>
-          </div>
-          <div class="expertise-item expertise-item--hardening stagger-item">
-            <div class="expertise-icon">⚡</div>
-            <div class="expertise-content">
-              <strong>System hardening & threat modeling</strong> — reducing attack surfaces, securing infrastructure, and anticipating adversarial thinking
-            </div>
-          </div>
-        </div>
-
-        <p class="mt-xl">Most of my work involves either building new secure systems or fixing existing ones that have grown... <span class="highlight">interesting</span> over time.</p>
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-greeting">About</div>
+      <h1 class="hero-title">I build software and break things</h1>
+      <div class="hero-subtitle">
+        <p>A software engineer in Melbourne who spends time understanding how systems fail, then building them not to. Security isn't something I tack on at the end — it's how I think about problems from the start.</p>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section class="mb-3xl stagger-item">
-      <h2>Outside of Work</h2>
-      <div class="text-base">
-        <p class="mb-lg">I'm probably drinking too much coffee, arguing about programming languages on the internet, or trying to convince my houseplants to stay alive. I also write occasionally about security things that annoy me enough to put into words.</p>
+<section class="section section--editorial">
+  <div class="container">
+    <div class="text-refined">
+      <h2 class="text-display" style="font-size: clamp(2.4rem, 4vw, 3.6rem); margin-bottom: 3rem; font-weight: 300;">What I actually do</h2>
 
-        <p>Melbourne's weather gives me plenty of excuses to stay inside and code, which works out well for everyone involved.</p>
+      <div style="max-width: 65ch; margin: 0 auto; font-size: clamp(1.6rem, 2.2vw, 1.9rem); line-height: 1.6; letter-spacing: -0.015em;">
+        <p style="margin-bottom: 2.5rem;">I write code in **JavaScript** and **Python**, mostly for web applications and am comfortable across the stack. Sometimes I help teams figure out why their applications *break*, or more importantly, how someone might **break them on purpose**.</p>
+
+        <p style="margin-bottom: 2.5rem;">**Secure software is not a given** — *penetration testing*, *code reviews*, helping teams understand what they're actually shipping. It's less glamorous than people think. Mostly it's reading documentation and trying things that **shouldn't work**.</p>
+
+        <p>When I'm not working, I surf, play mediocre golf and think deep.</p>
       </div>
-    </section>
+    </div>
 
-    <footer class="chat-bar-section stagger-item">
-      <div class="chat-bar">
-        <div class="chat-content">
-          <div class="chat-text">
-            <h3>Ready to discuss security, privacy, or that weird production bug?</h3>
-            <p>Let's build something secure together — <span class="location">Melbourne → Everywhere</span></p>
-          </div>
-          <div class="chat-actions">
-            <a href="/contact" class="cta-primary">
-              <span class="cta-label">Start conversation</span>
-              <div class="cta-arrow">→</div>
-            </a>
-            <a href="/blog" class="cta-secondary">
-              <span class="cta-label">Read insights</span>
-            </a>
-          </div>
-        </div>
-        
-        <div class="chat-pulse">
-          <div class="pulse-dot"></div>
-          <span class="pulse-text">Available for projects</span>
-        </div>
+  </div>
+</section>
+
+<section class="section section--editorial">
+  <div class="container">
+    <div class="text-refined">
+      <h2 class="text-display" style="font-size: clamp(2.4rem, 4vw, 3.6rem); margin-bottom: 3rem; font-weight: 300;">How I think about it</h2>
+
+      <div style="max-width: 65ch; margin: 0 auto; font-size: clamp(1.6rem, 2.2vw, 1.9rem); line-height: 1.6; letter-spacing: -0.015em;">
+        <p style="margin-bottom: 2.5rem;">I choose tools based on what **solves the problem**, not what's *fashionable*. Most security issues come from teams rushing to ship without understanding what they're **actually building**.</p>
+
+        <p style="margin-bottom: 2.5rem;">Good security feels **invisible**. It's about building systems that *fail gracefully* and protect people's data without making everything painful to use. Privacy should be a **default**, not a *luxury feature*.</p>
+
+        <p>**Privacy is a human right**. Your data matters, and the *ethics* (and implementation) around how it's collected, stored, and used drive everything I do. The internet can be a dangerous place, and I believe deeply in building technology that **enhances rather than detracts** from human dignity.</p>
       </div>
-    </footer>
-    </article>
+    </div>
 
-</div>
+  </div>
+</section>
+
+<section class="section section--editorial" style="padding-bottom: 8rem;">
+  <div class="container">
+    <div class="text-refined">
+      <h2 class="text-display" style="font-size: clamp(2.4rem, 4vw, 3.6rem); margin-bottom: 3rem; font-weight: 300;">Working together</h2>
+
+      <div style="max-width: 65ch; margin: 0 auto 4rem auto; font-size: clamp(1.6rem, 2.2vw, 1.9rem); line-height: 1.6; letter-spacing: -0.015em;">
+        <p style="margin-bottom: 2.5rem;">I work with teams who care about building technology that **doesn't exploit people**. If you need someone to review your security, find the problems *before your users do*, or just want a second opinion on your architecture, I'm happy to help.</p>
+
+        <p>Most projects involve some combination of *code review*, *penetration testing*, and *architecture discussion*. I prefer working with teams who want to understand **why** something is a problem, not just *how* to fix it.</p>
+      </div>
+
+      <div class="hero-links" style="justify-content: center;">
+        <a href="/contact" class="btn btn--primary">Work Together</a>
+        <a href="/blog" class="btn btn--secondary">Read My Writing</a>
+      </div>
+    </div>
+
+  </div>
+</section>

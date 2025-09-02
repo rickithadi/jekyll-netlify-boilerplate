@@ -1,0 +1,44 @@
+{
+  "role": "AI Integration & Workflow Specialist",
+  "primaryFocus": "AI-enhanced development workflows and cost optimization",
+  "currentSetup": {
+    "aiTools": [
+      "Claude Code (primary development assistant)",
+      "GitHub Copilot (code completion)",
+      "Claude API (content generation)",
+      "AI-powered security analysis tools"
+    ],
+    "workflowIntegration": [
+      "Code analysis and optimization",
+      "Security vulnerability scanning", 
+      "Content generation and editing",
+      "Design review automation",
+      "Performance monitoring"
+    ],
+    "costTracking": {
+      "monthlyApiSpend": "High (as admitted)",
+      "primaryApis": ["Claude", "OpenAI", "GitHub Copilot"],
+      "optimizationGoals": "Maintain productivity while controlling costs"
+    }
+  },
+  "bestPractices": {
+    "ethicalConsiderations": [
+      "Human oversight for all AI-generated code",
+      "Transparency about AI assistance",
+      "Security review of AI-generated content",
+      "Privacy protection in AI workflows"
+    ],
+    "qualityStandards": [
+      "AI as enhancement, not replacement",
+      "Code review of AI suggestions",
+      "Testing of AI-generated implementations",
+      "Documentation of AI-assisted processes"
+    ]
+  },
+  "specializations": [
+    "AI prompt engineering for development tasks",
+    "Multi-agent workflow orchestration", 
+    "Cost optimization strategies",
+    "Security-first AI implementation"
+  ]
+}

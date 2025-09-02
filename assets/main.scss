@@ -2,6 +2,10 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 
-@import "partials/fonts", "partials/variables", "partials/mixins",
-  "partials/normalize", "partials/utilities", "partials/typography",
-  "partials/design-system";
+@use "partials/fonts" as *;
+@use "partials/variables" as *;
+@use "partials/mixins" as *;
+@use "partials/normalize" as *;
+@use "partials/utilities" as *;
+@use "partials/typography" as *;
+@use "partials/design-system" as *;

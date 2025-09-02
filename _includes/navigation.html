@@ -23,30 +23,3 @@
     </div>
   </div>
 </nav>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  const navigation = document.querySelector('.navigation');
-  
-  navToggle.addEventListener('click', function() {
-    const isOpen = navLinks.classList.contains('nav-links--open');
-    navLinks.classList.toggle('nav-links--open');
-    navToggle.classList.toggle('nav-toggle--open');
-    navigation.classList.toggle('navigation--open');
-    navToggle.setAttribute('aria-expanded', !isOpen);
-  });
-  
-  // Close menu when clicking on a link
-  const links = navLinks.querySelectorAll('a');
-  links.forEach(link => {
-    link.addEventListener('click', function() {
-      navLinks.classList.remove('nav-links--open');
-      navToggle.classList.remove('nav-toggle--open');
-      navigation.classList.remove('navigation--open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-});
-</script>

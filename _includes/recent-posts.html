@@ -1,22 +1,32 @@
-<section class="section section--white">
+<section class="section section--beige" aria-labelledby="recent-insights-heading">
   <div class="container">
     <div class="section-header">
-      <h2>Recent Insights</h2>
+      <h2 id="recent-insights-heading">Recent Insights</h2>
       <p class="section-intro">Thoughts on software engineering, cybersecurity, and building things that matter.</p>
     </div>
 
-    <div class="post-grid">
+    <div class="work-grid work-grid--compact">
       {% for post in site.posts limit:3 %}
-      <article class="post-item stagger-item">
-        <a href="{{ post.url | relative_url }}" class="post-link">
-          <p class="post-meta">{{ post.date | date: "%b %Y" }}</p>
-          <h3 class="post-title">{{ post.title }}</h3>
-          <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
-        </a>
+      <article class="work-card work-card--insight stagger-item">
+        <div class="work-card-header">
+          <span class="work-status work-status--published">Article</span>
+        </div>
+        <div class="work-card-content">
+          <h3 class="work-card-title">{{ post.title }}</h3>
+          <p class="work-card-description">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+          <div class="work-card-meta">
+            <span class="work-type">{{ post.categories[0] | default: "Insight" | capitalize }}</span>
+            <span class="work-year">{{ post.date | date: "%b %Y" }}</span>
+          </div>
+        </div>
+        <a href="{{ post.url | relative_url }}" class="work-card-link" aria-label="Read {{ post.title }}"></a>
       </article>
       {% endfor %}
     </div>
 
+    <div class="section-footer">
+      <a href="/blog" class="btn btn--secondary">View All Posts</a>
+    </div>
 
   </div>
 </section>

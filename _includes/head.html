@@ -3,15 +3,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <!-- Mobile browser theme colors -->
-  <meta name="theme-color" content="#2c3e50">
-  <meta name="msapplication-TileColor" content="#2c3e50">
+  <meta name="theme-color" content="#b8765e">
+  <meta name="msapplication-TileColor" content="#b8765e">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="{{ site.title }}">
+  <meta name="mobile-web-app-capable" content="yes">
   
   <!-- Security and Performance -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
@@ -137,25 +138,31 @@
     "description": "{{ site.description }}",
     "email": "{{ site.email }}",
     "knowsAbout": [
-      "Software Engineering",
-      "Cybersecurity",
+      "Cybersecurity Consulting",
+      "AI-Enhanced Security Workflows",
       "Penetration Testing",
       "Security Auditing",
-      "Application Security",
-      "OWASP",
+      "Vulnerability Assessment",
+      "OWASP Standards",
       "Secure Software Architecture",
-      "Beautiful Software Design",
-      "Scalable Systems",
-      "Software Craftsmanship",
-      "Full Stack Development",
-      "Web Development",
+      "Threat Modeling",
+      "Security Code Review",
+      "Privacy by Design",
+      "Software Engineering",
+      "AI Workflow Integration",
+      "Claude API",
+      "GitHub Copilot",
+      "Automation Scripts",
       "JavaScript",
       "Python",
       "React",
       "Node.js",
       "Jekyll",
-      "WordPress",
-      "PHP"
+      "Next.js",
+      "AI-Powered Development",
+      "Cost Optimization AI APIs",
+      "Melbourne Cybersecurity",
+      "Remote Security Consulting"
     ],
     "hasCredential": [
       {
@@ -190,6 +197,12 @@
   <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
   <link rel="dns-prefetch" href="//assets.calendly.com">
   <link rel="dns-prefetch" href="//identity.netlify.com">
+  
+  <!-- Performance Critical Resource Hints -->
+  <link rel="preload" href="{{ '/assets/img/uploads/avatar.jpg' | relative_url }}" as="image" type="image/jpeg">
+  <link rel="preload" href="{{ '/assets/main.css' | relative_url }}" as="style">
+  <link rel="prefetch" href="/about" as="document">
+  <link rel="prefetch" href="/contact" as="document">
   
   <!-- Sophisticated Typography System with Performance Optimization -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -236,4 +249,7 @@
 
   <!-- Custom animations -->
   <script src="{{ '/assets/js/animations.js' | relative_url }}" defer></script>
+  
+  <!-- Navigation functionality -->
+  <script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>
 </head>

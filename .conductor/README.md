@@ -26,12 +26,12 @@ conductor ship "user-authentication" --security-scan
 Your configured agents are ready to help:
 - 📋 **@pm** - Product planning and requirements
 - 🎨 **@design** - UX/UI design and user flows  
-- ⚛️ **@frontend** - React/Next.js development
-- ⚙️ **@backend** - API and database architecture
-- 🧪 **@qa** - Testing and quality assurance
-- 🚀 **@devops** - CI/CD and deployment
-- 👁️ **@reviewer** - Code review and best practices
+- 🏗️ **@frontend** - Jekyll & static site development
+- ⚙️ **@backend** - Jekyll backend & hosting optimization
+- 🧪 **@qa** - Performance & accessibility testing
 - 🛡️ **@security** - Security and compliance
+- 📝 **@content** - Content strategy and SEO optimization
+- 🤖 **@ai** - AI integration and workflow enhancement
 
 ## 🔧 Configuration
 

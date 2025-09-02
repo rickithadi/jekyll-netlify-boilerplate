@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-greeting">Get in touch</div>
+      <h1 class="hero-title">{{ page.title }}</h1>
+      <div class="hero-subtitle">
+        {{ page.intro_paragraph | markdownify }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {{ content }}
+  </div>
+</section>
