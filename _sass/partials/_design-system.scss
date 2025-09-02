@@ -881,6 +881,39 @@ p {
   }
 }
 
+// About page text refinement styling
+.text-refined {
+  max-width: 65ch;
+  margin: 0 auto;
+  
+  .markdown-content {
+    font-size: clamp(1.6rem, 2.2vw, 1.9rem);
+    line-height: 1.6;
+    letter-spacing: -0.015em;
+    
+    p {
+      margin-bottom: 2.5rem;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    
+    // Enhanced typography effects
+    strong, b {
+      font-weight: $font-weight-semibold;
+      color: $text-primary;
+      letter-spacing: -0.02em;
+    }
+    
+    em, i {
+      font-style: italic;
+      color: $text-secondary;
+      font-weight: $font-weight-medium;
+    }
+  }
+}
+
 // Blog Post Layout - Responsive and Mobile-Optimized
 .post-article {
   width: 100%;

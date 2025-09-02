@@ -24,15 +24,16 @@ intro_paragraph: Software engineer and security architect based in Melbourne. I 
     <div class="text-refined">
       <h2 class="text-display" style="font-size: clamp(2.4rem, 4vw, 3.6rem); margin-bottom: 3rem; font-weight: 300;">What I actually do</h2>
 
-      <div style="max-width: 65ch; margin: 0 auto; font-size: clamp(1.6rem, 2.2vw, 1.9rem); line-height: 1.6; letter-spacing: -0.015em;">
-        <p style="margin-bottom: 2.5rem;">I write code in **JavaScript** and **Python**, mostly for web applications and am comfortable across the stack. Sometimes I help teams figure out why their applications *break*, or more importantly, how someone might **break them on purpose**.</p>
+      <div class="markdown-content" markdown="1">
 
-        <p style="margin-bottom: 2.5rem;">**Secure software is not a given** — *penetration testing*, *code reviews*, helping teams understand what they're actually shipping. It's less glamorous than people think. Mostly it's reading documentation and trying things that **shouldn't work**.</p>
+I write code in **JavaScript** and **Python**, mostly for web applications and am comfortable across the stack. Sometimes I help teams figure out why their applications *break*, or more importantly, how someone might **break them on purpose**.
 
-        <p>When I'm not working, I surf, play mediocre golf and think deep.</p>
+**Secure software is not a given** — *penetration testing*, *code reviews*, helping teams understand what they're actually shipping. It's less glamorous than people think. Mostly it's reading documentation and trying things that **shouldn't work**.
+
+When I'm not working, I surf, play mediocre golf and think deep.
+
       </div>
     </div>
-
   </div>
 </section>
 
@@ -41,15 +42,16 @@ intro_paragraph: Software engineer and security architect based in Melbourne. I 
     <div class="text-refined">
       <h2 class="text-display" style="font-size: clamp(2.4rem, 4vw, 3.6rem); margin-bottom: 3rem; font-weight: 300;">How I think about it</h2>
 
-      <div style="max-width: 65ch; margin: 0 auto; font-size: clamp(1.6rem, 2.2vw, 1.9rem); line-height: 1.6; letter-spacing: -0.015em;">
-        <p style="margin-bottom: 2.5rem;">I choose tools based on what **solves the problem**, not what's *fashionable*. Most security issues come from teams rushing to ship without understanding what they're **actually building**.</p>
+      <div class="markdown-content" markdown="1">
 
-        <p style="margin-bottom: 2.5rem;">Good security feels **invisible**. It's about building systems that *fail gracefully* and protect people's data without making everything painful to use. Privacy should be a **default**, not a *luxury feature*.</p>
+I choose tools based on what **solves the problem**, not what's *fashionable*. Most security issues come from teams rushing to ship without understanding what they're **actually building**.
 
-        <p>**Privacy is a human right**. Your data matters, and the *ethics* (and implementation) around how it's collected, stored, and used drive everything I do. The internet can be a dangerous place, and I believe deeply in building technology that **enhances rather than detracts** from human dignity.</p>
+Good security feels **invisible**. It's about building systems that *fail gracefully* and protect people's data without making everything painful to use. Privacy should be a **default**, not a *luxury feature*.
+
+**Privacy is a human right**. Your data matters, and the *ethics* (and implementation) around how it's collected, stored, and used drive everything I do. The internet can be a dangerous place, and I believe deeply in building technology that **enhances rather than detracts** from human dignity.
+
       </div>
     </div>
-
   </div>
 </section>
 
@@ -58,10 +60,12 @@ intro_paragraph: Software engineer and security architect based in Melbourne. I 
     <div class="text-refined">
       <h2 class="text-display" style="font-size: clamp(2.4rem, 4vw, 3.6rem); margin-bottom: 3rem; font-weight: 300;">Working together</h2>
 
-      <div style="max-width: 65ch; margin: 0 auto 4rem auto; font-size: clamp(1.6rem, 2.2vw, 1.9rem); line-height: 1.6; letter-spacing: -0.015em;">
-        <p style="margin-bottom: 2.5rem;">I work with teams who care about building technology that **doesn't exploit people**. If you need someone to review your security, find the problems *before your users do*, or just want a second opinion on your architecture, I'm happy to help.</p>
+      <div class="markdown-content" markdown="1">
 
-        <p>Most projects involve some combination of *code review*, *penetration testing*, and *architecture discussion*. I prefer working with teams who want to understand **why** something is a problem, not just *how* to fix it.</p>
+I work with teams who care about building technology that **doesn't exploit people**. If you need someone to review your security, find the problems *before your users do*, or just want a second opinion on your architecture, I'm happy to help.
+
+Most projects involve some combination of *code review*, *penetration testing*, and *architecture discussion*. I prefer working with teams who want to understand **why** something is a problem, not just *how* to fix it.
+
       </div>
 
       <div class="hero-links" style="justify-content: center;">
@@ -69,6 +73,5 @@ intro_paragraph: Software engineer and security architect based in Melbourne. I 
         <a href="/blog" class="btn btn--secondary">Read My Writing</a>
       </div>
     </div>
-
   </div>
 </section>
