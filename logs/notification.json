@@ -1,0 +1,51 @@
+[
+  {
+    "session_id": "53388ac2-d0fb-4b77-8847-6f510da4258e",
+    "transcript_path": "/Users/hadi.rickit/.claude/projects/-Users-hadi-rickit-dev-jekyll-netlify-boilerplate/53388ac2-d0fb-4b77-8847-6f510da4258e.jsonl",
+    "cwd": "/Users/hadi.rickit/dev/jekyll-netlify-boilerplate",
+    "hook_event_name": "Notification",
+    "message": "Claude needs your permission to use "
+  },
+  {
+    "session_id": "53388ac2-d0fb-4b77-8847-6f510da4258e",
+    "transcript_path": "/Users/hadi.rickit/.claude/projects/-Users-hadi-rickit-dev-jekyll-netlify-boilerplate/53388ac2-d0fb-4b77-8847-6f510da4258e.jsonl",
+    "cwd": "/Users/hadi.rickit/dev/jekyll-netlify-boilerplate",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input"
+  },
+  {
+    "session_id": "53388ac2-d0fb-4b77-8847-6f510da4258e",
+    "transcript_path": "/Users/hadi.rickit/.claude/projects/-Users-hadi-rickit-dev-jekyll-netlify-boilerplate/53388ac2-d0fb-4b77-8847-6f510da4258e.jsonl",
+    "cwd": "/Users/hadi.rickit/dev/jekyll-netlify-boilerplate",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input"
+  },
+  {
+    "session_id": "a0afb8f8-09f4-4458-8adb-83198e604799",
+    "transcript_path": "/Users/hadi.rickit/.claude/projects/-Users-hadi-rickit-dev-jekyll-netlify-boilerplate/a0afb8f8-09f4-4458-8adb-83198e604799.jsonl",
+    "cwd": "/Users/hadi.rickit/dev/jekyll-netlify-boilerplate",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input"
+  },
+  {
+    "session_id": "a0afb8f8-09f4-4458-8adb-83198e604799",
+    "transcript_path": "/Users/hadi.rickit/.claude/projects/-Users-hadi-rickit-dev-jekyll-netlify-boilerplate/a0afb8f8-09f4-4458-8adb-83198e604799.jsonl",
+    "cwd": "/Users/hadi.rickit/dev/jekyll-netlify-boilerplate",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input"
+  },
+  {
+    "session_id": "a0afb8f8-09f4-4458-8adb-83198e604799",
+    "transcript_path": "/Users/hadi.rickit/.claude/projects/-Users-hadi-rickit-dev-jekyll-netlify-boilerplate/a0afb8f8-09f4-4458-8adb-83198e604799.jsonl",
+    "cwd": "/Users/hadi.rickit/dev/jekyll-netlify-boilerplate",
+    "hook_event_name": "Notification",
+    "message": "Claude needs your permission to use "
+  },
+  {
+    "session_id": "a0afb8f8-09f4-4458-8adb-83198e604799",
+    "transcript_path": "/Users/hadi.rickit/.claude/projects/-Users-hadi-rickit-dev-jekyll-netlify-boilerplate/a0afb8f8-09f4-4458-8adb-83198e604799.jsonl",
+    "cwd": "/Users/hadi.rickit/dev/jekyll-netlify-boilerplate",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input"
+  }
+]

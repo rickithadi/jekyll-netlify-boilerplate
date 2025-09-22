@@ -22,7 +22,7 @@ intro_paragraph: Software engineer and security architect based in Melbourne. I 
 <section class="section section--editorial">
   <div class="container">
     <div class="text-refined">
-      <h2 class="text-display" style="font-size: clamp(2.4rem, 4vw, 3.6rem); margin-bottom: 3rem; font-weight: 300;">What I actually do</h2>
+      <h2 class="text-display about-section-title">What I actually do</h2>
 
 <div class="markdown-content" markdown="1">
 
@@ -40,7 +40,7 @@ When I'm not working, I surf, play mediocre golf and think deep.
 <section class="section section--editorial">
   <div class="container">
     <div class="text-refined">
-      <h2 class="text-display" style="font-size: clamp(2.4rem, 4vw, 3.6rem); margin-bottom: 3rem; font-weight: 300;">How I think about it</h2>
+      <h2 class="text-display about-section-title">How I think about it</h2>
 
 <div class="markdown-content" markdown="1">
 
@@ -55,10 +55,10 @@ Good security feels **invisible**. It's about building systems that *fail gracef
   </div>
 </section>
 
-<section class="section section--editorial" style="padding-bottom: 8rem;">
+<section class="section section--editorial about-final-section">
   <div class="container">
     <div class="text-refined">
-      <h2 class="text-display" style="font-size: clamp(2.4rem, 4vw, 3.6rem); margin-bottom: 3rem; font-weight: 300;">Working together</h2>
+      <h2 class="text-display about-section-title">Working together</h2>
 
 <div class="markdown-content" markdown="1">
 
@@ -68,7 +68,7 @@ Most projects involve some combination of *code review*, *penetration testing*, 
 
 </div>
 
-<div class="hero-links" style="justify-content: center;">
+<div class="hero-links about-cta-links">
   <a href="/contact" class="btn btn--primary">Work Together</a>
   <a href="/blog" class="btn btn--secondary">Read My Writing</a>
 </div>

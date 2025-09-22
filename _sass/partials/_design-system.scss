@@ -41,16 +41,21 @@
   --radius-lg: 1.6rem;
   --radius-full: 50%;
 
-  // Transitions
-  --transition-fast: 0.15s ease;
+  // Transitions - Standardized boring.industries timing
+  --transition-fast: 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --transition-base: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --transition-slow: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  // Animation timing for consistency
+  --easing-standard: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --easing-dramatic: cubic-bezier(0.16, 1, 0.3, 1);
+  --easing-gentle: ease-out;
 }
 
 // Sophisticated Typography System
 .hero-title {
   font-size: clamp(5.4rem, 12vw, 16rem); // Increased size for impact
-  font-weight: 400; // Clean, modern weight
+  font-weight: $font-weight-medium; // Consistent with h1 hierarchy (450)
   line-height: 0.88; // Tighter for drama
   letter-spacing: -0.06em; // More aggressive kerning
   color: $text-primary;
@@ -117,7 +122,7 @@
   
   // Add horizontal padding on tablet and mobile when layout is stacked
   @media (max-width: $breakpoint-md) {
-    padding: 0 $space-xl;
+    padding: 0 $space-lg;
   }
   
   @media (prefers-reduced-motion: no-preference) {
@@ -249,7 +254,7 @@ h1,
 h2,
 .h2 {
   font-size: $font-size-h2;
-  font-weight: 300; // Even lighter for more sophistication
+  font-weight: $font-weight-regular; // Consistent hierarchy progression (400)
   line-height: 1.1; // Tight editorial
   letter-spacing: -0.04em; // Increased negative tracking
   color: $text-primary;
@@ -305,7 +310,7 @@ h4,
 .text-small {
   font-size: $font-size-small;
   line-height: 1.4; // Slightly tighter for small text
-  color: rgba(0, 0, 0, 0.6); // Simplified gray
+  color: $text-muted; // Semantic design system color
   letter-spacing: -0.005em;
   font-weight: $font-weight-regular;
 }
@@ -313,7 +318,7 @@ h4,
 .text-xs {
   font-size: $font-size-xs;
   line-height: 1.4;
-  color: rgba(0, 0, 0, 0.4); // Lighter gray
+  color: $text-quaternary; // Semantic light gray for captions
   letter-spacing: 0.02em; // Slight positive tracking for small text
   font-weight: $font-weight-regular;
 }
@@ -410,7 +415,7 @@ p {
   left: 0;
   right: 0;
   z-index: 1001;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--transition-fast);
   
   // Fade-in animation on page load
   opacity: 0;
@@ -469,7 +474,7 @@ p {
     min-width: 44px;
     min-height: 44px;
     border-radius: 6px;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
     position: relative;
     
     @media (max-width: $breakpoint-md) {
@@ -574,7 +579,7 @@ p {
       text-decoration: none;
       position: relative;
       padding: $space-sm $space-md;
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all var(--transition-fast);
       border-radius: 6px;
 
       @media (max-width: $breakpoint-md) {
@@ -583,7 +588,7 @@ p {
         font-weight: 400;
         color: $text-primary;
         border-bottom: 1px solid rgba(230, 228, 223, 0.2);
-        transition: all 0.2s ease;
+        transition: all var(--transition-fast);
         display: block;
         width: 100%;
         text-align: left;
@@ -624,7 +629,7 @@ p {
 
 // Sophisticated Hero Section with Visual Impact
 .hero {
-  padding: 4rem 0 6rem; // Further reduced padding for viewport fit
+  padding: 1.5rem 0; // Ultra-tight mobile spacing (24px) - boring.industries aesthetic
   background: $background-primary;
   position: relative;
   margin-top: 3rem; // Keep original mobile spacing
@@ -633,13 +638,13 @@ p {
   align-items: center;
 
   @media (min-width: $breakpoint-md) {
-    padding: 5rem 0 7rem; // Reduced desktop padding
+    padding: 2rem 0; // Design system desktop spacing (32px)
     margin-top: 1rem;
     min-height: 50vh;
   }
 
   @media (min-width: $breakpoint-lg) {
-    padding: 6rem 0 8rem; // Reduced large screen padding
+    padding: 2rem 0; // Consistent ultra-tight spacing
     margin-top: 0.5rem;
     min-height: 55vh;
   }
@@ -879,7 +884,7 @@ p {
           width: 16px;
           height: 16px;
           opacity: 0.6;
-          transition: all 0.3s ease;
+          transition: all var(--transition-base);
           color: #333;
         }
       }
@@ -891,6 +896,11 @@ p {
 .text-refined {
   max-width: 65ch;
   margin: 0 auto;
+  padding: 0 $space-md;
+  
+  @media (max-width: $breakpoint-sm) {
+    padding: 0 $space-sm;
+  }
   
   .markdown-content {
     font-size: clamp(1.6rem, 2.2vw, 1.9rem);
@@ -925,6 +935,14 @@ p {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+
+  .post-container {
+    padding-top: 2rem; // Design system spacing (32px)
+    
+    @media (max-width: $breakpoint-sm) {
+      padding-top: 1.5rem; // Design system mobile spacing (24px)
+    }
+  }
   
   .post-content {
     max-width: 75ch;
@@ -1110,7 +1128,7 @@ p {
   text-decoration: none !important;
   border: 1.5px solid $border-medium; // Slightly thicker for sophistication
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); // More sophisticated easing
+  transition: all var(--transition-base); // More sophisticated easing
   letter-spacing: 0.005em; // Refined letter spacing
   font-family: $font-primary;
   position: relative;
@@ -1236,7 +1254,7 @@ p {
       width: 0;
       height: 1px;
       background: $earth-coral;
-      transition: all 0.3s ease;
+      transition: all var(--transition-base);
       transform: translateX(-50%);
     }
 
@@ -1359,7 +1377,7 @@ p {
   }
 
   .btn {
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all var(--transition-base);
     
     &:hover {
       transform: translateY(-2px); // More subtle hover effect
@@ -1415,7 +1433,7 @@ p {
   border: none;
   padding: $space-xl 0;
   border-bottom: 1px solid $border-light;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
   position: relative;
 
   &:last-child {
@@ -1641,7 +1659,7 @@ p {
   }
 
   @media (max-width: $breakpoint-sm) {
-    padding: 1rem 0; // Ultra-tight on mobile for consistency
+    padding: 1.5rem 0; // Design system mobile spacing (24px)
     margin-top: 4rem;
   }
   
@@ -1728,17 +1746,17 @@ p {
   }
 }
 
-// Sophisticated Spacing - Luxurious Breathing Room  
+// Ultra-Tight Spacing - Boring.Industries Aesthetic  
 .section {
-  padding: 6rem 0; // Luxurious spacing for sophisticated layout
+  padding: 2rem 0; // Ultra-tight spacing for boring.industries aesthetic (32px)
   background: $background-primary;
 
   @media (max-width: $breakpoint-md) {
-    padding: 4rem 0; // Generous spacing on tablets
+    padding: 1.8rem 0; // Tighter spacing on tablets
   }
 
   @media (max-width: $breakpoint-sm) {
-    padding: 3rem 0; // Maintained breathing room on mobile
+    padding: 1.5rem 0; // Ultra-tight mobile spacing (24px)
   }
 
   &--primary {
@@ -1803,9 +1821,17 @@ p {
   margin-bottom: $space-3xl; // Generous spacing for breathing room
   position: relative;
 
-  h1, h2 {
+  h1 {
     margin-bottom: $space-md; // Much tighter spacing
-    font-weight: 450; // Slightly lighter for boring.industries aesthetic
+    font-weight: $font-weight-medium; // Consistent hierarchy (450)
+    letter-spacing: -0.04em; // Tighter kerning like boring.industries
+    font-family: $font-primary;
+    font-size: clamp(2.8rem, 5vw, 4.8rem); // More restrained, boring.industries style
+  }
+
+  h2 {
+    margin-bottom: $space-md; // Much tighter spacing
+    font-weight: $font-weight-regular; // Consistent hierarchy (400)
     letter-spacing: -0.04em; // Tighter kerning like boring.industries
     font-family: $font-primary;
     font-size: clamp(2.8rem, 5vw, 4.8rem); // More restrained, boring.industries style
@@ -1882,14 +1908,14 @@ p {
 .container {
   max-width: $container-standard;
   margin: 0 auto;
-  padding: 0 $space-lg;
+  padding: 0 $space-xl;
 
   @media (max-width: $breakpoint-md) {
-    padding: 0 $space-md;
+    padding: 0 $space-lg;
   }
 
   @media (max-width: $breakpoint-sm) {
-    padding: 0 $space-xs; // Much smaller padding on mobile - 4px instead of 8px
+    padding: 0 $space-md; // Better mobile padding - 16px for readability
   }
 
   &--narrow {
@@ -1970,7 +1996,7 @@ p {
     font-size: $font-size-base;
     font-family: $font-primary;
     background: rgba(255, 255, 255, 0.9);
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all var(--transition-base);
     letter-spacing: -0.005em; // Consistent typography
 
     &:focus {
@@ -1987,7 +2013,7 @@ p {
     }
 
     &::placeholder {
-      color: rgba(0, 0, 0, 0.4);
+      color: $text-quaternary;
       font-style: italic;
     }
   }
@@ -2126,7 +2152,7 @@ p {
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all var(--transition-base);
     position: relative;
     
     @media (max-width: $breakpoint-md) {
@@ -2190,7 +2216,7 @@ p {
           color: $text-primary;
           margin: 0 0 $space-xs 0;
           line-height: 1.3;
-          transition: all 0.3s ease;
+          transition: all var(--transition-base);
           font-family: $font-primary;
           letter-spacing: -0.02em;
           
@@ -2224,7 +2250,7 @@ p {
       white-space: nowrap;
       flex-shrink: 0;
       opacity: 0.8;
-      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: all var(--transition-base);
       
       @media (max-width: $breakpoint-sm) {
         align-self: flex-start;
@@ -2244,7 +2270,7 @@ p {
     .work-icon {
       font-size: 1.8rem;
       opacity: 0.8;
-      transition: all 0.3s ease;
+      transition: all var(--transition-base);
     }
     
     .work-status {
@@ -2275,7 +2301,7 @@ p {
       border-radius: 8px;
       border: 1px solid rgba(122, 132, 113, 0.15);
       letter-spacing: 0.02em;
-      transition: all 0.2s ease;
+      transition: all var(--transition-fast);
     }
   }
   
@@ -2354,8 +2380,8 @@ p {
   background: $background-primary;
   border: 1px solid $border-light;
   border-radius: 8px;
-  padding: $space-lg;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  padding: $space-md; // Tighter spacing for boring.industries aesthetic (16px)
+  transition: all var(--transition-base);
   overflow: hidden;
   
   &:hover {
@@ -2399,7 +2425,7 @@ p {
   .work-card-description {
     font-size: clamp(1.4rem, 1.8vw, 1.6rem); // Fluid scaling
     color: $text-secondary;
-    line-height: 1.4; // Tighter line height for boring.industries aesthetic
+    line-height: 1.3; // Ultra-tight line height for boring.industries aesthetic
     margin-bottom: $space-lg;
     letter-spacing: -0.015em; // Refined kerning
     font-weight: 400;
@@ -2585,7 +2611,7 @@ p {
     .post-link {
       display: block;
       text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: all var(--transition-base);
       
       &:hover {
         background: transparent; // Clean hover without background
@@ -2611,7 +2637,7 @@ p {
       letter-spacing: 0.1em; // More spacing for gallery feel
       margin: 0 0 $space-sm 0;
       opacity: 0.7;
-      transition: all 0.3s ease;
+      transition: all var(--transition-base);
       display: flex;
       align-items: center;
       gap: $space-sm;
@@ -2647,7 +2673,7 @@ p {
       color: $text-primary;
       margin: 0 0 $space-sm 0;
       line-height: 1.3; // Tighter for editorial feel
-      transition: all 0.3s ease;
+      transition: all var(--transition-base);
       font-family: $font-display; // Use display font
       letter-spacing: -0.005em; // Subtle negative tracking
     }
@@ -2676,7 +2702,7 @@ p {
         border-radius: 8px;
         border: 1px solid rgba(122, 132, 113, 0.15);
         letter-spacing: 0.02em;
-        transition: all 0.2s ease;
+        transition: all var(--transition-fast);
       }
     }
   }
@@ -2743,7 +2769,7 @@ p {
     letter-spacing: -0.01em;
     padding: $space-xs 0;
     border-bottom: 1px solid transparent;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
     
     &:hover {
       color: $text-primary;
@@ -2805,7 +2831,7 @@ p {
   text-decoration: none;
   border-bottom: 1px solid rgba(184, 118, 94, 0.3);
   font-weight: $font-weight-medium;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
   
   &:hover {
     color: $text-primary;
@@ -2820,46 +2846,29 @@ p {
 // Accessibility Enhancements
 // Focus management for keyboard navigation
 *:focus {
-  outline: 2px solid $earth-coral;
+  outline: 3px solid $earth-coral; // Enhanced 3px focus outline for better visibility
   outline-offset: 2px;
   border-radius: 2px;
 }
 
-// Skip to content link for screen readers
-.skip-to-content {
-  position: absolute;
-  top: -100px;
-  left: 16px;
-  background: $earth-coral;
-  color: white;
-  padding: 8px 16px;
-  text-decoration: none;
-  border-radius: 4px;
-  z-index: 10000;
-  font-weight: 600;
-  
-  &:focus {
-    top: 16px;
-    outline: 2px solid white;
-  }
-}
+// Skip to content link - already defined above, removing duplicate
 
 // Enhanced button focus states
 .btn:focus-visible {
-  outline: 2px solid $earth-coral;
+  outline: 3px solid $earth-coral; // Consistent 3px outline
   outline-offset: 2px;
   box-shadow: 0 0 0 4px rgba(184, 118, 94, 0.2);
 }
 
 // Navigation accessibility
 .nav-toggle:focus-visible {
-  outline: 2px solid $earth-coral;
+  outline: 3px solid $earth-coral; // Consistent 3px outline
   outline-offset: 2px;
   background: rgba(184, 118, 94, 0.1);
 }
 
 .nav-links a:focus-visible {
-  outline: 2px solid $earth-coral;
+  outline: 3px solid $earth-coral; // Consistent 3px outline
   outline-offset: 2px;
   background: rgba(184, 118, 94, 0.1);
 }
@@ -2935,6 +2944,20 @@ p {
 }
 
 // About Page Typography Enhancements - Sophisticated Editorial Style
+.about-section-title {
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  margin-bottom: $space-2xl; // 3rem equivalent
+  font-weight: $font-weight-light; // 300
+}
+
+.about-final-section {
+  padding-bottom: $space-5xl; // 8rem equivalent but using design system
+}
+
+.about-cta-links {
+  justify-content: center;
+}
+
 .section--about-typography {
   
   // Enhanced text hierarchy for About page
@@ -2962,7 +2985,7 @@ p {
       color: $earth-coral;
       text-decoration: none;
       border-bottom: 1px solid rgba(217, 101, 74, 0.3);
-      transition: all 0.3s ease;
+      transition: all var(--transition-base);
       
       &:hover {
         color: rgba(195, 91, 66, 1);
@@ -2997,14 +3020,14 @@ p {
 body[data-page="about"] {
   
   .section--editorial {
-    padding: 5rem 0;
+    padding: $space-xl 0; // Design system desktop spacing (32px)
     
     @media (max-width: $breakpoint-md) {
-      padding: 3.5rem 0;
+      padding: $space-lg 0; // Tablet spacing (24px)
     }
     
     @media (max-width: $breakpoint-sm) {
-      padding: 2.5rem 0;
+      padding: $space-md 0; // Mobile spacing (16px)
     }
   }
   
@@ -3033,7 +3056,7 @@ body[data-page="about"] {
   border-radius: 8px;
   border: 1px solid rgba(184, 118, 94, 0.15);
   backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  transition: all var(--transition-base);
   margin-top: 0.2rem; // Slight alignment adjustment
 }
 
@@ -3084,7 +3107,7 @@ body[data-page="about"] {
   background: linear-gradient(135deg, rgba(184, 118, 94, 0.02) 0%, rgba(255, 255, 255, 0.7) 100%);
   border: 1px solid rgba(184, 118, 94, 0.06);
   border-radius: 10px;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all var(--transition-base);
   backdrop-filter: blur(5px);
   
   &:hover {
@@ -3105,7 +3128,7 @@ body[data-page="about"] {
   background: linear-gradient(135deg, rgba(184, 118, 94, 0.08) 0%, rgba(255, 255, 255, 0.8) 100%);
   border-radius: 6px;
   border: 1px solid rgba(184, 118, 94, 0.1);
-  transition: all 0.3s ease;
+  transition: all var(--transition-base);
 }
 
 .service-content {
@@ -3328,7 +3351,7 @@ body[data-page="about"] {
   font-size: $font-size-small;
   font-weight: $font-weight-semibold;
   letter-spacing: -0.01em;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all var(--transition-base);
   white-space: nowrap;
   
   &:hover {
@@ -3346,7 +3369,7 @@ body[data-page="about"] {
   font-size: $font-size-small;
   font-weight: $font-weight-medium;
   letter-spacing: -0.01em;
-  transition: all 0.3s ease;
+  transition: all var(--transition-base);
   white-space: nowrap;
   position: relative;
   
@@ -3358,7 +3381,7 @@ body[data-page="about"] {
     width: 0;
     height: 1px;
     background: $earth-coral;
-    transition: all 0.3s ease;
+    transition: all var(--transition-base);
     transform: translateX(-50%);
   }
   
@@ -3438,14 +3461,14 @@ body[data-page="about"] {
 
 // Site footer styling
 footer {
-  padding: 4rem 0;
+  padding: 2rem 0; // Design system desktop spacing (32px)
   background: #fefcfa;
   border-top: 1px solid rgba(230, 228, 223, 0.2);
-  margin-top: 6rem;
+  margin-top: 2rem; // Reduced margin for ultra-tight aesthetic
   
-  @media (max-width: 48rem) {
-    padding: 3rem 0;
-    margin-top: 4rem;
+  @media (max-width: $breakpoint-sm) {
+    padding: 1.5rem 0; // Design system mobile spacing (24px)
+    margin-top: 1.5rem; // Consistent with mobile spacing
   }
   
   small {

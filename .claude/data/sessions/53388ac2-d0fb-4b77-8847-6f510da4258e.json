@@ -1,0 +1,8 @@
+{
+  "session_id": "53388ac2-d0fb-4b77-8847-6f510da4258e",
+  "prompts": [
+    "@agent-design-reviewer-agent conduct design review and provide recommendations",
+    "run it locally",
+    "work on padding consistency across pages. especially mobile @agent-design-reviewer-agent "
+  ]
+}
