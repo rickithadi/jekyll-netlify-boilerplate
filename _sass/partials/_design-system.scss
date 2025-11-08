@@ -627,6 +627,19 @@ p {
   }
 }
 
+// Offset main content so the fixed navigation never overlaps titles
+main {
+  padding-top: calc(6rem + var(--space-xl));
+
+  @media (max-width: $breakpoint-md) {
+    padding-top: calc(6rem + var(--space-lg));
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding-top: calc(6rem + var(--space-md));
+  }
+}
+
 // Sophisticated Hero Section with Visual Impact
 .hero {
   padding: 1.5rem 0; // Ultra-tight mobile spacing (24px) - boring.industries aesthetic
@@ -3538,4 +3551,3 @@ footer {
     }
   }
 }
-
