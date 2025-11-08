@@ -27,7 +27,7 @@ intro_paragraph: >-
 
 
   This year will be remembered not for the volume of attacks, but for their strategic sophistication. Cybercriminals shifted from battering down front doors to exploiting trusted relationships, turning the interconnected digital supply chain into their most powerful weapon. The message is clear: the perimeter-based security model is dead, and 2026 will belong to organizations that embrace continuous verification and proactive exposure management.
-categories: AI, security, security breaches 2025, cybersecurity, palo alto networks, IBM
+categories: ""
 ---
 
 
