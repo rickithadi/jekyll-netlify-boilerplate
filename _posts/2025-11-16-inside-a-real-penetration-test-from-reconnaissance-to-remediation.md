@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Inside a Real Penetration Test: From Reconnaissance to Remediation"
-meta_description: "*A technical walkthrough of web application security testing
-  with real-world findings, business impact analysis, and lessons learned*"
+meta_description: A technical walkthrough of web application security testing
+  with real-world findings, business impact analysis, and lessons learned
 author: hadi_rickit
 date: 2025-11-17 09:25:30
 intro_paragraph: >-
