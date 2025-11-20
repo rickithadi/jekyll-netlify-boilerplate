@@ -19,5 +19,19 @@
     "cwd": "/Users/hadi.rickit/dev/jekyll-netlify-boilerplate",
     "hook_event_name": "SessionStart",
     "source": "startup"
+  },
+  {
+    "session_id": "252cf8f2-92b6-4a3b-bb0c-45de713c7153",
+    "transcript_path": "/Users/hadi.rickit/.claude/projects/-Users-hadi-rickit-dev-jekyll-netlify-boilerplate/252cf8f2-92b6-4a3b-bb0c-45de713c7153.jsonl",
+    "cwd": "/Users/hadi.rickit/dev/jekyll-netlify-boilerplate",
+    "hook_event_name": "SessionStart",
+    "source": "startup"
+  },
+  {
+    "session_id": "c20f91bc-fcff-473b-be48-ff8e24869ed8",
+    "transcript_path": "/Users/hadi.rickit/.claude/projects/-Users-hadi-rickit-dev-jekyll-netlify-boilerplate/c20f91bc-fcff-473b-be48-ff8e24869ed8.jsonl",
+    "cwd": "/Users/hadi.rickit/dev/jekyll-netlify-boilerplate",
+    "hook_event_name": "SessionStart",
+    "source": "resume"
   }
 ]

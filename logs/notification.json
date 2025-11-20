@@ -47,5 +47,40 @@
     "cwd": "/Users/hadi.rickit/dev/jekyll-netlify-boilerplate",
     "hook_event_name": "Notification",
     "message": "Claude is waiting for your input"
+  },
+  {
+    "session_id": "252cf8f2-92b6-4a3b-bb0c-45de713c7153",
+    "transcript_path": "/Users/hadi.rickit/.claude/projects/-Users-hadi-rickit-dev-jekyll-netlify-boilerplate/252cf8f2-92b6-4a3b-bb0c-45de713c7153.jsonl",
+    "cwd": "/Users/hadi.rickit/dev/jekyll-netlify-boilerplate",
+    "hook_event_name": "Notification",
+    "message": "Claude needs your permission to use byterover-mcp - byterover-retrieve-knowledge (MCP)"
+  },
+  {
+    "session_id": "252cf8f2-92b6-4a3b-bb0c-45de713c7153",
+    "transcript_path": "/Users/hadi.rickit/.claude/projects/-Users-hadi-rickit-dev-jekyll-netlify-boilerplate/252cf8f2-92b6-4a3b-bb0c-45de713c7153.jsonl",
+    "cwd": "/Users/hadi.rickit/dev/jekyll-netlify-boilerplate",
+    "hook_event_name": "Notification",
+    "message": "Claude needs your permission to use "
+  },
+  {
+    "session_id": "252cf8f2-92b6-4a3b-bb0c-45de713c7153",
+    "transcript_path": "/Users/hadi.rickit/.claude/projects/-Users-hadi-rickit-dev-jekyll-netlify-boilerplate/252cf8f2-92b6-4a3b-bb0c-45de713c7153.jsonl",
+    "cwd": "/Users/hadi.rickit/dev/jekyll-netlify-boilerplate",
+    "hook_event_name": "Notification",
+    "message": "Claude needs your permission to use Read"
+  },
+  {
+    "session_id": "252cf8f2-92b6-4a3b-bb0c-45de713c7153",
+    "transcript_path": "/Users/hadi.rickit/.claude/projects/-Users-hadi-rickit-dev-jekyll-netlify-boilerplate/252cf8f2-92b6-4a3b-bb0c-45de713c7153.jsonl",
+    "cwd": "/Users/hadi.rickit/dev/jekyll-netlify-boilerplate",
+    "hook_event_name": "Notification",
+    "message": "Claude is waiting for your input"
+  },
+  {
+    "session_id": "252cf8f2-92b6-4a3b-bb0c-45de713c7153",
+    "transcript_path": "/Users/hadi.rickit/.claude/projects/-Users-hadi-rickit-dev-jekyll-netlify-boilerplate/252cf8f2-92b6-4a3b-bb0c-45de713c7153.jsonl",
+    "cwd": "/Users/hadi.rickit/dev/jekyll-netlify-boilerplate",
+    "hook_event_name": "Notification",
+    "message": "Claude needs your permission to use byterover-mcp - byterover-store-knowledge (MCP)"
   }
 ]

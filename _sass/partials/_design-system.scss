@@ -627,8 +627,8 @@ p {
   }
 }
 
-// Offset main content so the fixed navigation never overlaps titles
-main {
+// Offset main content so the fixed navigation never overlaps titles on article pages
+body[data-page="post"] main {
   padding-top: calc(6rem + var(--space-xl));
 
   @media (max-width: $breakpoint-md) {
