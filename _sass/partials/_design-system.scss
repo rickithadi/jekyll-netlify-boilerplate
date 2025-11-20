@@ -114,7 +114,7 @@
   color: $text-secondary;
   line-height: 1.3;
   letter-spacing: -0.03em;
-  margin: $space-2xl 0 $space-4xl 0;
+  margin: $space-md 0 $space-sm 0; // Further reduced margins for tighter spacing
   padding: 0;
   max-width: 50ch;
   font-family: $font-primary;
@@ -1354,7 +1354,7 @@ body[data-page="post"] main {
 .hero-links {
   display: flex;
   gap: $space-lg;
-  margin-top: $space-xl;
+  margin-top: $space-md; // Reduced from $space-xl to move buttons up
   justify-content: flex-start; // Left-align buttons for better layout
   
   // Default visible state
@@ -2396,6 +2396,9 @@ body[data-page="post"] main {
   padding: $space-md; // Tighter spacing for boring.industries aesthetic (16px)
   transition: all var(--transition-base);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   
   &:hover {
     border-color: $border-medium;
@@ -2416,6 +2419,9 @@ body[data-page="post"] main {
   .work-card-content {
     position: relative;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
   
   .work-card-icon {
@@ -2442,12 +2448,14 @@ body[data-page="post"] main {
     margin-bottom: $space-lg;
     letter-spacing: -0.015em; // Refined kerning
     font-weight: 400;
+    flex-grow: 1;
   }
   
   .work-card-meta {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: auto;
     
     .work-type {
       font-size: $font-size-xs;
@@ -2969,6 +2977,8 @@ body[data-page="post"] main {
 
 .about-cta-links {
   justify-content: center;
+  margin-top: $space-sm; // Reduced margin to move buttons up
+  margin-bottom: $space-4xl; // Added more space below buttons
 }
 
 .section--about-typography {
