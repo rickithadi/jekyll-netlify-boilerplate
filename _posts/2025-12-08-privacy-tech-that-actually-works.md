@@ -16,10 +16,12 @@ meta_description: "Remember when GDPR was going to save us from invasive
 author: hadi_rickit
 date: 2025-12-08 11:29:19
 intro_paragraph: >-
-  # Privacy Tech That Actually Works
-
-
-  Remember when GDPR was going to save us from invasive tracking? We were promised control over our data, transparency about how it's used, and the right to be forgotten. What we got instead was thousands of annoying cookie banners with dark patterns designed to make "Accept All" easier than actually protecting yourself. Companies still collect the same data—they just make you click a button first. Privacy theater at scale.
+  Remember when GDPR was going to save us from invasive tracking? We were
+  promised control over our data, transparency about how it's used, and the
+  right to be forgotten. What we got instead was thousands of annoying cookie
+  banners with dark patterns designed to make "Accept All" easier than actually
+  protecting yourself. Companies still collect the same data—they just make you
+  click a button first. Privacy theater at scale.
 
 
   This is the fundamental problem with most "privacy tools" in 2025: visible measures that make us feel protected while doing little to actually stop surveillance. From VPNs promising "military-grade encryption" (spoiler: AES is a public standard, not a military secret) to antivirus software that can't catch zero-days, the privacy industry is full of security theater.
