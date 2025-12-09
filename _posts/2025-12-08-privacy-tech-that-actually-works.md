@@ -14,7 +14,7 @@ meta_description: "Remember when GDPR was going to save us from invasive
   catch zero-days, the privacy industry is full of security theater.  Let's cut
   through the marketing noise and talk about what actually works."
 author: hadi_rickit
-date: 2025-12-08 11:29:19
+date: 2025-12-03 11:29:19
 intro_paragraph: >-
   Remember when GDPR was going to save us from invasive tracking? We were
   promised control over our data, transparency about how it's used, and the
