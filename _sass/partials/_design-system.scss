@@ -1,5 +1,6 @@
 // Modern Design System Implementation
 // Clean • Technical • Sophisticated • Minimal • Professional
+@use "sass:color";
 @use "variables" as *;
 
 // CSS Custom Properties Setup
@@ -89,7 +90,6 @@
 
 // Hero greeting - Small, subtle introduction
 .hero-greeting {
-  font-size: clamp(1.6rem, 2.5vw, 2rem);
   font-weight: 500;
   color: $earth-coral;
   letter-spacing: -0.01em;
@@ -408,7 +408,7 @@ p {
 // Modern Navigation - Clean and minimal with mobile support
 .navigation {
   height: 6rem;
-  background: #ffffff;
+  background: $background-primary;
   border-bottom: 1px solid rgba(230, 228, 223, 0.3);
   position: fixed;
   top: 0;
@@ -423,7 +423,7 @@ p {
   animation: navFadeIn 0.8s ease-out 0.2s forwards;
 
   &--open {
-    background: #ffffff;
+    background: $background-primary;
   }
 
   .container {
@@ -545,7 +545,7 @@ p {
       top: 100%;
       left: 0;
       right: 0;
-      background: #ffffff;
+      background: $background-primary;
       border-top: 1px solid rgba(230, 228, 223, 0.3);
       box-shadow: 0 4px 20px rgba(28, 28, 28, 0.1);
       flex-direction: column;
@@ -627,17 +627,23 @@ p {
   }
 }
 
-// Offset main content so the fixed navigation never overlaps titles on article pages
-body[data-page="post"] main {
-  padding-top: calc(6rem + var(--space-xl));
+// Global layout tokens to keep spacing in sync with navigation height
+body {
+  --nav-height: 6rem;
+  --post-top-spacing: var(--space-xl);
 
   @media (max-width: $breakpoint-md) {
-    padding-top: calc(6rem + var(--space-lg));
+    --post-top-spacing: var(--space-lg);
   }
 
   @media (max-width: $breakpoint-sm) {
-    padding-top: calc(6rem + var(--space-md));
+    --post-top-spacing: var(--space-md);
   }
+}
+
+// Offset main content so the fixed navigation never overlaps titles on article pages
+body[data-page="post"] main {
+  padding-top: calc(var(--nav-height) + var(--post-top-spacing));
 }
 
 // Sophisticated Hero Section with Visual Impact
@@ -875,8 +881,8 @@ body[data-page="post"] main {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 36px;
-        height: 36px;
+        width: 44px;
+        height: 44px;
         border-radius: 50%;
         background: rgba(255, 255, 255, 0.9);
         transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1157,11 +1163,11 @@ body[data-page="post"] main {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.6s ease;
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
   }
 
   &:hover {
@@ -1171,14 +1177,14 @@ body[data-page="post"] main {
       0 2px 8px rgba(184, 118, 94, 0.04); // Subtler shadows
     
     &::before {
-      left: 100%; // Subtle shimmer effect
+      transform: translateX(100%); // Subtle shimmer effect
     }
   }
 
   &:focus {
-    outline: none;
+    outline: 3px solid rgba(184, 118, 94, 0.5);
+    outline-offset: 2px;
     box-shadow: 
-      0 0 0 3px rgba(184, 118, 94, 0.2),
       0 8px 25px rgba(184, 118, 94, 0.12);
   }
 
@@ -1196,15 +1202,15 @@ body[data-page="post"] main {
 
   // Primary Button - Sophisticated Earthy Premium
   &--primary {
-    background: linear-gradient(135deg, $earth-coral 0%, #a67c6a 100%);
+    background: $earth-coral;
     color: white !important;
     border-color: $earth-coral;
     font-weight: 500;
     box-shadow: 0 2px 8px rgba(184, 118, 94, 0.15);
 
     &:hover {
-      background: linear-gradient(135deg, #a36952 0%, #956450 100%);
-      border-color: #a36952;
+      background: color.adjust($earth-coral, $lightness: -5%);
+      border-color: color.adjust($earth-coral, $lightness: -5%);
       color: white !important;
       text-decoration: none;
       box-shadow: 
@@ -1227,7 +1233,6 @@ body[data-page="post"] main {
     background: rgba(255, 255, 255, 0.9);
     color: $text-primary !important;
     border-color: rgba(150, 150, 150, 0.4);
-    backdrop-filter: blur(10px);
     font-weight: 450;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
@@ -1236,7 +1241,6 @@ body[data-page="post"] main {
       border-color: $earth-coral;
       color: $earth-coral !important;
       text-decoration: none;
-      backdrop-filter: blur(15px);
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); // Subtler shadow
     }
     
@@ -2013,7 +2017,8 @@ body[data-page="post"] main {
     letter-spacing: -0.005em; // Consistent typography
 
     &:focus {
-      outline: none;
+      outline: 3px solid rgba(184, 118, 94, 0.4);
+      outline-offset: 2px;
       border-color: $earth-coral;
       box-shadow: 0 0 0 3px rgba(184, 118, 94, 0.1);
       background: rgba(255, 255, 255, 1);
@@ -2385,6 +2390,89 @@ body[data-page="post"] main {
   @media (max-width: $breakpoint-sm) {
     grid-template-columns: 1fr;
     gap: $space-md;
+  }
+}
+
+// Insight list layout intentionally differs from card grid
+.insights-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: $space-xl;
+  margin-top: $space-xl;
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: $space-lg;
+  }
+}
+
+.insight-card {
+  background: $background-primary;
+  border: 1px solid $border-light;
+  border-left: 4px solid $earth-coral;
+  border-radius: 12px;
+  padding: $space-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+  min-height: 100%;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  &__meta {
+    display: flex;
+    justify-content: space-between;
+    gap: $space-md;
+    font-size: $font-size-xs;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $text-quaternary;
+  }
+
+  &__title {
+    font-size: clamp(1.8rem, 2vw, 2.4rem);
+    line-height: 1.3;
+    margin: 0;
+
+    a {
+      color: $text-primary;
+      text-decoration: none;
+      transition: color var(--transition-fast);
+
+      &:hover {
+        color: $earth-coral;
+      }
+    }
+  }
+
+  &__excerpt {
+    font-size: $font-size-base;
+    color: $text-secondary;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  &__cta {
+    margin-top: auto;
+    font-size: $font-size-small;
+    font-weight: $font-weight-medium;
+    color: $earth-coral;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    span {
+      transition: transform var(--transition-fast);
+    }
+
+    &:hover span {
+      transform: translateX(4px);
+    }
   }
 }
 
@@ -3279,10 +3367,10 @@ body[data-page="about"] {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(184, 118, 94, 0.02), transparent);
+    transform: translateX(-100%);
     animation: shimmer 8s ease-in-out infinite;
     pointer-events: none;
   }
@@ -3297,8 +3385,8 @@ body[data-page="about"] {
 }
 
 @keyframes shimmer {
-  0%, 100% { left: -100%; }
-  50% { left: 100%; }
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
 }
 
 .chat-content {

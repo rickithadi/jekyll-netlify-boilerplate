@@ -13,7 +13,7 @@
       <span class="nav-toggle-line" aria-hidden="true"></span>
     </button>
     
-    <div class="nav-links" id="nav-menu" role="menu">
+    <div class="nav-links" id="nav-menu">
       {% for item in include.navigation %}
       <a href="{{ item.url }}" class="{% if item.url == navurl %}active{% endif %}" {% if item.url==navurl %}
         data-current="current page" {% endif %}>

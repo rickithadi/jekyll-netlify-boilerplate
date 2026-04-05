@@ -14,8 +14,8 @@ $earth-sage-light: rgba(122, 132, 113, 0.08); // Light sage for surfaces
 // Sophisticated Neutral System - Grounded and Capable
 $earth-text-primary: #2c2a27; // Deep warm charcoal for primary text
 $earth-text-secondary: #524f4a; // Warm medium gray for secondary text
-$earth-text-tertiary: #6b6761; // Lighter warm gray for tertiary text
-$earth-text-quaternary: #8a8580; // Subtle warm gray for captions
+$earth-text-tertiary: #58534d; // Darker warm gray for tertiary text
+$earth-text-quaternary: #6a655f; // Darker caption tone for contrast
 $earth-background: #fefefe; // Soft white background
 $earth-background-warm: #fcfbf9; // Warm cream white
 $earth-background-subtle: #f8f7f4; // Earthy off-white
@@ -126,7 +126,7 @@ $grey-bg-color: $background-secondary;
 $hairline-color: $border-light;
 
 // Sophisticated Typography System
-$font-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+$font-primary: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
   "Helvetica Neue", Arial, sans-serif;
 $font-display: "Playfair Display", "Times New Roman", Times, serif; // For sophisticated headlines
 $font-mono: "JetBrains Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", 

@@ -5,21 +5,21 @@
       <p class="section-intro">Thoughts on software engineering, cybersecurity, and building things that matter.</p>
     </div>
 
-    <div class="work-grid work-grid--compact">
+    <div class="insights-list">
       {% for post in site.posts limit:3 %}
-      <article class="work-card work-card--insight stagger-item">
-        <div class="work-card-header">
-          <span class="work-status work-status--published">Article</span>
+      <article class="insight-card stagger-item">
+        <div class="insight-card__meta">
+          <span class="insight-card__category">{{ post.categories[0] | default: "Insight" | capitalize }}</span>
+          <time class="insight-card__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
         </div>
-        <div class="work-card-content">
-          <h3 class="work-card-title">{{ post.title }}</h3>
-          <p class="work-card-description">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
-          <div class="work-card-meta">
-            <span class="work-type">{{ post.categories[0] | default: "Insight" | capitalize }}</span>
-            <span class="work-year">{{ post.date | date: "%b %Y" }}</span>
-          </div>
-        </div>
-        <a href="{{ post.url | relative_url }}" class="work-card-link" aria-label="Read {{ post.title }}"></a>
+        <h3 class="insight-card__title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+        <p class="insight-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 26 }}</p>
+        <a href="{{ post.url | relative_url }}" class="insight-card__cta" aria-label="Read {{ post.title }}">
+          Read article
+          <span aria-hidden="true">→</span>
+        </a>
       </article>
       {% endfor %}
     </div>

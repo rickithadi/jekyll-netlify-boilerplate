@@ -194,9 +194,10 @@
   <!-- Resource Hints for Performance -->
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
-  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  {% if page.section == 'contact' %}
   <link rel="dns-prefetch" href="//assets.calendly.com">
   <link rel="dns-prefetch" href="//identity.netlify.com">
+  {% endif %}
   
   <!-- Performance Critical Resource Hints -->
   <link rel="preload" href="{{ '/assets/img/uploads/avatar.jpg' | relative_url }}" as="image" type="image/jpeg">
@@ -208,34 +209,22 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet"
     media="print" onload="this.media='all'; this.onload=null;">
   <noscript>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet">
   </noscript>
 
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
 
-  <!-- Font Awesome Icons with Performance Optimization -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"
-    media="print" onload="this.media='all'; this.onload=null;">
-  <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-      crossorigin="anonymous" referrerpolicy="no-referrer">
-  </noscript>
-
   {% if jekyll.environment == 'production' and site.analytics %}
   {% include analytics.html %}
   {% endif %}
+
+  {% if page.section == 'contact' %}
   <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
   <!-- Calendly popup widget with Performance Optimization -->
@@ -246,6 +235,7 @@
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   </noscript>
   <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  {% endif %}
 
   <!-- Custom animations -->
   <script src="{{ '/assets/js/animations.js' | relative_url }}" defer></script>

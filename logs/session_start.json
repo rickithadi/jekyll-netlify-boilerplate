@@ -40,5 +40,13 @@
     "cwd": "/Users/hadi.rickit/dev/jekyll-netlify-boilerplate",
     "hook_event_name": "SessionStart",
     "source": "startup"
+  },
+  {
+    "session_id": "e2c10b7f-603e-4954-9238-6bac8f72dd49",
+    "transcript_path": "/Users/hadi.rickit/.claude/projects/-Users-hadi-rickit-dev-jekyll-netlify-boilerplate/e2c10b7f-603e-4954-9238-6bac8f72dd49.jsonl",
+    "cwd": "/Users/hadi.rickit/dev/jekyll-netlify-boilerplate",
+    "hook_event_name": "SessionStart",
+    "source": "startup",
+    "model": "claude-sonnet-4-6"
   }
 ]
