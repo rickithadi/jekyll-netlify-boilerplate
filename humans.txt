@@ -19,6 +19,6 @@ Domain: rickithadi.dev
 /* THANKS */
 Jekyll: jekyllrb.com
 Netlify: netlify.com
-Font Awesome: fontawesome.com
-Inter Font: rsms.me/inter
+Space Grotesk: fonts.google.com
 Playfair Display: fonts.google.com
+JetBrains Mono: jetbrains.com

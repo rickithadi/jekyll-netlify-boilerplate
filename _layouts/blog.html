@@ -18,22 +18,42 @@ layout: default
   <div class="container">
     {{ content }}
 
-    <div class="work-grid work-grid--compact">
+    {% assign cats = "" | split: "" %}
+    {% for post in site.posts %}
+      {% assign c = post.categories[0] | default: "Insight" | strip | remove: "," | capitalize %}
+      {% unless cats contains c %}
+        {% assign cats = cats | push: c %}
+      {% endunless %}
+    {% endfor %}
+
+    <div class="blog-toolbar">
+      <div class="blog-filters" role="group" aria-label="Filter posts by category">
+        <button class="blog-filter blog-filter--active" type="button" data-filter="all" aria-pressed="true">All</button>
+        {% for c in cats %}
+        <button class="blog-filter" type="button" data-filter="{{ c | slugify }}" aria-pressed="false">{{ c }}</button>
+        {% endfor %}
+      </div>
+      <a class="blog-rss" href="/feed.xml" aria-label="Subscribe via RSS">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        RSS
+      </a>
+    </div>
+
+    <div class="insights-list" id="blog-posts">
       {% for post in site.posts %}
-      {% assign author = site.data.authors[post.author] %}
-      <article class="work-card work-card--insight stagger-item">
-        <div class="work-card-header">
-          <span class="work-status work-status--published">Article</span>
+      <article class="insight-card stagger-item" data-category="{{ post.categories[0] | default: 'Insight' | strip | capitalize | slugify }}">
+        <div class="insight-card__meta">
+          <span class="insight-card__category">{{ post.categories[0] | default: "Insight" | strip | remove: "," | capitalize }}</span>
+          <time class="insight-card__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
         </div>
-        <div class="work-card-content">
-          <h3 class="work-card-title">{{ post.title }}</h3>
-          <p class="work-card-description">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
-          <div class="work-card-meta">
-            <span class="work-type">{{ post.categories[0] | default: "Insight" | capitalize }}</span>
-            <span class="work-year">{{ post.date | date: "%b %Y" }}</span>
-          </div>
-        </div>
-        <a href="{{ post.url | relative_url }}" class="work-card-link" aria-label="Read {{ post.title }}"></a>
+        <h3 class="insight-card__title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+        <p class="insight-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 26 }}</p>
+        <a href="{{ post.url | relative_url }}" class="insight-card__cta" aria-label="Read {{ post.title }}">
+          Read article
+          <span aria-hidden="true">→</span>
+        </a>
       </article>
       {% endfor %}
     </div>

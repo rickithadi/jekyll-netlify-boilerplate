@@ -9,7 +9,7 @@
       {% for post in site.posts limit:3 %}
       <article class="insight-card stagger-item">
         <div class="insight-card__meta">
-          <span class="insight-card__category">{{ post.categories[0] | default: "Insight" | capitalize }}</span>
+          <span class="insight-card__category">{{ post.categories[0] | default: "Insight" | strip | remove: "," | capitalize }}</span>
           <time class="insight-card__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
         </div>
         <h3 class="insight-card__title">

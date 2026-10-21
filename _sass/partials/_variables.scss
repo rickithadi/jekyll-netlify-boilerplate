@@ -136,8 +136,7 @@ $font-mono: "JetBrains Mono", "SF Mono", Monaco, "Cascadia Code", "Roboto Mono",
 $font-weight-thin: 200;
 $font-weight-light: 300;
 $font-weight-regular: 400;
-$font-weight-medium: 450;
-$font-weight-semibold: 500;
+$font-weight-medium: 500;
 $font-weight-bold: 600;
 
 // Base settings
@@ -145,7 +144,7 @@ $base-font: $font-primary;
 $code-font: $font-mono;
 $base-font-size: 62.5%; // 10px base for rem calculations
 $base-font-weight: $font-weight-regular;
-$bold-font-weight: $font-weight-semibold;
+$bold-font-weight: $font-weight-medium;
 $base-line-height: 1.65; // Enhanced readability
 
 // Design System Spacing Scale (8px Grid System)

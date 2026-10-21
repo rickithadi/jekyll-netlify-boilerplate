@@ -59,13 +59,13 @@ h1 {
 h2 {
   font-size: $font-size-h2;
   margin-bottom: $space-xl;
-  font-weight: $font-weight-semibold;
+  font-weight: $font-weight-medium;
 }
 
 h3 {
   font-size: $font-size-h3;
   margin-bottom: $space-lg;
-  font-weight: $font-weight-semibold;
+  font-weight: $font-weight-medium;
 }
 
 h4 {
@@ -83,7 +83,7 @@ h5 {
 h6 {
   font-size: $font-size-h6;
   margin-bottom: $space-md;
-  font-weight: $font-weight-semibold;
+  font-weight: $font-weight-medium;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: $text-secondary;
@@ -105,13 +105,6 @@ p {
     max-width: 65rem;
     line-height: 1.6;
     font-weight: $font-weight-regular;
-  }
-
-  &.lead {
-    font-size: $font-size-medium;
-    line-height: 1.7;
-    color: $text-secondary;
-    margin-bottom: $space-xl;
   }
 
   &.large {

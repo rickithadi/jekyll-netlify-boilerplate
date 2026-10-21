@@ -42,15 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
     { passive: true }
   );
 
-  // Smooth hover effects for interactive elements
-  const interactiveElements = document.querySelectorAll(".btn, .card, .badge");
-
-  interactiveElements.forEach((element) => {
-    element.addEventListener("mouseenter", function () {
-      this.style.transform = this.style.transform || "";
-    });
-  });
-
   // Reduced motion check for performance
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   
@@ -102,40 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Subtle mouse follow effect for cards
-  const cards = document.querySelectorAll(".card");
-  cards.forEach((card) => {
-    card.addEventListener("mousemove", function (e) {
-      const rect = this.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      const rotateX = (y - centerY) / 20;
-      const rotateY = (centerX - x) / 20;
-
-      this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-    });
-
-    card.addEventListener("mouseleave", function () {
-      this.style.transform = "";
-    });
-  });
-
-  // Progressive image loading with fade-in
-  const images = document.querySelectorAll("img");
-  images.forEach((img) => {
-    if (img.complete) {
-      img.classList.add("loaded");
-    } else {
-      img.addEventListener("load", function () {
-        this.classList.add("loaded");
-      });
-    }
-  });
-
   // Add subtle animation delays to staggered items
   const staggerItems = document.querySelectorAll(".stagger-item");
   staggerItems.forEach((item, index) => {
@@ -173,25 +130,12 @@ const additionalStyles = `
     to { transform: rotate(360deg); }
   }
 
-  img {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  img.loaded {
-    opacity: 1;
-  }
-
   .hero-title {
     opacity: 0;
   }
 
   @media (prefers-reduced-motion: reduce) {
     .hero {
-      transform: none !important;
-    }
-
-    .card {
       transform: none !important;
     }
 
