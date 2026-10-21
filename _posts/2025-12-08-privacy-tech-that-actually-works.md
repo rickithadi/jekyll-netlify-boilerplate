@@ -573,7 +573,3 @@ Zuboff, S. (2019). *The age of surveillance capitalism: The fight for a human fu
 * r/privacytoolsIO - Privacy tools discussion
 * Privacy Guides Forum: https://discuss.privacyguides.net
 * Techlore Discord & Forums
-
-- - -
-
-The privacy fight isn't about achieving perfection—it's about making surveillance expensive, inconvenient, and unprofitable. Every tool you adopt is a vote for a different kind of internet. Make it count.
