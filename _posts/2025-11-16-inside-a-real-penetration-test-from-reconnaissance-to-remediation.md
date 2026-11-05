@@ -274,7 +274,6 @@ While modern ORMs provide some protection, raw queries remain a vulnerability ve
 
 ```shell
 GET /api/v1/transactions/search?query=<user_input>
-
 ```
 
 **Testing Methodology:**
@@ -550,6 +549,6 @@ For FinTech Co, this engagement was a wake-up call that catalyzed meaningful sec
 
 - - -
 
-*Looking to understand your security posture? Gallifrey Consulting provides comprehensive penetration testing services for web applications, APIs, and cloud infrastructure. We don't just find vulnerabilities—we help you build security into your development process.*
+*Looking to understand your security posture? I provide comprehensive penetration testing services for web applications, APIs, and cloud infrastructure.* 
 
-*Contact us for a security assessment: security@gallifreyconsulting.com*
+*Contact me for a security assessment: hadi@9line.dev || rickithadi@gmail.com*
